@@ -19,7 +19,7 @@ collections:
       - { label: Extracto, name: extracto, widget: text }
       - { label: Imagen, name: imagen, widget: image }
       - { label: Contenido, name: body, widget: markdown }
-- name: noticias
+  - name: noticias
     label: Tablón
     folder: _noticias
     create: true
