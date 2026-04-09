@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: iebelloc-maker/irisbello-web
+  branch: main
+
+media_folder: images/blog
+
+collections:
+  - name: blog
+    label: Blog
+    folder: _posts
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha, name: date, widget: datetime }
+      - { label: Tema, name: tema, widget: select, options: [trauma, patrones, regulacion, decisiones, malestar] }
+      - { label: Extracto, name: extracto, widget: text }
+      - { label: Imagen, name: imagen, widget: image }
+      - { label: Contenido, name: body, widget: markdown }
