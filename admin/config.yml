@@ -2,6 +2,7 @@ backend:
   name: github
   repo: iebelloc-maker/irisbello-web
   branch: main
+  base_url: https://sveltia-cms-auth.iebelloc.workers.dev
 
 media_folder: images/blog
 
