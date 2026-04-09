@@ -1,11 +1,11 @@
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("*.html");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("*.ico");
   eleventyConfig.addPassthroughCopy("*.png");
   eleventyConfig.addPassthroughCopy("*.txt");
   eleventyConfig.addPassthroughCopy("*.xml");
+  eleventyConfig.addPassthroughCopy("*.html");
 
   const md = require("markdown-it")({ html: true });
   eleventyConfig.setLibrary("md", md);
@@ -22,6 +22,7 @@ module.exports = function(eleventyConfig) {
       data: "_data"
     },
     htmlTemplateEngine: false,
-    markdownTemplateEngine: "njk"
+    markdownTemplateEngine: "njk",
+    templateFormats: ["md", "njk"]
   };
 };
