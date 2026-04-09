@@ -19,3 +19,14 @@ collections:
       - { label: Extracto, name: extracto, widget: text }
       - { label: Imagen, name: imagen, widget: image }
       - { label: Contenido, name: body, widget: markdown }
+- name: noticias
+    label: Tablón
+    folder: _noticias
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha, name: date, widget: datetime }
+      - { label: Tipo, name: tipo, widget: select, options: [Nuevo, Grupo, Taller, Recurso, Aviso] }
+      - { label: Texto breve, name: texto, widget: text }
+      - { label: Enlace WhatsApp, name: enlace, widget: string, required: false }
