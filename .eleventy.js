@@ -1,4 +1,5 @@
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("*.html");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("*.ico");
@@ -21,7 +22,6 @@ module.exports = function(eleventyConfig) {
       data: "_data"
     },
     htmlTemplateEngine: false,
-    markdownTemplateEngine: "njk",
-    pathPrefix: "/"
+    markdownTemplateEngine: "njk"
   };
 };
