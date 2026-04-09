@@ -1,0 +1,140 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWQ86F86NR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PWQ86F86NR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>{{ title }} · Dra. Iris Bello Castillo · Psicóloga Clínica</title>
+  <meta name="description" content="{{ extracto }}">
+  <link rel="canonical" href="https://irisbello.com/blog/{{ page.fileSlug }}/">
+  <meta property="og:title" content="{{ title }} · Dra. Iris Bello Castillo">
+  <meta property="og:description" content="{{ extracto }}">
+  <meta property="og:image" content="{% if imagen %}https://irisbello.com{{ imagen }}{% else %}https://irisbello.com/images/iris_bello_psicologa.jpg{% endif %}">
+  <meta property="og:url" content="https://irisbello.com/blog/{{ page.fileSlug }}/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_DO">
+  <meta property="og:site_name" content="Dra. Iris Bello Castillo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }} · Dra. Iris Bello Castillo">
+  <meta name="twitter:description" content="{{ extracto }}">
+  <meta name="twitter:image" content="{% if imagen %}https://irisbello.com{{ imagen }}{% else %}https://irisbello.com/images/iris_bello_psicologa.jpg{% endif %}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ title }}",
+    "description": "{{ extracto }}",
+    "datePublished": "{{ date }}",
+    "url": "https://irisbello.com/blog/{{ page.fileSlug }}/",
+    "author": {
+      "@type": "Person",
+      "name": "Dra. Iris Bello Castillo",
+      "@id": "https://irisbello.com/#persona"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dra. Iris Bello Castillo",
+      "@id": "https://irisbello.com/#negocio"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-tinta: #162435; --rosa-antiguo: #B5707A; --ambar-dorado: #C4963A;
+      --blanco: #FFFFFF; --medianoche: #0B1520; --fondo-suave: #F7F4F0;
+      --texto-oscuro: #1a2530; --texto-medio: #4a5568; --texto-suave: #4e5e6e;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Jost', sans-serif; background: var(--blanco); color: var(--texto-oscuro); font-weight: 300; line-height: 1.7; font-size: 17px; }
+    h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.75rem 4rem; display: flex; justify-content: space-between; align-items: center; background: var(--blanco); border-bottom: 1px solid rgba(196,150,58,0.2); }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 0.9rem; color: var(--azul-tinta); text-decoration: none; }
+    .nav-logo span { color: var(--rosa-antiguo); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--azul-tinta); text-decoration: none; }
+    .nav-cta a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--rosa-antiguo); color: var(--blanco); padding: 0.55rem 1.2rem; text-decoration: none; }
+    .articulo-hero { background: var(--azul-tinta); padding: 7rem 10% 4rem; }
+    .articulo-tema { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa-antiguo); display: block; margin-bottom: 1rem; }
+    .articulo-titulo { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--blanco); line-height: 1.15; margin-bottom: 1.5rem; }
+    .articulo-meta { font-size: 0.78rem; color: rgba(255,255,255,0.5); font-family: 'Jost', sans-serif; }
+    .articulo-imagen { width: 100%; max-height: 480px; object-fit: cover; display: block; }
+    .articulo-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .articulo-body p { margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.85; color: var(--texto-medio); }
+    .articulo-body h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; color: var(--azul-tinta); }
+    .articulo-body h3 { font-size: 1.2rem; margin: 2rem 0 0.8rem; color: var(--azul-tinta); }
+    .articulo-body ul, .articulo-body ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .articulo-body li { margin-bottom: 0.5rem; color: var(--texto-medio); }
+    .articulo-volver { display: inline-block; margin-bottom: 3rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rosa-antiguo); text-decoration: none; border-bottom: 1px solid var(--rosa-antiguo); padding-bottom: 2px; }
+    .articulo-cta { background: var(--azul-tinta); padding: 5rem 10%; text-align: center; }
+    .articulo-cta h2 { color: var(--blanco); font-size: 1.8rem; margin-bottom: 1rem; }
+    .articulo-cta p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; font-size: 0.95rem; }
+    .btn-cta { display: inline-block; background: var(--rosa-antiguo); color: var(--blanco); padding: 0.9rem 2.5rem; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .wa-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 52px; height: 52px; background: #B5707A; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; text-decoration: none; }
+    footer { background: var(--medianoche); color: rgba(255,255,255,0.5); padding: 3rem 10%; text-align: center; font-size: 0.8rem; }
+    footer a { color: var(--rosa-antiguo); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">Dra. <span>Iris Bello</span></a>
+  <ul class="nav-links">
+    <li><a href="/terapia.html">Terapia</a></li>
+    <li><a href="/conoceme.html">Conóceme</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-cta"><a href="https://wa.me/18098481234">Agendar</a></div>
+</nav>
+
+<main>
+  <div class="articulo-hero">
+    <span class="articulo-tema">{{ tema }}</span>
+    <h1 class="articulo-titulo">{{ title }}</h1>
+    <span class="articulo-meta">{{ date | date: "%d de %B, %Y" }} · Dra. Iris Bello Castillo</span>
+  </div>
+
+  {% if imagen %}
+  <img src="{{ imagen }}" alt="{{ title }}" class="articulo-imagen">
+  {% endif %}
+
+  <div class="articulo-body">
+    <a href="/blog.html" class="articulo-volver">← Volver al blog</a>
+    {{ content }}
+  </div>
+
+  <div class="articulo-cta">
+    <h2>¿Esto resuena contigo?</h2>
+    <p>Una conversación de 30 minutos puede darte más claridad que meses dando vueltas sola.</p>
+    <a href="https://wa.me/18098481234?text=Hola%2C%20le%C3%AD%20un%20art%C3%ADculo%20en%20el%20blog%20y%20quisiera%20hablar." class="btn-cta">Hablemos por WhatsApp</a>
+  </div>
+</main>
+
+<a href="https://wa.me/18098481234" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="26" height="26"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.437-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.718-1.295-.364-.133-.63-.199-.895.199-.265.398-1.03 1.295-1.262 1.561-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.973-1.183-1.054-1.981-2.356-2.213-2.754-.232-.398-.025-.614.175-.812.18-.178.398-.465.597-.698.2-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.2-.895-2.158-1.227-2.955-.323-.775-.65-.67-.895-.683l-.763-.013c-.265 0-.697.1-1.062.498-.364.398-1.393 1.362-1.393 3.32 0 1.957 1.426 3.848 1.625 4.114.199.265 2.807 4.285 6.802 6.01.951.41 1.693.655 2.271.839.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
+</a>
+
+<footer>
+  <p>© 2026 Dra. Iris Bello Castillo · Psicóloga Clínica · Santo Domingo</p>
+  <p style="margin-top:0.5rem;"><a href="/index.html">irisbello.com</a></p>
+</footer>
+
+</body>
+</html>
