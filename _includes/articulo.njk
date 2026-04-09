@@ -20,7 +20,11 @@
   <link rel="canonical" href="https://irisbello.com/blog/{{ page.fileSlug }}/">
   <meta property="og:title" content="{{ title }} · Dra. Iris Bello Castillo">
   <meta property="og:description" content="{{ extracto }}">
-  <meta property="og:image" content="{% if imagen %}https://irisbello.com{{ imagen }}{% else %}https://irisbello.com/images/iris_bello_psicologa.jpg{% endif %}">
+  {% if imagen %}
+  <meta property="og:image" content="https://irisbello.com{{ imagen }}">
+  {% else %}
+  <meta property="og:image" content="https://irisbello.com/images/iris_bello_psicologa.jpg">
+  {% endif %}
   <meta property="og:url" content="https://irisbello.com/blog/{{ page.fileSlug }}/">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_DO">
@@ -28,7 +32,11 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ title }} · Dra. Iris Bello Castillo">
   <meta name="twitter:description" content="{{ extracto }}">
-  <meta name="twitter:image" content="{% if imagen %}https://irisbello.com{{ imagen }}{% else %}https://irisbello.com/images/iris_bello_psicologa.jpg{% endif %}">
+  {% if imagen %}
+  <meta name="twitter:image" content="https://irisbello.com{{ imagen }}">
+  {% else %}
+  <meta name="twitter:image" content="https://irisbello.com/images/iris_bello_psicologa.jpg">
+  {% endif %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,89 +57,379 @@
     }
   }
   </script>
+  <link rel="preload" href="https://fonts.gstatic.com/s/jost/v18/92zPtBhPNqw79Ij1E865zBUv7myjJAVGPokMmuTl.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
+<style>
     :root {
       --azul-tinta: #162435; --rosa-antiguo: #B5707A; --ambar-dorado: #C4963A;
-      --blanco: #FFFFFF; --medianoche: #0B1520; --fondo-suave: #F7F4F0;
+      --blanco: #FFFFFF; --medianoche: #0B1520;
       --texto-oscuro: #1a2530; --texto-medio: #4a5568; --texto-suave: #4e5e6e;
+      --gris-calido: #f4f1ee;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Jost', sans-serif; background: var(--blanco); color: var(--texto-oscuro); font-weight: 300; line-height: 1.7; font-size: 17px; }
-    h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--blanco); color: var(--texto-oscuro); font-weight: 300; line-height: 1.7; font-size: 17px; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.2; }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.75rem 4rem; display: flex; justify-content: space-between; align-items: center; background: var(--blanco); border-bottom: 1px solid rgba(196,150,58,0.2); }
-    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 0.9rem; color: var(--azul-tinta); text-decoration: none; }
-    .nav-logo span { color: var(--rosa-antiguo); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--azul-tinta); text-decoration: none; }
-    .nav-cta a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--rosa-antiguo); color: var(--blanco); padding: 0.55rem 1.2rem; text-decoration: none; }
-    .articulo-hero { background: var(--azul-tinta); padding: 7rem 10% 4rem; }
-    .articulo-tema { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa-antiguo); display: block; margin-bottom: 1rem; }
-    .articulo-titulo { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--blanco); line-height: 1.15; margin-bottom: 1.5rem; }
-    .articulo-meta { font-size: 0.78rem; color: rgba(255,255,255,0.5); font-family: 'Jost', sans-serif; }
-    .articulo-imagen { width: 100%; max-height: 480px; object-fit: cover; display: block; }
-    .articulo-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 0.9rem; letter-spacing: 0.02em; color: var(--azul-tinta); text-decoration: none; line-height: 1.3; }
+    .nav-logo span { display: block; font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rosa-antiguo); margin-top: 2px; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links > li > a { color: var(--texto-medio); text-decoration: none; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links > li > a:hover { color: var(--ambar-dorado); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { visibility: hidden; opacity: 0; pointer-events: none; position: absolute; top: 100%; left: -1.5rem; padding-top: 0.8rem; z-index: 200; transition: opacity 0.18s ease, visibility 0.18s ease; }
+    .nav-has-dropdown.open .nav-dropdown { visibility: visible; opacity: 1; pointer-events: auto; }
+    .nav-dropdown-inner { list-style: none; background: var(--blanco); border: 1px solid rgba(22,36,53,0.08); border-radius: 2px; padding: 0.5rem 0; min-width: 200px; box-shadow: 0 8px 32px rgba(22,36,53,0.1); }
+    .nav-dropdown-inner li a { display: block; padding: 0.65rem 1.25rem; font-family: 'Jost', sans-serif; font-size: 0.78rem; color: var(--texto-medio); text-decoration: none; transition: color 0.2s, background 0.2s; }
+    .nav-dropdown-inner li a:hover { color: var(--azul-tinta); background: var(--gris-calido); }
+    .nav-cta { font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rosa-antiguo); text-decoration: none; border: 1px solid var(--rosa-antiguo); padding: 0.55rem 1.2rem; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--rosa-antiguo); color: var(--blanco); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--azul-tinta); transition: transform 0.3s, opacity 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile-close { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; cursor: pointer; padding: 0.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; }
+    .nav-mobile-close svg { width: 24px; height: 24px; stroke: var(--azul-tinta); stroke-width: 2; fill: none; }
+    .nav-mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--blanco); z-index: 150; flex-direction: column; padding: 6rem 2rem 3rem; overflow-y: auto; }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0; flex: 1; }
+    .nav-mobile-menu ul li { border-bottom: 1px solid rgba(22,36,53,0.07); }
+    .nav-mobile-menu ul li:first-child { border-top: 1px solid rgba(22,36,53,0.07); }
+    .nav-mobile-menu ul li a { display: block; padding: 1.2rem 0; font-family: 'Jost', sans-serif; font-size: 1rem; color: var(--texto-oscuro); text-decoration: none; transition: color 0.2s; }
+    .nav-mobile-menu ul li a:hover { color: var(--rosa-antiguo); }
+    .nav-mobile-servicios > a { display: flex; justify-content: space-between; align-items: center; }
+    .nav-mobile-sub { display: none; flex-direction: column; background: rgba(22,36,53,0.03); }
+    .nav-mobile-sub.open { display: flex; }
+    .nav-mobile-sub a { padding: 0.9rem 1.2rem !important; font-size: 0.88rem !important; color: var(--texto-medio) !important; border-bottom: 1px solid rgba(22,36,53,0.05) !important; }
+    .nav-mobile-cta { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(22,36,53,0.07); }
+    .nav-mobile-cta a { display: block; background: var(--rosa-antiguo); color: #fff; text-align: center; padding: 1rem; font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
+    .articulo-hero { background: var(--azul-tinta); padding: 7rem 10% 3.5rem; }
+    .articulo-tema { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa-antiguo); display: block; margin-bottom: 0.8rem; }
+    .articulo-titulo { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--blanco); line-height: 1.15; margin-bottom: 0.8rem; }
+    .articulo-extracto { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1rem; font-style: italic; max-width: 640px; }
+    .articulo-meta { font-size: 0.78rem; color: rgba(255,255,255,0.35); font-family: 'Jost', sans-serif; }
+    .articulo-layout { display: grid; grid-template-columns: 1fr 300px; gap: 0; max-width: 100%; }
+    .articulo-main { padding: 3rem 4rem; border-right: 1px solid rgba(22,36,53,0.08); }
+    .articulo-img { width: 100%; max-height: 420px; object-fit: cover; display: block; margin-bottom: 2rem; }
+    .articulo-volver { display: inline-block; margin-bottom: 2rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rosa-antiguo); text-decoration: none; border-bottom: 1px solid var(--rosa-antiguo); padding-bottom: 2px; font-family: 'Jost', sans-serif; }
     .articulo-body p { margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.85; color: var(--texto-medio); }
     .articulo-body h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; color: var(--azul-tinta); }
     .articulo-body h3 { font-size: 1.2rem; margin: 2rem 0 0.8rem; color: var(--azul-tinta); }
     .articulo-body ul, .articulo-body ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
     .articulo-body li { margin-bottom: 0.5rem; color: var(--texto-medio); }
-    .articulo-volver { display: inline-block; margin-bottom: 3rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rosa-antiguo); text-decoration: none; border-bottom: 1px solid var(--rosa-antiguo); padding-bottom: 2px; }
-    .articulo-cta { background: var(--azul-tinta); padding: 5rem 10%; text-align: center; }
-    .articulo-cta h2 { color: var(--blanco); font-size: 1.8rem; margin-bottom: 1rem; }
-    .articulo-cta p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; font-size: 0.95rem; }
-    .btn-cta { display: inline-block; background: var(--rosa-antiguo); color: var(--blanco); padding: 0.9rem 2.5rem; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; }
-    .wa-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 52px; height: 52px; background: #B5707A; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; text-decoration: none; }
-    footer { background: var(--medianoche); color: rgba(255,255,255,0.5); padding: 3rem 10%; text-align: center; font-size: 0.8rem; }
-    footer a { color: var(--rosa-antiguo); text-decoration: none; }
+    .articulo-body blockquote { border-left: 2px solid var(--rosa-antiguo); padding: 0.8rem 1.5rem; margin: 2rem 0; }
+    .articulo-body blockquote p { font-style: italic; color: var(--azul-tinta); }
+    .articulo-cta { border: 1px solid rgba(22,36,53,0.12); padding: 1.5rem 2rem; margin-top: 3rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+    .articulo-cta p { font-family: 'Jost', sans-serif; font-size: 0.9rem; color: var(--azul-tinta); font-weight: 400; }
+    .articulo-cta-btn { display: inline-block; background: var(--azul-tinta); color: var(--blanco); font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.7rem 1.5rem; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.2s; }
+    .articulo-cta-btn:hover { background: var(--rosa-antiguo); }
+    .articulo-sidebar { padding: 3rem 2rem; }
+    .sb-section { margin-bottom: 2.5rem; }
+    .sb-label { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ambar-dorado); border-bottom: 1px solid rgba(196,150,58,0.2); padding-bottom: 0.5rem; margin-bottom: 1rem; display: block; }
+    .aviso { border: 1px solid rgba(22,36,53,0.1); padding: 1rem 1.1rem; }
+    .aviso-tipo { font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blanco); background: var(--ambar-dorado); padding: 0.18rem 0.5rem; display: inline-block; margin-bottom: 0.5rem; }
+    .aviso-titulo { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--azul-tinta); line-height: 1.3; margin-bottom: 0.4rem; }
+    .aviso-texto { font-family: 'Jost', sans-serif; font-size: 0.78rem; color: var(--texto-medio); line-height: 1.5; margin-bottom: 0.5rem; }
+    .aviso-fecha { font-family: 'Jost', sans-serif; font-size: 0.65rem; color: #aaa; }
+    .ultimo-img { width: 52px; height: 52px; flex-shrink: 0; object-fit: cover; }
+    .ultimo-img-placeholder { width: 52px; height: 52px; flex-shrink: 0; background: rgba(22,36,53,0.06); }
+    .ultimo-titulo { font-family: 'DM Serif Display', serif; font-size: 0.85rem; line-height: 1.3; color: var(--azul-tinta); margin-bottom: 0.2rem; }
+    .ultimo-meta { font-family: 'Jost', sans-serif; font-size: 0.65rem; color: var(--rosa-antiguo); }
+    .cats { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .cat-item { font-family: 'Jost', sans-serif; font-size: 0.65rem; color: var(--texto-medio); border: 1px solid rgba(22,36,53,0.12); padding: 0.25rem 0.6rem; text-decoration: none; transition: all 0.2s; }
+    .cat-item:hover { background: var(--azul-tinta); color: var(--blanco); border-color: var(--azul-tinta); }
+    .wa-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; width: 56px; height: 56px; border-radius: 50%; background: var(--rosa-antiguo); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; }
+    .wa-fab:hover { transform: scale(1.08); }
+    footer { background: var(--medianoche); color: rgba(201,205,212,0.75); padding: 5rem 4rem 3rem; }
+    .footer-grid { max-width: 1100px; margin: 0 auto 3rem; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand .logo-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--blanco); margin-bottom: 4px; }
+    .footer-brand .logo-title { font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa-antiguo); display: block; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.82rem; line-height: 1.7; color: rgba(201,205,212,0.5); }
+    .footer-col h4 { font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ambar-dorado); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a { font-family: 'Jost', sans-serif; font-size: 0.82rem; color: rgba(201,205,212,0.55); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--blanco); }
+    .footer-location { font-size: 0.75rem; color: rgba(201,205,212,0.3); margin-top: 1.5rem; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Jost', sans-serif; font-size: 0.75rem; color: rgba(201,205,212,0.3); letter-spacing: 0.08em; }
+    @media (max-width: 1024px) {
+      nav { padding: 0.75rem 2rem; }
+      .articulo-layout { grid-template-columns: 1fr; }
+      .articulo-main { padding: 2.5rem 2rem; border-right: none; border-bottom: 1px solid rgba(22,36,53,0.08); }
+      .articulo-sidebar { padding: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .articulo-hero { padding: 6rem 1.5rem 2.5rem; }
+      .articulo-main { padding: 2rem 1.5rem; }
+      .articulo-sidebar { padding: 1.5rem; }
+      .articulo-cta { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="/index.html" class="nav-logo">Dra. <span>Iris Bello</span></a>
+  <a href="/index.html" class="nav-logo">
+    Dra. Iris Bello Castillo
+    <span>Psicóloga Clínica</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="/terapia.html">Terapia</a></li>
+    <li class="nav-has-dropdown">
+      <a href="#" onclick="return false;">Servicios ▾</a>
+      <div class="nav-dropdown">
+        <ul class="nav-dropdown-inner">
+          <li><a href="/terapia.html">Terapia Individual</a></li>
+          <li><a href="/u-relacion.html">U · En Relación</a></li>
+          <li><a href="/u-contigo.html">U · Contigo</a></li>
+          <li><a href="/u-verse.html">U · Verse</a></li>
+        </ul>
+      </div>
+    </li>
     <li><a href="/conoceme.html">Conóceme</a></li>
+    <li class="nav-has-dropdown">
+      <a href="/recursos.html">Recursos ▾</a>
+      <div class="nav-dropdown">
+        <ul class="nav-dropdown-inner">
+          <li><a href="/espejo-del-camerino.html">El Espejo del Camerino</a></li>
+        </ul>
+      </div>
+    </li>
     <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/faq.html">FAQ</a></li>
     <li><a href="/contacto.html">Contacto</a></li>
   </ul>
-  <div class="nav-cta"><a href="https://wa.me/18098481234">Agendar</a></div>
+  <a href="https://wa.me/18098481234?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Iris" target="_blank" rel="noopener" class="nav-cta">Agendar consulta</a>
+  <button class="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="nav-mobile-menu">
+  <button class="nav-mobile-close" aria-label="Cerrar menú"><svg viewBox="0 0 24 24"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg></button>
+  <ul>
+    <li><a href="/index.html">Inicio</a></li>
+    <li class="nav-mobile-servicios">
+      <a href="#">Servicios <span class="arrow">▾</span></a>
+      <div class="nav-mobile-sub">
+        <a href="/terapia.html">Terapia Individual</a>
+        <a href="/u-relacion.html">U · En Relación</a>
+        <a href="/u-contigo.html">U · Contigo</a>
+        <a href="/u-verse.html">U · Verse</a>
+      </div>
+    </li>
+    <li><a href="/conoceme.html">Conóceme</a></li>
+    <li class="nav-mobile-servicios">
+      <a href="/recursos.html">Recursos <span class="arrow">▾</span></a>
+      <div class="nav-mobile-sub">
+        <a href="/espejo-del-camerino.html">El Espejo del Camerino</a>
+      </div>
+    </li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/faq.html">FAQ</a></li>
+    <li><a href="/contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-mobile-cta">
+    <a href="https://wa.me/18098481234?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Iris" target="_blank" rel="noopener">Agendar consulta</a>
+  </div>
+</div>
 
 <main>
   <div class="articulo-hero">
     <span class="articulo-tema">{{ tema }}</span>
     <h1 class="articulo-titulo">{{ title }}</h1>
+    {% if extracto %}<p class="articulo-extracto">{{ extracto }}</p>{% endif %}
     <span class="articulo-meta">{{ date }} · Dra. Iris Bello Castillo</span>
   </div>
 
-  {% if imagen %}
-  <img src="{{ imagen }}" alt="{{ title }}" class="articulo-imagen">
-  {% endif %}
+  <div class="articulo-layout">
+    <div class="articulo-main">
+      {% if imagen %}<img src="{{ imagen }}" alt="{{ title }}" class="articulo-img">{% endif %}
+      <a href="/blog.html" class="articulo-volver">← Volver al blog</a>
+      <div class="articulo-body">
+        {{ content }}
+      </div>
+      <div class="articulo-cta">
+        <p>Si algo de esto te suena familiar, hay un lugar para mirarlo.</p>
+        <a href="https://wa.me/18098481234?text=Hola%2C%20le%C3%AD%20un%20art%C3%ADculo%20en%20el%20blog%20y%20quisiera%20hablar." class="articulo-cta-btn" target="_blank" rel="noopener">Agendar →</a>
+      </div>
+    </div>
 
-  <div class="articulo-body">
-    <a href="/blog.html" class="articulo-volver">← Volver al blog</a>
-    {{ content }}
-  </div>
-
-  <div class="articulo-cta">
-    <h2>¿Esto resuena contigo?</h2>
-    <p>Una conversación de 30 minutos puede darte más claridad que meses dando vueltas sola.</p>
-    <a href="https://wa.me/18098481234?text=Hola%2C%20le%C3%AD%20un%20art%C3%ADculo%20en%20el%20blog%20y%20quisiera%20hablar." class="btn-cta">Hablemos por WhatsApp</a>
+    <div class="articulo-sidebar">
+      <div class="sb-section" id="sidebar-tablon">
+        <span class="sb-label">Tablón</span>
+        <div id="aviso-container"></div>
+      </div>
+      <div class="sb-section" id="sidebar-ultimos">
+        <span class="sb-label">Últimos artículos</span>
+        <div id="ultimos-container"></div>
+      </div>
+      <div class="sb-section">
+        <span class="sb-label">Categorías</span>
+        <div class="cats">
+          <a href="/blog.html" class="cat-item">Trauma</a>
+          <a href="/blog.html" class="cat-item">Patrones relacionales</a>
+          <a href="/blog.html" class="cat-item">Regulación emocional</a>
+          <a href="/blog.html" class="cat-item">Toma de decisiones</a>
+          <a href="/blog.html" class="cat-item">Malestar emocional</a>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 
-<a href="https://wa.me/18098481234" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
+<a href="https://wa.me/18098481234?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Iris" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="26" height="26"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.437-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.718-1.295-.364-.133-.63-.199-.895.199-.265.398-1.03 1.295-1.262 1.561-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.973-1.183-1.054-1.981-2.356-2.213-2.754-.232-.398-.025-.614.175-.812.18-.178.398-.465.597-.698.2-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.2-.895-2.158-1.227-2.955-.323-.775-.65-.67-.895-.683l-.763-.013c-.265 0-.697.1-1.062.498-.364.398-1.393 1.362-1.393 3.32 0 1.957 1.426 3.848 1.625 4.114.199.265 2.807 4.285 6.802 6.01.951.41 1.693.655 2.271.839.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"/></svg>
 </a>
 
 <footer>
-  <p>© 2026 Dra. Iris Bello Castillo · Psicóloga Clínica · Santo Domingo</p>
-  <p style="margin-top:0.5rem;"><a href="/index.html">irisbello.com</a></p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-name">Dra. Iris Bello Castillo</div>
+      <span class="logo-title">Psicóloga Clínica · Santo Domingo</span>
+      <p>Psicóloga clínica especializada en trauma, patrones relacionales y toma de decisiones. +15 años de experiencia clínica en RD y España.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="/terapia.html">Terapia Individual</a></li>
+        <li><a href="/u-relacion.html">U · En Relación</a></li>
+        <li><a href="/u-contigo.html">U · Contigo</a></li>
+        <li><a href="/u-verse.html">U · Verse</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Explorar</h4>
+      <ul>
+        <li><a href="/conoceme.html">Quién soy</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/recursos.html">Recursos gratuitos</a></li>
+        <li><a href="/espejo-del-camerino.html">El Espejo del Camerino</a></li>
+        <li><a href="/faq.html">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="/contacto.html">Agendar consulta</a></li>
+        <li><a href="/colaboraciones.html">Colaboraciones</a></li>
+        <li><a href="https://wa.me/18098481234" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+      <p class="footer-location">Santo Domingo · República Dominicana</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Dra. Iris Bello Castillo · Psicóloga Clínica</span>
+    <a href="/index.html" style="color:inherit;text-decoration:none;">irisbello.com</a>
+  </div>
 </footer>
+<script>
+  (function() {
+    document.querySelectorAll('.nav-has-dropdown').forEach(function(item) {
+      var t;
+      item.addEventListener('mouseenter', function() { clearTimeout(t); item.classList.add('open'); });
+      item.addEventListener('mouseleave', function() { t = setTimeout(function() { item.classList.remove('open'); }, 220); });
+    });
+  })();
+
+  (function() {
+    var btn = document.querySelector('.nav-hamburger');
+    var menu = document.querySelector('.nav-mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        btn.classList.toggle('open');
+        menu.classList.toggle('open');
+        document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+      });
+    }
+    document.querySelectorAll('.nav-mobile-servicios > a').forEach(function(trigger) {
+      var sub = trigger.nextElementSibling;
+      if (sub && sub.classList.contains('nav-mobile-sub')) {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          sub.classList.toggle('open');
+          var arrow = trigger.querySelector('.arrow');
+          if (arrow) arrow.textContent = sub.classList.contains('open') ? '▴' : '▾';
+        });
+      }
+    });
+    var closeBtn = menu ? menu.querySelector('.nav-mobile-close') : null;
+    if (closeBtn) { closeBtn.addEventListener('click', function() { btn.classList.remove('open'); menu.classList.remove('open'); document.body.style.overflow = ''; }); }
+  })();
+
+  (function() {
+    var REPO = 'iebelloc-maker/irisbello-web';
+
+    function parseFM(text) {
+      var m = text.match(/^---\n([\s\S]*?)\n---/);
+      if (!m) return {};
+      var fm = {};
+      m[1].split('\n').forEach(function(line) {
+        var idx = line.indexOf(':');
+        if (idx > -1) {
+          var k = line.slice(0, idx).trim();
+          var v = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+          fm[k] = v;
+        }
+      });
+      return fm;
+    }
+
+    fetch('https://api.github.com/repos/' + REPO + '/contents/_noticias?ref=main')
+      .then(function(r) { return r.ok ? r.json() : []; })
+      .then(function(files) {
+        if (!Array.isArray(files) || files.length === 0) {
+          document.getElementById('sidebar-tablon').style.display = 'none';
+          return;
+        }
+        var md = files.filter(function(f) { return f.name.endsWith('.md'); });
+        if (md.length === 0) { document.getElementById('sidebar-tablon').style.display = 'none'; return; }
+        return fetch(md[md.length - 1].download_url).then(function(r) { return r.text(); }).then(function(text) {
+          var fm = parseFM(text);
+          var container = document.getElementById('aviso-container');
+          container.innerHTML = '<div class="aviso">' +
+            '<span class="aviso-tipo">' + (fm.tipo || 'Aviso') + '</span>' +
+            '<p class="aviso-titulo">' + (fm.title || '') + '</p>' +
+            (fm.texto ? '<p class="aviso-texto">' + fm.texto + '</p>' : '') +
+            '<p class="aviso-fecha">' + (fm.date || '') + '</p>' +
+            '</div>';
+        });
+      })
+      .catch(function() { document.getElementById('sidebar-tablon').style.display = 'none'; });
+
+    fetch('https://api.github.com/repos/' + REPO + '/contents/_posts?ref=main')
+      .then(function(r) { return r.ok ? r.json() : []; })
+      .then(function(files) {
+        if (!Array.isArray(files)) return;
+        var md = files.filter(function(f) { return f.name.endsWith('.md'); }).slice(-3).reverse();
+        if (md.length === 0) { document.getElementById('sidebar-ultimos').style.display = 'none'; return; }
+        return Promise.all(md.map(function(f) {
+          return fetch(f.download_url).then(function(r) { return r.text(); }).then(function(text) {
+            var fm = parseFM(text);
+            fm.slug = f.name.replace(/\.md$/, '');
+            return fm;
+          });
+        })).then(function(posts) {
+          var container = document.getElementById('ultimos-container');
+          container.innerHTML = posts.map(function(p) {
+            var img = p.imagen
+              ? '<img src="' + p.imagen + '" alt="' + p.title + '" class="ultimo-img">'
+              : '<div class="ultimo-img-placeholder"></div>';
+            return '<a href="/blog/' + p.slug + '/" style="text-decoration:none;display:flex;gap:0.75rem;margin-bottom:1rem;align-items:flex-start;padding-bottom:1rem;border-bottom:1px solid rgba(22,36,53,0.06);">' +
+              img +
+              '<div><p class="ultimo-titulo">' + p.title + '</p><p class="ultimo-meta">' + (p.tema || '') + '</p></div></a>';
+          }).join('');
+        });
+      })
+      .catch(function() { document.getElementById('sidebar-ultimos').style.display = 'none'; });
+  })();
+</script>
 
 </body>
 </html>
