@@ -1,5 +1,4 @@
 module.exports = function(eleventyConfig) {
-  // Copiar archivos estáticos tal como están
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("*.ico");
@@ -7,9 +6,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("*.txt");
   eleventyConfig.addPassthroughCopy("*.xml");
 
-  // Configurar Markdown
   const md = require("markdown-it")({ html: true });
   eleventyConfig.setLibrary("md", md);
+
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("_posts/*.md");
+  });
 
   return {
     dir: {
@@ -19,6 +21,7 @@ module.exports = function(eleventyConfig) {
       data: "_data"
     },
     htmlTemplateEngine: false,
-    markdownTemplateEngine: "njk"
+    markdownTemplateEngine: "njk",
+    pathPrefix: "/"
   };
 };
