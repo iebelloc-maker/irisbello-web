@@ -685,7 +685,7 @@
       .then(function(r) { return r.json(); })
       .then(function(files) {
         if (!Array.isArray(files) || files.length === 0) {
-          vacio && (vacio.innerHTML = '<p>Los primeros artículos llegan pronto.<br>Mientras tanto, la Cápsula Mensual ya está activa.</p><a href="recursos.html" style="font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;">Suscribirme a la Cápsula →</a>');
+          vacio && (vacio.innerHTML = '<p>Los primeros artículos llegan pronto.<br>Mientras tanto, la Cápsula Mensual ya está activa.</p><a href="recursos.html" style="font-family:sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;">Suscribirme a la Cápsula →</a>');
           grid.innerHTML = '';
           grid.appendChild(vacio);
           return;
@@ -717,7 +717,7 @@
         });
       })
       .catch(function() {
-        grid.innerHTML = '<div class="blog-vacio"><p>Los primeros artículos llegan pronto.<br>Mientras tanto, la Cápsula Mensual ya está activa.</p><a href="recursos.html" style="font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;">Suscribirme a la Cápsula →</a></div>';
+        grid.innerHTML = '<div class="blog-vacio"><p>Los primeros artículos llegan pronto.<br>Mientras tanto, la Cápsula Mensual ya está activa.</p><a href="recursos.html" style="font-family:sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;">Suscribirme a la Cápsula →</a></div>';
       });
   })();
 </script>
