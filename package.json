@@ -1,0 +1,13 @@
+{
+  "name": "irisbello-web",
+  "version": "1.0.0",
+  "description": "Sitio web Dra. Iris Bello Castillo",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it": "^13.0.1"
+  }
+}
