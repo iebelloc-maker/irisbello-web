@@ -498,29 +498,10 @@
       <button class="filtro" data-tema="malestar">Malestar emocional</button>
     </div>
 
-    <div class="blog-grid">
-      <!-- AÑADIR TARJETAS AQUÍ — copiar el bloque .blog-card para cada artículo nuevo -->
-
-      <!-- EJEMPLO DE TARJETA — descomentar y rellenar cuando publiques un artículo
-      <a href="blog/nombre-del-articulo.html" class="blog-card reveal" data-tema="trauma">
-        <img src="images/blog/nombre-del-articulo.jpg" alt="Descripción de la imagen" class="blog-card-img">
-        <div class="blog-card-body">
-          <span class="blog-card-tema">Trauma</span>
-          <h2 class="blog-card-titulo">Título del artículo</h2>
-          <p class="blog-card-extracto">Primer párrafo o extracto del artículo. Dos o tres líneas que inviten a leer.</p>
-          <div class="blog-card-meta">
-            <span>10 de abril, 2026</span>
-            <span class="blog-card-leer">Leer →</span>
-          </div>
-        </div>
-      </a>
-      -->
-
-      <div class="blog-vacio">
-        <p>Los primeros artículos llegan pronto.<br>Mientras tanto, la Cápsula Mensual ya está activa.</p>
-        <a href="recursos.html" style="font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;">Suscribirme a la Cápsula →</a>
+    <div class="blog-grid" id="blog-grid">
+      <div class="blog-vacio" id="blog-vacio">
+        <p>Cargando artículos...</p>
       </div>
-
     </div>
   </div>
 
@@ -651,24 +632,93 @@
     window.addEventListener('scroll', check, { passive: true });
   })();
 
-  // Filtros del blog
+  // Blog dinámico desde GitHub
   (function() {
-    var filtros = document.querySelectorAll('.filtro');
-    var cards = document.querySelectorAll('.blog-card');
-    filtros.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        filtros.forEach(function(b) { b.classList.remove('activo'); });
-        btn.classList.add('activo');
-        var tema = btn.getAttribute('data-tema');
-        cards.forEach(function(card) {
-          if (tema === 'todos' || card.getAttribute('data-tema') === tema) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+    var REPO = 'iebelloc-maker/irisbello-web';
+    var BRANCH = 'main';
+    var grid = document.getElementById('blog-grid');
+    var vacio = document.getElementById('blog-vacio');
+
+    function parseFrontmatter(text) {
+      var match = text.match(/^---\n([\s\S]*?)\n---/);
+      if (!match) return {};
+      var fm = {};
+      match[1].split('\n').forEach(function(line) {
+        var idx = line.indexOf(':');
+        if (idx > -1) {
+          var key = line.slice(0, idx).trim();
+          var val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+          fm[key] = val;
+        }
       });
-    });
+      return fm;
+    }
+
+    function formatFecha(dateStr) {
+      if (!dateStr) return '';
+      var d = new Date(dateStr);
+      return d.toLocaleDateString('es-DO', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    function renderCards(posts, tema) {
+      var filtered = tema === 'todos' ? posts : posts.filter(function(p) { return p.tema === tema; });
+      grid.innerHTML = '';
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="blog-vacio"><p>No hay artículos en esta categoría todavía.</p></div>';
+        return;
+      }
+      filtered.forEach(function(post) {
+        var img = post.imagen ? '<img src="' + post.imagen + '" alt="' + post.title + '" class="blog-card-img">' : '';
+        var card = '<a href="' + post.url + '" class="blog-card reveal visible" data-tema="' + (post.tema || '') + '">' +
+          img +
+          '<div class="blog-card-body">' +
+          '<span class="blog-card-tema">' + (post.tema || '') + '</span>' +
+          '<h2 class="blog-card-titulo">' + post.title + '</h2>' +
+          '<p class="blog-card-extracto">' + (post.extracto || '') + '</p>' +
+          '<div class="blog-card-meta"><span>' + formatFecha(post.date) + '</span><span class="blog-card-leer">Leer →</span></div>' +
+          '</div></a>';
+        grid.innerHTML += card;
+      });
+    }
+
+    fetch('https://api.github.com/repos/' + REPO + '/contents/_posts?ref=' + BRANCH)
+      .then(function(r) { return r.json(); })
+      .then(function(files) {
+        if (!Array.isArray(files) || files.length === 0) {
+          vacio && (vacio.innerHTML = '<p>Los primeros artículos llegan pronto.<br>Mientras tanto, la Cápsula Mensual ya está activa.</p><a href="recursos.html" style="font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;">Suscribirme a la Cápsula →</a>');
+          grid.innerHTML = '';
+          grid.appendChild(vacio);
+          return;
+        }
+        var mdFiles = files.filter(function(f) { return f.name.endsWith('.md'); });
+        return Promise.all(mdFiles.map(function(f) {
+          return fetch(f.download_url).then(function(r) { return r.text(); }).then(function(text) {
+            var fm = parseFrontmatter(text);
+            var slug = f.name.replace(/\.md$/, '');
+            fm.url = '/blog/' + slug + '/';
+            fm.slug = slug;
+            return fm;
+          });
+        }));
+      })
+      .then(function(posts) {
+        if (!posts) return;
+        posts.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+        var temaActivo = 'todos';
+        renderCards(posts, temaActivo);
+
+        document.querySelectorAll('.filtro').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.filtro').forEach(function(b) { b.classList.remove('activo'); });
+            btn.classList.add('activo');
+            temaActivo = btn.getAttribute('data-tema');
+            renderCards(posts, temaActivo);
+          });
+        });
+      })
+      .catch(function() {
+        grid.innerHTML = '<div class="blog-vacio"><p>Los primeros artículos llegan pronto.<br>Mientras tanto, la Cápsula Mensual ya está activa.</p><a href="recursos.html" style="font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;">Suscribirme a la Cápsula →</a></div>';
+      });
   })();
 </script>
 
