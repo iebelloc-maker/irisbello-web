@@ -435,11 +435,17 @@
         return fetch(md[md.length - 1].download_url).then(function(r) { return r.text(); }).then(function(text) {
           var fm = parseFM(text);
           var container = document.getElementById('aviso-container');
+          var fechaAviso = '';
+          if (fm.date) {
+            var d = new Date(fm.date);
+            fechaAviso = d.toLocaleDateString('es-DO', { day: 'numeric', month: 'long', year: 'numeric' });
+          }
           container.innerHTML = '<div class="aviso">' +
             '<span class="aviso-tipo">' + (fm.tipo || 'Aviso') + '</span>' +
             '<p class="aviso-titulo">' + (fm.title || '') + '</p>' +
             (fm.texto ? '<p class="aviso-texto">' + fm.texto + '</p>' : '') +
-            '<p class="aviso-fecha">' + (fm.date || '') + '</p>' +
+            (fm.enlace ? '<a href="' + fm.enlace + '" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.6rem;font-family:Jost,sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid var(--rosa-antiguo);padding-bottom:2px;">Reservar lugar →</a>' : '') +
+            '<p class="aviso-fecha">' + fechaAviso + '</p>' +
             '</div>';
         });
       })
