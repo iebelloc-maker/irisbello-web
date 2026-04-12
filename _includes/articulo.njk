@@ -291,7 +291,7 @@
       {% if imagen %}<img src="{{ imagen }}" alt="{{ title }}" class="articulo-img">{% endif %}
       <a href="/blog.html" class="articulo-volver">← Volver al blog</a>
       <div class="articulo-body">
-        {{ content }}
+        {{ content | safe }}
       </div>
       <div class="articulo-cta">
         <p>Si algo de esto te suena familiar, hay un lugar para mirarlo.</p>
