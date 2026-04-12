@@ -1,3 +1,5 @@
+const { DateTime } = require("luxon");
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("admin");
@@ -12,6 +14,12 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getFilteredByGlob("_posts/*.md");
+  });
+
+  eleventyConfig.addFilter("fechaEs", function(date) {
+    return DateTime.fromJSDate(new Date(date), { zone: "UTC" })
+      .setLocale("es")
+      .toFormat("d 'de' LLLL 'de' yyyy");
   });
 
   return {
