@@ -1,5 +1,5 @@
 ---
-title: 'U·Verse — próxima fecha: 9 de mayo'
+title: 'U·Verse: próxima fecha: 9 de mayo'
 date: 2026-04-09
 tipo: Taller
 texto: Taller vivencial de 3 horas para tener claridad sobre por qué actúas como actúas y cómo te mueves con otros. Para elegir, no repetir Plazas limitadas.
