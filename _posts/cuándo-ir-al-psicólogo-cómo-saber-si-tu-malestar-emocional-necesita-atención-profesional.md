@@ -1,6 +1,6 @@
 ---
 title: 'Cuándo ir al psicólogo: cómo saber si tu malestar emocional necesita atención profesional'
-date: 2026-04-13T09:52:00
+date: 2026-04-12T09:54:00
 tema: malestar
 extracto: Si te preguntas cuándo ir al psicólogo, esta es la respuesta honesta. No hace falta estar en crisis ni tenerlo todo claro para empezar.
 keywords: cuándo ir al psicólogo, psicóloga clínica Santo Domingo, malestar emocional, psicoterapia República Dominicana, salud mental Santo Domingo, atención psicológica
