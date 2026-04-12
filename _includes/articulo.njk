@@ -283,7 +283,7 @@
     <span class="articulo-tema">{{ tema }}</span>
     <h1 class="articulo-titulo">{{ title }}</h1>
     {% if extracto %}<p class="articulo-extracto">{{ extracto }}</p>{% endif %}
-    <span class="articulo-meta">{{ date }} · Dra. Iris Bello Castillo</span>
+    <span class="articulo-meta">{{ date | fechaEs }} · Dra. Iris Bello Castillo</span>
   </div>
 
   <div class="articulo-layout">
@@ -291,7 +291,7 @@
       {% if imagen %}<img src="{{ imagen }}" alt="{{ title }}" class="articulo-img">{% endif %}
       <a href="/blog.html" class="articulo-volver">← Volver al blog</a>
       <div class="articulo-body">
-        {{ content | safe }}
+        {{ content }}
       </div>
       <div class="articulo-cta">
         <p>Si algo de esto te suena familiar, hay un lugar para mirarlo.</p>
