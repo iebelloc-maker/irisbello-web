@@ -45,24 +45,9 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inicio",
-        "item": "https://irisbello.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://irisbello.com/blog.html"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{ title }}",
-        "item": "https://irisbello.com/blog/{{ page.fileSlug }}/"
-      }
+      {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://irisbello.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://irisbello.com/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "https://irisbello.com/blog/{{ page.fileSlug }}/"}
     ]
   }
   </script>
@@ -74,16 +59,8 @@
     "description": "{{ extracto }}",
     "datePublished": "{{ date }}",
     "url": "https://irisbello.com/blog/{{ page.fileSlug }}/",
-    "author": {
-      "@type": "Person",
-      "name": "Dra. Iris Bello Castillo",
-      "@id": "https://irisbello.com/#persona"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Dra. Iris Bello Castillo",
-      "@id": "https://irisbello.com/#negocio"
-    }
+    "author": {"@type": "Person", "name": "Dra. Iris Bello Castillo", "@id": "https://irisbello.com/#persona"},
+    "publisher": {"@type": "Organization", "name": "Dra. Iris Bello Castillo", "@id": "https://irisbello.com/#negocio"}
   }
   </script>
   <link rel="preload" href="https://fonts.gstatic.com/s/jost/v18/92zPtBhPNqw79Ij1E865zBUv7myjJAVGPokMmuTl.woff2" as="font" type="font/woff2" crossorigin>
@@ -101,7 +78,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--blanco); color: var(--texto-oscuro); font-weight: 300; line-height: 1.7; font-size: 17px; overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.2; }
-
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.75rem 4rem; display: flex; justify-content: space-between; align-items: center; background: var(--blanco); border-bottom: 1px solid rgba(196,150,58,0.2); }
     .nav-logo { font-family: 'DM Serif Display', serif; font-size: 0.9rem; letter-spacing: 0.02em; color: var(--azul-tinta); text-decoration: none; line-height: 1.3; }
     .nav-logo span { display: block; font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rosa-antiguo); margin-top: 2px; }
@@ -136,15 +112,12 @@
     .nav-mobile-sub a { padding: 0.9rem 1.2rem !important; font-size: 0.88rem !important; color: var(--texto-medio) !important; border-bottom: 1px solid rgba(22,36,53,0.05) !important; }
     .nav-mobile-cta { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(22,36,53,0.07); }
     .nav-mobile-cta a { display: block; background: var(--rosa-antiguo); color: #fff; text-align: center; padding: 1rem; font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
-
     .articulo-hero { background: var(--azul-tinta); padding: 7rem 10% 3.5rem; }
     .articulo-tema { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa-antiguo); display: block; margin-bottom: 0.8rem; }
     .articulo-titulo { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--blanco); line-height: 1.15; margin-bottom: 0.8rem; }
     .articulo-extracto { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1rem; font-style: italic; max-width: 640px; }
     .articulo-meta { font-size: 0.78rem; color: rgba(255,255,255,0.35); font-family: 'Jost', sans-serif; }
-
     .articulo-layout { display: grid; grid-template-columns: 1fr 300px; gap: 0; max-width: 100%; }
-
     .articulo-main { padding: 3rem 4rem; border-right: 1px solid rgba(22,36,53,0.08); }
     .articulo-img { width: 100%; max-height: 420px; object-fit: cover; display: block; margin-bottom: 2rem; }
     .articulo-volver { display: inline-block; margin-bottom: 2rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rosa-antiguo); text-decoration: none; border-bottom: 1px solid var(--rosa-antiguo); padding-bottom: 2px; font-family: 'Jost', sans-serif; }
@@ -155,11 +128,11 @@
     .articulo-body li { margin-bottom: 0.5rem; color: var(--texto-medio); }
     .articulo-body blockquote { border-left: 2px solid var(--rosa-antiguo); padding: 0.8rem 1.5rem; margin: 2rem 0; }
     .articulo-body blockquote p { font-style: italic; color: var(--azul-tinta); }
+    .articulo-body hr { border: none; border-top: 1px solid rgba(22,36,53,0.08); margin: 2rem 0; }
     .articulo-cta { border: 1px solid rgba(22,36,53,0.12); padding: 1.5rem 2rem; margin-top: 3rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
     .articulo-cta p { font-family: 'Jost', sans-serif; font-size: 0.9rem; color: var(--azul-tinta); font-weight: 400; }
     .articulo-cta-btn { display: inline-block; background: var(--azul-tinta); color: var(--blanco); font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.7rem 1.5rem; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.2s; }
     .articulo-cta-btn:hover { background: var(--rosa-antiguo); }
-
     .articulo-sidebar { padding: 3rem 2rem; }
     .sb-section { margin-bottom: 2.5rem; }
     .sb-label { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ambar-dorado); border-bottom: 1px solid rgba(196,150,58,0.2); padding-bottom: 0.5rem; margin-bottom: 1rem; display: block; }
@@ -167,9 +140,7 @@
     .aviso-tipo { font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blanco); background: var(--ambar-dorado); padding: 0.18rem 0.5rem; display: inline-block; margin-bottom: 0.5rem; }
     .aviso-titulo { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--azul-tinta); line-height: 1.3; margin-bottom: 0.4rem; }
     .aviso-texto { font-family: 'Jost', sans-serif; font-size: 0.78rem; color: var(--texto-medio); line-height: 1.5; margin-bottom: 0.5rem; }
-    .aviso-fecha { font-family: 'Jost', sans-serif; font-size: 0.65rem; color: #aaa; }
-    .ultimo-post { display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(22,36,53,0.06); }
-    .ultimo-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .aviso-fecha { font-family: 'Jost', sans-serif; font-size: 0.65rem; color: #aaa; margin-top: 0.5rem; }
     .ultimo-img { width: 52px; height: 52px; flex-shrink: 0; object-fit: cover; }
     .ultimo-img-placeholder { width: 52px; height: 52px; flex-shrink: 0; background: rgba(22,36,53,0.06); }
     .ultimo-titulo { font-family: 'DM Serif Display', serif; font-size: 0.85rem; line-height: 1.3; color: var(--azul-tinta); margin-bottom: 0.2rem; }
@@ -177,10 +148,8 @@
     .cats { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .cat-item { font-family: 'Jost', sans-serif; font-size: 0.65rem; color: var(--texto-medio); border: 1px solid rgba(22,36,53,0.12); padding: 0.25rem 0.6rem; text-decoration: none; transition: all 0.2s; }
     .cat-item:hover { background: var(--azul-tinta); color: var(--blanco); border-color: var(--azul-tinta); }
-
     .wa-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.45); transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .wa-fab:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
-
     footer { background: var(--medianoche); color: rgba(201,205,212,0.75); padding: 5rem 4rem 3rem; }
     .footer-grid { max-width: 1100px; margin: 0 auto 3rem; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; }
     .footer-brand .logo-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--blanco); margin-bottom: 4px; }
@@ -192,7 +161,6 @@
     .footer-col ul li a:hover { color: var(--blanco); }
     .footer-location { font-size: 0.75rem; color: rgba(201,205,212,0.3); margin-top: 1.5rem; }
     .footer-bottom { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Jost', sans-serif; font-size: 0.75rem; color: rgba(201,205,212,0.3); letter-spacing: 0.08em; }
-
     @media (max-width: 1024px) {
       nav { padding: 0.75rem 2rem; }
       .articulo-layout { grid-template-columns: 1fr; }
@@ -304,12 +272,10 @@
         <span class="sb-label">Tablón</span>
         <div id="aviso-container"></div>
       </div>
-
       <div class="sb-section" id="sidebar-ultimos">
         <span class="sb-label">Últimos artículos</span>
         <div id="ultimos-container"></div>
       </div>
-
       <div class="sb-section">
         <span class="sb-label">Categorías</span>
         <div class="cats">
@@ -412,15 +378,38 @@
       var m = text.match(/^---\n([\s\S]*?)\n---/);
       if (!m) return {};
       var fm = {};
-      m[1].split('\n').forEach(function(line) {
-        var idx = line.indexOf(':');
-        if (idx > -1) {
-          var k = line.slice(0, idx).trim();
-          var v = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
-          fm[k] = v;
+      var lines = m[1].split('\n');
+      var i = 0;
+      while (i < lines.length) {
+        var line = lines[i];
+        var colonIdx = line.indexOf(':');
+        if (colonIdx > -1) {
+          var key = line.slice(0, colonIdx).trim();
+          var val = line.slice(colonIdx + 1).trim();
+          // Manejar bloque multilínea con | o |-
+          if (val === '|' || val === '|-') {
+            var parts = [];
+            i++;
+            while (i < lines.length && (lines[i].startsWith('  ') || lines[i] === '')) {
+              parts.push(lines[i].trim());
+              i++;
+            }
+            fm[key] = parts.join(' ').trim();
+            continue;
+          }
+          // Quitar comillas simples o dobles al inicio y fin
+          val = val.replace(/^['"]|['"]$/g, '');
+          fm[key] = val;
         }
-      });
+        i++;
+      }
       return fm;
+    }
+
+    function fechaEs(str) {
+      if (!str) return '';
+      var d = new Date(str);
+      return d.toLocaleDateString('es-DO', { day: 'numeric', month: 'long', year: 'numeric' });
     }
 
     fetch('https://api.github.com/repos/' + REPO + '/contents/_noticias?ref=main')
@@ -435,17 +424,12 @@
         return fetch(md[md.length - 1].download_url).then(function(r) { return r.text(); }).then(function(text) {
           var fm = parseFM(text);
           var container = document.getElementById('aviso-container');
-          var fechaAviso = '';
-          if (fm.date) {
-            var d = new Date(fm.date);
-            fechaAviso = d.toLocaleDateString('es-DO', { day: 'numeric', month: 'long', year: 'numeric' });
-          }
           container.innerHTML = '<div class="aviso">' +
             '<span class="aviso-tipo">' + (fm.tipo || 'Aviso') + '</span>' +
             '<p class="aviso-titulo">' + (fm.title || '') + '</p>' +
             (fm.texto ? '<p class="aviso-texto">' + fm.texto + '</p>' : '') +
             (fm.enlace ? '<a href="' + fm.enlace + '" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.6rem;font-family:Jost,sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rosa-antiguo);text-decoration:none;border-bottom:1px solid var(--rosa-antiguo);padding-bottom:2px;">Reservar lugar →</a>' : '') +
-            '<p class="aviso-fecha">' + fechaAviso + '</p>' +
+            '<p class="aviso-fecha">' + fechaEs(fm.date) + '</p>' +
             '</div>';
         });
       })
