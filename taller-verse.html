@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U·VERSE — Antes de Elegir, Hay que Verse · Dra. Iris Bello Castillo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black:     #0B1520;
+    --white:     #FFFFFF;
+    --ivory:     #F7F4F0;
+    --grey-light:#D8D3CA;
+    --grey-mid:  #6B6B6B;
+    --grey-dark: #3A3632;
+    --accent:    #C4963A;
+    --ink:       #162435;
+    --rosa:      #B5707A;
+    --ambar:     #C4963A;
+    --medianoche:#0B1520;
+    --serif:     'DM Serif Display', Georgia, serif;
+    --sans:      'Jost', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .serif { font-family: var(--serif); }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .container--wide {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  section { padding: 96px 0; }
+  section + section { border-top: 1px solid var(--grey-light); }
+
+  /* ── RULE LINE ── */
+  .rule {
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--rosa);
+    margin: 0 0 32px;
+  }
+
+  .rule--center {
+    margin: 0 auto 32px;
+  }
+
+  /* ── LABEL ── */
+  .label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rosa);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    background: var(--ink);
+    color: var(--white);
+    padding: 0;
+    border-top: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 10% 90%, rgba(196,150,58,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 90% 10%, rgba(255,255,255,0.02) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero__eyebrow {
+    position: absolute;
+    top: 48px;
+    left: 32px;
+    right: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero__logo {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+  }
+
+  .hero__date {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+  }
+
+  .hero__content {
+    padding: 120px 64px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .hero__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .hero__right {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+
+  .hero__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .hero__cta-btn {
+    display: block;
+    width: 100%;
+    padding: 18px 24px;
+    background: var(--ambar);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.25s;
+  }
+
+  .hero__cta-btn:hover { background: var(--rosa); }
+
+  .hero__urgencia {
+    font-size: 11px;
+    color: var(--grey-mid);
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+
+  .hero__title {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 108px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease 0.2s forwards;
+  }
+
+  .hero__title em {
+    font-style: italic;
+    color: var(--grey-light);
+  }
+
+  .hero__sub {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--grey-light);
+    line-height: 1.6;
+    max-width: 480px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero__meta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hero__meta-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+  }
+
+  .hero__meta-value {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── INTRO ── */
+  #intro .intro__statement {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  #intro .intro__body {
+    font-size: 16px;
+    color: var(--ink);
+    opacity: 0.75;
+    max-width: 560px;
+  }
+
+  #intro .intro__body p + p { margin-top: 20px; }
+
+  /* ── PROBLEMA ── */
+  #problema { background: var(--rosa); color: var(--white); }
+  #problema + section { border-top: none; }
+
+  .problema__anchor {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 48px;
+  }
+
+  .problema__anchor span {
+    display: block;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.75em;
+    margin-top: 12px;
+  }
+
+  .problema__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 64px;
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .problema__col p + p { margin-top: 16px; }
+
+  .problema__frases {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .problema__frase {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    transition: color 0.3s;
+  }
+
+  .problema__frase:hover { color: var(--white); }
+  .problema__frase:first-child { padding-top: 0; }
+
+  /* ── SOLUCION ── */
+  #solucion { background: var(--ivory); }
+
+  .solucion__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  .solucion__title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 50px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .solucion__desc {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.75;
+    padding-top: 8px;
+    opacity: 0.8;
+  }
+
+  .solucion__desc p + p { margin-top: 16px; }
+
+  .solucion__quote {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    opacity: 0.7;
+    border-left: 2px solid var(--ambar);
+    padding-left: 24px;
+    margin-top: 32px;
+    line-height: 1.5;
+  }
+
+  .solucion__bloques {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--grey-light);
+  }
+
+  .solucion__bloque {
+    background: var(--ivory);
+    padding: 32px 28px;
+  }
+
+  .solucion__bloque-num {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(196,150,58,0.25);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .solucion__bloque-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .solucion__bloque-desc {
+    font-size: 13px;
+    color: var(--ink);
+    opacity: 0.7;
+    line-height: 1.65;
+  }
+
+  /* ── PERFILES ── */
+  #perfiles { background: var(--white); }
+
+  .perfiles__intro {
+    max-width: 560px;
+    margin-bottom: 64px;
+  }
+
+  .perfiles__intro h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    margin-bottom: 20px;
+  }
+
+  .perfiles__intro p {
+    color: var(--ink);
+    opacity: 0.75;
+    font-size: 15px;
+  }
+
+  .perfiles__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--grey-light);
+  }
+
+  .perfil {
+    background: var(--white);
+    padding: 40px 36px;
+    transition: background 0.3s;
+  }
+
+  .perfil:hover { background: var(--ink); }
+
+  .perfil__icon {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .perfil:hover .perfil__icon { color: var(--grey-mid); }
+
+  .perfil__title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.25;
+    transition: color 0.3s;
+  }
+
+  .perfil:hover .perfil__title { color: var(--white); }
+
+  .perfil__body {
+    font-size: 13.5px;
+    color: var(--ink);
+    opacity: 0.75;
+    line-height: 1.7;
+    transition: color 0.3s;
+  }
+
+  .perfil:hover .perfil__body { color: var(--grey-mid); }
+
+  .perfil__frase {
+    margin-top: 20px;
+    font-family: var(--serif);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--grey-mid);
+    transition: color 0.3s;
+  }
+
+  .perfil:hover .perfil__frase { color: var(--grey-light); }
+
+  /* ── BENEFICIOS ── */
+  #beneficios { background: var(--white); }
+
+  .beneficios__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .beneficios__left h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .beneficios__left p {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.7;
+    opacity: 0.75;
+  }
+
+  .beneficios__list {
+    list-style: none;
+    border-top: 1px solid var(--grey-light);
+  }
+
+  .beneficios__item {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 16px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--grey-light);
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .beneficios__item::before {
+    content: '—';
+    font-family: var(--serif);
+    color: var(--grey-mid);
+    font-size: 14px;
+  }
+
+  .beneficios__resultado {
+    margin-top: 40px;
+    padding: 32px;
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .beneficios__resultado p {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--white);
+  }
+
+  /* ── DIFERENCIAL ── */
+  #diferencial { background: var(--white); }
+
+  .diferencial__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--grey-light);
+    margin-bottom: 64px;
+  }
+
+  .diferencial__col {
+    background: var(--white);
+    padding: 40px 36px;
+  }
+
+  .diferencial__col--dark {
+    background: var(--ink);
+  }
+
+  .diferencial__col-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .diferencial__col--dark .diferencial__col-label { color: var(--grey-light); }
+  .diferencial__col--light .diferencial__col-label { color: var(--grey-mid); }
+
+  .diferencial__noes {
+    list-style: none;
+  }
+
+  .diferencial__noes li {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--grey-light);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .diferencial__noes li::before {
+    content: '×';
+    font-size: 14px;
+    color: var(--grey-mid);
+    flex-shrink: 0;
+  }
+
+  .diferencial__sis {
+    list-style: none;
+  }
+
+  .diferencial__sis li {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--grey-light);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .diferencial__sis li::before {
+    content: '→';
+    font-size: 14px;
+    color: var(--ambar);
+    flex-shrink: 0;
+  }
+
+  .diferencial__statement {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 600px;
+    font-style: italic;
+  }
+
+  /* ── AUTORIDAD ── */
+  #autoridad { background: var(--ivory); }
+
+  .autoridad__layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .autoridad__photo {
+    aspect-ratio: 4/5;
+    background: var(--grey-light);
+    position: relative;
+    overflow: hidden;
+    max-width: 280px;
+  }
+
+  .autoridad__photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(14,14,14,0.7) 0%, transparent 50%);
+  }
+
+  .autoridad__photo-placeholder span {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--white);
+    font-style: italic;
+    opacity: 0.6;
+  }
+
+  .autoridad__name {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .autoridad__title {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 32px;
+  }
+
+  .autoridad__bio {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.75;
+    margin-bottom: 32px;
+    opacity: 0.8;
+  }
+
+  .autoridad__bio p + p { margin-top: 16px; }
+
+  .autoridad__credenciales {
+    list-style: none;
+    border-top: 1px solid var(--grey-light);
+    padding-top: 24px;
+  }
+
+  .autoridad__credencial {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    font-size: 13.5px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--grey-light);
+  }
+
+  .autoridad__credencial::before {
+    content: '·';
+    font-size: 20px;
+    color: var(--ambar);
+    line-height: 1;
+  }
+
+  /* ── FAQ ── */
+  #faq { background: var(--white); }
+
+  .faq__header {
+    margin-bottom: 56px;
+  }
+
+  .faq__header h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+  }
+
+  .faq__list {
+    max-width: 640px;
+  }
+
+  .faq__item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--grey-light);
+  }
+
+  .faq__q {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .faq__a {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+    opacity: 0.75;
+  }
+
+  .faq__a em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--rosa);
+    font-size: 16px;
+  }
+
+  /* ── DETALLES ── */
+  #detalles { background: var(--medianoche); color: var(--white); }
+  #detalles + section { border-top: none; }
+
+  .detalles__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    background: transparent;
+    margin-bottom: 64px;
+  }
+
+  .detalles__item {
+    background: rgba(255,255,255,0.06);
+    padding: 36px 32px;
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+
+  .detalles__item-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ambar);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .detalles__item-value {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .detalles__item-sub {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--grey-light);
+  }
+
+  .detalles__inversion {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 48px;
+  }
+
+  .detalles__precio {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .detalles__precio sup {
+    font-size: 28px;
+    vertical-align: super;
+    letter-spacing: 0;
+  }
+
+  .detalles__precio-nota {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--grey-mid);
+    max-width: 400px;
+    line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  #cta { background: var(--ivory); }
+
+  .cta__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .cta__statement h2 {
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta__statement h2 em {
+    font-style: italic;
+    color: var(--rosa);
+  }
+
+  .cta__statement p {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    opacity: 0.75;
+  }
+
+  .cta__box {
+    background: var(--medianoche);
+    padding: 56px 48px;
+    color: var(--white);
+    border-top: 3px solid var(--ambar);
+  }
+
+  .cta__box-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .cta__box-price {
+    font-family: var(--serif);
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .cta__box-note {
+    font-size: 12px;
+    color: var(--grey-light);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 18px 24px;
+    background: var(--ambar);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.25s, color 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: var(--rosa);
+    color: var(--white);
+  }
+
+  .cta__instrucciones {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--grey-light);
+    line-height: 1.6;
+  }
+
+  .cta__instrucciones strong {
+    color: var(--white);
+  }
+
+  .cta__urgencia {
+    margin-top: 24px;
+    padding: 16px 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 12px;
+    color: var(--grey-mid);
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+
+  /* ── CIERRE ── */
+  #cierre {
+    background: var(--ink);
+    color: var(--white);
+    padding: 120px 0;
+    text-align: center;
+  }
+
+  #cierre + section { border-top: none; }
+
+  .cierre__frase {
+    font-family: var(--serif);
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 300;
+    color: var(--grey-mid);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+
+  .cierre__frase p + p { margin-top: 12px; }
+
+  .cierre__tagline {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+
+  .cierre__tagline em {
+    font-style: italic;
+    color: var(--grey-mid);
+  }
+
+  .cierre__mantra {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .footer__inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer__brand {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--grey-mid);
+    letter-spacing: 0.08em;
+  }
+
+  .footer__info {
+    font-size: 11px;
+    color: var(--grey-mid);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+
+  .sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sticky-cta a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ambar);
+    color: var(--white);
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    transition: background 0.25s;
+  }
+
+  .sticky-cta a:hover { background: var(--rosa); }
+  .sticky-cta a { color: var(--white); }
+
+  .sticky-cta-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--white);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    section { padding: 64px 0; }
+
+    .hero__content { padding: 100px 24px 64px; grid-template-columns: 1fr; gap: 48px; }
+    .hero__right { padding-bottom: 0; }
+    .hero__eyebrow { left: 24px; right: 24px; }
+
+    .container, .container--wide { padding: 0 24px; }
+
+    .problema__body { grid-template-columns: 1fr; gap: 24px; }
+    .solucion__header { grid-template-columns: 1fr; gap: 32px; }
+    .solucion__bloques { grid-template-columns: 1fr; }
+    .perfiles__grid { grid-template-columns: 1fr; }
+    .beneficios__layout { grid-template-columns: 1fr; gap: 48px; }
+    .diferencial__grid { grid-template-columns: 1fr; }
+    .autoridad__layout { grid-template-columns: 1fr; gap: 40px; }
+    .cta__layout { grid-template-columns: 1fr; gap: 48px; }
+    .detalles__grid { grid-template-columns: 1fr; }
+    .footer__inner { flex-direction: column; text-align: center; }
+
+    .sticky-cta { bottom: 16px; right: 16px; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── BENEFICIOS TRES ── */
+  .beneficios__tres {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .beneficio__card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    padding: 32px 28px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 20px;
+    align-items: start;
+  }
+
+  .beneficio__num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    color: rgba(196,150,58,0.3);
+    line-height: 1;
+    grid-row: span 2;
+    padding-top: 4px;
+  }
+
+  .beneficio__titulo {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .beneficio__desc {
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .beneficio__card {
+      grid-template-columns: 36px 1fr;
+      gap: 0 14px;
+    }
+    .beneficio__num { font-size: 28px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank">
+Reservar mi cupo — $120
+  </a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero__eyebrow">
+    <span class="hero__logo">Programas U · Dra. Iris Bello</span>
+    <span class="hero__date">9 Mayo 2026 · Santo Domingo</span>
+  </div>
+
+  <div class="hero__content">
+    <!-- IZQUIERDA -->
+    <div class="hero__left">
+      <h1 class="hero__title">
+        Antes de<br>
+        <em>elegir,</em><br>
+        hay que<br>
+        verse.
+      </h1>
+      <p class="hero__sub">
+        Un taller vivencial de 3 horas donde identificas el patrón que repites,
+        entiendes por qué ocurre y sales con un primer paso claro.
+        Sin terapia. Sin motivación. Sin rodeos.
+      </p>
+    </div>
+    <!-- DERECHA -->
+    <div class="hero__right">
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Fecha</span>
+          <span class="hero__meta-value">9 de mayo 2026</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Duración</span>
+          <span class="hero__meta-value">3 horas</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Lugar</span>
+          <span class="hero__meta-value">Casa Dede, SD</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Cupos</span>
+          <span class="hero__meta-value">Máximo 20</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Inversión</span>
+          <span class="hero__meta-value" style="color: var(--ambar);">USD $120</span>
+        </div>
+      </div>
+      <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank" class="hero__cta-btn">
+        Quiero mi cupo — Reservar ahora
+      </a>
+      <p class="hero__urgencia">Solo 20 espacios · 9 de mayo 2026</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════
+     PROBLEMA
+════════════════════════════════════════ -->
+<section id="problema">
+  <div class="container--wide">
+    <span class="label" style="color: rgba(255,255,255,0.6);">El problema</span>
+    <div class="reveal">
+      <h2 class="problema__anchor">
+        Lo que no se ve,<br>se repite.
+        <span>Y lo que se repite, termina sintiéndose como destino.</span>
+      </h2>
+    </div>
+
+    <div class="problema__body reveal reveal-delay-1">
+      <div class="problema__col">
+        <p>No es falta de inteligencia.<br>No es falta de voluntad.</p>
+        <p>
+          Es una lógica interna que opera en automático.
+          Una forma de posicionarte en relación con otros que no has podido
+          nombrar con claridad.
+        </p>
+      </div>
+      <div class="problema__col">
+        <p>Por eso, aunque cambies de persona, de ciudad o de intención,
+          el resultado se siente igual.</p>
+        <p>
+          No repites personas.<br>
+          Repites posiciones.
+        </p>
+        <p>No es casualidad. Es estructura.<br>Y mientras no se vea, no cambia.</p>
+      </div>
+    </div>
+
+    <div class="problema__frases reveal reveal-delay-2">
+      <p class="problema__frase">&ldquo;Siempre termino en lo mismo.&rdquo;</p>
+      <p class="problema__frase">&ldquo;Sé que no me conviene, pero no puedo evitarlo.&rdquo;</p>
+      <p class="problema__frase">&ldquo;Doy mucho y no recibo igual.&rdquo;</p>
+      <p class="problema__frase">&ldquo;Me alejo antes de que me dejen.&rdquo;</p>
+      <p class="problema__frase">&ldquo;No entiendo por qué me sigue pasando.&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SOLUCIÓN
+════════════════════════════════════════ -->
+<section id="solucion">
+  <div class="container--wide">
+    <span class="label">La solución</span>
+
+    <div class="solucion__header reveal">
+      <div>
+        <h2 class="solucion__title">
+          U&thinsp;—&thinsp;VERSE<br>
+          Taller Vivencial
+        </h2>
+      </div>
+      <div class="solucion__desc">
+        <p>
+          Este no es un espacio para hablar.
+          Es un espacio para <strong>reconocerte en tiempo real</strong>.
+        </p>
+        <p>
+          Durante 3 horas, trabajas con una estructura clínica diseñada para que puedas
+          identificar tu patrón relacional con nombre y lógica, entender por qué lo repites
+          y verlo en ti — no en teoría.
+        </p>
+        <p>
+          La facilitadora no interpreta. Muestra.<br>
+          La participante no escucha. Se reconoce.
+        </p>
+        <blockquote class="solucion__quote">
+          &ldquo;Entender no cambia nada&hellip; hasta que lo ves en ti.&rdquo;
+        </blockquote>
+      </div>
+    </div>
+
+    </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════
+     BENEFICIOS
+════════════════════════════════════════ -->
+<section id="beneficios">
+  <div class="container--wide">
+    <div class="beneficios__layout">
+      <div class="beneficios__left reveal">
+        <span class="label">Lo que te llevas</span>
+        <h2>Resultados concretos.<br>No abstractos.</h2>
+        <p style="margin-top: 20px;">
+          Una participante que sale con un primer paso concreto
+          sale diferente a una que sale con una emoción.
+          La emoción se va. El paso queda.
+        </p>
+        <div class="beneficios__resultado" style="margin-top: 32px;">
+          <p>&ldquo;Sales distinta. No resuelta. Pero orientada.&rdquo;</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="beneficios__tres">
+          <div class="beneficio__card">
+            <div class="beneficio__num">01</div>
+            <div class="beneficio__titulo">Nombras lo que siempre sentiste</div>
+            <div class="beneficio__desc">Tu patrón deja de ser una sensación vaga. Tiene nombre, lógica y estructura clínica.</div>
+          </div>
+          <div class="beneficio__card">
+            <div class="beneficio__num">02</div>
+            <div class="beneficio__titulo">Entiendes por qué lo repites</div>
+            <div class="beneficio__desc">Sin culpa. Con la claridad de quien finalmente ve desde afuera lo que vivía desde adentro.</div>
+          </div>
+          <div class="beneficio__card">
+            <div class="beneficio__num">03</div>
+            <div class="beneficio__titulo">Sales con un primer paso real</div>
+            <div class="beneficio__desc">No una emoción que se disipa. Un paso concreto, aplicable esa misma semana.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DIFERENCIAL
+════════════════════════════════════════ -->
+<section id="diferencial">
+  <div class="container--wide">
+    <span class="label">Por qué esto es diferente</span>
+
+    <div class="diferencial__grid reveal">
+      <div class="diferencial__col diferencial__col--dark">
+        <span class="diferencial__col-label">Esto no es</span>
+        <ul class="diferencial__noes">
+          <li>Terapia</li>
+          <li>Desahogo</li>
+          <li>Motivación</li>
+          <li>Contenido</li>
+          <li>Más de lo mismo</li>
+        </ul>
+      </div>
+      <div class="diferencial__col diferencial__col--light">
+        <span class="diferencial__col-label">Esto es</span>
+        <ul class="diferencial__sis">
+          <li>Reconocimiento de patrón</li>
+          <li>Estructura clínica aplicada</li>
+          <li>Verte en tiempo real</li>
+          <li>Metodología propia</li>
+          <li>15 años de práctica real</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="diferencial__statement reveal reveal-delay-1">
+      &ldquo;El patrón no te persigue. Te protege.<br>
+      El problema es que ya no sabe de qué.&rdquo;
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     AUTORIDAD
+════════════════════════════════════════ -->
+<section id="autoridad">
+  <div class="container--wide">
+    <div class="autoridad__layout">
+      <div class="reveal">
+        <div class="autoridad__photo">
+          <img src="images/irisbellopsicologa.jpg" alt="Dra. Iris Bello Castillo, Psicóloga Clínica" style="width:100%; height:100%; object-fit:cover; object-position: center top; display:block;">
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="label">Facilitadora</span>
+        <h2 class="autoridad__name">Dra. Iris Bello<br>Castillo</h2>
+        <div class="autoridad__title">Psicóloga Clínica · Docente · Investigadora</div>
+        <div class="autoridad__bio">
+          <p>
+            Especializada en trauma relacional, patrones vinculares y toma de decisiones
+            en mujeres adultas. Más de 15 años de práctica clínica en República Dominicana
+            y España.
+          </p>
+          <p>
+            La metodología de U&thinsp;—&thinsp;VERSE no es teórica.
+            Es estructura desarrollada desde lo que Iris ve en consulta todos los días.
+          </p>
+        </div>
+        <ul class="autoridad__credenciales">
+          <li class="autoridad__credencial">Psicóloga clínica con más de 15 años de experiencia</li>
+          <li class="autoridad__credencial">Profesora titular en UNIBE</li>
+          <li class="autoridad__credencial">Coordinadora del programa de Psicología de Adultos</li>
+          <li class="autoridad__credencial">Especialista en trauma relacional y patrones vinculares</li>
+          <li class="autoridad__credencial">Metodología propia desarrollada en práctica real y academia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DETALLES
+════════════════════════════════════════ -->
+<section id="detalles">
+  <div class="container--wide">
+    <span class="label" style="color: var(--ambar); margin-bottom: 32px;">Detalles del evento</span>
+
+    <div class="detalles__grid reveal">
+      <div class="detalles__item">
+        <span class="detalles__item-label">Fecha</span>
+        <div class="detalles__item-value">9 de mayo 2026</div>
+      </div>
+      <div class="detalles__item">
+        <span class="detalles__item-label">Horario</span>
+        <div class="detalles__item-value">9:30am — 1:30pm</div>
+        <div class="detalles__item-sub">Convocatoria 9:30 · Inicio puntual 10:00 · Brindis hasta 1:30</div>
+      </div>
+      <div class="detalles__item">
+        <span class="detalles__item-label">Lugar</span>
+        <div class="detalles__item-value">Casa Dede</div>
+        <div class="detalles__item-sub">Calle Rafael Abreu Licairac 250, Santo Domingo, RD</div>
+        <div class="detalles__item-sub" style="margin-top:6px; color: var(--grey-mid);">Espacio privado, íntimo y diseñado para el trabajo que haremos.</div>
+      </div>
+      <div class="detalles__item">
+        <span class="detalles__item-label">Cupos</span>
+        <div class="detalles__item-value">Máximo 20</div>
+        <div class="detalles__item-sub">Cupos limitados para preservar la calidad del espacio</div>
+      </div>
+    </div>
+
+    <div class="detalles__inversion reveal reveal-delay-1">
+      <span class="label" style="color: var(--ambar);">Inversión</span>
+      <div class="detalles__precio"><sup>USD</sup>$120</div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq__header reveal">
+      <span class="label">Preguntas frecuentes</span>
+      <h2>Sin respuestas suavizadas.</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item reveal">
+        <div class="faq__q">¿Esto es terapia?</div>
+        <div class="faq__a">
+          No. Es un espacio estructurado de reconocimiento de patrón.
+          No sustituye un proceso terapéutico ni pretende hacerlo.
+        </div>
+      </div>
+      <div class="faq__item reveal reveal-delay-1">
+        <div class="faq__q">¿Y si ya he trabajado en mí antes?</div>
+        <div class="faq__a">
+          Esto no compite con eso. Aquí no se trata de entender más.
+          Se trata de verte con precisión.
+        </div>
+      </div>
+      <div class="faq__item reveal reveal-delay-1">
+        <div class="faq__q">¿Voy a salir con todo resuelto?</div>
+        <div class="faq__a">
+          No. Vas a salir orientada. Esa es la promesa —
+          y es la única que vale la pena hacer.
+        </div>
+      </div>
+      
+      
+      <div class="faq__item reveal reveal-delay-3">
+        <div class="faq__q">¿Por qué solo 20 personas?</div>
+        <div class="faq__a">
+          Los cupos son limitados para preservar la calidad del trabajo en grupo.
+          No es táctica de venta. Es la condición para que el espacio funcione.
+          Cuando se llena, se cierra.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq__cta reveal" style="margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--grey-light); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+      <p style="font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink); line-height: 1.3;">
+        La única pregunta que queda<br>es si este es tu momento.
+      </p>
+      <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank" style="
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--ink);
+        color: var(--white);
+        font-family: var(--sans);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.25s;
+      " onmouseover="this.style.background='var(--ambar)'" onmouseout="this.style.background='var(--ink)'">
+        Reservar mi cupo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
+<section id="cta">
+  <div class="container--wide">
+    <div class="cta__layout">
+      <div class="cta__statement reveal">
+        <span class="label">Reserva tu espacio</span>
+        <h2>
+          Tu cupo se<br>
+          <em>reserva ahora.</em>
+        </h2>
+        <p>
+          20 cupos. Sin lista de espera.<br>
+          Cuando se llenan, se cierran.
+        </p>
+        <p>
+          Un mensaje es suficiente para empezar.
+        </p>
+      </div>
+      <div class="cta__box reveal reveal-delay-1">
+        <span class="cta__box-label">Inversión total</span>
+        <div class="cta__box-price">USD $120</div>
+        <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank" class="btn">
+          Quiero mi cupo — Escribir ahora
+        </a>
+        <div class="cta__instrucciones">
+          <p>Te respondo en menos de 24 horas con los detalles del pago y la confirmación de tu espacio.</p>
+          <p style="margin-top:8px; color: var(--grey-mid); font-size: 11px;">Pago único vía PayPal · Sin cuotas · Transferencia de cupo disponible</p>
+        </div>
+        <div class="cta__urgencia">
+          9 de mayo 2026 · Solo 20 espacios
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer__inner">
+    <span class="footer__brand">Dra. Iris Bello Castillo · Programas U</span>
+    <span class="footer__info">Santo Domingo, República Dominicana · 2026</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+  reveals.forEach(r => observer.observe(r));
+
+  // Sticky CTA
+  const stickyCta = document.getElementById('stickyCta');
+  const heroSection = document.getElementById('hero');
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>
