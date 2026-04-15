@@ -109,9 +109,9 @@
     inset: 0;
     background-image: url('images/irisbellopsicologaespejo.jpg');
     background-size: cover;
-    background-position: center top;
-    opacity: 0.18;
-    filter: grayscale(20%);
+    background-position: 60% 15%;
+    opacity: 0.25;
+    filter: grayscale(15%);
     z-index: 0;
   }
 
@@ -148,7 +148,7 @@
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--grey-mid);
+    color: rgba(255,255,255,0.55);
   }
 
   .hero__date {
@@ -157,7 +157,7 @@
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--grey-mid);
+    color: rgba(255,255,255,0.55);
   }
 
   .hero__content {
@@ -184,9 +184,11 @@
     padding: 40px 36px;
     opacity: 0;
     animation: fadeUp 1s ease 0.6s forwards;
-    background: rgba(255,255,255,0.04);
+    background: rgba(11,21,32,0.55);
     border: 1px solid rgba(196,150,58,0.25);
     border-top: 2px solid var(--ambar);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .hero__divider {
@@ -215,10 +217,9 @@
 
   .hero__urgencia {
     font-size: 11px;
-    color: var(--grey-light);
+    color: rgba(255,255,255,0.55);
     letter-spacing: 0.08em;
     text-align: center;
-    opacity: 0.7;
   }
 
   .hero__title {
@@ -243,7 +244,7 @@
     font-family: var(--sans);
     font-size: 15px;
     font-weight: 300;
-    color: var(--grey-light);
+    color: rgba(255,255,255,0.8);
     line-height: 1.6;
     max-width: 480px;
     opacity: 0;
@@ -262,7 +263,7 @@
     justify-content: space-between;
     align-items: baseline;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
   }
 
   .hero__meta-label {
@@ -270,7 +271,7 @@
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--grey-mid);
+    color: rgba(255,255,255,0.5);
   }
 
   .hero__meta-value {
