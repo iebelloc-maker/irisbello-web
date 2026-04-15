@@ -650,11 +650,12 @@
   }
 
   .autoridad__photo {
-    aspect-ratio: 4/5;
-    background: var(--grey-light);
     position: relative;
     overflow: hidden;
     max-width: 280px;
+    width: 100%;
+    padding-bottom: 125%; /* 4:5 ratio */
+    background: var(--grey-light);
   }
 
   .autoridad__photo-placeholder {
@@ -1183,7 +1184,6 @@ Reservar mi cupo — $120
       <p class="hero__sub">
         Un taller vivencial de 3 horas donde identificas el patrón que repites,
         entiendes por qué ocurre y sales con un primer paso claro.
-        Sin terapia. Sin motivación. Sin rodeos.
       </p>
     </div>
     <!-- DERECHA -->
@@ -1388,7 +1388,7 @@ Reservar mi cupo — $120
     <div class="autoridad__layout">
       <div class="reveal">
         <div class="autoridad__photo">
-          <img src="images/irisbellopsicologa.jpg" alt="Dra. Iris Bello Castillo, Psicóloga Clínica" style="width:100%; height:100%; object-fit:cover; object-position: center top; display:block;">
+          <img src="images/irisbellopsicologa.jpg" alt="Dra. Iris Bello Castillo, Psicóloga Clínica" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center top; display:block;">
         </div>
       </div>
       <div class="reveal reveal-delay-1">
@@ -1470,7 +1470,7 @@ Reservar mi cupo — $120
       <div class="faq__item reveal">
         <div class="faq__q">¿Esto es terapia?</div>
         <div class="faq__a">
-          No. Es un espacio estructurado de reconocimiento de patrón.
+          Es un espacio clínico estructurado de reconocimiento de patrón.
           No sustituye un proceso terapéutico ni pretende hacerlo.
         </div>
       </div>
@@ -1498,28 +1498,6 @@ Reservar mi cupo — $120
           Cuando se llena, se cierra.
         </div>
       </div>
-    </div>
-
-    <div class="faq__cta reveal" style="margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--grey-light); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
-      <p style="font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink); line-height: 1.3;">
-        La única pregunta que queda<br>es si este es tu momento.
-      </p>
-      <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank" style="
-        display: inline-block;
-        padding: 16px 32px;
-        background: var(--ink);
-        color: var(--white);
-        font-family: var(--sans);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: background 0.25s;
-      " onmouseover="this.style.background='var(--ambar)'" onmouseout="this.style.background='var(--ink)'">
-        Reservar mi cupo
-      </a>
     </div>
   </div>
 </section>
