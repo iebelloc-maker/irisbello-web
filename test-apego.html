@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Apego · Dra. Iris Bello Castillo · Psicóloga Clínica Santo Domingo</title>
+  <meta name="description" content="Descubre tu estilo de apego con este screening relacional gratuito. 4 afirmaciones, resultado inmediato. Sin registro.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --azul-tinta:   #162435;
+      --rosa-antiguo: #B5707A;
+      --ambar-dorado: #C4963A;
+      --blanco:       #FFFFFF;
+      --medianoche:   #0B1520;
+      --azul-suave:   #1e3349;
+      --gris-calido:  #f4f1ee;
+      --crema:        #faf8f5;
+      --texto-oscuro: #1a2530;
+      --texto-medio:  #4a5568;
+      --texto-suave:  #4e5e6e;
+      --texto-claro:  rgba(201, 205, 212, 0.75);
+      --rosa-clara:   #cc8890;
+      --rosa-suave:   #f5eaeb;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: var(--blanco);
+      color: var(--texto-oscuro);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      font-size: 17px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVEGACIÓN — NO MODIFICAR
+    ════════════════════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0.75rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--blanco);
+      border-bottom: 1px solid rgba(196, 150, 58, 0.2);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      color: var(--azul-tinta);
+      text-decoration: none;
+      line-height: 1.3;
+    }
+
+    .nav-logo span {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rosa-antiguo);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links > li > a {
+      color: var(--texto-medio);
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links > li > a:hover { color: var(--ambar-dorado); }
+    .nav-links > li > a.nav-active { color: var(--azul-tinta); font-weight: 500; }
+
+    .nav-has-dropdown { position: relative; }
+
+    .nav-dropdown {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 100%;
+      left: -1.5rem;
+      padding-top: 0.8rem;
+      background: transparent;
+      z-index: 200;
+      transition: opacity 0.18s ease, visibility 0.18s ease;
+    }
+
+    .nav-has-dropdown.open .nav-dropdown {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-dropdown-inner {
+      background: var(--blanco);
+      border: 1px solid rgba(196, 150, 58, 0.18);
+      min-width: 220px;
+      list-style: none;
+      box-shadow: 0 12px 40px rgba(22, 36, 53, 0.12);
+    }
+
+    .nav-dropdown-inner li { border-bottom: 1px solid rgba(22, 36, 53, 0.05); }
+    .nav-dropdown-inner li:last-child { border-bottom: none; }
+
+    .nav-dropdown-inner li a {
+      display: block;
+      padding: 0.9rem 1.4rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--texto-oscuro);
+      letter-spacing: 0.08em;
+      text-transform: none;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-dropdown-inner li a:hover { color: var(--rosa-antiguo); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 200;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--azul-tinta);
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ═══════════════════════════════════════════════════════
+       MENÚ MÓVIL — NO MODIFICAR
+    ════════════════════════════════════════════════════════ */
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--blanco);
+      z-index: 150;
+      flex-direction: column;
+      padding: 6rem 2rem 3rem;
+      overflow-y: auto;
+    }
+
+    .nav-mobile-menu.open { display: flex; }
+
+    .nav-mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex: 1;
+    }
+
+    .nav-mobile-menu ul li { border-bottom: 1px solid rgba(22, 36, 53, 0.07); }
+    .nav-mobile-menu ul li:first-child { border-top: 1px solid rgba(22, 36, 53, 0.07); }
+
+    .nav-mobile-menu ul li a {
+      display: block;
+      padding: 1.2rem 0;
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--texto-oscuro);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-mobile-menu ul li a:hover,
+    .nav-mobile-menu ul li a.nav-active { color: var(--rosa-antiguo); }
+
+    .nav-mobile-servicios { padding: 0; }
+    .nav-mobile-servicios > a { display: flex; justify-content: space-between; align-items: center; }
+
+    .nav-mobile-sub {
+      display: none;
+      flex-direction: column;
+      background: rgba(22, 36, 53, 0.03);
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-mobile-sub.open { display: flex; }
+
+    .nav-mobile-sub a {
+      padding: 0.9rem 1.2rem !important;
+      font-size: 0.88rem !important;
+      color: var(--texto-medio) !important;
+      border-bottom: 1px solid rgba(22, 36, 53, 0.05) !important;
+      border-top: none !important;
+    }
+
+    .nav-mobile-sub a:last-child { border-bottom: none !important; }
+
+    .nav-mobile-cta {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(22, 36, 53, 0.07);
+    }
+
+    .nav-mobile-cta a {
+      display: block;
+      background: var(--rosa-antiguo);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-mobile-cta a:hover { background: var(--azul-tinta); }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER — NO MODIFICAR
+    ════════════════════════════════════════════════════════ */
+    footer {
+      background: var(--azul-tinta);
+      padding: 5rem 4rem 3rem;
+      border-top: 1px solid rgba(196, 150, 58, 0.15);
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand .logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--blanco);
+      line-height: 1.3;
+    }
+
+    .footer-brand .logo-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rosa-antiguo);
+      margin-top: 4px;
+      display: block;
+    }
+
+    .footer-brand p {
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: rgba(201, 205, 212, 0.75);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
+
+    .footer-social a {
+      color: rgba(201, 205, 212, 0.45);
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--rosa-antiguo); }
+
+    .footer-col h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ambar-dorado);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-col ul a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(201, 205, 212, 0.75);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul a:hover { color: var(--blanco); }
+
+    .footer-location {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: rgba(201, 205, 212, 0.4);
+      line-height: 1.7;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(201, 205, 212, 0.3);
+      letter-spacing: 0.08em;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BOTÓN FLOTANTE WHATSAPP — NO MODIFICAR
+    ════════════════════════════════════════════════════════ */
+    .wa-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 9999;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+
+    .wa-fab:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE GLOBAL — NO MODIFICAR
+    ════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      nav { padding: 0.75rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .wa-fab { bottom: 1.5rem; right: 1.25rem; width: 50px; height: 50px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CSS DE ESTA PÁGINA
+    ════════════════════════════════════════════════════════ */
+    main { padding-top: 0; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ambar-dorado);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      background: var(--azul-tinta);
+      height: 50vh;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: 'Apego';
+      position: absolute;
+      bottom: -2rem; right: -1rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18rem;
+      font-style: italic;
+      color: rgba(196,150,58,0.04);
+      pointer-events: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,150,58,0.3), transparent);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ambar-dorado);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.2s;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 1.5rem; height: 1px;
+      background: var(--ambar-dorado);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--blanco);
+      line-height: 1.1;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.35s;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--rosa-antiguo); }
+
+    .hero-right {
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.5s;
+    }
+
+    .hero-right p {
+      font-size: 1rem;
+      color: rgba(201,205,212,0.72);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hero-chip {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(201,205,212,0.55);
+      border: 1px solid rgba(201,205,212,0.15);
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* ── Test ─────────────────────────────────────────────── */
+    .test-section {
+      padding: 6rem 4rem;
+      background: var(--blanco);
+    }
+
+    .test-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .test-instrucciones {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(22,36,53,0.07);
+    }
+
+    .test-instrucciones p {
+      font-size: 1rem;
+      color: var(--texto-oscuro);
+      line-height: 1.8;
+      margin-top: 0.8rem;
+    }
+
+    /* ── Afirmación ───────────────────────────────────────── */
+    .afirmacion {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(22,36,53,0.07);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .afirmacion.visible { opacity: 1; transform: none; }
+    .afirmacion:last-of-type { border-bottom: none; }
+
+    .afirmacion-header {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 1.8rem;
+    }
+
+    .afirmacion-letra {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--rosa-antiguo);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 1.8rem;
+    }
+
+    .afirmacion-texto {
+      font-size: 1rem;
+      color: var(--texto-oscuro);
+      line-height: 1.85;
+      padding-top: 0.2rem;
+    }
+
+    /* ── Selector de botones ──────────────────────────────── */
+    .selector-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--texto-medio);
+      margin-bottom: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .selector-label span:last-child { text-align: right; }
+
+    .selector-btns {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .selector-btn {
+      aspect-ratio: 1;
+      border: 1px solid rgba(22,36,53,0.15);
+      background: var(--blanco);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--texto-medio);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+
+    .selector-btn:hover {
+      border-color: var(--rosa-antiguo);
+      color: var(--rosa-antiguo);
+      background: var(--rosa-suave);
+    }
+
+    .selector-btn.selected {
+      background: var(--azul-tinta);
+      border-color: var(--azul-tinta);
+      color: var(--blanco);
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .selector-btn.selected-high {
+      background: var(--rosa-antiguo);
+      border-color: var(--rosa-antiguo);
+      color: var(--blanco);
+    }
+
+    /* valor seleccionado debajo */
+    .selector-valor {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--texto-medio);
+      letter-spacing: 0.06em;
+      min-height: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .selector-valor.activo { color: var(--rosa-antiguo); }
+
+    /* ── CTA del test ─────────────────────────────────────── */
+    .test-cta-wrap {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .btn-ver-resultado {
+      background: var(--rosa-antiguo);
+      color: var(--blanco);
+      border: none;
+      padding: 1.1rem 3rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border-radius: 2px;
+    }
+
+    .btn-ver-resultado:hover { background: var(--ambar-dorado); transform: translateY(-1px); }
+    .btn-ver-resultado:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .test-aviso {
+      margin-top: 0.8rem;
+      font-size: 0.875rem;
+      color: var(--texto-medio);
+      }
+
+    /* ── Resultado ────────────────────────────────────────── */
+    .resultado-wrap {
+      display: none;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(22,36,53,0.07);
+    }
+
+    .resultado-wrap.visible { display: block; }
+
+    .resultado-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ambar-dorado);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .resultado-nombre {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--azul-tinta);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .resultado-nombre em { font-style: italic; color: var(--rosa-antiguo); }
+
+    .resultado-body {
+      margin-top: 1.5rem;
+      padding: 2.5rem;
+      border-left: 3px solid var(--rosa-antiguo);
+      background: var(--crema);
+    }
+
+    .resultado-texto {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--texto-oscuro);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .resultado-clave {
+      font-size: 1rem;
+      color: var(--texto-oscuro);
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+    }
+
+    .resultado-disclaimer {
+      font-size: 1rem;
+      color: var(--texto-oscuro);
+      font-style: italic;
+
+    }
+
+    .resultado-cta {
+      margin-top: 2rem;
+      padding: 2.5rem;
+      background: var(--azul-tinta);
+    }
+
+    .resultado-cta p {
+      font-size: 1rem;
+      color: rgba(201,205,212,0.8);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .resultado-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--blanco);
+      color: var(--azul-tinta);
+      padding: 0.9rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      border-radius: 2px;
+    }
+
+    .resultado-cta a:hover { background: var(--ambar-dorado); color: var(--medianoche); }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { height: 50vh; min-height: 200px; padding: 0 1.5rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .test-section { padding: 4rem 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .selector-btn { font-size: 1rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVEGACIÓN — NO MODIFICAR
+════════════════════════════════════════════════════════════ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    Dra. Iris Bello Castillo
+    <span>Psicóloga Clínica</span>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-has-dropdown">
+      <a href="#" onclick="return false;">Servicios ▾</a>
+      <div class="nav-dropdown">
+        <ul class="nav-dropdown-inner">
+          <li><a href="terapia.html"    data-page="terapia">Terapia Individual</a></li>
+          <li><a href="u-relacion.html" data-page="u-relacion">U · En Relación</a></li>
+          <li><a href="u-contigo.html"  data-page="u-contigo">U · Contigo</a></li>
+          <li><a href="u-verse.html"    data-page="u-verse">U · Verse</a></li>
+        </ul>
+      </div>
+    </li>
+    <li><a href="conoceme.html"  data-page="conoceme">Conóceme</a></li>
+    <li class="nav-has-dropdown">
+      <a href="recursos.html" data-page="recursos">Recursos ▾</a>
+      <div class="nav-dropdown">
+        <ul class="nav-dropdown-inner">
+          <li><a href="espejo-del-camerino.html" data-page="espejo-del-camerino">El Espejo del Camerino</a></li>
+          <li><a href="test-apego.html"           data-page="test-apego">Test de Apego</a></li>
+        </ul>
+      </div>
+    </li>
+    <li><a href="blog.html"      data-page="blog">Blog</a></li>
+    <li><a href="faq.html"       data-page="faq">FAQ</a></li>
+    <li><a href="contacto.html"  data-page="contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MENÚ MÓVIL — NO MODIFICAR
+════════════════════════════════════════════════════════════ -->
+<div class="nav-mobile-menu">
+  <ul>
+    <li class="nav-mobile-servicios">
+      <a href="#">Servicios <span class="arrow">▾</span></a>
+      <div class="nav-mobile-sub">
+        <a href="terapia.html">Terapia Individual</a>
+        <a href="u-relacion.html">U · En Relación</a>
+        <a href="u-contigo.html">U · Contigo</a>
+        <a href="u-verse.html">U · Verse</a>
+      </div>
+    </li>
+    <li><a href="conoceme.html"  data-page="conoceme">Conóceme</a></li>
+    <li class="nav-mobile-servicios">
+      <a href="recursos.html" data-page="recursos">Recursos <span class="arrow">▾</span></a>
+      <div class="nav-mobile-sub">
+        <a href="espejo-del-camerino.html">El Espejo del Camerino</a>
+        <a href="test-apego.html">Test de Apego</a>
+      </div>
+    </li>
+    <li><a href="blog.html"      data-page="blog">Blog</a></li>
+    <li><a href="faq.html"       data-page="faq">FAQ</a></li>
+    <li><a href="contacto.html"  data-page="contacto">Contacto</a></li>
+  </ul>
+
+  <div class="nav-mobile-cta">
+    <a href="https://wa.me/18098481234?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Iris" target="_blank" rel="noopener">Agendar consulta</a>
+  </div>
+</div>
+
+
+
+
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Screening Relacional · Gratuito</div>
+        <h1>¿Cuál es tu<br>estilo de <em>apego?</em></h1>
+      </div>
+      <div class="hero-right">
+        <p style="text-align:left;">¿Por qué reaccionas así cuando alguien se aleja? ¿Por qué necesitas tanto o tan poco del otro? La respuesta suele estar en cómo aprendiste a vincularte cuando eras pequeña.</p>
+        <div class="hero-chips">
+          <span class="hero-chip">4 afirmaciones</span>
+          <span class="hero-chip">4 estilos</span>
+          <span class="hero-chip">Sin registro</span>
+          <span class="hero-chip">Resultado inmediato</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TEST -->
+  <section class="test-section">
+    <div class="test-inner">
+
+      <div class="test-instrucciones">
+        <span class="section-label">Las afirmaciones</span>
+        <p>Lee cada afirmación con calma. Selecciona el número que mejor describe cómo te sientes habitualmente, no cómo quisieras sentirte.</p>
+        <p style="margin-top:0.5rem; font-size:1rem; color:var(--texto-oscuro);">
+          <strong style="color:var(--texto-medio);">1</strong> = no me describe en absoluto &nbsp;·&nbsp;
+          <strong style="color:var(--texto-medio);">4</strong> = neutral &nbsp;·&nbsp;
+          <strong style="color:var(--texto-medio);">7</strong> = me describe totalmente
+        </p>
+      </div>
+
+      <!-- Afirmación A -->
+      <div class="afirmacion" data-id="a">
+        <div class="afirmacion-header">
+          <span class="afirmacion-letra">A</span>
+          <p class="afirmacion-texto">Me resulta fácil acercarme emocionalmente a los demás. Me siento cómoda dependiendo de otros y permitiendo que otros dependan de mí. No me preocupa estar sola ni que los demás no me acepten.</p>
+        </div>
+        <div class="selector-label">
+          <span>No me describe</span>
+          <span>Me describe totalmente</span>
+        </div>
+        <div class="selector-btns" id="btns-a">
+          <button class="selector-btn" data-val="1">1</button>
+          <button class="selector-btn" data-val="2">2</button>
+          <button class="selector-btn" data-val="3">3</button>
+          <button class="selector-btn" data-val="4">4</button>
+          <button class="selector-btn" data-val="5">5</button>
+          <button class="selector-btn" data-val="6">6</button>
+          <button class="selector-btn" data-val="7">7</button>
+        </div>
+        <div class="selector-valor" id="val-a">Selecciona un valor</div>
+      </div>
+
+      <!-- Afirmación B -->
+      <div class="afirmacion" data-id="b">
+        <div class="afirmacion-header">
+          <span class="afirmacion-letra">B</span>
+          <p class="afirmacion-texto">Me siento cómoda sin relaciones emocionales cercanas. Para mí es muy importante sentirme independiente y autosuficiente, y prefiero no depender de otros ni que otros dependan de mí.</p>
+        </div>
+        <div class="selector-label">
+          <span>No me describe</span>
+          <span>Me describe totalmente</span>
+        </div>
+        <div class="selector-btns" id="btns-b">
+          <button class="selector-btn" data-val="1">1</button>
+          <button class="selector-btn" data-val="2">2</button>
+          <button class="selector-btn" data-val="3">3</button>
+          <button class="selector-btn" data-val="4">4</button>
+          <button class="selector-btn" data-val="5">5</button>
+          <button class="selector-btn" data-val="6">6</button>
+          <button class="selector-btn" data-val="7">7</button>
+        </div>
+        <div class="selector-valor" id="val-b">Selecciona un valor</div>
+      </div>
+
+      <!-- Afirmación C -->
+      <div class="afirmacion" data-id="c">
+        <div class="afirmacion-header">
+          <span class="afirmacion-letra">C</span>
+          <p class="afirmacion-texto">Quiero tener una intimidad emocional completa con los demás, pero con frecuencia encuentro que los otros se muestran reacios a acercarse tanto como yo quisiera. Me incomoda estar sin relaciones cercanas, pero me preocupa que los demás no me valoren tanto como yo los valoro a ellos.</p>
+        </div>
+        <div class="selector-label">
+          <span>No me describe</span>
+          <span>Me describe totalmente</span>
+        </div>
+        <div class="selector-btns" id="btns-c">
+          <button class="selector-btn" data-val="1">1</button>
+          <button class="selector-btn" data-val="2">2</button>
+          <button class="selector-btn" data-val="3">3</button>
+          <button class="selector-btn" data-val="4">4</button>
+          <button class="selector-btn" data-val="5">5</button>
+          <button class="selector-btn" data-val="6">6</button>
+          <button class="selector-btn" data-val="7">7</button>
+        </div>
+        <div class="selector-valor" id="val-c">Selecciona un valor</div>
+      </div>
+
+      <!-- Afirmación D -->
+      <div class="afirmacion" data-id="d">
+        <div class="afirmacion-header">
+          <span class="afirmacion-letra">D</span>
+          <p class="afirmacion-texto">Me siento incómoda al acercarme a los demás. Quiero relaciones emocionalmente cercanas, pero me resulta difícil confiar completamente en otros o depender de ellos. Me preocupa que me hagan daño si permito que otros se acerquen demasiado.</p>
+        </div>
+        <div class="selector-label">
+          <span>No me describe</span>
+          <span>Me describe totalmente</span>
+        </div>
+        <div class="selector-btns" id="btns-d">
+          <button class="selector-btn" data-val="1">1</button>
+          <button class="selector-btn" data-val="2">2</button>
+          <button class="selector-btn" data-val="3">3</button>
+          <button class="selector-btn" data-val="4">4</button>
+          <button class="selector-btn" data-val="5">5</button>
+          <button class="selector-btn" data-val="6">6</button>
+          <button class="selector-btn" data-val="7">7</button>
+        </div>
+        <div class="selector-valor" id="val-d">Selecciona un valor</div>
+      </div>
+
+      <!-- CTA -->
+      <div class="test-cta-wrap">
+        <button class="btn-ver-resultado" id="btn-resultado" onclick="calcularApego()">
+          Ver mi resultado →
+        </button>
+        <p class="test-aviso">Selecciona un valor en cada afirmación antes de continuar.</p>
+      </div>
+
+      <!-- RESULTADO -->
+      <div class="resultado-wrap" id="resultado-apego">
+        <span class="resultado-eyebrow" id="resultado-eyebrow">Tu resultado</span>
+        <h2 class="resultado-nombre" id="resultado-nombre"></h2>
+        <div class="resultado-body">
+          <p class="resultado-texto" id="resultado-texto"></p>
+          <p class="resultado-clave" id="resultado-clave"></p>
+          <p class="resultado-disclaimer">Este screening es orientativo. Con 4 afirmaciones no es posible determinar el estilo de apego. Para una evaluación precisa se requiere un proceso psicológico formal.</p>
+        </div>
+        <div class="resultado-cta">
+          <p id="resultado-cta-texto">Lo que viste en el test tiene más profundidad de lo que parece. Si quieres comprender más, el siguiente paso es una conversación.</p>
+          <a href="https://wa.me/18098481234?text=Hola%2C%20acab%C3%A9%20el%20test%20de%20apego%20y%20quisiera%20hablar%20sobre%20mi%20resultado" target="_blank" rel="noopener">
+            Agendar una cita →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER — NO MODIFICAR
+════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-name">Dra. Iris Bello Castillo</div>
+      <span class="logo-title">Psicóloga Clínica · Santo Domingo</span>
+      <p>Psicóloga clínica especializada en trauma, patrones relacionales y toma de decisiones. +15 años de experiencia clínica en RD y España.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/drairisbello" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/drairisbello" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://wa.me/18098481234" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.437-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.718-1.295-.364-.133-.63-.199-.895.199-.265.398-1.03 1.295-1.262 1.561-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.973-1.183-1.054-1.981-2.356-2.213-2.754-.232-.398-.025-.614.175-.812.18-.178.398-.465.597-.698.2-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.2-.895-2.158-1.227-2.955-.323-.775-.65-.67-.895-.683l-.763-.013c-.265 0-.697.1-1.062.498-.364.398-1.393 1.362-1.393 3.32 0 1.957 1.426 3.848 1.625 4.114.199.265 2.807 4.285 6.802 6.01.951.41 1.693.655 2.271.839.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="terapia.html">Terapia Individual</a></li>
+        <li><a href="u-relacion.html">U · En Relación</a></li>
+        <li><a href="u-contigo.html">U · Contigo</a></li>
+        <li><a href="u-verse.html">U · Verse</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explorar</h4>
+      <ul>
+        <li><a href="conoceme.html">Quién soy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="recursos.html">Recursos gratuitos</a></li>
+        <li><a href="espejo-del-camerino.html">El Espejo del Camerino</a></li>
+        <li><a href="test-apego.html">Test del Apego</a></li>
+        <li><a href="faq.html">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="contacto.html">Agendar consulta</a></li>
+        <li><a href="colaboraciones.html">Colaboraciones</a></li>
+        <li><a href="https://wa.me/18098481234" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+      <p class="footer-location">Santo Domingo · República Dominicana</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Dra. Iris Bello Castillo · Psicóloga Clínica</span>
+    <span><a href="index.html" style="color:inherit; text-decoration:none;">irisbello.com</a></span>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     BOTÓN FLOTANTE WHATSAPP — NO MODIFICAR
+════════════════════════════════════════════════════════════ -->
+<a href="https://wa.me/18098481234?text=Hola%21%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20la%20Dra."
+  target="_blank" rel="noopener noreferrer" class="wa-fab" aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="28" height="28" aria-hidden="true">
+    <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.437-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.853l-.486-.29-5.01 1.194 1.235-4.874-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.718-1.295-.364-.133-.63-.199-.895.199-.265.398-1.03 1.295-1.262 1.561-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.973-1.183-1.054-1.981-2.356-2.213-2.754-.232-.398-.025-.614.175-.812.18-.178.398-.465.597-.698.2-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.2-.895-2.158-1.227-2.955-.323-.775-.65-.67-.895-.683l-.763-.013c-.265 0-.697.1-1.062.498-.364.398-1.393 1.362-1.393 3.32 0 1.957 1.426 3.848 1.625 4.114.199.265 2.807 4.285 6.802 6.01.951.41 1.693.655 2.271.839.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"></path>
+  </svg>
+</a>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS — NO MODIFICAR
+════════════════════════════════════════════════════════════ -->
+<script>
+  // ── Test de apego ─────────────────────────────────────────
+  var respuestas = { a: null, b: null, c: null, d: null };
+
+  document.querySelectorAll('.selector-btns').forEach(function(grupo) {
+    var id = grupo.id.replace('btns-', '');
+    grupo.querySelectorAll('.selector-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        // Limpiar selección previa
+        grupo.querySelectorAll('.selector-btn').forEach(function(b) {
+          b.classList.remove('selected', 'selected-high');
+        });
+        // Marcar seleccionado
+        var val = parseInt(btn.getAttribute('data-val'));
+        btn.classList.add(val >= 5 ? 'selected-high' : 'selected');
+        respuestas[id] = val;
+        // Actualizar texto de valor
+        var textos = ['', 'No me describe en absoluto', 'Poco', 'Algo', 'Neutral', 'Bastante', 'Mucho', 'Me describe totalmente'];
+        var valorEl = document.getElementById('val-' + id);
+        if (valorEl) valorEl.textContent = val + ' — ' + textos[val];
+      });
+    });
+  });
+
+  function calcularApego() {
+    if (respuestas.a === null || respuestas.b === null || respuestas.c === null || respuestas.d === null) {
+      document.querySelector('.test-aviso').style.color = 'var(--rosa-antiguo)';
+      document.querySelector('.test-aviso').style.fontWeight = '500';
+      return;
+    }
+
+    var estilos = {
+      a: {
+        nombre: 'Apego seguro',
+        eyebrow: 'Se acerca al estilo',
+        texto: 'Tu resultado se acerca al apego seguro. Tiendes a sentirte cómoda con la cercanía emocional. Puedes depender de otros y que otros dependan de ti sin que eso active alarma. Las relaciones no se sienten como una amenaza ni como una necesidad urgente.',
+        clave: 'En ti, el trabajo no suele estar en reparar, sino en elegir mejor a quién y desde dónde.'
+      },
+      b: {
+        nombre: 'Apego evitativo',
+        eyebrow: 'Se acerca al estilo',
+        texto: 'Tu resultado se acerca al apego evitativo. Tiendes a priorizar la autonomía y la autosuficiencia. La cercanía emocional puede sentirse incómoda o innecesaria. No es que no necesites a otros, sino que aprendiste a no contar demasiado con ellos.',
+        clave: 'Aquí lo importante es aprender a permitir conexión sin que se sienta como invasión.'
+      },
+      c: {
+        nombre: 'Apego ansioso',
+        eyebrow: 'Se acerca al estilo',
+        texto: 'Tu resultado se acerca al apego ansioso. Quieres conexión profunda, pero temes que los demás no te valoren tanto como tú a ellos. Eso puede generar hipervigilancia en los vínculos: leer señales, anticipar abandono, intensificar el contacto para reducir la ansiedad.',
+        clave: 'Aquí lo importante es aprender a no leer pérdida en cada cambio de ritmo del otro.'
+      },
+      d: {
+        nombre: 'Apego temeroso',
+        eyebrow: 'Se acerca al estilo',
+        texto: 'Tu resultado se acerca al apego temeroso. Quieres cercanía pero la cercanía también da miedo. El vínculo es al mismo tiempo lo que necesitas y lo que puede hacerte daño. Eso puede generar patrones contradictorios: acercarse y alejarse, confiar y desconfiar, sin un hilo conductor claro.',
+        clave: 'Aquí lo importante es construir cercanía sin sentir que quedas demasiado expuesta.'
+      }
+    };
+
+    // Determinar el estilo dominante por mayor puntuación
+    var max = -1, dominante = 'a';
+    Object.keys(respuestas).forEach(function(k) {
+      if (respuestas[k] > max) { max = respuestas[k]; dominante = k; }
+    });
+
+    // Detectar empate
+    var empatados = Object.keys(respuestas).filter(function(k) {
+      return respuestas[k] === max;
+    });
+
+    var wrap = document.getElementById('resultado-apego');
+
+    if (empatados.length > 1) {
+      var nombresEmpatados = empatados.map(function(k) { return estilos[k].nombre; }).join(' y ');
+      document.getElementById('resultado-eyebrow').textContent = 'Resultado distribuido';
+      document.getElementById('resultado-nombre').textContent = 'Más de un estilo predominante';
+      document.getElementById('resultado-texto').textContent = 'Tus puntuaciones más altas están distribuidas entre más de un estilo (' + nombresEmpatados + '). Esto es frecuente: los estilos de apego no son categorías rígidas ni mutuamente excluyentes.';
+      document.getElementById('resultado-clave').textContent = 'Para determinar cuál predomina en tu caso, se recomienda una evaluación psicológica formal.';
+    } else {
+      var estilo = estilos[dominante];
+      document.getElementById('resultado-eyebrow').textContent = estilo.eyebrow;
+      document.getElementById('resultado-nombre').textContent = estilo.nombre;
+      document.getElementById('resultado-texto').textContent = estilo.texto;
+      document.getElementById('resultado-clave').textContent = estilo.clave;
+    }
+
+    wrap.classList.add('visible');
+    setTimeout(function() {
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  // ── Dropdown desktop ──────────────────────────────────────
+  function initDropdowns() {
+    document.querySelectorAll('.nav-has-dropdown').forEach(function(item) {
+      var t;
+      item.addEventListener('mouseenter', function() {
+        clearTimeout(t);
+        item.classList.add('open');
+      });
+      item.addEventListener('mouseleave', function() {
+        t = setTimeout(function() { item.classList.remove('open'); }, 220);
+      });
+      var dd = item.querySelector('.nav-dropdown');
+      if (dd) {
+        dd.addEventListener('mouseenter', function() { clearTimeout(t); });
+        dd.addEventListener('mouseleave', function() {
+          t = setTimeout(function() { item.classList.remove('open'); }, 220);
+        });
+      }
+    });
+  }
+
+  // ── Menú hamburguesa móvil ────────────────────────────────
+  (function() {
+    var btn  = document.querySelector('.nav-hamburger');
+    var menu = document.querySelector('.nav-mobile-menu');
+
+    if (btn && menu) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        btn.classList.toggle('open');
+        menu.classList.toggle('open');
+        document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+      });
+    }
+
+    // Handle all mobile submenus (Servicios, Recursos, etc.)
+    document.querySelectorAll('.nav-mobile-servicios > a').forEach(function(trigger) {
+      var sub = trigger.nextElementSibling;
+      if (sub && sub.classList.contains('nav-mobile-sub')) {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.nav-mobile-sub.open').forEach(function(openSub) {
+            if (openSub !== sub) {
+              openSub.classList.remove('open');
+              var otherArrow = openSub.previousElementSibling && openSub.previousElementSibling.querySelector('.arrow');
+              if (otherArrow) otherArrow.textContent = '▾';
+            }
+          });
+          sub.classList.toggle('open');
+          var arrow = trigger.querySelector('.arrow');
+          if (arrow) arrow.textContent = sub.classList.contains('open') ? '▴' : '▾';
+        });
+      }
+    });
+
+    document.addEventListener('click', function(e) {
+      if (menu && menu.classList.contains('open') &&
+          !menu.contains(e.target) && btn && !btn.contains(e.target)) {
+        btn.classList.remove('open');
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  })();
+
+  // ── Marca el ítem activo según la URL ─────────────────────
+  (function() {
+    var page = window.location.pathname.split('/').pop() || 'index.html';
+    var recursosPages = ['recursos.html', 'espejo-del-camerino.html', 'test-apego.html'];
+    document.querySelectorAll('[data-page]').forEach(function(el) {
+      var href = (el.getAttribute('href') || '').split('/').pop();
+      if (href === page) {
+        el.classList.add('nav-active');
+      }
+      if (el.getAttribute('data-page') === 'recursos' && recursosPages.indexOf(page) !== -1) {
+        el.classList.add('nav-active');
+      }
+    });
+  })();
+
+  // ── Reveal on scroll ──────────────────────────────────────
+  (function() {
+    function check() {
+      document.querySelectorAll('.reveal:not(.visible), .afirmacion:not(.visible)').forEach(function(el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  })();
+
+  // ── Init ──────────────────────────────────────────────────
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDropdowns);
+  } else {
+    initDropdowns();
+  }
+
+  // -- Ajuste dinamico del nav al hero --
+  (function() {
+    function adjustNav() {
+      var nav = document.querySelector("nav");
+      if (!nav) return;
+      var h = Math.round(nav.getBoundingClientRect().height);
+      var main = document.querySelector("main");
+      if (main) main.style.paddingTop = h + "px";
+      var hero = document.querySelector(".hero-fullvh");
+      if (hero) {
+        hero.style.height = "calc(100vh - " + h + "px)";
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", adjustNav);
+    } else { adjustNav(); }
+    window.addEventListener("resize", adjustNav);
+  })();
+</script>
+
+</body>
+</html>
