@@ -1175,6 +1175,93 @@
     .beneficio__num { font-size: 28px; }
   }
 
+
+  /* ── PARA QUIÉN ── */
+  #paraquien { background: var(--ivory); }
+
+  .paraquien__lista {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .paraquien__item {
+    font-family: var(--serif);
+    font-size: clamp(17px, 2vw, 21px);
+    font-weight: 300;
+    color: var(--ink);
+    padding: 20px 24px;
+    border-left: 2px solid transparent;
+    background: var(--white);
+    line-height: 1.4;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .paraquien__item:hover {
+    border-left-color: var(--rosa);
+    background: var(--ivory);
+  }
+
+  /* ── CONSECUENCIAS ── */
+  #consecuencias { background: var(--ink); color: var(--white); }
+  #consecuencias + section { border-top: none; }
+
+  .consecuencias__titulo {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: 16px;
+    margin-bottom: 48px;
+  }
+
+
+
+  .consecuencias__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .consecuencia__item {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    line-height: 1.5;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .consecuencia__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--rosa);
+    border-radius: 50%;
+  }
+
+  .consecuencias__remate {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    line-height: 1.5;
+  }
+
+  .consecuencias__remate br + * { color: var(--grey-light); }
+
 </style>
 </head>
 <body>
@@ -1207,8 +1294,7 @@ Reservar mi cupo — $120
       </h1>
       <span style="display:block; width:40px; height:1px; background:var(--rosa); margin-bottom:20px; opacity:0; animation: fadeUp 1s ease 0.4s forwards;"></span>
       <p class="hero__sub">
-        Un taller vivencial de 3 horas donde identificas el patrón que repites,
-        entiendes por qué ocurre y sales con un primer paso claro.
+        Aprende a identificar y empezar a romper los patrones que repites en tus relaciones en solo 3 horas.
       </p>
     </div>
     <!-- DERECHA -->
@@ -1284,6 +1370,24 @@ Reservar mi cupo — $120
       <p class="problema__frase">&ldquo;Doy mucho y no recibo igual.&rdquo;</p>
       <p class="problema__frase">&ldquo;Me alejo antes de que me dejen.&rdquo;</p>
       <p class="problema__frase">&ldquo;No entiendo por qué me sigue pasando.&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PARA QUIÉN
+════════════════════════════════════════ -->
+<section id="paraquien">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Esto es para ti si</span>
+      <div class="paraquien__lista">
+        <div class="paraquien__item">Sientes que repites el mismo tipo de relación aunque cambies de persona.</div>
+        <div class="paraquien__item">Sabes que algo no te conviene, pero vuelves de todas formas.</div>
+        <div class="paraquien__item">Has trabajado en ti — y sigues sin entender por qué esto sigue pasando.</div>
+        <div class="paraquien__item">Te cuesta elegir con claridad cuando hay vínculos de por medio.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1523,6 +1627,27 @@ Reservar mi cupo — $120
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONSECUENCIAS
+════════════════════════════════════════ -->
+<section id="consecuencias">
+  <div class="container">
+    <div class="reveal">
+      <span class="label">Lo que sabemos clínicamente</span>
+      <h2 class="consecuencias__titulo">El patrón no cambia porque lo entiendas.<br>Cambia porque lo reconoces.</h2>
+    </div>
+    <div class="consecuencias__lista reveal reveal-delay-1">
+      <div class="consecuencia__item">El patrón relacional no cambia con comprensión intelectual — cambia cuando se reconoce en tiempo real.</div>
+      <div class="consecuencia__item">Puedes saber exactamente qué haces y seguir haciéndolo, porque el saber y el ver son procesos distintos.</div>
+      <div class="consecuencia__item">El cambio empieza cuando el patrón tiene nombre, lógica y un momento concreto de reconocimiento.</div>
+    </div>
+    <p class="consecuencias__remate reveal reveal-delay-2">
+      Eso es lo que ocurre en U·VERSE.<br>
+      No más análisis. Reconocimiento real.
+    </p>
   </div>
 </section>
 
