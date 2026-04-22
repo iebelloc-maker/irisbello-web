@@ -29,20 +29,26 @@
     :root {
       --azul-tinta:   #162435;
       --rosa-antiguo: #B5707A;
+      --rosa-claro:   #d9a7ac;
       --ambar-dorado: #C4963A;
       --blanco:       #FFFFFF;
       --medianoche:   #0B1520;
       --fondo-suave:  #F7F4F0;
       --texto-oscuro: #1a2530;
       --texto-medio:  #4a5568;
+      --texto-suave:  #6b7280;
       --borde-sutil:  #e8e4de;
+      --borde-claro:  #f0ece6;
       --font-serif:   'DM Serif Display', Georgia, serif;
       --font-sans:    'Jost', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px;
+    }
 
     body {
       font-family: var(--font-sans);
@@ -55,58 +61,81 @@
     }
 
     .contenedor {
-      max-width: 720px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 56px 32px 100px;
+    }
+
+    @media (max-width: 640px) {
+      .contenedor {
+        padding: 32px 20px 80px;
+      }
     }
 
     .encabezado {
       border-bottom: 1px solid var(--borde-sutil);
-      padding-bottom: 24px;
-      margin-bottom: 48px;
+      padding-bottom: 28px;
+      margin-bottom: 56px;
     }
 
     .encabezado__marca {
       font-family: var(--font-serif);
-      font-size: 20px;
+      font-size: 22px;
       color: var(--azul-tinta);
       letter-spacing: 0.02em;
     }
 
     .encabezado__instrumento {
       font-family: var(--font-sans);
-      font-size: 12px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--ambar-dorado);
       font-weight: 500;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
-    /* ═══ PANTALLA 1 — INTRO ═══ */
+    /* ═══════════════════════════════════════════════════════
+       PANTALLA 1 — INTRO
+    ═══════════════════════════════════════════════════════ */
 
     .intro__titulo {
       font-family: var(--font-serif);
-      font-size: clamp(32px, 5vw, 44px);
+      font-size: clamp(36px, 5.5vw, 52px);
       line-height: 1.1;
       color: var(--azul-tinta);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       letter-spacing: -0.01em;
     }
 
     .intro__bajada {
-      font-size: 17px;
+      font-size: 19px;
       color: var(--texto-medio);
+      margin-bottom: 48px;
+      max-width: 620px;
+      line-height: 1.5;
+    }
+
+    .instruccion-oficial {
+      background: var(--fondo-suave);
+      border-left: 3px solid var(--ambar-dorado);
+      padding: 24px 28px;
       margin-bottom: 40px;
-      max-width: 560px;
+      font-size: 16px;
+      color: var(--texto-medio);
+      line-height: 1.7;
+    }
+
+    .instruccion-oficial p + p {
+      margin-top: 14px;
     }
 
     .consentimiento {
       background: var(--fondo-suave);
       border-left: 3px solid var(--ambar-dorado);
-      padding: 24px 28px;
-      margin-bottom: 40px;
-      font-size: 14px;
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      font-size: 16px;
       line-height: 1.7;
       color: var(--texto-medio);
     }
@@ -116,33 +145,37 @@
       font-weight: 500;
     }
 
-    .consentimiento p + p { margin-top: 12px; }
+    .consentimiento p + p { margin-top: 14px; }
+
+    /* ═══════════════════════════════════════════════════════
+       FORMULARIO DE DATOS
+    ═══════════════════════════════════════════════════════ */
 
     .formulario__campo {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .formulario__etiqueta {
       display: block;
-      font-size: 13px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--texto-medio);
       font-weight: 500;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .formulario__input,
     .formulario__select {
       width: 100%;
-      padding: 14px 16px;
+      padding: 18px 20px;
       font-family: var(--font-sans);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 300;
       color: var(--azul-tinta);
       background: var(--blanco);
       border: 1px solid var(--borde-sutil);
-      border-radius: 2px;
+      border-radius: 3px;
       transition: border-color 0.2s ease;
     }
 
@@ -156,52 +189,75 @@
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23162435' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 16px center;
-      padding-right: 44px;
+      background-position: right 20px center;
+      padding-right: 48px;
+      cursor: pointer;
+    }
+
+    .fila-dos {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .fila-dos {
+        grid-template-columns: 1fr;
+      }
     }
 
     .checkbox-grupo {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      margin: 32px 0;
+      gap: 14px;
+      margin: 36px 0;
     }
 
     .checkbox-grupo input[type="checkbox"] {
       margin-top: 4px;
       flex-shrink: 0;
       accent-color: var(--ambar-dorado);
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
     }
 
     .checkbox-grupo label {
-      font-size: 14px;
+      font-size: 16px;
       color: var(--texto-medio);
       line-height: 1.6;
       cursor: pointer;
     }
 
-    /* ═══ BOTONES ═══ */
+    /* ═══════════════════════════════════════════════════════
+       BOTONES
+    ═══════════════════════════════════════════════════════ */
 
     .boton {
-      display: inline-block;
-      padding: 16px 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 40px;
       font-family: var(--font-sans);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--blanco);
       background: var(--azul-tinta);
       border: none;
-      border-radius: 2px;
+      border-radius: 3px;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.1s ease;
+      min-height: 56px;
     }
 
     .boton:hover:not(:disabled) {
       background: var(--medianoche);
+    }
+
+    .boton:active:not(:disabled) {
+      transform: translateY(1px);
     }
 
     .boton:disabled {
@@ -222,252 +278,324 @@
 
     .botonera {
       display: flex;
-      gap: 12px;
-      margin-top: 40px;
+      gap: 14px;
+      margin-top: 48px;
       flex-wrap: wrap;
     }
 
-    /* ═══ PANTALLAS DE ITEMS ═══ */
+    @media (max-width: 480px) {
+      .boton {
+        width: 100%;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PANTALLAS DE ÍTEMS
+    ═══════════════════════════════════════════════════════ */
 
     .progreso {
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .progreso__texto {
-      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--texto-medio);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       font-weight: 500;
     }
 
+    .progreso__contador {
+      color: var(--ambar-dorado);
+    }
+
     .progreso__barra {
-      height: 2px;
+      height: 3px;
       background: var(--borde-sutil);
       overflow: hidden;
+      border-radius: 2px;
     }
 
     .progreso__relleno {
       height: 100%;
       background: var(--ambar-dorado);
-      transition: width 0.3s ease;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 2px;
     }
 
     .instruccion {
       font-family: var(--font-serif);
-      font-size: 24px;
+      font-size: 28px;
       line-height: 1.3;
       color: var(--azul-tinta);
-      padding: 24px 0;
+      padding-bottom: 32px;
+      margin-bottom: 32px;
       border-bottom: 1px solid var(--borde-sutil);
-      margin-bottom: 8px;
     }
 
-    .escala-encabezado {
-      display: grid;
-      grid-template-columns: 1fr repeat(5, 56px);
-      gap: 4px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--borde-sutil);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--texto-medio);
-      position: sticky;
-      top: 0;
-      background: var(--blanco);
-      z-index: 10;
+    .instruccion em {
+      color: var(--rosa-antiguo);
+      font-style: italic;
     }
 
-    .escala-encabezado__titulo {
-      font-weight: 500;
-    }
-
-    .escala-encabezado__opcion {
-      text-align: center;
-      font-weight: 500;
-      line-height: 1.2;
-    }
+    /* ═══ ÍTEM INDIVIDUAL ═══ */
 
     .item {
-      display: grid;
-      grid-template-columns: 1fr repeat(5, 56px);
-      gap: 4px;
-      align-items: center;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--borde-sutil);
+      padding: 32px 0;
+      border-bottom: 1px solid var(--borde-claro);
+      transition: background 0.3s ease;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .item--incompleto {
+      background: rgba(181, 112, 122, 0.08);
+      margin: 0 -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .item--incompleto::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      background: var(--rosa-antiguo);
+      border-radius: 2px;
+    }
+
+    .item--incompleto .item__numero {
+      color: var(--rosa-antiguo);
+    }
+
+    .item__cabecera {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
     .item__numero {
       font-family: var(--font-serif);
-      font-size: 14px;
+      font-size: 18px;
       color: var(--ambar-dorado);
-      margin-right: 8px;
+      flex-shrink: 0;
+      min-width: 32px;
     }
 
     .item__texto {
-      font-size: 15px;
+      font-size: 19px;
       color: var(--azul-tinta);
-      line-height: 1.5;
+      line-height: 1.45;
+      font-weight: 400;
     }
 
-    .item__opcion {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    /* ═══ BOTONES DE RESPUESTA ═══ */
 
-    .item__opcion input[type="radio"] {
-      appearance: none;
-      width: 22px;
-      height: 22px;
-      border: 1.5px solid var(--borde-sutil);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      background: var(--blanco);
+    .opciones {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 8px;
     }
-
-    .item__opcion input[type="radio"]:hover {
-      border-color: var(--rosa-antiguo);
-    }
-
-    .item__opcion input[type="radio"]:checked {
-      border-color: var(--ambar-dorado);
-      background: var(--ambar-dorado);
-      box-shadow: inset 0 0 0 3px var(--blanco);
-    }
-
-    .item--incompleto {
-      background: rgba(181, 112, 122, 0.04);
-    }
-
-    /* ═══ RESPONSIVE ITEMS ═══ */
 
     @media (max-width: 640px) {
-      .contenedor { padding: 32px 16px 60px; }
-
-      .escala-encabezado {
-        display: none;
-      }
-
-      .item {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 20px 0;
-      }
-
-      .item__opciones-movil {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 6px;
-      }
-
-      .item__opcion-movil {
-        position: relative;
-      }
-
-      .item__opcion-movil input[type="radio"] {
-        appearance: none;
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        cursor: pointer;
-        z-index: 2;
-      }
-
-      .item__opcion-movil label {
-        display: block;
-        padding: 10px 4px;
-        text-align: center;
-        border: 1px solid var(--borde-sutil);
-        border-radius: 2px;
-        font-size: 11px;
-        line-height: 1.2;
-        color: var(--texto-medio);
-        transition: all 0.15s ease;
-        cursor: pointer;
-      }
-
-      .item__opcion-movil label span.num {
-        display: block;
-        font-family: var(--font-serif);
-        font-size: 18px;
-        color: var(--azul-tinta);
-        margin-bottom: 2px;
-      }
-
-      .item__opcion-movil input[type="radio"]:checked + label {
-        border-color: var(--ambar-dorado);
-        background: var(--ambar-dorado);
-        color: var(--blanco);
-      }
-
-      .item__opcion-movil input[type="radio"]:checked + label span.num {
-        color: var(--blanco);
-      }
-
-      .escala-encabezado-movil {
-        display: none;
+      .opciones {
+        gap: 8px;
       }
     }
 
-    @media (min-width: 641px) {
-      .item__opciones-movil { display: contents; }
-      .item__opcion-movil label { display: none; }
+    .opcion {
+      position: relative;
     }
 
-    /* ═══ PANTALLA FINAL ═══ */
+    .opcion input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .opcion label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 16px 8px;
+      min-height: 76px;
+      background: var(--blanco);
+      border: 1.5px solid var(--borde-sutil);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+      user-select: none;
+    }
+
+    .opcion label:hover {
+      border-color: var(--rosa-claro);
+      background: rgba(181, 112, 122, 0.02);
+    }
+
+    .opcion__numero {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--azul-tinta);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .opcion__etiqueta {
+      font-size: 11px;
+      color: var(--texto-medio);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 480px) {
+      .opcion label {
+        min-height: 72px;
+        padding: 12px 4px;
+      }
+      .opcion__numero {
+        font-size: 22px;
+      }
+      .opcion__etiqueta {
+        font-size: 10px;
+        letter-spacing: 0.04em;
+      }
+    }
+
+    .opcion input[type="radio"]:checked + label {
+      border-color: var(--ambar-dorado);
+      background: var(--ambar-dorado);
+    }
+
+    .opcion input[type="radio"]:checked + label .opcion__numero {
+      color: var(--blanco);
+    }
+
+    .opcion input[type="radio"]:checked + label .opcion__etiqueta {
+      color: var(--blanco);
+    }
+
+    .opcion input[type="radio"]:focus-visible + label {
+      outline: 2px solid var(--ambar-dorado);
+      outline-offset: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PANTALLA FINAL
+    ═══════════════════════════════════════════════════════ */
 
     .final {
       text-align: center;
-      padding: 80px 20px;
+      padding: 96px 20px 40px;
     }
 
     .final__simbolo {
       font-family: var(--font-serif);
-      font-size: 64px;
+      font-size: 80px;
       color: var(--ambar-dorado);
       margin-bottom: 24px;
+      line-height: 1;
     }
 
     .final__titulo {
       font-family: var(--font-serif);
-      font-size: 36px;
+      font-size: 40px;
       color: var(--azul-tinta);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
     }
 
     .final__texto {
-      font-size: 17px;
+      font-size: 19px;
       color: var(--texto-medio);
-      max-width: 480px;
+      max-width: 520px;
       margin: 0 auto;
+      line-height: 1.5;
     }
 
-    /* ═══ ESTADOS ═══ */
+    /* ═══════════════════════════════════════════════════════
+       ESTADOS
+    ═══════════════════════════════════════════════════════ */
 
     .mensaje-error {
       background: rgba(181, 112, 122, 0.1);
       border-left: 3px solid var(--rosa-antiguo);
-      padding: 16px 20px;
-      margin: 24px 0;
-      font-size: 14px;
+      padding: 18px 24px;
+      margin: 28px 0;
+      font-size: 15px;
       color: var(--rosa-antiguo);
+      border-radius: 2px;
+    }
+
+    .mensaje-error--acciones {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .mensaje-error__boton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .mensaje-error__boton--whatsapp {
+      background: var(--rosa-antiguo);
+      color: var(--blanco);
+    }
+
+    .mensaje-error__boton--whatsapp:hover {
+      background: #a05f68;
+    }
+
+    .mensaje-error__boton--inicio {
+      background: transparent;
+      color: var(--rosa-antiguo);
+      border-color: var(--rosa-antiguo);
+    }
+
+    .mensaje-error__boton--inicio:hover {
+      background: var(--rosa-antiguo);
+      color: var(--blanco);
     }
 
     .cargando {
       display: inline-block;
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       border: 2px solid rgba(255,255,255,0.3);
       border-top-color: var(--blanco);
       border-radius: 50%;
       animation: girar 0.7s linear infinite;
-      margin-right: 8px;
+      margin-right: 10px;
       vertical-align: middle;
     }
 
@@ -477,16 +605,34 @@
 
     .oculto { display: none !important; }
 
-    /* ═══ PIE ═══ */
+    /* Fade-in al cambiar pantalla */
+    .pantalla-activa {
+      animation: aparecer 0.4s ease;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PIE
+    ═══════════════════════════════════════════════════════ */
 
     .pie {
-      margin-top: 80px;
-      padding-top: 24px;
+      margin-top: 96px;
+      padding-top: 28px;
       border-top: 1px solid var(--borde-sutil);
-      font-size: 11px;
-      color: var(--texto-medio);
+      font-size: 12px;
+      color: var(--texto-suave);
       line-height: 1.6;
       text-align: center;
+    }
+
+    .pie__traduccion {
+      margin-top: 10px;
+      font-style: italic;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -502,12 +648,8 @@
   <!-- ═══════════════════════════════════════════════════════
        PANTALLA 1 — INTRODUCCIÓN Y DATOS
   ═══════════════════════════════════════════════════════ -->
-  <section id="pantalla-intro">
+  <section id="pantalla-intro" class="pantalla-activa">
     <h1 class="intro__titulo">Inventario de Problemas Interpersonales</h1>
-    <p class="intro__bajada">
-      Este instrumento forma parte de tu proceso de evaluación clínica.
-      Toma entre 15 y 20 minutos. No hay respuestas correctas ni incorrectas.
-    </p>
 
     <div class="consentimiento">
       <p><strong>Consentimiento informado.</strong> Al completar este inventario, tus respuestas serán enviadas directamente a la Dra. Iris Bello Castillo para su interpretación clínica. Esta prueba forma parte de un proceso profesional de evaluación y no constituye un diagnóstico por sí sola.</p>
@@ -521,14 +663,21 @@
         <input type="text" id="nombre" name="nombre" class="formulario__input" required autocomplete="name">
       </div>
 
-      <div class="formulario__campo">
-        <label class="formulario__etiqueta" for="sexo">Sexo</label>
-        <select id="sexo" name="sexo" class="formulario__select" required>
-          <option value="">Selecciona una opción</option>
-          <option value="Femenino">Femenino</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Prefiero no indicar">Prefiero no indicar</option>
-        </select>
+      <div class="fila-dos">
+        <div class="formulario__campo">
+          <label class="formulario__etiqueta" for="sexo">Sexo</label>
+          <select id="sexo" name="sexo" class="formulario__select" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Prefiero no indicar">Prefiero no indicar</option>
+          </select>
+        </div>
+
+        <div class="formulario__campo">
+          <label class="formulario__etiqueta" for="edad">Edad</label>
+          <input type="number" id="edad" name="edad" class="formulario__input" required min="16" max="99" inputmode="numeric">
+        </div>
       </div>
 
       <div class="formulario__campo">
@@ -550,72 +699,36 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════
-       PANTALLA 2 — ÍTEMS BLOQUE A (1-39)
+       PANTALLA DE ÍTEMS (dinámica, misma estructura para A y B)
   ═══════════════════════════════════════════════════════ -->
-  <section id="pantalla-bloque-a" class="oculto">
+  <section id="pantalla-items" class="oculto">
     <div class="progreso">
-      <div class="progreso__texto">Bloque 1 de 2 · 39 ítems</div>
-      <div class="progreso__barra"><div class="progreso__relleno" style="width: 33%;"></div></div>
+      <div class="progreso__texto">
+        <span id="progreso-etiqueta">Parte 1 de 9</span>
+        <span class="progreso__contador" id="progreso-contador">0 de 64 respondidos</span>
+      </div>
+      <div class="progreso__barra"><div class="progreso__relleno" id="progreso-relleno" style="width: 0%;"></div></div>
     </div>
 
-    <div class="instruccion">
-      A continuación se describen cosas que puede encontrar difíciles de hacer con los demás.<br>
-      <em>Es difícil para mí…</em>
+    <div class="instruccion-oficial oculto" id="instruccion-oficial">
+      <p>Las personas cuentan que tienen problemas cuando se relacionan con los demás. Por favor lea la lista de afirmaciones que viene a continuación y para cada una de ellas considere si ha sido un problema con respecto a cualquier persona importante en su vida. A continuación señale el grado de alteración que ha supuesto para usted.</p>
+      <p>A continuación se describen cosas que puede encontrar difíciles de hacer con los demás.</p>
     </div>
 
-    <div class="escala-encabezado">
-      <div class="escala-encabezado__titulo"></div>
-      <div class="escala-encabezado__opcion">0<br>Nada<br>difícil</div>
-      <div class="escala-encabezado__opcion">1<br>Un poco<br>difícil</div>
-      <div class="escala-encabezado__opcion">2<br>Algo<br>difícil</div>
-      <div class="escala-encabezado__opcion">3<br>Bastante<br>difícil</div>
-      <div class="escala-encabezado__opcion">4<br>Muy<br>difícil</div>
-    </div>
+    <div class="instruccion" id="instruccion"></div>
 
-    <div id="contenedor-items-a"></div>
+    <div id="contenedor-items"></div>
 
-    <div id="error-bloque-a" class="mensaje-error oculto"></div>
+    <div id="error-items" class="mensaje-error oculto"></div>
 
     <div class="botonera">
-      <button type="button" class="boton boton--secundario" id="atras-a">Atrás</button>
-      <button type="button" class="boton" id="siguiente-a">Continuar</button>
+      <button type="button" class="boton boton--secundario" id="btn-atras">Atrás</button>
+      <button type="button" class="boton" id="btn-siguiente">Continuar</button>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════
-       PANTALLA 3 — ÍTEMS BLOQUE B (40-64)
-  ═══════════════════════════════════════════════════════ -->
-  <section id="pantalla-bloque-b" class="oculto">
-    <div class="progreso">
-      <div class="progreso__texto">Bloque 2 de 2 · 25 ítems</div>
-      <div class="progreso__barra"><div class="progreso__relleno" style="width: 66%;"></div></div>
-    </div>
-
-    <div class="instruccion">
-      Hago demasiado lo siguiente:
-    </div>
-
-    <div class="escala-encabezado">
-      <div class="escala-encabezado__titulo"></div>
-      <div class="escala-encabezado__opcion">0<br>Nada</div>
-      <div class="escala-encabezado__opcion">1<br>Un poco</div>
-      <div class="escala-encabezado__opcion">2<br>Algo</div>
-      <div class="escala-encabezado__opcion">3<br>Bastante</div>
-      <div class="escala-encabezado__opcion">4<br>Mucho</div>
-    </div>
-
-    <div id="contenedor-items-b"></div>
-
-    <div id="error-bloque-b" class="mensaje-error oculto"></div>
-
-    <div class="botonera">
-      <button type="button" class="boton boton--secundario" id="atras-b">Atrás</button>
-      <button type="button" class="boton" id="enviar">Enviar respuestas</button>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       PANTALLA 4 — CONFIRMACIÓN
+       PANTALLA FINAL
   ═══════════════════════════════════════════════════════ -->
   <section id="pantalla-final" class="oculto">
     <div class="final">
@@ -633,13 +746,14 @@
     Copyright © 2003 by Leonard M. Horowitz, Lynn E. Alden, Jerry S. Wiggins and Aaron L. Pincus.<br>
     All rights reserved. Published by Mind Garden, Inc. www.mindgarden.com<br>
     For use by Iris Bello Castillo only.</p>
+    <p class="pie__traduccion">Inventario de Problemas Interpersonales. Todos los derechos reservados. Publicado por Mind Garden, Inc. Uso exclusivo de Iris Bello Castillo.</p>
   </footer>
 
 </div>
 
 <script>
 // ═══════════════════════════════════════════════════════
-// ÍTEMS DEL IIP-64 (versión en español)
+// ÍTEMS DEL IIP-64
 // ═══════════════════════════════════════════════════════
 
 const ITEMS_BLOQUE_A = [
@@ -716,9 +830,28 @@ const ETIQUETAS_A = ["Nada difícil", "Un poco difícil", "Algo difícil", "Bast
 const ETIQUETAS_B = ["Nada", "Un poco", "Algo", "Bastante", "Mucho"];
 
 // ═══════════════════════════════════════════════════════
-// CONFIGURACIÓN — PEGAR AQUÍ LA URL DEL APPS SCRIPT
+// CONFIGURACIÓN
 // ═══════════════════════════════════════════════════════
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5huRMn3EcsN2Otlb7uQuDLOowOqWPeRkXVqX4ZAp6ohQI_x2h-araBrEAeTnIYj-u/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwY2N7_NX1tx0W_LlxuvyrahBa-ZNySK4fYCrPTWqOsGZMYQozuX4ONjLMLPxMb_l1c/exec";
+
+// ═══════════════════════════════════════════════════════
+// DISTRIBUCIÓN DE PANTALLAS (grupos balanceados)
+// Bloque A (39 ítems): 5 pantallas de 8-8-8-8-7
+// Bloque B (25 ítems): 4 pantallas de 7-6-6-6
+// Total: 9 pantallas
+// ═══════════════════════════════════════════════════════
+
+const PANTALLAS = [
+  { bloque: "A", indices: [0, 1, 2, 3, 4, 5, 6, 7] },
+  { bloque: "A", indices: [8, 9, 10, 11, 12, 13, 14, 15] },
+  { bloque: "A", indices: [16, 17, 18, 19, 20, 21, 22, 23] },
+  { bloque: "A", indices: [24, 25, 26, 27, 28, 29, 30, 31] },
+  { bloque: "A", indices: [32, 33, 34, 35, 36, 37, 38] },
+  { bloque: "B", indices: [0, 1, 2, 3, 4, 5, 6] },
+  { bloque: "B", indices: [7, 8, 9, 10, 11, 12] },
+  { bloque: "B", indices: [13, 14, 15, 16, 17, 18] },
+  { bloque: "B", indices: [19, 20, 21, 22, 23, 24] }
+];
 
 // ═══════════════════════════════════════════════════════
 // ESTADO
@@ -726,69 +859,23 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5huRMn3EcsN2O
 let datosPersona = {};
 let respuestasA = new Array(39).fill(null);
 let respuestasB = new Array(25).fill(null);
+let pantallaActual = 0;
 
 // ═══════════════════════════════════════════════════════
-// RENDER DE ÍTEMS
-// ═══════════════════════════════════════════════════════
-
-function renderizarItems(contenedorId, items, etiquetas, prefijo, offsetNumero) {
-  const contenedor = document.getElementById(contenedorId);
-  contenedor.innerHTML = "";
-
-  items.forEach((texto, idx) => {
-    const numero = offsetNumero + idx + 1;
-    const item = document.createElement("div");
-    item.className = "item";
-    item.dataset.indice = idx;
-
-    // Texto del ítem
-    const divTexto = document.createElement("div");
-    divTexto.className = "item__texto";
-    divTexto.innerHTML = `<span class="item__numero">${numero}</span>${texto}`;
-    item.appendChild(divTexto);
-
-    // Opciones 0-4
-    for (let valor = 0; valor <= 4; valor++) {
-      const wrapperDesktop = document.createElement("div");
-      wrapperDesktop.className = "item__opcion item__opciones-movil";
-
-      const wrapperMovil = document.createElement("div");
-      wrapperMovil.className = "item__opcion-movil";
-
-      const inputId = `${prefijo}-${idx}-${valor}`;
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = `${prefijo}-${idx}`;
-      input.id = inputId;
-      input.value = valor;
-      input.addEventListener("change", (e) => {
-        const v = parseInt(e.target.value, 10);
-        if (prefijo === "a") respuestasA[idx] = v;
-        else respuestasB[idx] = v;
-        item.classList.remove("item--incompleto");
-      });
-
-      const label = document.createElement("label");
-      label.htmlFor = inputId;
-      label.innerHTML = `<span class="num">${valor}</span>${etiquetas[valor]}`;
-
-      wrapperMovil.appendChild(input);
-      wrapperMovil.appendChild(label);
-      item.appendChild(wrapperMovil);
-    }
-
-    contenedor.appendChild(item);
-  });
-}
-
-// ═══════════════════════════════════════════════════════
-// NAVEGACIÓN
+// HELPERS
 // ═══════════════════════════════════════════════════════
 
 function mostrarPantalla(id) {
-  ["pantalla-intro", "pantalla-bloque-a", "pantalla-bloque-b", "pantalla-final"]
-    .forEach(p => document.getElementById(p).classList.add("oculto"));
-  document.getElementById(id).classList.remove("oculto");
+  ["pantalla-intro", "pantalla-items", "pantalla-final"]
+    .forEach(p => {
+      const el = document.getElementById(p);
+      el.classList.add("oculto");
+      el.classList.remove("pantalla-activa");
+    });
+  const activa = document.getElementById(id);
+  activa.classList.remove("oculto");
+  void activa.offsetWidth;
+  activa.classList.add("pantalla-activa");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -803,8 +890,153 @@ function validarEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function contarRespondidas() {
+  return respuestasA.filter(v => v !== null).length + respuestasB.filter(v => v !== null).length;
+}
+
+function actualizarProgreso() {
+  const total = 64;
+  const respondidas = contarRespondidas();
+  const porcentaje = (respondidas / total) * 100;
+  document.getElementById("progreso-relleno").style.width = porcentaje + "%";
+  document.getElementById("progreso-contador").textContent = `${respondidas} de ${total} respondidos`;
+}
+
 // ═══════════════════════════════════════════════════════
-// PANTALLA 1 → 2
+// RENDER DE PANTALLA DE ÍTEMS
+// ═══════════════════════════════════════════════════════
+
+function renderizarPantalla(indicePantalla) {
+  const pantalla = PANTALLAS[indicePantalla];
+  const esBloqueA = pantalla.bloque === "A";
+  const items = esBloqueA ? ITEMS_BLOQUE_A : ITEMS_BLOQUE_B;
+  const etiquetas = esBloqueA ? ETIQUETAS_A : ETIQUETAS_B;
+  const respuestas = esBloqueA ? respuestasA : respuestasB;
+  const offsetNumero = esBloqueA ? 0 : 39;
+
+  // Etiqueta de parte
+  document.getElementById("progreso-etiqueta").textContent =
+    `Parte ${indicePantalla + 1} de ${PANTALLAS.length}`;
+
+  // Instrucción oficial del manual solo en la primera pantalla
+  const instruccionOficial = document.getElementById("instruccion-oficial");
+  if (indicePantalla === 0) {
+    instruccionOficial.classList.remove("oculto");
+  } else {
+    instruccionOficial.classList.add("oculto");
+  }
+
+  // Instrucción del bloque
+  const instruccionEl = document.getElementById("instruccion");
+  if (esBloqueA) {
+    instruccionEl.innerHTML = `<em>Es difícil para mí:</em>`;
+  } else {
+    instruccionEl.innerHTML = `<em>Hago demasiado lo siguiente:</em>`;
+  }
+
+  // Render de ítems
+  const contenedor = document.getElementById("contenedor-items");
+  contenedor.innerHTML = "";
+
+  pantalla.indices.forEach(idx => {
+    const numero = offsetNumero + idx + 1;
+    const texto = items[idx];
+    const valorActual = respuestas[idx];
+
+    const item = document.createElement("div");
+    item.className = "item";
+    item.dataset.indice = idx;
+    item.dataset.bloque = pantalla.bloque;
+
+    // Cabecera
+    const cabecera = document.createElement("div");
+    cabecera.className = "item__cabecera";
+    cabecera.innerHTML = `
+      <span class="item__numero">${numero}</span>
+      <span class="item__texto">${texto}</span>
+    `;
+    item.appendChild(cabecera);
+
+    // Opciones
+    const opciones = document.createElement("div");
+    opciones.className = "opciones";
+    opciones.setAttribute("role", "radiogroup");
+    opciones.setAttribute("aria-label", `Respuesta al ítem ${numero}`);
+
+    for (let valor = 0; valor <= 4; valor++) {
+      const opcion = document.createElement("div");
+      opcion.className = "opcion";
+
+      const inputId = `item-${pantalla.bloque}-${idx}-${valor}`;
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `item-${pantalla.bloque}-${idx}`;
+      input.id = inputId;
+      input.value = valor;
+      if (valorActual === valor) input.checked = true;
+
+      input.addEventListener("change", () => {
+        const v = parseInt(input.value, 10);
+        if (pantalla.bloque === "A") respuestasA[idx] = v;
+        else respuestasB[idx] = v;
+        item.classList.remove("item--incompleto");
+        actualizarProgreso();
+      });
+
+      const label = document.createElement("label");
+      label.htmlFor = inputId;
+      label.innerHTML = `
+        <span class="opcion__numero">${valor}</span>
+        <span class="opcion__etiqueta">${etiquetas[valor]}</span>
+      `;
+
+      opcion.appendChild(input);
+      opcion.appendChild(label);
+      opciones.appendChild(opcion);
+    }
+
+    item.appendChild(opciones);
+    contenedor.appendChild(item);
+  });
+
+  // Botón atrás
+  document.getElementById("btn-atras").textContent =
+    indicePantalla === 0 ? "Volver al inicio" : "Atrás";
+
+  // Botón siguiente
+  const btnSiguiente = document.getElementById("btn-siguiente");
+  btnSiguiente.textContent =
+    indicePantalla === PANTALLAS.length - 1 ? "Enviar respuestas" : "Continuar";
+
+  actualizarProgreso();
+}
+
+// ═══════════════════════════════════════════════════════
+// NAVEGACIÓN ENTRE PANTALLAS
+// ═══════════════════════════════════════════════════════
+
+function pantallaCompleta(indicePantalla) {
+  const pantalla = PANTALLAS[indicePantalla];
+  const respuestas = pantalla.bloque === "A" ? respuestasA : respuestasB;
+  return pantalla.indices.every(idx => respuestas[idx] !== null);
+}
+
+function avanzarPantalla() {
+  pantallaActual++;
+  renderizarPantalla(pantallaActual);
+}
+
+function retrocederPantalla() {
+  if (pantallaActual > 0) {
+    pantallaActual--;
+    renderizarPantalla(pantallaActual);
+  } else {
+    mostrarPantalla("pantalla-intro");
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// PANTALLA 1 → ÍTEMS
 // ═══════════════════════════════════════════════════════
 
 document.getElementById("formulario-datos").addEventListener("submit", (e) => {
@@ -812,6 +1044,8 @@ document.getElementById("formulario-datos").addEventListener("submit", (e) => {
 
   const nombre = document.getElementById("nombre").value.trim();
   const sexo = document.getElementById("sexo").value;
+  const edadRaw = document.getElementById("edad").value.trim();
+  const edad = parseInt(edadRaw, 10);
   const correo = document.getElementById("correo").value.trim();
   const acepto = document.getElementById("acepto").checked;
 
@@ -821,6 +1055,9 @@ document.getElementById("formulario-datos").addEventListener("submit", (e) => {
   if (!sexo) {
     return mostrarError("error-datos", "Por favor selecciona una opción en el campo sexo.");
   }
+  if (!edadRaw || isNaN(edad) || edad < 16 || edad > 99) {
+    return mostrarError("error-datos", "Por favor ingresa una edad válida (entre 16 y 99).");
+  }
   if (!correo || !validarEmail(correo)) {
     return mostrarError("error-datos", "Por favor ingresa un correo electrónico válido.");
   }
@@ -828,66 +1065,57 @@ document.getElementById("formulario-datos").addEventListener("submit", (e) => {
     return mostrarError("error-datos", "Debes aceptar el consentimiento informado para continuar.");
   }
 
-  datosPersona = { nombre, sexo, correo };
-  renderizarItems("contenedor-items-a", ITEMS_BLOQUE_A, ETIQUETAS_A, "a", 0);
-  mostrarPantalla("pantalla-bloque-a");
+  datosPersona = { nombre, sexo, edad, correo };
+  pantallaActual = 0;
+  mostrarPantalla("pantalla-items");
+  renderizarPantalla(0);
 });
 
 // ═══════════════════════════════════════════════════════
-// PANTALLA 2 (BLOQUE A) → 3
+// NAVEGACIÓN
 // ═══════════════════════════════════════════════════════
 
-document.getElementById("atras-a").addEventListener("click", () => {
-  mostrarPantalla("pantalla-intro");
+document.getElementById("btn-atras").addEventListener("click", () => {
+  retrocederPantalla();
 });
 
-document.getElementById("siguiente-a").addEventListener("click", () => {
-  const faltantes = [];
-  respuestasA.forEach((v, i) => {
-    if (v === null) {
-      faltantes.push(i);
-      document.querySelector(`#contenedor-items-a .item[data-indice="${i}"]`)
-        ?.classList.add("item--incompleto");
-    }
-  });
+document.getElementById("btn-siguiente").addEventListener("click", async () => {
+  const pantalla = PANTALLAS[pantallaActual];
+  const respuestas = pantalla.bloque === "A" ? respuestasA : respuestasB;
+  const faltantes = pantalla.indices.filter(idx => respuestas[idx] === null);
 
   if (faltantes.length > 0) {
-    mostrarError("error-bloque-a", `Faltan ${faltantes.length} ítems por responder. Se marcaron en color.`);
-    const primero = document.querySelector(`#contenedor-items-a .item[data-indice="${faltantes[0]}"]`);
+    faltantes.forEach(idx => {
+      const item = document.querySelector(
+        `#contenedor-items .item[data-indice="${idx}"][data-bloque="${pantalla.bloque}"]`
+      );
+      item?.classList.add("item--incompleto");
+    });
+    const mensaje = faltantes.length === 1
+      ? "Falta un ítem por responder. Está marcado en rosa más abajo."
+      : `Faltan ${faltantes.length} ítems por responder. Están marcados en rosa más abajo.`;
+    mostrarError("error-items", mensaje);
+    const primero = document.querySelector(
+      `#contenedor-items .item[data-indice="${faltantes[0]}"][data-bloque="${pantalla.bloque}"]`
+    );
     primero?.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
   }
 
-  renderizarItems("contenedor-items-b", ITEMS_BLOQUE_B, ETIQUETAS_B, "b", 39);
-  mostrarPantalla("pantalla-bloque-b");
-});
-
-// ═══════════════════════════════════════════════════════
-// PANTALLA 3 (BLOQUE B) → ENVÍO
-// ═══════════════════════════════════════════════════════
-
-document.getElementById("atras-b").addEventListener("click", () => {
-  mostrarPantalla("pantalla-bloque-a");
-});
-
-document.getElementById("enviar").addEventListener("click", async () => {
-  const faltantes = [];
-  respuestasB.forEach((v, i) => {
-    if (v === null) {
-      faltantes.push(i);
-      document.querySelector(`#contenedor-items-b .item[data-indice="${i}"]`)
-        ?.classList.add("item--incompleto");
-    }
-  });
-
-  if (faltantes.length > 0) {
-    mostrarError("error-bloque-b", `Faltan ${faltantes.length} ítems por responder. Se marcaron en color.`);
-    const primero = document.querySelector(`#contenedor-items-b .item[data-indice="${faltantes[0]}"]`);
-    primero?.scrollIntoView({ behavior: "smooth", block: "center" });
+  if (pantallaActual < PANTALLAS.length - 1) {
+    avanzarPantalla();
     return;
   }
 
-  const boton = document.getElementById("enviar");
+  await enviarRespuestas();
+});
+
+// ═══════════════════════════════════════════════════════
+// ENVÍO FINAL
+// ═══════════════════════════════════════════════════════
+
+async function enviarRespuestas() {
+  const boton = document.getElementById("btn-siguiente");
   boton.disabled = true;
   boton.innerHTML = '<span class="cargando"></span>Enviando...';
 
@@ -896,13 +1124,13 @@ document.getElementById("enviar").addEventListener("click", async () => {
   const payload = {
     nombre: datosPersona.nombre,
     sexo: datosPersona.sexo,
+    edad: datosPersona.edad,
     correo: datosPersona.correo,
     respuestas: respuestasCompletas,
     fechaISO: new Date().toISOString()
   };
 
   try {
-    // Envío al Apps Script (modo no-cors para evitar preflight CORS)
     await fetch(APPS_SCRIPT_URL, {
       method: "POST",
       mode: "no-cors",
@@ -915,9 +1143,36 @@ document.getElementById("enviar").addEventListener("click", async () => {
     console.error(err);
     boton.disabled = false;
     boton.textContent = "Enviar respuestas";
-    mostrarError("error-bloque-b", "Hubo un problema al enviar. Por favor intenta de nuevo o contacta a la Dra. Bello.");
+    mostrarErrorEnvio();
   }
-});
+}
+
+function mostrarErrorEnvio() {
+  const nombre = datosPersona.nombre || "";
+  const mensajeWhatsApp = encodeURIComponent(
+    `Hola Dra. Bello, soy ${nombre}. Intenté completar el IIP-64 pero hubo un problema al enviar mis respuestas. ¿Me puede ayudar?`
+  );
+  const urlWhatsApp = `https://wa.me/18098481234?text=${mensajeWhatsApp}`;
+
+  const el = document.getElementById("error-items");
+  el.innerHTML = `
+    <p style="margin: 0;">Hubo un problema al enviar tus respuestas. Puedes intentar de nuevo o contactar directamente a la Dra. Bello para que te asista.</p>
+    <div class="mensaje-error--acciones">
+      <a href="${urlWhatsApp}" target="_blank" rel="noopener noreferrer" class="mensaje-error__boton mensaje-error__boton--whatsapp">
+        Contactar por WhatsApp
+      </a>
+      <button type="button" class="mensaje-error__boton mensaje-error__boton--inicio" id="btn-volver-inicio">
+        Volver al inicio
+      </button>
+    </div>
+  `;
+  el.classList.remove("oculto");
+
+  document.getElementById("btn-volver-inicio").addEventListener("click", () => {
+    mostrarPantalla("pantalla-intro");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 </script>
 
 </body>
