@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWQ86F86NR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PWQ86F86NR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+
+  <title>IIP-64 · Evaluación clínica · Dra. Iris Bello Castillo</title>
+  <meta name="description" content="Inventario de Problemas Interpersonales. Aplicación bajo licencia, uso exclusivo en contexto clínico.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul-tinta:   #162435;
+      --rosa-antiguo: #B5707A;
+      --ambar-dorado: #C4963A;
+      --blanco:       #FFFFFF;
+      --medianoche:   #0B1520;
+      --fondo-suave:  #F7F4F0;
+      --texto-oscuro: #1a2530;
+      --texto-medio:  #4a5568;
+      --borde-sutil:  #e8e4de;
+      --font-serif:   'DM Serif Display', Georgia, serif;
+      --font-sans:    'Jost', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      color: var(--azul-tinta);
+      background: var(--blanco);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .contenedor {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .encabezado {
+      border-bottom: 1px solid var(--borde-sutil);
+      padding-bottom: 24px;
+      margin-bottom: 48px;
+    }
+
+    .encabezado__marca {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--azul-tinta);
+      letter-spacing: 0.02em;
+    }
+
+    .encabezado__instrumento {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ambar-dorado);
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    /* ═══ PANTALLA 1 — INTRO ═══ */
+
+    .intro__titulo {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 44px);
+      line-height: 1.1;
+      color: var(--azul-tinta);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .intro__bajada {
+      font-size: 17px;
+      color: var(--texto-medio);
+      margin-bottom: 40px;
+      max-width: 560px;
+    }
+
+    .consentimiento {
+      background: var(--fondo-suave);
+      border-left: 3px solid var(--ambar-dorado);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--texto-medio);
+    }
+
+    .consentimiento strong {
+      color: var(--azul-tinta);
+      font-weight: 500;
+    }
+
+    .consentimiento p + p { margin-top: 12px; }
+
+    .formulario__campo {
+      margin-bottom: 24px;
+    }
+
+    .formulario__etiqueta {
+      display: block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--texto-medio);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .formulario__input,
+    .formulario__select {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--azul-tinta);
+      background: var(--blanco);
+      border: 1px solid var(--borde-sutil);
+      border-radius: 2px;
+      transition: border-color 0.2s ease;
+    }
+
+    .formulario__input:focus,
+    .formulario__select:focus {
+      outline: none;
+      border-color: var(--ambar-dorado);
+    }
+
+    .formulario__select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23162435' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 44px;
+    }
+
+    .checkbox-grupo {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .checkbox-grupo input[type="checkbox"] {
+      margin-top: 4px;
+      flex-shrink: 0;
+      accent-color: var(--ambar-dorado);
+      width: 18px;
+      height: 18px;
+    }
+
+    .checkbox-grupo label {
+      font-size: 14px;
+      color: var(--texto-medio);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+
+    /* ═══ BOTONES ═══ */
+
+    .boton {
+      display: inline-block;
+      padding: 16px 36px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--blanco);
+      background: var(--azul-tinta);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .boton:hover:not(:disabled) {
+      background: var(--medianoche);
+    }
+
+    .boton:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .boton--secundario {
+      background: transparent;
+      color: var(--azul-tinta);
+      border: 1px solid var(--azul-tinta);
+    }
+
+    .boton--secundario:hover:not(:disabled) {
+      background: var(--azul-tinta);
+      color: var(--blanco);
+    }
+
+    .botonera {
+      display: flex;
+      gap: 12px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* ═══ PANTALLAS DE ITEMS ═══ */
+
+    .progreso {
+      margin-bottom: 32px;
+    }
+
+    .progreso__texto {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--texto-medio);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .progreso__barra {
+      height: 2px;
+      background: var(--borde-sutil);
+      overflow: hidden;
+    }
+
+    .progreso__relleno {
+      height: 100%;
+      background: var(--ambar-dorado);
+      transition: width 0.3s ease;
+    }
+
+    .instruccion {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      line-height: 1.3;
+      color: var(--azul-tinta);
+      padding: 24px 0;
+      border-bottom: 1px solid var(--borde-sutil);
+      margin-bottom: 8px;
+    }
+
+    .escala-encabezado {
+      display: grid;
+      grid-template-columns: 1fr repeat(5, 56px);
+      gap: 4px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--borde-sutil);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--texto-medio);
+      position: sticky;
+      top: 0;
+      background: var(--blanco);
+      z-index: 10;
+    }
+
+    .escala-encabezado__titulo {
+      font-weight: 500;
+    }
+
+    .escala-encabezado__opcion {
+      text-align: center;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 1fr repeat(5, 56px);
+      gap: 4px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--borde-sutil);
+    }
+
+    .item__numero {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      color: var(--ambar-dorado);
+      margin-right: 8px;
+    }
+
+    .item__texto {
+      font-size: 15px;
+      color: var(--azul-tinta);
+      line-height: 1.5;
+    }
+
+    .item__opcion {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .item__opcion input[type="radio"] {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid var(--borde-sutil);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: var(--blanco);
+    }
+
+    .item__opcion input[type="radio"]:hover {
+      border-color: var(--rosa-antiguo);
+    }
+
+    .item__opcion input[type="radio"]:checked {
+      border-color: var(--ambar-dorado);
+      background: var(--ambar-dorado);
+      box-shadow: inset 0 0 0 3px var(--blanco);
+    }
+
+    .item--incompleto {
+      background: rgba(181, 112, 122, 0.04);
+    }
+
+    /* ═══ RESPONSIVE ITEMS ═══ */
+
+    @media (max-width: 640px) {
+      .contenedor { padding: 32px 16px 60px; }
+
+      .escala-encabezado {
+        display: none;
+      }
+
+      .item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 20px 0;
+      }
+
+      .item__opciones-movil {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+      }
+
+      .item__opcion-movil {
+        position: relative;
+      }
+
+      .item__opcion-movil input[type="radio"] {
+        appearance: none;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .item__opcion-movil label {
+        display: block;
+        padding: 10px 4px;
+        text-align: center;
+        border: 1px solid var(--borde-sutil);
+        border-radius: 2px;
+        font-size: 11px;
+        line-height: 1.2;
+        color: var(--texto-medio);
+        transition: all 0.15s ease;
+        cursor: pointer;
+      }
+
+      .item__opcion-movil label span.num {
+        display: block;
+        font-family: var(--font-serif);
+        font-size: 18px;
+        color: var(--azul-tinta);
+        margin-bottom: 2px;
+      }
+
+      .item__opcion-movil input[type="radio"]:checked + label {
+        border-color: var(--ambar-dorado);
+        background: var(--ambar-dorado);
+        color: var(--blanco);
+      }
+
+      .item__opcion-movil input[type="radio"]:checked + label span.num {
+        color: var(--blanco);
+      }
+
+      .escala-encabezado-movil {
+        display: none;
+      }
+    }
+
+    @media (min-width: 641px) {
+      .item__opciones-movil { display: contents; }
+      .item__opcion-movil label { display: none; }
+    }
+
+    /* ═══ PANTALLA FINAL ═══ */
+
+    .final {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .final__simbolo {
+      font-family: var(--font-serif);
+      font-size: 64px;
+      color: var(--ambar-dorado);
+      margin-bottom: 24px;
+    }
+
+    .final__titulo {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      color: var(--azul-tinta);
+      margin-bottom: 16px;
+    }
+
+    .final__texto {
+      font-size: 17px;
+      color: var(--texto-medio);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ═══ ESTADOS ═══ */
+
+    .mensaje-error {
+      background: rgba(181, 112, 122, 0.1);
+      border-left: 3px solid var(--rosa-antiguo);
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: var(--rosa-antiguo);
+    }
+
+    .cargando {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: var(--blanco);
+      border-radius: 50%;
+      animation: girar 0.7s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    @keyframes girar {
+      to { transform: rotate(360deg); }
+    }
+
+    .oculto { display: none !important; }
+
+    /* ═══ PIE ═══ */
+
+    .pie {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--borde-sutil);
+      font-size: 11px;
+      color: var(--texto-medio);
+      line-height: 1.6;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor">
+
+  <header class="encabezado">
+    <div class="encabezado__marca">Dra. Iris Bello Castillo</div>
+    <div class="encabezado__instrumento">Evaluación clínica · IIP-64</div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PANTALLA 1 — INTRODUCCIÓN Y DATOS
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pantalla-intro">
+    <h1 class="intro__titulo">Inventario de Problemas Interpersonales</h1>
+    <p class="intro__bajada">
+      Este instrumento forma parte de tu proceso de evaluación clínica.
+      Toma entre 15 y 20 minutos. No hay respuestas correctas ni incorrectas.
+    </p>
+
+    <div class="consentimiento">
+      <p><strong>Consentimiento informado.</strong> Al completar este inventario, tus respuestas serán enviadas directamente a la Dra. Iris Bello Castillo para su interpretación clínica. Esta prueba forma parte de un proceso profesional de evaluación y no constituye un diagnóstico por sí sola.</p>
+      <p>Tus datos se manejan bajo confidencialidad profesional y se conservan dentro del expediente clínico. La prueba se administra bajo licencia oficial de Mind Garden, Inc.</p>
+      <p>Responde con honestidad pensando en cualquier persona importante en tu vida. Si tienes dudas, consúltalo con la Dra. Bello antes o después de completarlo.</p>
+    </div>
+
+    <form id="formulario-datos" novalidate>
+      <div class="formulario__campo">
+        <label class="formulario__etiqueta" for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" class="formulario__input" required autocomplete="name">
+      </div>
+
+      <div class="formulario__campo">
+        <label class="formulario__etiqueta" for="sexo">Sexo</label>
+        <select id="sexo" name="sexo" class="formulario__select" required>
+          <option value="">Selecciona una opción</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Prefiero no indicar">Prefiero no indicar</option>
+        </select>
+      </div>
+
+      <div class="formulario__campo">
+        <label class="formulario__etiqueta" for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" class="formulario__input" required autocomplete="email">
+      </div>
+
+      <div class="checkbox-grupo">
+        <input type="checkbox" id="acepto" name="acepto" required>
+        <label for="acepto">He leído el consentimiento informado y acepto que mis respuestas sean enviadas a la Dra. Iris Bello Castillo como parte de mi proceso de evaluación clínica.</label>
+      </div>
+
+      <div id="error-datos" class="mensaje-error oculto"></div>
+
+      <div class="botonera">
+        <button type="submit" class="boton">Comenzar la prueba</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PANTALLA 2 — ÍTEMS BLOQUE A (1-39)
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pantalla-bloque-a" class="oculto">
+    <div class="progreso">
+      <div class="progreso__texto">Bloque 1 de 2 · 39 ítems</div>
+      <div class="progreso__barra"><div class="progreso__relleno" style="width: 33%;"></div></div>
+    </div>
+
+    <div class="instruccion">
+      A continuación se describen cosas que puede encontrar difíciles de hacer con los demás.<br>
+      <em>Es difícil para mí…</em>
+    </div>
+
+    <div class="escala-encabezado">
+      <div class="escala-encabezado__titulo"></div>
+      <div class="escala-encabezado__opcion">0<br>Nada<br>difícil</div>
+      <div class="escala-encabezado__opcion">1<br>Un poco<br>difícil</div>
+      <div class="escala-encabezado__opcion">2<br>Algo<br>difícil</div>
+      <div class="escala-encabezado__opcion">3<br>Bastante<br>difícil</div>
+      <div class="escala-encabezado__opcion">4<br>Muy<br>difícil</div>
+    </div>
+
+    <div id="contenedor-items-a"></div>
+
+    <div id="error-bloque-a" class="mensaje-error oculto"></div>
+
+    <div class="botonera">
+      <button type="button" class="boton boton--secundario" id="atras-a">Atrás</button>
+      <button type="button" class="boton" id="siguiente-a">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PANTALLA 3 — ÍTEMS BLOQUE B (40-64)
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pantalla-bloque-b" class="oculto">
+    <div class="progreso">
+      <div class="progreso__texto">Bloque 2 de 2 · 25 ítems</div>
+      <div class="progreso__barra"><div class="progreso__relleno" style="width: 66%;"></div></div>
+    </div>
+
+    <div class="instruccion">
+      Hago demasiado lo siguiente:
+    </div>
+
+    <div class="escala-encabezado">
+      <div class="escala-encabezado__titulo"></div>
+      <div class="escala-encabezado__opcion">0<br>Nada</div>
+      <div class="escala-encabezado__opcion">1<br>Un poco</div>
+      <div class="escala-encabezado__opcion">2<br>Algo</div>
+      <div class="escala-encabezado__opcion">3<br>Bastante</div>
+      <div class="escala-encabezado__opcion">4<br>Mucho</div>
+    </div>
+
+    <div id="contenedor-items-b"></div>
+
+    <div id="error-bloque-b" class="mensaje-error oculto"></div>
+
+    <div class="botonera">
+      <button type="button" class="boton boton--secundario" id="atras-b">Atrás</button>
+      <button type="button" class="boton" id="enviar">Enviar respuestas</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PANTALLA 4 — CONFIRMACIÓN
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pantalla-final" class="oculto">
+    <div class="final">
+      <div class="final__simbolo">·</div>
+      <h2 class="final__titulo">Respuestas recibidas</h2>
+      <p class="final__texto">
+        Tus respuestas fueron enviadas correctamente a la Dra. Iris Bello Castillo.
+        Ya puedes cerrar esta ventana.
+      </p>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <p>IIP-64 — Inventory of Interpersonal Problems.<br>
+    Copyright © 2003 by Leonard M. Horowitz, Lynn E. Alden, Jerry S. Wiggins and Aaron L. Pincus.<br>
+    All rights reserved. Published by Mind Garden, Inc. www.mindgarden.com<br>
+    For use by Iris Bello Castillo only.</p>
+  </footer>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// ÍTEMS DEL IIP-64 (versión en español)
+// ═══════════════════════════════════════════════════════
+
+const ITEMS_BLOQUE_A = [
+  "Confiar en otras personas",
+  "Decir que 'no' a otras personas",
+  "Juntarme a grupos de personas",
+  "Guardar en secreto cosas íntimas a otras personas",
+  "Hacer saber a los demás lo que quiero",
+  "Decirle a alguien que deje de molestarme",
+  "Presentarme a personas desconocidas",
+  "Plantear cara a cara a los demás los problemas que surgen",
+  "Ser firme con alguien",
+  "Hacer saber a los demás que estoy enfadado",
+  "Establecer a largo plazo un compromiso con alguien",
+  "Ser el jefe de otra persona",
+  "Ser agresivo con las personas cuando la situación lo requiere",
+  "Relacionarme y alternar con las personas",
+  "Mostrar afecto a las personas",
+  "Llevarme bien con las personas",
+  "Comprender los puntos de vista de los demás",
+  "Expresar directamente mis sentimientos a los demás",
+  "Estar firme cuando lo necesito",
+  "Sentir cariño o afecto por otra persona",
+  "Poner límites a los demás",
+  "Apoyar a alguien en sus metas en la vida",
+  "Sentirme cercano a los demás",
+  "Preocuparme de verdad de los problemas de los demás",
+  "Discutir con alguien",
+  "Pasar tiempo solo",
+  "Dar un regalo a alguien",
+  "Dejarme llevar por el enfado con alguien que aprecio",
+  "Poner las necesidades de otro antes que las mías",
+  "Mantenerme fuera de los asuntos de los demás",
+  "Recibir instrucciones de personas con autoridad sobre mí",
+  "Sentirme bien por la felicidad de otro",
+  "Pedir a otros que se relacionen y hagan cosas conmigo",
+  "Enfadarme con los demás",
+  "Abrir y contar mis sentimientos a otra persona",
+  "Perdonar a otro después de haber estado enfadado",
+  "Ocuparme de mi bienestar cuando alguien me necesita",
+  "Ser firme sin preocuparme de herir sentimientos ajenos",
+  "Confiar en mí mismo cuando estoy con los demás"
+];
+
+const ITEMS_BLOQUE_B = [
+  "Me peleo demasiado con los demás",
+  "Me siento demasiado responsable de los problemas ajenos",
+  "Me persuaden con demasiada facilidad",
+  "Me abro demasiado a las personas",
+  "Soy demasiado independiente",
+  "Soy demasiado agresivo con los demás",
+  "Trato de contentar demasiado a los demás",
+  "Hago demasiado el payaso",
+  "Quiero demasiado que se fijen en mí",
+  "Confío demasiado en las personas",
+  "Trato de controlar demasiado a los demás",
+  "Pongo las necesidades de otros antes que las mías",
+  "Intento demasiado cambiar a las personas",
+  "Soy demasiado crédulo o inocente",
+  "Soy demasiado generoso con los demás",
+  "Me asustan demasiado las personas",
+  "Soy demasiado desconfiado o suspicaz",
+  "Manipulo demasiado a los demás",
+  "Hablo demasiado de cosas personales",
+  "Discuto demasiado con las personas",
+  "Mantengo demasiado a distancia a las personas",
+  "Dejo que se aprovechen demasiado de mí",
+  "Me avergüenzo demasiado ante las personas",
+  "Me afectan demasiado las desgracias ajenas",
+  "Deseo vengarme demasiado de los demás"
+];
+
+const ETIQUETAS_A = ["Nada difícil", "Un poco difícil", "Algo difícil", "Bastante difícil", "Muy difícil"];
+const ETIQUETAS_B = ["Nada", "Un poco", "Algo", "Bastante", "Mucho"];
+
+// ═══════════════════════════════════════════════════════
+// CONFIGURACIÓN — PEGAR AQUÍ LA URL DEL APPS SCRIPT
+// ═══════════════════════════════════════════════════════
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5huRMn3EcsN2Otlb7uQuDLOowOqWPeRkXVqX4ZAp6ohQI_x2h-araBrEAeTnIYj-u/exec";
+
+// ═══════════════════════════════════════════════════════
+// ESTADO
+// ═══════════════════════════════════════════════════════
+let datosPersona = {};
+let respuestasA = new Array(39).fill(null);
+let respuestasB = new Array(25).fill(null);
+
+// ═══════════════════════════════════════════════════════
+// RENDER DE ÍTEMS
+// ═══════════════════════════════════════════════════════
+
+function renderizarItems(contenedorId, items, etiquetas, prefijo, offsetNumero) {
+  const contenedor = document.getElementById(contenedorId);
+  contenedor.innerHTML = "";
+
+  items.forEach((texto, idx) => {
+    const numero = offsetNumero + idx + 1;
+    const item = document.createElement("div");
+    item.className = "item";
+    item.dataset.indice = idx;
+
+    // Texto del ítem
+    const divTexto = document.createElement("div");
+    divTexto.className = "item__texto";
+    divTexto.innerHTML = `<span class="item__numero">${numero}</span>${texto}`;
+    item.appendChild(divTexto);
+
+    // Opciones 0-4
+    for (let valor = 0; valor <= 4; valor++) {
+      const wrapperDesktop = document.createElement("div");
+      wrapperDesktop.className = "item__opcion item__opciones-movil";
+
+      const wrapperMovil = document.createElement("div");
+      wrapperMovil.className = "item__opcion-movil";
+
+      const inputId = `${prefijo}-${idx}-${valor}`;
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `${prefijo}-${idx}`;
+      input.id = inputId;
+      input.value = valor;
+      input.addEventListener("change", (e) => {
+        const v = parseInt(e.target.value, 10);
+        if (prefijo === "a") respuestasA[idx] = v;
+        else respuestasB[idx] = v;
+        item.classList.remove("item--incompleto");
+      });
+
+      const label = document.createElement("label");
+      label.htmlFor = inputId;
+      label.innerHTML = `<span class="num">${valor}</span>${etiquetas[valor]}`;
+
+      wrapperMovil.appendChild(input);
+      wrapperMovil.appendChild(label);
+      item.appendChild(wrapperMovil);
+    }
+
+    contenedor.appendChild(item);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// NAVEGACIÓN
+// ═══════════════════════════════════════════════════════
+
+function mostrarPantalla(id) {
+  ["pantalla-intro", "pantalla-bloque-a", "pantalla-bloque-b", "pantalla-final"]
+    .forEach(p => document.getElementById(p).classList.add("oculto"));
+  document.getElementById(id).classList.remove("oculto");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function mostrarError(idElemento, mensaje) {
+  const el = document.getElementById(idElemento);
+  el.textContent = mensaje;
+  el.classList.remove("oculto");
+  setTimeout(() => el.classList.add("oculto"), 6000);
+}
+
+function validarEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// ═══════════════════════════════════════════════════════
+// PANTALLA 1 → 2
+// ═══════════════════════════════════════════════════════
+
+document.getElementById("formulario-datos").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const sexo = document.getElementById("sexo").value;
+  const correo = document.getElementById("correo").value.trim();
+  const acepto = document.getElementById("acepto").checked;
+
+  if (!nombre || nombre.length < 2) {
+    return mostrarError("error-datos", "Por favor ingresa tu nombre completo.");
+  }
+  if (!sexo) {
+    return mostrarError("error-datos", "Por favor selecciona una opción en el campo sexo.");
+  }
+  if (!correo || !validarEmail(correo)) {
+    return mostrarError("error-datos", "Por favor ingresa un correo electrónico válido.");
+  }
+  if (!acepto) {
+    return mostrarError("error-datos", "Debes aceptar el consentimiento informado para continuar.");
+  }
+
+  datosPersona = { nombre, sexo, correo };
+  renderizarItems("contenedor-items-a", ITEMS_BLOQUE_A, ETIQUETAS_A, "a", 0);
+  mostrarPantalla("pantalla-bloque-a");
+});
+
+// ═══════════════════════════════════════════════════════
+// PANTALLA 2 (BLOQUE A) → 3
+// ═══════════════════════════════════════════════════════
+
+document.getElementById("atras-a").addEventListener("click", () => {
+  mostrarPantalla("pantalla-intro");
+});
+
+document.getElementById("siguiente-a").addEventListener("click", () => {
+  const faltantes = [];
+  respuestasA.forEach((v, i) => {
+    if (v === null) {
+      faltantes.push(i);
+      document.querySelector(`#contenedor-items-a .item[data-indice="${i}"]`)
+        ?.classList.add("item--incompleto");
+    }
+  });
+
+  if (faltantes.length > 0) {
+    mostrarError("error-bloque-a", `Faltan ${faltantes.length} ítems por responder. Se marcaron en color.`);
+    const primero = document.querySelector(`#contenedor-items-a .item[data-indice="${faltantes[0]}"]`);
+    primero?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  renderizarItems("contenedor-items-b", ITEMS_BLOQUE_B, ETIQUETAS_B, "b", 39);
+  mostrarPantalla("pantalla-bloque-b");
+});
+
+// ═══════════════════════════════════════════════════════
+// PANTALLA 3 (BLOQUE B) → ENVÍO
+// ═══════════════════════════════════════════════════════
+
+document.getElementById("atras-b").addEventListener("click", () => {
+  mostrarPantalla("pantalla-bloque-a");
+});
+
+document.getElementById("enviar").addEventListener("click", async () => {
+  const faltantes = [];
+  respuestasB.forEach((v, i) => {
+    if (v === null) {
+      faltantes.push(i);
+      document.querySelector(`#contenedor-items-b .item[data-indice="${i}"]`)
+        ?.classList.add("item--incompleto");
+    }
+  });
+
+  if (faltantes.length > 0) {
+    mostrarError("error-bloque-b", `Faltan ${faltantes.length} ítems por responder. Se marcaron en color.`);
+    const primero = document.querySelector(`#contenedor-items-b .item[data-indice="${faltantes[0]}"]`);
+    primero?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  const boton = document.getElementById("enviar");
+  boton.disabled = true;
+  boton.innerHTML = '<span class="cargando"></span>Enviando...';
+
+  const respuestasCompletas = [...respuestasA, ...respuestasB];
+
+  const payload = {
+    nombre: datosPersona.nombre,
+    sexo: datosPersona.sexo,
+    correo: datosPersona.correo,
+    respuestas: respuestasCompletas,
+    fechaISO: new Date().toISOString()
+  };
+
+  try {
+    // Envío al Apps Script (modo no-cors para evitar preflight CORS)
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    mostrarPantalla("pantalla-final");
+  } catch (err) {
+    console.error(err);
+    boton.disabled = false;
+    boton.textContent = "Enviar respuestas";
+    mostrarError("error-bloque-b", "Hubo un problema al enviar. Por favor intenta de nuevo o contacta a la Dra. Bello.");
+  }
+});
+</script>
+
+</body>
+</html>
