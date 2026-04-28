@@ -1273,6 +1273,69 @@
 
   .consecuencias__remate br + * { color: var(--grey-light); }
 
+
+  /* ── DIFERENCIAL COLAPSADO EN SOLUCIÓN ── */
+  .solucion__diferencial {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--grey-light);
+  }
+
+  .solucion__diferencial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--grey-light);
+  }
+
+  .solucion__diferencial-col {
+    padding: 32px 28px;
+  }
+
+  .solucion__diferencial-col--dark {
+    background: var(--ink);
+  }
+
+  .solucion__diferencial-col--light {
+    background: var(--ivory);
+  }
+
+  .solucion__diferencial-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .solucion__diferencial-col--dark .solucion__diferencial-label { color: var(--grey-light); }
+  .solucion__diferencial-col--light .solucion__diferencial-label { color: var(--grey-mid); }
+
+  @media (max-width: 768px) {
+    .solucion__diferencial-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ── AUTORIDAD NOTA ── */
+  .autoridad__nota {
+    margin-bottom: 32px;
+    padding: 28px 32px;
+    border-left: 2px solid var(--rosa);
+    background: var(--white);
+  }
+
+  .autoridad__nota p {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.65;
+    opacity: 0.85;
+  }
+
+  .autoridad__nota p + p { margin-top: 12px; }
+
 </style>
 </head>
 <body>
@@ -1280,7 +1343,7 @@
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="stickyCta">
   <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank">
-Reservar mi cupo — $120
+Reservar mi espacio
   </a>
 </div>
 
@@ -1327,15 +1390,12 @@ Reservar mi cupo — $120
           <span class="hero__meta-label">Cupos</span>
           <span class="hero__meta-value">Máximo 20</span>
         </div>
-        <div class="hero__meta-item">
-          <span class="hero__meta-label">Inversión</span>
-          <span class="hero__meta-value" style="color: var(--ambar);">USD $120</span>
-        </div>
+
       </div>
       <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank" class="hero__cta-btn">
-        Quiero mi cupo — Reservar ahora
+        Quiero mi espacio — Escribir ahora
       </a>
-      <p class="hero__urgencia">Solo 20 espacios · 9 de mayo 2026</p>
+      <p class="hero__urgencia">Solo 20 espacios disponibles</p>
     </div>
   </div>
 </section>
@@ -1359,8 +1419,8 @@ Reservar mi cupo — $120
       <div class="problema__col">
         <p>No es falta de inteligencia.<br>No es falta de voluntad.</p>
         <p>
-          Es una lógica interna que opera en automático.
-          Una forma de posicionarte en relación con otros que no has podido
+          Es algo que opera en automático.
+          Una forma de relacionarte con otros que no has podido
           nombrar con claridad.
         </p>
       </div>
@@ -1423,8 +1483,8 @@ Reservar mi cupo — $120
           Es un espacio para <strong>reconocerte en tiempo real</strong>.
         </p>
         <p>
-          Durante 3 horas, trabajas con una estructura clínica diseñada para que puedas
-          identificar tu patrón relacional con nombre y lógica, entender por qué lo repites
+          Durante 3 horas, trabajas con una metodología diseñada para que puedas
+          identificar tu patrón con nombre y claridad, entender por qué lo repites
           y verlo en ti — no en teoría.
         </p>
         <p>
@@ -1437,10 +1497,34 @@ Reservar mi cupo — $120
       </div>
     </div>
 
+
+    <!-- DIFERENCIAL COLAPSADO -->
+    <div class="solucion__diferencial reveal reveal-delay-2">
+      <div class="solucion__diferencial-grid">
+        <div class="solucion__diferencial-col solucion__diferencial-col--dark">
+          <span class="solucion__diferencial-label">Esto no es</span>
+          <ul class="diferencial__noes">
+            <li>Desahogo</li>
+            <li>Motivación</li>
+            <li>Contenido</li>
+            <li>Más de lo mismo</li>
+          </ul>
+        </div>
+        <div class="solucion__diferencial-col solucion__diferencial-col--light">
+          <span class="solucion__diferencial-label">Esto es</span>
+          <ul class="diferencial__sis">
+            <li>Reconocimiento de patrón</li>
+            <li>Estructura clínica aplicada</li>
+            <li>Verte en tiempo real</li>
+            <li>Metodología propia</li>
+            <li>15 años de práctica real</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     </div>
 </section>
-
-
 
 <!-- ══════════════════════════════════════
      BENEFICIOS
@@ -1484,42 +1568,6 @@ Reservar mi cupo — $120
 </section>
 
 <!-- ══════════════════════════════════════
-     DIFERENCIAL
-════════════════════════════════════════ -->
-<section id="diferencial">
-  <div class="container--wide">
-    <span class="label">Por qué esto es diferente</span>
-
-    <div class="diferencial__grid reveal">
-      <div class="diferencial__col diferencial__col--dark">
-        <span class="diferencial__col-label">Esto no es</span>
-        <ul class="diferencial__noes">
-          <li>Desahogo</li>
-          <li>Motivación</li>
-          <li>Contenido</li>
-          <li>Más de lo mismo</li>
-        </ul>
-      </div>
-      <div class="diferencial__col diferencial__col--light">
-        <span class="diferencial__col-label">Esto es</span>
-        <ul class="diferencial__sis">
-          <li>Reconocimiento de patrón</li>
-          <li>Estructura clínica aplicada</li>
-          <li>Verte en tiempo real</li>
-          <li>Metodología propia</li>
-          <li>15 años de práctica real</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="diferencial__statement reveal reveal-delay-1">
-      &ldquo;El patrón no te persigue. Te protege.<br>
-      El problema es que ya no sabe de qué.&rdquo;
-    </p>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
      AUTORIDAD
 ════════════════════════════════════════ -->
 <section id="autoridad">
@@ -1544,6 +1592,11 @@ Reservar mi cupo — $120
             La metodología de U&thinsp;—&thinsp;VERSE no es teórica.
             Es estructura desarrollada desde lo que Iris ve en consulta todos los días.
           </p>
+        </div>
+        <div class="autoridad__nota reveal reveal-delay-2">
+          <p>&ldquo;Creé U&thinsp;&mdash;&thinsp;VERSE porque llevo más de 15 años sentada frente a mujeres que sienten que algo no está bien, pero no pueden nombrarlo con precisión. Lo intuyen. Lo viven. Pero no lo ven.</p>
+          <p>Y mientras no se ve, se repite.</p>
+          <p>Este taller existe para ese momento, el que no ocurre leyendo o reflexionando, sino cuando te reconoces a ti misma en tiempo real.&rdquo;</p>
         </div>
         <ul class="autoridad__credenciales">
           <li class="autoridad__credencial">Psicóloga clínica con más de 15 años de experiencia</li>
@@ -1642,27 +1695,6 @@ Reservar mi cupo — $120
 </section>
 
 <!-- ══════════════════════════════════════
-     CONSECUENCIAS
-════════════════════════════════════════ -->
-<section id="consecuencias">
-  <div class="container">
-    <div class="reveal">
-      <span class="label">Lo que sabemos clínicamente</span>
-      <h2 class="consecuencias__titulo">El patrón no cambia porque lo entiendas.<br>Cambia porque lo reconoces.</h2>
-    </div>
-    <div class="consecuencias__lista reveal reveal-delay-1">
-      <div class="consecuencia__item">El patrón relacional no cambia con comprensión intelectual — cambia cuando se reconoce en tiempo real.</div>
-      <div class="consecuencia__item">Puedes saber exactamente qué haces y seguir haciéndolo, porque el saber y el ver son procesos distintos.</div>
-      <div class="consecuencia__item">El cambio empieza cuando el patrón tiene nombre, lógica y un momento concreto de reconocimiento.</div>
-    </div>
-    <p class="consecuencias__remate reveal reveal-delay-2">
-      Eso es lo que ocurre en U·VERSE.<br>
-      No más análisis. Reconocimiento real.
-    </p>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
      CTA
 ════════════════════════════════════════ -->
 <section id="cta">
@@ -1675,10 +1707,11 @@ Reservar mi cupo — $120
           <em>reserva ahora.</em>
         </h2>
         <p>
-          20 cupos. Sin lista de espera.<br>
-          Cuando se llenan, se cierran.
+          El patrón no cambia solo con querer.<br>
+          Cambia cuando se ve. Eso es lo que ocurre aquí.
         </p>
         <p>
+          20 cupos. Cuando se llenan, se cierran.<br>
           Un mensaje es suficiente para empezar.
         </p>
       </div>
@@ -1686,7 +1719,7 @@ Reservar mi cupo — $120
         <span class="cta__box-label">Inversión total</span>
         <div class="cta__box-price">USD $120</div>
         <a href="https://wa.me/18098481234?text=Quiero%20reservar%20mi%20cupo%20en%20U%C2%B7VERSE" target="_blank" class="btn">
-          Quiero mi cupo — Escribir ahora
+          Quiero mi espacio — Escribir ahora
         </a>
         <div class="cta__instrucciones">
           <p>Te respondo en menos de 24 horas con los detalles del pago y la confirmación de tu espacio.</p>
