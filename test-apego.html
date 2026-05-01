@@ -6,6 +6,9 @@
   <title>Test de Apego · Dra. Iris Bello Castillo · Psicóloga Clínica Santo Domingo</title>
   <meta name="description" content="Descubre tu estilo de apego con este screening relacional gratuito. 4 afirmaciones, resultado inmediato. Sin registro.">
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('i4aGHABY2ry5ZUykZ');</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -48,9 +51,7 @@
       line-height: 1.2;
     }
 
-    /* ═══════════════════════════════════════════════════════
-       NAVEGACIÓN — NO MODIFICAR
-    ════════════════════════════════════════════════════════ */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -62,626 +63,167 @@
       background: var(--blanco);
       border-bottom: 1px solid rgba(196, 150, 58, 0.2);
     }
-
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      color: var(--azul-tinta);
-      text-decoration: none;
-      line-height: 1.3;
-    }
-
-    .nav-logo span {
-      display: block;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--rosa-antiguo);
-      margin-top: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links > li > a {
-      color: var(--texto-medio);
-      text-decoration: none;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 0.9rem; letter-spacing: 0.02em; color: var(--azul-tinta); text-decoration: none; line-height: 1.3; }
+    .nav-logo span { display: block; font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rosa-antiguo); margin-top: 2px; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links > li > a { color: var(--texto-medio); text-decoration: none; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; }
     .nav-links > li > a:hover { color: var(--ambar-dorado); }
     .nav-links > li > a.nav-active { color: var(--azul-tinta); font-weight: 500; }
-
     .nav-has-dropdown { position: relative; }
-
-    .nav-dropdown {
-      visibility: hidden;
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-      top: 100%;
-      left: -1.5rem;
-      padding-top: 0.8rem;
-      background: transparent;
-      z-index: 200;
-      transition: opacity 0.18s ease, visibility 0.18s ease;
-    }
-
-    .nav-has-dropdown.open .nav-dropdown {
-      visibility: visible;
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .nav-dropdown-inner {
-      background: var(--blanco);
-      border: 1px solid rgba(196, 150, 58, 0.18);
-      min-width: 220px;
-      list-style: none;
-      box-shadow: 0 12px 40px rgba(22, 36, 53, 0.12);
-    }
-
+    .nav-dropdown { visibility: hidden; opacity: 0; pointer-events: none; position: absolute; top: 100%; left: -1.5rem; padding-top: 0.8rem; background: transparent; z-index: 200; transition: opacity 0.18s ease, visibility 0.18s ease; }
+    .nav-has-dropdown.open .nav-dropdown { visibility: visible; opacity: 1; pointer-events: auto; }
+    .nav-dropdown-inner { background: var(--blanco); border: 1px solid rgba(196, 150, 58, 0.18); min-width: 220px; list-style: none; box-shadow: 0 12px 40px rgba(22, 36, 53, 0.12); }
     .nav-dropdown-inner li { border-bottom: 1px solid rgba(22, 36, 53, 0.05); }
     .nav-dropdown-inner li:last-child { border-bottom: none; }
-
-    .nav-dropdown-inner li a {
-      display: block;
-      padding: 0.9rem 1.4rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--texto-oscuro);
-      letter-spacing: 0.08em;
-      text-transform: none;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .nav-dropdown-inner li a { display: block; padding: 0.9rem 1.4rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 400; color: var(--texto-oscuro); letter-spacing: 0.08em; text-transform: none; text-decoration: none; transition: color 0.2s; }
     .nav-dropdown-inner li a:hover { color: var(--rosa-antiguo); }
-
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-      z-index: 200;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--azul-tinta);
-      transition: all 0.3s ease;
-      transform-origin: center;
-    }
-
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 200; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--azul-tinta); transition: all 0.3s ease; transform-origin: center; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    /* ═══════════════════════════════════════════════════════
-       MENÚ MÓVIL — NO MODIFICAR
-    ════════════════════════════════════════════════════════ */
-    .nav-mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--blanco);
-      z-index: 150;
-      flex-direction: column;
-      padding: 6rem 2rem 3rem;
-      overflow-y: auto;
-    }
-
+    /* MENÚ MÓVIL */
+    .nav-mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--blanco); z-index: 150; flex-direction: column; padding: 6rem 2rem 3rem; overflow-y: auto; }
     .nav-mobile-menu.open { display: flex; }
-
-    .nav-mobile-menu ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      flex: 1;
-    }
-
+    .nav-mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0; flex: 1; }
     .nav-mobile-menu ul li { border-bottom: 1px solid rgba(22, 36, 53, 0.07); }
     .nav-mobile-menu ul li:first-child { border-top: 1px solid rgba(22, 36, 53, 0.07); }
-
-    .nav-mobile-menu ul li a {
-      display: block;
-      padding: 1.2rem 0;
-      font-family: 'Jost', sans-serif;
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      color: var(--texto-oscuro);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-mobile-menu ul li a:hover,
-    .nav-mobile-menu ul li a.nav-active { color: var(--rosa-antiguo); }
-
+    .nav-mobile-menu ul li a { display: block; padding: 1.2rem 0; font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 400; letter-spacing: 0.05em; color: var(--texto-oscuro); text-decoration: none; transition: color 0.2s; }
+    .nav-mobile-menu ul li a:hover, .nav-mobile-menu ul li a.nav-active { color: var(--rosa-antiguo); }
     .nav-mobile-servicios { padding: 0; }
     .nav-mobile-servicios > a { display: flex; justify-content: space-between; align-items: center; }
-
-    .nav-mobile-sub {
-      display: none;
-      flex-direction: column;
-      background: rgba(22, 36, 53, 0.03);
-      margin-bottom: 0.5rem;
-    }
-
+    .nav-mobile-sub { display: none; flex-direction: column; background: rgba(22, 36, 53, 0.03); margin-bottom: 0.5rem; }
     .nav-mobile-sub.open { display: flex; }
-
-    .nav-mobile-sub a {
-      padding: 0.9rem 1.2rem !important;
-      font-size: 0.88rem !important;
-      color: var(--texto-medio) !important;
-      border-bottom: 1px solid rgba(22, 36, 53, 0.05) !important;
-      border-top: none !important;
-    }
-
+    .nav-mobile-sub a { padding: 0.9rem 1.2rem !important; font-size: 0.88rem !important; color: var(--texto-medio) !important; border-bottom: 1px solid rgba(22, 36, 53, 0.05) !important; border-top: none !important; }
     .nav-mobile-sub a:last-child { border-bottom: none !important; }
+    .nav-mobile-cta { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(22, 36, 53, 0.07); }
+    .nav-mobile-cta a { display: block; background: var(--rosa-antiguo); color: #fff; text-align: center; padding: 1rem; font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .nav-mobile-cta a:hover { background: var(--azul-tinta); }
 
-    .nav-mobile-cta {
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(22, 36, 53, 0.07);
+    /* FOOTER */
+    footer { background: var(--azul-tinta); padding: 5rem 4rem 3rem; border-top: 1px solid rgba(196, 150, 58, 0.15); }
+    .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 2.5rem; }
+    .footer-brand .logo-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--blanco); line-height: 1.3; }
+    .footer-brand .logo-title { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rosa-antiguo); margin-top: 4px; display: block; }
+    .footer-brand p { margin-top: 1.2rem; font-size: 0.85rem; color: rgba(201, 205, 212, 0.75); line-height: 1.7; max-width: 260px; }
+    .footer-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .footer-social a { color: rgba(201, 205, 212, 0.45); display: flex; align-items: center; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--rosa-antiguo); }
+    .footer-col h4 { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ambar-dorado); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul a { font-family: 'Jost', sans-serif; font-size: 0.85rem; color: rgba(201, 205, 212, 0.75); text-decoration: none; transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--blanco); }
+    .footer-location { margin-top: 1.5rem; font-size: 0.75rem; color: rgba(201, 205, 212, 0.4); line-height: 1.7; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Jost', sans-serif; font-size: 0.75rem; color: rgba(201, 205, 212, 0.3); letter-spacing: 0.08em; }
+
+    /* WA FAB */
+    .wa-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none; }
+    .wa-fab:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) { nav { padding: 0.75rem 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+    @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; } footer { padding: 3rem 1.5rem 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; } .wa-fab { bottom: 1.5rem; right: 1.25rem; width: 50px; height: 50px; } }
+
+    /* ═══ CSS DE ESTA PÁGINA ═══ */
+    main { padding-top: 0; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .section-label { font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ambar-dorado); margin-bottom: 20px; display: block; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Hero ── */
+    .hero { background: var(--azul-tinta); height: 50vh; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 4rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: 'Apego'; position: absolute; bottom: -2rem; right: -1rem; font-family: 'DM Serif Display', serif; font-size: 18rem; font-style: italic; color: rgba(196,150,58,0.04); pointer-events: none; line-height: 1; white-space: nowrap; }
+    .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(196,150,58,0.3), transparent); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ambar-dorado); margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
+    .hero-tag::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--ambar-dorado); }
+    .hero h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); color: var(--blanco); line-height: 1.1; opacity: 0; animation: fadeUp 0.9s ease forwards 0.35s; }
+    .hero h1 em { font-style: italic; color: var(--rosa-antiguo); }
+    .hero-right { opacity: 0; animation: fadeUp 0.9s ease forwards 0.5s; }
+    .hero-right p { font-size: 1rem; color: rgba(201,205,212,0.72); line-height: 1.85; margin-bottom: 1.5rem; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .hero-chip { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(201,205,212,0.55); border: 1px solid rgba(201,205,212,0.15); padding: 0.3rem 0.8rem; }
+
+    /* ── Contexto clínico ── */
+    .contexto-section { padding: 4rem 4rem; background: var(--blanco); border-bottom: 1px solid rgba(22,36,53,0.07); }
+    .contexto-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .contexto-col {}
+    .contexto-texto { font-size: 1rem; color: var(--texto-oscuro); line-height: 1.85; }
+    .contexto-nota { font-style: italic; color: var(--texto-medio); font-size: 0.9rem; }
+    @media (max-width: 900px) { .contexto-inner { grid-template-columns: 1fr; gap: 2rem; } .contexto-section { padding: 3rem 1.5rem; } }
+
+    /* ── Gate de correo ── */
+    .gate-section {
+      padding: 5rem 4rem;
+      background: var(--crema);
+      border-bottom: 1px solid rgba(22,36,53,0.07);
     }
-
-    .nav-mobile-cta a {
-      display: block;
-      background: var(--rosa-antiguo);
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-family: 'Jost', sans-serif;
+    .gate-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .gate-inner h2 {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      color: var(--azul-tinta);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .gate-inner h2 em { font-style: italic; color: var(--rosa-antiguo); }
+    .gate-sub {
+      font-size: 1rem;
+      color: var(--texto-medio);
+      line-height: 1.75;
+      margin-bottom: 2.2rem;
+    }
+    .gate-field-label {
       font-size: 0.78rem;
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .nav-mobile-cta a:hover { background: var(--azul-tinta); }
-
-    /* ═══════════════════════════════════════════════════════
-       FOOTER — NO MODIFICAR
-    ════════════════════════════════════════════════════════ */
-    footer {
-      background: var(--azul-tinta);
-      padding: 5rem 4rem 3rem;
-      border-top: 1px solid rgba(196, 150, 58, 0.15);
-    }
-
-    .footer-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      margin-bottom: 2.5rem;
-    }
-
-    .footer-brand .logo-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--blanco);
-      line-height: 1.3;
-    }
-
-    .footer-brand .logo-title {
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--rosa-antiguo);
-      margin-top: 4px;
+      color: var(--texto-medio);
       display: block;
+      margin-bottom: 0.5rem;
     }
-
-    .footer-brand p {
-      margin-top: 1.2rem;
-      font-size: 0.85rem;
-      color: rgba(201, 205, 212, 0.75);
-      line-height: 1.7;
-      max-width: 260px;
+    .gate-field {
+      border-bottom: 1.5px solid rgba(22,36,53,0.18);
+      padding: 0.55rem 0;
+      margin-bottom: 1.4rem;
     }
-
-    .footer-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
-
-    .footer-social a {
-      color: rgba(201, 205, 212, 0.45);
-      display: flex;
-      align-items: center;
-      transition: color 0.2s;
-    }
-
-    .footer-social a:hover { color: var(--rosa-antiguo); }
-
-    .footer-col h4 {
+    .gate-field input {
+      width: 100%;
+      border: none;
+      background: transparent;
       font-family: 'Jost', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ambar-dorado);
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: var(--azul-tinta);
+      outline: none;
+    }
+    .gate-field input::placeholder { color: rgba(22,36,53,0.3); }
+    .gate-error {
+      display: none;
+      font-size: 0.82rem;
+      color: var(--rosa-antiguo);
+      margin-top: -1rem;
       margin-bottom: 1.2rem;
     }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
+    .gate-privacy {
+      font-size: 0.8rem;
+      color: rgba(22,36,53,0.45);
+      line-height: 1.65;
+      margin-top: 1rem;
     }
-
-    .footer-col ul a {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.85rem;
-      color: rgba(201, 205, 212, 0.75);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-col ul a:hover { color: var(--blanco); }
-
-    .footer-location {
-      margin-top: 1.5rem;
-      font-size: 0.75rem;
-      color: rgba(201, 205, 212, 0.4);
-      line-height: 1.7;
-    }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.75rem;
-      color: rgba(201, 205, 212, 0.3);
-      letter-spacing: 0.08em;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       BOTÓN FLOTANTE WHATSAPP — NO MODIFICAR
-    ════════════════════════════════════════════════════════ */
-    .wa-fab {
-      position: fixed;
-      bottom: 2rem; right: 2rem;
-      z-index: 9999;
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none;
-    }
-
-    .wa-fab:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       RESPONSIVE GLOBAL — NO MODIFICAR
-    ════════════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      nav { padding: 0.75rem 2rem; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      footer { padding: 3rem 1.5rem 2rem; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
-      .wa-fab { bottom: 1.5rem; right: 1.25rem; width: 50px; height: 50px; }
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       CSS DE ESTA PÁGINA
-    ════════════════════════════════════════════════════════ */
-    main { padding-top: 0; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    .section-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ambar-dorado);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── Hero ─────────────────────────────────────────────── */
-    .hero {
-      background: var(--azul-tinta);
-      height: 50vh;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: 'Apego';
-      position: absolute;
-      bottom: -2rem; right: -1rem;
-      font-family: 'DM Serif Display', serif;
-      font-size: 18rem;
-      font-style: italic;
-      color: rgba(196,150,58,0.04);
-      pointer-events: none;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(196,150,58,0.3), transparent);
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ambar-dorado);
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease forwards 0.2s;
-    }
-
-    .hero-tag::before {
-      content: '';
-      display: block;
-      width: 1.5rem; height: 1px;
-      background: var(--ambar-dorado);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      color: var(--blanco);
-      line-height: 1.1;
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.35s;
-    }
-
-    .hero h1 em { font-style: italic; color: var(--rosa-antiguo); }
-
-    .hero-right {
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.5s;
-    }
-
-    .hero-right p {
-      font-size: 1rem;
-      color: rgba(201,205,212,0.72);
-      line-height: 1.85;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .hero-chip {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(201,205,212,0.55);
-      border: 1px solid rgba(201,205,212,0.15);
-      padding: 0.3rem 0.8rem;
-    }
-
-    /* ── Test ─────────────────────────────────────────────── */
-    .test-section {
-      padding: 6rem 4rem;
-      background: var(--blanco);
-    }
-
-    .test-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .test-instrucciones {
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(22,36,53,0.07);
-    }
-
-    .test-instrucciones p {
-      font-size: 1rem;
-      color: var(--texto-oscuro);
-      line-height: 1.8;
-      margin-top: 0.8rem;
-    }
-
-    /* ── Afirmación ───────────────────────────────────────── */
-    .afirmacion {
-      margin-bottom: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(22,36,53,0.07);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .afirmacion.visible { opacity: 1; transform: none; }
-    .afirmacion:last-of-type { border-bottom: none; }
-
-    .afirmacion-header {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      margin-bottom: 1.8rem;
-    }
-
-    .afirmacion-letra {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.8rem;
-      font-style: italic;
-      color: var(--rosa-antiguo);
-      line-height: 1;
-      flex-shrink: 0;
-      min-width: 1.8rem;
-    }
-
-    .afirmacion-texto {
-      font-size: 1rem;
-      color: var(--texto-oscuro);
-      line-height: 1.85;
-      padding-top: 0.2rem;
-    }
-
-    /* ── Selector de botones ──────────────────────────────── */
-    .selector-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--texto-medio);
-      margin-bottom: 0.8rem;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .selector-label span:last-child { text-align: right; }
-
-    .selector-btns {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 4px;
-    }
-
-    .selector-btn {
-      aspect-ratio: 1;
-      border: 1px solid rgba(22,36,53,0.15);
-      background: var(--blanco);
-      font-family: 'DM Serif Display', serif;
-      font-size: 1rem;
-      color: var(--texto-medio);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 2px;
-    }
-
-    .selector-btn:hover {
-      border-color: var(--rosa-antiguo);
-      color: var(--rosa-antiguo);
-      background: var(--rosa-suave);
-    }
-
-    .selector-btn.selected {
-      background: var(--azul-tinta);
-      border-color: var(--azul-tinta);
-      color: var(--blanco);
-      font-family: 'DM Serif Display', serif;
-    }
-
-    .selector-btn.selected-high {
-      background: var(--rosa-antiguo);
-      border-color: var(--rosa-antiguo);
-      color: var(--blanco);
-    }
-
-    /* valor seleccionado debajo */
-    .selector-valor {
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-      color: var(--texto-medio);
-      letter-spacing: 0.06em;
-      min-height: 1.2rem;
-      transition: color 0.2s;
-    }
-
-    .selector-valor.activo { color: var(--rosa-antiguo); }
-
-    /* ── CTA del test ─────────────────────────────────────── */
-    .test-cta-wrap {
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .btn-ver-resultado {
+    .btn-gate {
       background: var(--rosa-antiguo);
       color: var(--blanco);
       border: none;
-      padding: 1.1rem 3rem;
+      padding: 1rem 2.5rem;
       font-family: 'Jost', sans-serif;
       font-size: 0.85rem;
       font-weight: 500;
@@ -690,127 +232,83 @@
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
       border-radius: 2px;
+      width: 100%;
     }
+    .btn-gate:hover { background: var(--ambar-dorado); transform: translateY(-1px); }
 
+    /* ── Test ── */
+    .test-section { display: none; padding: 6rem 4rem; background: var(--blanco); }
+    .test-section.visible { display: block; }
+    .test-inner { max-width: 760px; margin: 0 auto; }
+
+    .test-bienvenida {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(22,36,53,0.07);
+    }
+    .test-bienvenida h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--azul-tinta); margin-bottom: 0.6rem; }
+    .test-bienvenida h2 em { font-style: italic; color: var(--rosa-antiguo); }
+    .test-bienvenida p { font-size: 1rem; color: var(--texto-oscuro); line-height: 1.8; margin-top: 0.6rem; }
+
+    .test-instrucciones { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(22,36,53,0.07); }
+    .test-instrucciones p { font-size: 1rem; color: var(--texto-oscuro); line-height: 1.8; margin-top: 0.8rem; }
+
+    /* ── Afirmación ── */
+    .afirmacion { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(22,36,53,0.07); opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .afirmacion.visible { opacity: 1; transform: none; }
+    .afirmacion:last-of-type { border-bottom: none; }
+    .afirmacion-header { display: flex; gap: 1.2rem; align-items: flex-start; margin-bottom: 1.8rem; }
+    .afirmacion-letra { font-family: 'DM Serif Display', serif; font-size: 1.8rem; font-style: italic; color: var(--rosa-antiguo); line-height: 1; flex-shrink: 0; min-width: 1.8rem; }
+    .afirmacion-texto { font-size: 1rem; color: var(--texto-oscuro); line-height: 1.85; padding-top: 0.2rem; }
+    .selector-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--texto-medio); margin-bottom: 0.8rem; display: flex; justify-content: space-between; }
+    .selector-label span:last-child { text-align: right; }
+    .selector-btns { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .selector-btn { aspect-ratio: 1; border: 1px solid rgba(22,36,53,0.15); background: var(--blanco); font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--texto-medio); cursor: pointer; transition: all 0.15s ease; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+    .selector-btn:hover { border-color: var(--rosa-antiguo); color: var(--rosa-antiguo); background: var(--rosa-suave); }
+    .selector-btn.selected { background: var(--azul-tinta); border-color: var(--azul-tinta); color: var(--blanco); }
+    .selector-btn.selected-high { background: var(--rosa-antiguo); border-color: var(--rosa-antiguo); color: var(--blanco); }
+    .selector-valor { margin-top: 0.6rem; font-size: 0.78rem; color: var(--texto-medio); letter-spacing: 0.06em; min-height: 1.2rem; transition: color 0.2s; }
+    .selector-valor.activo { color: var(--rosa-antiguo); }
+
+    /* ── CTA del test ── */
+    .test-cta-wrap { margin-top: 3rem; text-align: center; }
+    .btn-ver-resultado { background: var(--rosa-antiguo); color: var(--blanco); border: none; padding: 1.1rem 3rem; font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.2s; border-radius: 2px; }
     .btn-ver-resultado:hover { background: var(--ambar-dorado); transform: translateY(-1px); }
-    .btn-ver-resultado:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .test-aviso { margin-top: 0.8rem; font-size: 0.875rem; color: var(--texto-medio); }
 
-    .test-aviso {
-      margin-top: 0.8rem;
-      font-size: 0.875rem;
-      color: var(--texto-medio);
-      }
-
-    /* ── Resultado ────────────────────────────────────────── */
-    .resultado-wrap {
-      display: none;
-      margin-top: 4rem;
-      padding-top: 3rem;
-      border-top: 1px solid rgba(22,36,53,0.07);
-    }
-
-    .resultado-wrap.visible { display: block; }
-
-    .resultado-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ambar-dorado);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .resultado-nombre {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--azul-tinta);
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-
+    /* ── Resultado ── */
+    /* ── Resultado (sección propia) ── */
+    .resultado-section { display: none; padding: 6rem 4rem; background: var(--blanco); }
+    .resultado-section.visible { display: block; }
+    .resultado-inner { max-width: 760px; margin: 0 auto; }
+    .resultado-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ambar-dorado); margin-bottom: 1rem; display: block; }
+    .resultado-nombre { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--azul-tinta); margin-bottom: 0.5rem; line-height: 1.2; }
     .resultado-nombre em { font-style: italic; color: var(--rosa-antiguo); }
-
-    .resultado-body {
-      margin-top: 1.5rem;
-      padding: 2.5rem;
-      border-left: 3px solid var(--rosa-antiguo);
-      background: var(--crema);
-    }
-
-    .resultado-texto {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--texto-oscuro);
-      line-height: 1.65;
-      margin-bottom: 1.2rem;
-    }
-
-    .resultado-clave {
-      font-size: 1rem;
-      color: var(--texto-oscuro);
-      line-height: 1.8;
-      margin-bottom: 0.8rem;
-    }
-
-    .resultado-disclaimer {
-      font-size: 1rem;
-      color: var(--texto-oscuro);
-      font-style: italic;
-
-    }
-
-    .resultado-cta {
-      margin-top: 2rem;
-      padding: 2.5rem;
-      background: var(--azul-tinta);
-    }
-
-    .resultado-cta p {
-      font-size: 1rem;
-      color: rgba(201,205,212,0.8);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .resultado-cta a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--blanco);
-      color: var(--azul-tinta);
-      padding: 0.9rem 2rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-      border-radius: 2px;
-    }
-
+    .resultado-body { margin-top: 1.5rem; padding: 2.5rem; border-left: 3px solid var(--rosa-antiguo); background: var(--crema); }
+    .resultado-texto { font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-style: italic; color: var(--texto-oscuro); line-height: 1.65; margin-bottom: 1.2rem; }
+    .resultado-dimensiones { font-size: 0.92rem; color: var(--texto-medio); line-height: 1.8; margin-bottom: 1.2rem; padding: 0.8rem 1rem; border-left: 2px solid rgba(196,150,58,0.4); background: rgba(196,150,58,0.04); }
+    .resultado-clave { font-size: 1rem; color: var(--texto-oscuro); line-height: 1.8; margin-bottom: 0.8rem; }
+    .resultado-disclaimer { font-size: 1rem; color: var(--texto-oscuro); font-style: italic; }
+    .resultado-cta { margin-top: 2rem; padding: 2.5rem; background: var(--azul-tinta); }
+    .resultado-cta p { font-size: 1rem; color: rgba(201,205,212,0.8); line-height: 1.8; margin-bottom: 1.5rem; }
+    .resultado-cta a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--blanco); color: var(--azul-tinta); padding: 0.9rem 2rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; border-radius: 2px; }
     .resultado-cta a:hover { background: var(--ambar-dorado); color: var(--medianoche); }
 
-    /* ── Responsive ───────────────────────────────────────── */
+    /* ── Responsive ── */
     @media (max-width: 900px) {
       .hero { height: 50vh; min-height: 200px; padding: 0 1.5rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .gate-section { padding: 3.5rem 1.5rem; }
       .test-section { padding: 4rem 2rem; }
+      .resultado-section { padding: 4rem 2rem; }
     }
-
-    @media (max-width: 480px) {
-      .selector-btn { font-size: 1rem; }
-    }
+    @media (max-width: 480px) { .selector-btn { font-size: 1rem; } }
 
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════
-     NAVEGACIÓN — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     Dra. Iris Bello Castillo
@@ -847,9 +345,7 @@
   </button>
 </nav>
 
-<!-- ═══════════════════════════════════════════════════════════
-     MENÚ MÓVIL — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
+<!-- MENÚ MÓVIL -->
 <div class="nav-mobile-menu">
   <ul>
     <li class="nav-mobile-servicios">
@@ -861,7 +357,7 @@
         <a href="u-verse.html">U · Verse</a>
       </div>
     </li>
-    <li><a href="conoceme.html"  data-page="conoceme">Conóceme</a></li>
+    <li><a href="conoceme.html" data-page="conoceme">Conóceme</a></li>
     <li class="nav-mobile-servicios">
       <a href="recursos.html" data-page="recursos">Recursos <span class="arrow">▾</span></a>
       <div class="nav-mobile-sub">
@@ -869,19 +365,14 @@
         <a href="test-apego.html">Test de Apego</a>
       </div>
     </li>
-    <li><a href="blog.html"      data-page="blog">Blog</a></li>
-    <li><a href="faq.html"       data-page="faq">FAQ</a></li>
-    <li><a href="contacto.html"  data-page="contacto">Contacto</a></li>
+    <li><a href="blog.html"     data-page="blog">Blog</a></li>
+    <li><a href="faq.html"      data-page="faq">FAQ</a></li>
+    <li><a href="contacto.html" data-page="contacto">Contacto</a></li>
   </ul>
-
   <div class="nav-mobile-cta">
     <a href="https://wa.me/18098481234?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Iris" target="_blank" rel="noopener">Agendar consulta</a>
   </div>
 </div>
-
-
-
-
 
 <main>
 
@@ -897,20 +388,59 @@
         <div class="hero-chips">
           <span class="hero-chip">4 afirmaciones</span>
           <span class="hero-chip">4 estilos</span>
-          <span class="hero-chip">Sin registro</span>
           <span class="hero-chip">Resultado inmediato</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- GATE: NOMBRE + CORREO -->
+  <section class="gate-section" id="gate-section">
+    <div class="gate-inner">
+      <span class="section-label">Antes de empezar</span>
+      <h2>El resultado<br>te llega <em>donde estés.</em></h2>
+      <p class="gate-sub">Escribe tu nombre y tu correo. Verás el resultado aquí en cuanto termines, y también te llegará al correo para que lo tengas cuando quieras volver a leerlo.</p>
+
+      <label class="gate-field-label" for="gate-nombre">¿Cómo te llamas?</label>
+      <div class="gate-field">
+        <input type="text" id="gate-nombre" placeholder="Mi nombre es..." maxlength="60" autocomplete="off">
+      </div>
+      <p class="gate-error" id="gate-error-nombre">Por favor escribe tu nombre para continuar.</p>
+
+      <label class="gate-field-label" for="gate-email">¿A qué correo te lo envío?</label>
+      <div class="gate-field">
+        <input type="email" id="gate-email" placeholder="nombre@correo.com" maxlength="120" autocomplete="email">
+      </div>
+      <p class="gate-error" id="gate-error-email">Por favor escribe un correo válido para continuar.</p>
+
+      <button class="btn-gate" onclick="submitGate()">Comenzar el test →</button>
+      <p class="gate-privacy">Confidencial · No se comparte con terceros</p>
+    </div>
+  </section>
+
+  <!-- CONTEXTO CLÍNICO -->
+  <section class="contexto-section">
+    <div class="contexto-inner">
+      <div class="contexto-col">
+        <span class="section-label">Base del instrumento</span>
+        <p class="contexto-texto">Este screening está basado en el <strong>Relationship Questionnaire (RQ)</strong> de Bartholomew y Horowitz (1991), el instrumento de apego adulto más breve que existe: cuatro afirmaciones, una por estilo.</p>
+        <p class="contexto-texto" style="margin-top:1rem;">Los vínculos que formaste con tus cuidadores en la infancia generaron patrones internos que siguen organizando cómo te relacionas hoy. Eso es lo que el test busca identificar.</p>
+      </div>
+      <div class="contexto-col">
+        <span class="section-label">Cómo se organiza</span>
+        <p class="contexto-texto">Los cuatro estilos se construyen sobre dos dimensiones: <strong>cómo te ves a ti misma</strong> en los vínculos y <strong>cómo ves al otro.</strong> La combinación de ambas define el patrón que tiendes a repetir en tus relaciones.</p>
+        <p class="contexto-texto contexto-nota" style="margin-top:1rem;">El resultado es orientativo. No reemplaza una evaluación clínica formal.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- TEST -->
-  <section class="test-section">
+  <section class="test-section" id="test-section">
     <div class="test-inner">
 
-      <div class="test-instrucciones">
+      <div class="test-bienvenida" id="test-bienvenida">
         <span class="section-label">Las afirmaciones</span>
+        <h2>Hola, <em id="nombre-display"></em></h2>
         <p>Lee cada afirmación con calma. Selecciona el número que mejor describe cómo te sientes habitualmente, no cómo quisieras sentirte.</p>
         <p style="margin-top:0.5rem; font-size:1rem; color:var(--texto-oscuro);">
           <strong style="color:var(--texto-medio);">1</strong> = no me describe en absoluto &nbsp;·&nbsp;
@@ -1015,32 +545,32 @@
         <p class="test-aviso">Selecciona un valor en cada afirmación antes de continuar.</p>
       </div>
 
-      <!-- RESULTADO -->
-      <div class="resultado-wrap" id="resultado-apego">
-        <span class="resultado-eyebrow" id="resultado-eyebrow">Tu resultado</span>
-        <h2 class="resultado-nombre" id="resultado-nombre"></h2>
-        <div class="resultado-body">
-          <p class="resultado-texto" id="resultado-texto"></p>
-          <p class="resultado-clave" id="resultado-clave"></p>
-          <p class="resultado-disclaimer">Este screening es orientativo. Con 4 afirmaciones no es posible determinar el estilo de apego. Para una evaluación precisa se requiere un proceso psicológico formal.</p>
-        </div>
-        <div class="resultado-cta">
-          <p id="resultado-cta-texto">Lo que viste en el test tiene más profundidad de lo que parece. Si quieres comprender más, el siguiente paso es una conversación.</p>
-          <a href="https://wa.me/18098481234?text=Hola%2C%20acab%C3%A9%20el%20test%20de%20apego%20y%20quisiera%20hablar%20sobre%20mi%20resultado" target="_blank" rel="noopener">
-            Agendar una cita →
-          </a>
-        </div>
-      </div>
+    </div>
+  </section>
 
+  <!-- RESULTADO -->
+  <section class="resultado-section" id="resultado-section">
+    <div class="resultado-inner">
+      <span class="resultado-eyebrow" id="resultado-eyebrow">Tu resultado</span>
+      <h2 class="resultado-nombre" id="resultado-nombre"></h2>
+      <div class="resultado-body">
+        <p class="resultado-texto" id="resultado-texto"></p>
+        <p class="resultado-dimensiones" id="resultado-dimensiones"></p>
+        <p class="resultado-clave" id="resultado-clave"></p>
+        <p class="resultado-disclaimer">Este screening es orientativo. Con 4 afirmaciones no es posible determinar el estilo de apego. Para una evaluación precisa se requiere un proceso psicológico formal.</p>
+      </div>
+      <div class="resultado-cta">
+        <p>Lo que viste en el test tiene más profundidad de lo que parece. Si quieres comprender más, el siguiente paso es una conversación.</p>
+        <a href="https://wa.me/18098481234?text=Hola%2C%20acab%C3%A9%20el%20test%20de%20apego%20y%20quisiera%20hablar%20sobre%20mi%20resultado" target="_blank" rel="noopener">
+          Agendar una cita →
+        </a>
+      </div>
     </div>
   </section>
 
 </main>
 
-
-<!-- ═══════════════════════════════════════════════════════════
-     FOOTER — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -1059,7 +589,6 @@
         </a>
       </div>
     </div>
-
     <div class="footer-col">
       <h4>Servicios</h4>
       <ul>
@@ -1069,7 +598,6 @@
         <li><a href="u-verse.html">U · Verse</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4>Explorar</h4>
       <ul>
@@ -1081,7 +609,6 @@
         <li><a href="faq.html">Preguntas frecuentes</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4>Contacto</h4>
       <ul>
@@ -1092,17 +619,13 @@
       <p class="footer-location">Santo Domingo · República Dominicana</p>
     </div>
   </div>
-
   <div class="footer-bottom">
     <span>© 2026 Dra. Iris Bello Castillo · Psicóloga Clínica</span>
     <span><a href="index.html" style="color:inherit; text-decoration:none;">irisbello.com</a></span>
   </div>
 </footer>
 
-
-<!-- ═══════════════════════════════════════════════════════════
-     BOTÓN FLOTANTE WHATSAPP — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
+<!-- WA FAB -->
 <a href="https://wa.me/18098481234?text=Hola%21%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20la%20Dra."
   target="_blank" rel="noopener noreferrer" class="wa-fab" aria-label="Contactar por WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="28" height="28" aria-hidden="true">
@@ -1110,38 +633,78 @@
   </svg>
 </a>
 
-
-<!-- ═══════════════════════════════════════════════════════════
-     SCRIPTS — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
 <script>
-  // ── Test de apego ─────────────────────────────────────────
+  // ── Variables globales ─────────────────────────────────────
+  var userName  = '';
+  var userEmail = '';
   var respuestas = { a: null, b: null, c: null, d: null };
 
+  // ── Gate: nombre + correo ──────────────────────────────────
+  document.getElementById('gate-nombre').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('gate-email').focus();
+  });
+  document.getElementById('gate-email').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') submitGate();
+  });
+
+  function submitGate() {
+    var nombreVal = document.getElementById('gate-nombre').value.trim();
+    var emailVal  = document.getElementById('gate-email').value.trim();
+    var nombreErr = document.getElementById('gate-error-nombre');
+    var emailErr  = document.getElementById('gate-error-email');
+    var emailOk   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+
+    nombreErr.style.display = 'none';
+    emailErr.style.display  = 'none';
+
+    if (!nombreVal) { nombreErr.style.display = 'block'; document.getElementById('gate-nombre').focus(); return; }
+    if (!emailOk)   { emailErr.style.display  = 'block'; document.getElementById('gate-email').focus();  return; }
+
+    userName  = nombreVal.charAt(0).toUpperCase() + nombreVal.slice(1).toLowerCase();
+    userEmail = emailVal;
+
+    // Mostrar nombre en el test
+    document.getElementById('nombre-display').textContent = userName;
+
+    // Ocultar gate y contexto, mostrar test
+    document.getElementById('gate-section').style.display = 'none';
+    document.querySelector('.contexto-section').style.display = 'none';
+    var testSection = document.getElementById('test-section');
+    testSection.classList.add('visible');
+
+    // Scroll suave al inicio del test
+    setTimeout(function() {
+      testSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  }
+
+  // ── Selectores de afirmaciones ─────────────────────────────
   document.querySelectorAll('.selector-btns').forEach(function(grupo) {
     var id = grupo.id.replace('btns-', '');
     grupo.querySelectorAll('.selector-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        // Limpiar selección previa
         grupo.querySelectorAll('.selector-btn').forEach(function(b) {
           b.classList.remove('selected', 'selected-high');
         });
-        // Marcar seleccionado
         var val = parseInt(btn.getAttribute('data-val'));
         btn.classList.add(val >= 5 ? 'selected-high' : 'selected');
         respuestas[id] = val;
-        // Actualizar texto de valor
         var textos = ['', 'No me describe en absoluto', 'Poco', 'Algo', 'Neutral', 'Bastante', 'Mucho', 'Me describe totalmente'];
         var valorEl = document.getElementById('val-' + id);
-        if (valorEl) valorEl.textContent = val + ' — ' + textos[val];
+        if (valorEl) {
+          valorEl.textContent = val + ' — ' + textos[val];
+          valorEl.classList.add('activo');
+        }
       });
     });
   });
 
+  // ── Calcular resultado ─────────────────────────────────────
   function calcularApego() {
     if (respuestas.a === null || respuestas.b === null || respuestas.c === null || respuestas.d === null) {
-      document.querySelector('.test-aviso').style.color = 'var(--rosa-antiguo)';
-      document.querySelector('.test-aviso').style.fontWeight = '500';
+      var aviso = document.querySelector('.test-aviso');
+      aviso.style.color = 'var(--rosa-antiguo)';
+      aviso.style.fontWeight = '500';
       return;
     }
 
@@ -1150,87 +713,117 @@
         nombre: 'Apego seguro',
         eyebrow: 'Se acerca al estilo',
         texto: 'Tu resultado se acerca al apego seguro. Tiendes a sentirte cómoda con la cercanía emocional. Puedes depender de otros y que otros dependan de ti sin que eso active alarma. Las relaciones no se sienten como una amenaza ni como una necesidad urgente.',
-        clave: 'En ti, el trabajo no suele estar en reparar, sino en elegir mejor a quién y desde dónde.'
+        dimensiones: 'Te ves a ti misma como alguien valiosa en los vínculos, y ves al otro como disponible y confiable. Esa combinación es la que permite la cercanía sin que cueste tanto.',
+        clave: 'En ti, el recorrido no suele estar en reparar, sino en elegir mejor a quién y desde dónde.'
       },
       b: {
         nombre: 'Apego evitativo',
         eyebrow: 'Se acerca al estilo',
         texto: 'Tu resultado se acerca al apego evitativo. Tiendes a priorizar la autonomía y la autosuficiencia. La cercanía emocional puede sentirse incómoda o innecesaria. No es que no necesites a otros, sino que aprendiste a no contar demasiado con ellos.',
+        dimensiones: 'Te ves a ti misma como suficiente, pero el otro aparece como poco confiable o prescindible. La independencia no es una elección pura: es también una forma de protegerse.',
         clave: 'Aquí lo importante es aprender a permitir conexión sin que se sienta como invasión.'
       },
       c: {
         nombre: 'Apego ansioso',
         eyebrow: 'Se acerca al estilo',
         texto: 'Tu resultado se acerca al apego ansioso. Quieres conexión profunda, pero temes que los demás no te valoren tanto como tú a ellos. Eso puede generar hipervigilancia en los vínculos: leer señales, anticipar abandono, intensificar el contacto para reducir la ansiedad.',
+        dimensiones: 'El otro aparece como muy valioso, casi más que tú misma en el vínculo. Esa asimetría es lo que alimenta la urgencia por confirmar que sigues importando.',
         clave: 'Aquí lo importante es aprender a no leer pérdida en cada cambio de ritmo del otro.'
       },
       d: {
         nombre: 'Apego temeroso',
         eyebrow: 'Se acerca al estilo',
         texto: 'Tu resultado se acerca al apego temeroso. Quieres cercanía pero la cercanía también da miedo. El vínculo es al mismo tiempo lo que necesitas y lo que puede hacerte daño. Eso puede generar patrones contradictorios: acercarse y alejarse, confiar y desconfiar, sin un hilo conductor claro.',
+        dimensiones: 'Tanto la imagen de ti misma como la del otro en los vínculos generan incertidumbre. De ahí la contradicción: querer y temer la misma cosa al mismo tiempo.',
         clave: 'Aquí lo importante es construir cercanía sin sentir que quedas demasiado expuesta.'
       }
     };
 
-    // Determinar el estilo dominante por mayor puntuación
     var max = -1, dominante = 'a';
     Object.keys(respuestas).forEach(function(k) {
       if (respuestas[k] > max) { max = respuestas[k]; dominante = k; }
     });
 
-    // Detectar empate
     var empatados = Object.keys(respuestas).filter(function(k) {
       return respuestas[k] === max;
     });
 
-    var wrap = document.getElementById('resultado-apego');
+    var wrap = document.getElementById('resultado-section');
+    var estiloResultado = '';
 
     if (empatados.length > 1) {
       var nombresEmpatados = empatados.map(function(k) { return estilos[k].nombre; }).join(' y ');
       document.getElementById('resultado-eyebrow').textContent = 'Resultado distribuido';
       document.getElementById('resultado-nombre').textContent = 'Más de un estilo predominante';
       document.getElementById('resultado-texto').textContent = 'Tus puntuaciones más altas están distribuidas entre más de un estilo (' + nombresEmpatados + '). Esto es frecuente: los estilos de apego no son categorías rígidas ni mutuamente excluyentes.';
+      document.getElementById('resultado-dimensiones').textContent = '';
       document.getElementById('resultado-clave').textContent = 'Para determinar cuál predomina en tu caso, se recomienda una evaluación psicológica formal.';
+      estiloResultado = nombresEmpatados;
     } else {
       var estilo = estilos[dominante];
       document.getElementById('resultado-eyebrow').textContent = estilo.eyebrow;
       document.getElementById('resultado-nombre').textContent = estilo.nombre;
       document.getElementById('resultado-texto').textContent = estilo.texto;
+      document.getElementById('resultado-dimensiones').textContent = estilo.dimensiones;
       document.getElementById('resultado-clave').textContent = estilo.clave;
+      estiloResultado = estilo.nombre;
     }
 
     wrap.classList.add('visible');
-    setTimeout(function() {
-      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+
+    // Enviar correo y registrar en Sheets
+    enviarEmail(estiloResultado, empatados.length > 1 ? null : estilos[dominante]);
+    registrarSheet(estiloResultado);
+
+    // Ocultar hero y test — mostrar solo resultado
+    document.querySelector('.hero').style.display = 'none';
+    document.getElementById('test-section').style.display = 'none';
+    wrap.classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // ── Dropdown desktop ──────────────────────────────────────
+  // ── EmailJS ────────────────────────────────────────────────
+  function enviarEmail(estiloResultado, estiloObj) {
+    var descripcion = estiloObj
+      ? estiloObj.texto + '\n\n' + estiloObj.clave
+      : 'Tus puntuaciones están distribuidas entre más de un estilo. Para una evaluación precisa se recomienda un proceso psicológico formal.';
+
+    emailjs.send('service_ec7wrag', 'template_4vrmuu4', {
+      to_email:    userEmail,
+      nombre:      userName,
+      estilo:      estiloResultado,
+      descripcion: descripcion
+    }).catch(function(err) { console.warn('EmailJS:', err); });
+  }
+
+  // ── Google Sheets ──────────────────────────────────────────
+  function registrarSheet(estiloResultado) {
+    fetch('https://script.google.com/macros/s/AKfycbxw-thAPZJ5tJS5Vw44MIA8IbPUsPMrXYcEXA3F5DMZlegibrGYMhsgPikZto-gwRiH/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre: userName, email: userEmail, estilo: estiloResultado })
+    }).catch(function(err) { console.warn('Sheets:', err); });
+  }
+
+  // ── Dropdown desktop ───────────────────────────────────────
   function initDropdowns() {
     document.querySelectorAll('.nav-has-dropdown').forEach(function(item) {
       var t;
-      item.addEventListener('mouseenter', function() {
-        clearTimeout(t);
-        item.classList.add('open');
-      });
-      item.addEventListener('mouseleave', function() {
-        t = setTimeout(function() { item.classList.remove('open'); }, 220);
-      });
+      item.addEventListener('mouseenter', function() { clearTimeout(t); item.classList.add('open'); });
+      item.addEventListener('mouseleave', function() { t = setTimeout(function() { item.classList.remove('open'); }, 220); });
       var dd = item.querySelector('.nav-dropdown');
       if (dd) {
         dd.addEventListener('mouseenter', function() { clearTimeout(t); });
-        dd.addEventListener('mouseleave', function() {
-          t = setTimeout(function() { item.classList.remove('open'); }, 220);
-        });
+        dd.addEventListener('mouseleave', function() { t = setTimeout(function() { item.classList.remove('open'); }, 220); });
       }
     });
   }
 
-  // ── Menú hamburguesa móvil ────────────────────────────────
+  // ── Hamburguesa móvil ──────────────────────────────────────
   (function() {
     var btn  = document.querySelector('.nav-hamburger');
     var menu = document.querySelector('.nav-mobile-menu');
-
     if (btn && menu) {
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -1239,8 +832,6 @@
         document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
       });
     }
-
-    // Handle all mobile submenus (Servicios, Recursos, etc.)
     document.querySelectorAll('.nav-mobile-servicios > a').forEach(function(trigger) {
       var sub = trigger.nextElementSibling;
       if (sub && sub.classList.contains('nav-mobile-sub')) {
@@ -1259,10 +850,8 @@
         });
       }
     });
-
     document.addEventListener('click', function(e) {
-      if (menu && menu.classList.contains('open') &&
-          !menu.contains(e.target) && btn && !btn.contains(e.target)) {
+      if (menu && menu.classList.contains('open') && !menu.contains(e.target) && btn && !btn.contains(e.target)) {
         btn.classList.remove('open');
         menu.classList.remove('open');
         document.body.style.overflow = '';
@@ -1270,59 +859,45 @@
     });
   })();
 
-  // ── Marca el ítem activo según la URL ─────────────────────
+  // ── Nav activo ─────────────────────────────────────────────
   (function() {
     var page = window.location.pathname.split('/').pop() || 'index.html';
     var recursosPages = ['recursos.html', 'espejo-del-camerino.html', 'test-apego.html'];
     document.querySelectorAll('[data-page]').forEach(function(el) {
       var href = (el.getAttribute('href') || '').split('/').pop();
-      if (href === page) {
-        el.classList.add('nav-active');
-      }
-      if (el.getAttribute('data-page') === 'recursos' && recursosPages.indexOf(page) !== -1) {
-        el.classList.add('nav-active');
-      }
+      if (href === page) el.classList.add('nav-active');
+      if (el.getAttribute('data-page') === 'recursos' && recursosPages.indexOf(page) !== -1) el.classList.add('nav-active');
     });
   })();
 
-  // ── Reveal on scroll ──────────────────────────────────────
+  // ── Reveal on scroll ───────────────────────────────────────
   (function() {
     function check() {
       document.querySelectorAll('.reveal:not(.visible), .afirmacion:not(.visible)').forEach(function(el) {
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) {
-          el.classList.add('visible');
-        }
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('visible');
       });
     }
     window.addEventListener('scroll', check, { passive: true });
     check();
   })();
 
-  // ── Init ──────────────────────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDropdowns);
-  } else {
-    initDropdowns();
-  }
-
-  // -- Ajuste dinamico del nav al hero --
+  // ── Nav padding ────────────────────────────────────────────
   (function() {
     function adjustNav() {
-      var nav = document.querySelector("nav");
+      var nav = document.querySelector('nav');
       if (!nav) return;
       var h = Math.round(nav.getBoundingClientRect().height);
-      var main = document.querySelector("main");
-      if (main) main.style.paddingTop = h + "px";
-      var hero = document.querySelector(".hero-fullvh");
-      if (hero) {
-        hero.style.height = "calc(100vh - " + h + "px)";
-      }
+      var main = document.querySelector('main');
+      if (main) main.style.paddingTop = h + 'px';
     }
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", adjustNav);
-    } else { adjustNav(); }
-    window.addEventListener("resize", adjustNav);
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', adjustNav);
+    else adjustNav();
+    window.addEventListener('resize', adjustNav);
   })();
+
+  // ── Init ───────────────────────────────────────────────────
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initDropdowns);
+  else initDropdowns();
 </script>
 
 </body>
