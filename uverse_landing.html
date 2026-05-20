@@ -96,8 +96,8 @@
   /* SELLO PRIMERA EDICIÓN SOLD OUT */
   .sello-soldout {
     position: absolute;
-    top: 72%;
-    left: 72%;
+    top: 50%;
+    left: 60%;
     transform: translate(-50%, -50%) rotate(-8deg);
     background: 
       radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.12), transparent 60%),
@@ -990,7 +990,14 @@
     /* PUNTO 6: ¿TE SUENA FAMILIAR? */
     .te-suena-grid {
       grid-template-columns: 1fr !important;
-      gap: 2rem !important;
+      column-gap: 0 !important;
+      row-gap: 0 !important;
+    }
+    .te-suena-item {
+      border-bottom: 0.5px solid rgba(196,150,58,0.3) !important;
+    }
+    .te-suena-item:last-child {
+      border-bottom: none !important;
     }
 
     /* PUNTO 7: GALERÍA */
@@ -1073,9 +1080,12 @@
 </div>
 </div><div class="section">
 <span class="label">Quién facilita este espacio</span>
-<div class="quien-facilita-grid" style="display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem;align-items:start;margin-top:1.5rem;">
-<div style="border-radius:18px;overflow:hidden;box-shadow:0 40px 100px rgba(22,36,53,0.12);">
-<img src="images/tallerversehero.jpg" alt="Dra. Iris Bello Castillo" style="width:100%;height:480px;object-fit:cover;object-position:center 30%;display:block;"/>
+<div class="quien-facilita-grid" style="display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;margin-top:1.5rem;">
+<div style="position:relative;padding:1.25rem 1.25rem 1.25rem 0;">
+<div style="position:absolute;top:0;left:1.25rem;bottom:0;right:0;background:#EFEDE8;border-radius:4px;z-index:0;"></div>
+<div style="position:relative;border-radius:4px;overflow:hidden;box-shadow:0 20px 50px rgba(22,36,53,0.10);z-index:1;">
+<img src="images/tallerversehero.jpg" alt="Dra. Iris Bello Castillo" style="width:100%;height:540px;object-fit:cover;object-position:center 22%;display:block;"/>
+</div>
 </div>
 <div>
 <h2 class="headline" style="margin-bottom:0.25rem;">Dra. Iris Bello Castillo</h2>
@@ -1101,42 +1111,41 @@
 </div><div class="section">
 <span class="label">El patrón puede verse así</span>
 <h2 class="headline">¿Te suena familiar?</h2>
-<div class="te-suena-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 3rem;margin-top:2rem;text-align:center;">
+<div class="te-suena-grid" style="display:grid;grid-template-columns:1fr 1fr;column-gap:4rem;row-gap:0;margin-top:3.5rem;">
 
-<div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
-<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B5707A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>
-<p style="font-size:18px;line-height:1.65;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0;">Das sin límite y resientes sin entender por qué.</p>
+<div class="te-suena-item" style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:2.25rem 0;border-bottom:0.5px solid rgba(196,150,58,0.3);align-items:start;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:32px;color:#C4963A;line-height:1;padding-top:0.15rem;">01</span>
+<p style="font-size:21px;line-height:1.45;color:#162435;font-family:'DM Serif Display',Georgia,serif;margin:0;font-weight:400;">Das sin límite y resientes sin entender por qué.</p>
 </div>
 
-<div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
-<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B5707A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-<p style="font-size:18px;line-height:1.65;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0;">Te apagas para no generar conflicto.</p>
+<div class="te-suena-item" style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:2.25rem 0;border-bottom:0.5px solid rgba(196,150,58,0.3);align-items:start;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:32px;color:#C4963A;line-height:1;padding-top:0.15rem;">02</span>
+<p style="font-size:21px;line-height:1.45;color:#162435;font-family:'DM Serif Display',Georgia,serif;margin:0;font-weight:400;">Te apagas para no generar conflicto.</p>
 </div>
 
-<div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
-<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B5707A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-<p style="font-size:18px;line-height:1.65;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0;">Controlas porque soltar se siente peligroso.</p>
+<div class="te-suena-item" style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:2.25rem 0;border-bottom:0.5px solid rgba(196,150,58,0.3);align-items:start;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:32px;color:#C4963A;line-height:1;padding-top:0.15rem;">03</span>
+<p style="font-size:21px;line-height:1.45;color:#162435;font-family:'DM Serif Display',Georgia,serif;margin:0;font-weight:400;">Controlas porque soltar se siente peligroso.</p>
 </div>
 
-<div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
-<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B5707A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-<p style="font-size:18px;line-height:1.65;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0;">Te vas antes de que te dejen.</p>
+<div class="te-suena-item" style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:2.25rem 0;border-bottom:0.5px solid rgba(196,150,58,0.3);align-items:start;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:32px;color:#C4963A;line-height:1;padding-top:0.15rem;">04</span>
+<p style="font-size:21px;line-height:1.45;color:#162435;font-family:'DM Serif Display',Georgia,serif;margin:0;font-weight:400;">Te vas antes de que te dejen.</p>
 </div>
 
-<div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
-<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B5707A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-<p style="font-size:18px;line-height:1.65;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0;">Te cuesta creer que mereces lo que pides.</p>
+<div class="te-suena-item" style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:2.25rem 0;align-items:start;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:32px;color:#C4963A;line-height:1;padding-top:0.15rem;">05</span>
+<p style="font-size:21px;line-height:1.45;color:#162435;font-family:'DM Serif Display',Georgia,serif;margin:0;font-weight:400;">Te cuesta creer que mereces lo que pides.</p>
 </div>
 
-<div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
-<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B5707A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/></svg>
-<p style="font-size:18px;line-height:1.65;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0;">Por dentro no te sientes suficiente tal como eres.</p>
+<div class="te-suena-item" style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:2.25rem 0;align-items:start;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:32px;color:#C4963A;line-height:1;padding-top:0.15rem;">06</span>
+<p style="font-size:21px;line-height:1.45;color:#162435;font-family:'DM Serif Display',Georgia,serif;margin:0;font-weight:400;">Por dentro no te sientes suficiente tal como eres.</p>
 </div>
 
 </div>
 </div><div class="section">
 <div style="max-width:680px;margin:2rem auto;padding-left:2rem;border-left:2px solid #C4963A;">
-<span style="font-family:'DM Serif Display',Georgia,serif;font-size:64px;color:#C4963A;line-height:0.6;display:block;margin-bottom:0.5rem;opacity:0.85;">"</span>
 <p style="font-family:'DM Serif Display',Georgia,serif;font-size:32px;line-height:1.3;color:#162435;font-style:italic;margin:0 0 1.25rem 0;font-weight:400;">Y quizás lo más <span style="color:#C4963A;">agotador</span> no es que pase.</p>
 <p style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.5;color:#5a5248;font-style:italic;margin:0;font-weight:400;">Es que pasa. Y pasa. Y vuelve a pasar. Aunque ya no quieres. Aunque puede que ya medio lo entendieras. Aunque esa vez querías que fuera diferente.</p>
 </div>
@@ -1146,26 +1155,31 @@
 <h2 class="headline">Un espacio de trabajo psicológico para entender la forma en que te vinculas.</h2>
 <p class="body">No el qué te pasa. El <strong>desde dónde</strong> te pasa. Hay un patrón que aprendiste, que se repite con distintas personas y en distintos contextos, y que en algún momento tuvo sentido.</p>
 <p class="body">U·Verse está diseñado para que ese patrón tenga nombre y origen. Y para que salgas con un primer paso concreto para empezar a notar cuándo opera, antes de actuar desde él y puedas elegir distinto.</p>
-<div style="display:flex;flex-direction:column;gap:8px;margin-top:1.5rem;">
-<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;padding:0.75rem 0;align-items:start;">
-<span style="background:#B5707A;color:#fff;font-size:13px;font-weight:700;padding:3px 8px;border-radius:100px;margin-top:2px;white-space:nowrap;">No es</span>
-<p style="font-size:16px;line-height:1.7;color:#162435;margin:0;"><strong>una conferencia.</strong> Aquí no solo escuchas ni tomas notas: participas viéndote y haciendo.</p>
+<div style="display:flex;flex-direction:column;margin-top:2.5rem;border-top:0.5px solid rgba(196,150,58,0.3);">
+
+<div style="padding:2rem 0;border-bottom:0.5px solid rgba(196,150,58,0.3);">
+<p style="font-size:11px;color:#C4963A;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin:0 0 0.75rem 0;">No es una conferencia</p>
+<p style="font-size:18px;line-height:1.7;color:#162435;margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;">Aquí no solo escuchas ni tomas notas. Participas viéndote y haciendo.</p>
 </div>
-<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;padding:0.75rem 0;align-items:start;">
-<span style="background:#B5707A;color:#fff;font-size:13px;font-weight:700;padding:3px 8px;border-radius:100px;margin-top:2px;white-space:nowrap;">No es</span>
-<p style="font-size:16px;line-height:1.7;color:#162435;margin:0;"><strong>terapia grupal.</strong> Tú eres la protagonista de tu propio proceso y compartes solo lo que quieras.</p>
+
+<div style="padding:2rem 0;border-bottom:0.5px solid rgba(196,150,58,0.3);">
+<p style="font-size:11px;color:#C4963A;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin:0 0 0.75rem 0;">No es terapia grupal</p>
+<p style="font-size:18px;line-height:1.7;color:#162435;margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;">Tú eres la protagonista de tu propio proceso y compartes solo lo que quieras.</p>
 </div>
-<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;padding:0.75rem 0;align-items:start;">
-<span style="background:#B5707A;color:#fff;font-size:13px;font-weight:700;padding:3px 8px;border-radius:100px;margin-top:2px;white-space:nowrap;">No es</span>
-<p style="font-size:16px;line-height:1.7;color:#162435;margin:0;"><strong>un espacio para desahogarse.</strong> Aquí no se habla del problema, se trabaja lo que está detrás. Y si el desahogo ocurre, te acompañamos.</p>
+
+<div style="padding:2rem 0;border-bottom:0.5px solid rgba(196,150,58,0.3);">
+<p style="font-size:11px;color:#C4963A;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin:0 0 0.75rem 0;">No es un espacio para desahogarse</p>
+<p style="font-size:18px;line-height:1.7;color:#162435;margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;">Aquí no se habla del problema, se trabaja lo que está detrás. Y si el desahogo ocurre, te acompañamos.</p>
 </div>
-<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;padding:0.75rem 0;align-items:start;">
-<span style="background:#B5707A;color:#fff;font-size:13px;font-weight:700;padding:3px 8px;border-radius:100px;margin-top:2px;white-space:nowrap;">No es</span>
-<p style="font-size:16px;line-height:1.7;color:#162435;margin:0;"><strong>terapia ni la sustituye.</strong> Es un primer paso de reconocimiento con rigor clínico.</p>
+
+<div style="padding:2rem 0;">
+<p style="font-size:11px;color:#C4963A;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin:0 0 0.75rem 0;">No es terapia ni la sustituye</p>
+<p style="font-size:18px;line-height:1.7;color:#162435;margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;">Es un primer paso de reconocimiento con rigor clínico.</p>
 </div>
+
 </div>
     <p class="remate">Es un taller vivencial con acompañamiento clínico. No solo vives la experiencia. Hay alguien acompañándote mientras lo ves: si surge lo que necesita contenerse, ahí estoy.</p>
-<a class="cta-mid" href="#inversion">Quiero unirme</a>
+<a class="cta-mid" href="#inversion" style="background:#B5707A;color:#fff;">Quiero unirme</a>
 </div>
 </div><div class="section">
 <span class="label">Qué ocurre dentro</span>
@@ -1214,41 +1228,43 @@
 <p class="nota"><strong>Lo único que necesitas traer es disposición para mirarte con honestidad.</strong> La estructura hace el resto.</p>
 </div><div class="section">
 <p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:0.75rem;">Lo que vivieron en la primera edición</p>
-<h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:32px;font-weight:400;color:#162435;text-align:center;margin:0 auto 3rem;line-height:1.3;max-width:680px;letter-spacing:-0.01em;">En sus palabras.</h2>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+<h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:32px;font-weight:400;color:#162435;text-align:center;margin:0 auto 3.5rem;line-height:1.3;max-width:680px;letter-spacing:-0.01em;">En sus palabras.</h2>
 
-<div style="padding:2.5rem 2rem;position:relative;">
-<span style="font-family:'DM Serif Display',Georgia,serif;font-size:56px;color:#C4963A;line-height:0.6;display:block;margin-bottom:1.25rem;opacity:0.85;">"</span>
-<p style="font-size:19px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 1.5rem;font-weight:400;">Llevo años en terapia y en talleres. Y aun así, U·Verse me hizo darme cuenta de algo que no había podido ver antes. Me fui con una acción clara de qué hacer. Eso es lo que más valoro."</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;margin:0 auto;">
+
+<div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
+<p style="font-size:19px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">Llevo años en terapia y en talleres. Y aun así, U·Verse me hizo darme cuenta de algo que no había podido ver antes. Me fui con una acción clara de qué hacer. Eso es lo que más valoro.</p>
+<div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
 <p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0;">— Alicia</p>
 </div>
 
-<div style="padding:2.5rem 2rem;position:relative;">
-<span style="font-family:'DM Serif Display',Georgia,serif;font-size:56px;color:#C4963A;line-height:0.6;display:block;margin-bottom:1.25rem;opacity:0.85;">"</span>
-<p style="font-size:19px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 1.5rem;font-weight:400;">Lo que más valoro es que es un espacio donde una se siente segura, no juzgada. Y eso te da el permiso de verte de verdad."</p>
-<p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0;">— Clara</p>
+<div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
+<p style="font-size:19px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">Un espacio como este es muy necesario. Con contención, con profesionalidad. Donde una se siente segura, no juzgada, y se da el permiso de verse.</p>
+<div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
+<p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 0.25rem;">— Clara</p>
+<p style="font-size:11px;color:#5a5248;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Psicóloga Clínica</p>
+</div>
+
+<div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
+<p style="font-size:19px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">El espacio está muy bien diseñado, estructurado para guiarnos en una reflexión que me llenó de luz. Era justo lo que necesitaba en este momento.</p>
+<div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
+<p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 0.25rem;">— Heidy</p>
+<p style="font-size:11px;color:#5a5248;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Ingeniera Industrial</p>
+</div>
+
+<div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
+<p style="font-size:19px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">Soy de las que pone música o el televisor porque a veces tengo miedo de interiorizar. Aquí me sentí en confianza para hacer lo que evito. Pude trabajar e interiorizar mucho.</p>
+<div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
+<p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0;">— Jenny</p>
 </div>
 
 </div>
 
-<!-- VIDEO TESTIMONIO 2 - Después de testimonios escritos -->
-<!-- Función: amplificar prueba social verbal con testimonio audiovisual -->
-<!-- Duración recomendada: 30-45 seg (corto-mediano) -->
-<!-- Para reemplazar: descomentar el iframe y poner el VIMEO_ID_VIDEO_2 real -->
-<div style="margin-top:3rem;">
-<p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:1.25rem;">Testimonio · Video</p>
-<div style="max-width:320px;margin:0 auto;">
-<div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border:1px solid rgba(196,150,58,0.4);border-radius:14px;background:#162435;">
-<!-- <iframe src="https://player.vimeo.com/video/VIMEO_ID_VIDEO_2?dnt=1&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
-<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;">
-<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C4963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-<p style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:17px;margin:0 0 0.5rem 0;color:rgba(255,255,255,0.85);">Video pendiente</p>
-<p style="font-size:13px;color:rgba(255,255,255,0.5);margin:0;line-height:1.4;">Testimonio · Experiencia<br/>durante el taller</p>
-</div>
-</div>
-</div>
-</div>
-<div style="text-align:center;margin-top:3rem;">
+<div style="text-align:center;margin-top:4rem;">
 <a href="#inversion" style="display:inline-block;background:#B5707A;color:#fff;font-size:16px;font-weight:500;padding:0.85rem 1.75rem;border-radius:12px;text-decoration:none;letter-spacing:0.02em;">Quiero unirme</a>
 </div>
 </div><div class="section">
@@ -1284,21 +1300,21 @@
 <a class="cta-mid" href="#inversion">Quiero unirme</a>
 </div>
 
-<!-- VIDEO TESTIMONIO 1 - Después de "Lo que cambia cuando sales" -->
-<!-- Función: validar la transformación prometida con testimonio de transformación posterior al taller -->
-<!-- Duración recomendada: 60-90 seg (mediano) -->
-<!-- Para reemplazar: descomentar el iframe y poner el VIMEO_ID_VIDEO_1 real -->
+<!-- VIDEO TESTIMONIO ÚNICO - Después de "Lo que cambia cuando sales" -->
+<!-- Persona: Alejandra -->
+<!-- Función: validar la transformación con insight + acción concretos antes del precio -->
+<!-- Duración: 50 segundos -->
+<!-- Self-hosted en /images/ -->
 <div class="section" style="padding-top:2rem;padding-bottom:2rem;">
 <p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:1.25rem;">Testimonio · Video</p>
 <div style="max-width:320px;margin:0 auto;">
-<div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border:2px solid rgba(181,112,122,0.5);border-radius:8px;background:#162435;">
-<!-- <iframe src="https://player.vimeo.com/video/VIMEO_ID_VIDEO_1?dnt=1&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
-<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;">
-<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C4963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-<p style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:17px;margin:0 0 0.5rem 0;color:rgba(255,255,255,0.85);">Video pendiente</p>
-<p style="font-size:13px;color:rgba(255,255,255,0.5);margin:0;line-height:1.4;">Testimonio · Transformación<br/>después del taller</p>
+<div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border:1px solid rgba(196,150,58,0.4);border-radius:14px;background:#162435;">
+<video controls preload="metadata" playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#162435;">
+<source src="images/alejandra-testimonio.mp4" type="video/mp4">
+Tu navegador no soporta el video. <a href="images/alejandra-testimonio.mp4" style="color:#C4963A;">Descárgalo aquí</a>.
+</video>
 </div>
-</div>
+<p style="font-size:13px;color:#5a5248;text-align:center;margin-top:1rem;font-family:'DM Serif Display',Georgia,serif;font-style:italic;">Alejandra</p>
 </div>
 </div>
 
@@ -1376,33 +1392,12 @@
 </details>
 </div>
 
-<!-- VIDEO TESTIMONIO 3 - Antes del cierre final -->
-<!-- Función: último empujón emocional antes del CTA final, recomendación directa -->
-<!-- Duración recomendada: 15-30 seg (corto) -->
-<!-- Para reemplazar: descomentar el iframe y poner el VIMEO_ID_VIDEO_3 real -->
-<div class="section" style="padding-top:2rem;padding-bottom:2rem;">
-<p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:1.25rem;">Testimonio · Video</p>
-<div style="max-width:320px;margin:0 auto;">
-<div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border:2px solid rgba(181,112,122,0.5);border-radius:8px;background:#162435;">
-<!-- <iframe src="https://player.vimeo.com/video/VIMEO_ID_VIDEO_3?dnt=1&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
-<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;">
-<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C4963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-<p style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:17px;margin:0 0 0.5rem 0;color:rgba(255,255,255,0.85);">Video pendiente</p>
-<p style="font-size:13px;color:rgba(255,255,255,0.5);margin:0;line-height:1.4;">Testimonio · Recomendación<br/>directa</p>
-</div>
-</div>
-</div>
-</div>
-
 <div class="section" style="background:#162435;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:7rem 0;color:#fff;">
 <div class="fullbleed-content">
 <span class="label" style="color:#D4929A;">18 de julio · Casa Dede · Santo Domingo</span>
 <h2 class="headline" style="color:#fff;">Lo que se ve ya no se puede<br/>del todo des-ver.</h2>
 <p class="body" style="color:rgba(255,255,255,0.78);">No necesitas llegar lista ni saber exactamente qué te pasa. Solo disposición para mirarte con honestidad durante tres horas.</p>
-<div style="border-radius:8px;overflow:hidden;margin:1.75rem 0;">
-<img src="images/AJM00740.jpg" alt="Participantes U·Verse primera edición" style="width:100%;max-height:320px;object-fit:cover;object-position:center 20%;display:block;"/>
-</div>
-<div class="cupos" style="background:rgba(255,255,255,0.05);border:0.5px solid rgba(196,150,58,0.3);">
+<div class="cupos" style="background:rgba(255,255,255,0.05);border:0.5px solid rgba(196,150,58,0.3);margin-top:2.5rem;">
 <span class="cupos-num" style="color:#fff;">16</span>
 <p class="cupos-text" style="color:rgba(255,255,255,0.78);">cupos disponibles para esta edición. El formato de U·Verse requiere que cada persona pueda observarse dentro de las dinámicas. Con un grupo pequeño, participes activamente o no, estás dentro de la experiencia, no mirándola desde afuera.</p>
 </div>
