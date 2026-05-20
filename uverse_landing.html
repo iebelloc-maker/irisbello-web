@@ -181,23 +181,30 @@
   .hero-image-wrapper {
     position: relative;
   }
-  .hero-image-wrapper img,
   .galeria-grid img,
   .quien-facilita-grid img {
     filter: contrast(1.03) brightness(0.97) saturate(0.94);
   }
-  .hero-image-wrapper::after {
+  /* Glow radial detrás de la figura: simula la luz de estudio */
+  .hero-image-wrapper::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, 
-      rgba(22,36,53,0.88) 0%, 
-      rgba(22,36,53,0.70) 8%, 
-      rgba(22,36,53,0.45) 20%, 
-      rgba(22,36,53,0.22) 35%, 
-      rgba(22,36,53,0.08) 50%, 
-      transparent 70%);
+    top: 8%;
+    right: 5%;
+    width: 70%;
+    height: 85%;
+    background: radial-gradient(ellipse at center,
+      rgba(196,150,58,0.18) 0%,
+      rgba(181,112,122,0.10) 30%,
+      rgba(22,36,53,0) 65%);
     pointer-events: none;
+    z-index: 0;
+  }
+  .hero-image-wrapper img {
+    position: relative;
+    z-index: 1;
+    filter: contrast(1.03) brightness(0.98) saturate(0.96)
+      drop-shadow(0 0 40px rgba(22,36,53,0.5));
   }
   .galeria-grid img {
     transition: transform 1.2s ease;
@@ -926,12 +933,13 @@
       order: 1;
     }
     .hero-image-wrapper {
-      min-height: 340px !important;
-      max-height: 340px !important;
+      min-height: 380px !important;
+      max-height: 420px !important;
       order: 2;
     }
     .hero-image-wrapper img {
-      object-position: center top !important;
+      object-position: center bottom !important;
+      object-fit: contain !important;
     }
     .hero-title-main {
       font-size:60px !important;
@@ -1052,7 +1060,7 @@
 <!-- FAQs -->
 <!-- CIERRE -->
 <div class="section" style="padding-top:0;padding-bottom:0;overflow:hidden;background:radial-gradient(ellipse at 15% 20%, rgba(196,150,58,0.22) 0%, rgba(196,150,58,0.08) 30%, transparent 60%), linear-gradient(180deg, #162435 0%, #102033 100%);width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);position:relative;">
-<div class="hero-grid" style="display:grid;grid-template-columns:1.2fr 0.8fr;min-height:520px;margin:0 calc(-1 * var(--section-px, 1.5rem));position:relative;">
+<div class="hero-grid" style="display:grid;grid-template-columns:1.1fr 0.9fr;min-height:600px;margin:0 calc(-1 * var(--section-px, 1.5rem));position:relative;align-items:stretch;">
 
 <div class="sello-soldout">
 <p class="sello-soldout-main">1ra Edición</p>
@@ -1074,8 +1082,8 @@
   </div>
 </div>
 
-<div class="hero-image-wrapper" style="position:relative;overflow:hidden;min-height:520px;">
-  <img src="images/irisbello-hero-suit.jpg" alt="Dra. Iris Bello Castillo" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;"/>
+<div class="hero-image-wrapper" style="position:relative;min-height:600px;display:flex;align-items:flex-end;justify-content:center;">
+  <img src="images/irisbello-hero-suit.png" alt="Dra. Iris Bello Castillo" style="width:100%;height:100%;max-height:640px;object-fit:contain;object-position:center bottom;display:block;"/>
 </div>
 
 </div>
