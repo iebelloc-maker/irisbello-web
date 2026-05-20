@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWQ86F86NR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PWQ86F86NR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+
+  <title>SSS-V · Evaluación clínica · Dra. Iris Bello Castillo</title>
+  <meta name="description" content="Escala de Búsqueda de Sensaciones, Forma V. Aplicación bajo uso clínico exclusivo.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul-tinta:   #162435;
+      --rosa-antiguo: #B5707A;
+      --rosa-claro:   #d9a7ac;
+      --ambar-dorado: #C4963A;
+      --blanco:       #FFFFFF;
+      --medianoche:   #0B1520;
+      --fondo-suave:  #F7F4F0;
+      --texto-oscuro: #1a2530;
+      --texto-medio:  #4a5568;
+      --texto-suave:  #6b7280;
+      --borde-sutil:  #e8e4de;
+      --borde-claro:  #f0ece6;
+      --font-serif:   'DM Serif Display', Georgia, serif;
+      --font-sans:    'Jost', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      color: var(--azul-tinta);
+      background: var(--blanco);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .contenedor {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 56px 32px 100px;
+    }
+
+    @media (max-width: 640px) {
+      .contenedor {
+        padding: 32px 20px 80px;
+      }
+    }
+
+    .encabezado {
+      border-bottom: 1px solid var(--borde-sutil);
+      padding-bottom: 28px;
+      margin-bottom: 56px;
+    }
+
+    .encabezado__marca {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--azul-tinta);
+      letter-spacing: 0.02em;
+    }
+
+    .encabezado__instrumento {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ambar-dorado);
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PANTALLA 1 — INTRO
+    ═══════════════════════════════════════════════════════ */
+
+    .intro__titulo {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5.5vw, 52px);
+      line-height: 1.1;
+      color: var(--azul-tinta);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    .intro__bajada {
+      font-size: 19px;
+      color: var(--texto-medio);
+      margin-bottom: 48px;
+      max-width: 620px;
+      line-height: 1.5;
+    }
+
+    .instruccion-oficial {
+      background: var(--fondo-suave);
+      border-left: 3px solid var(--ambar-dorado);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      font-size: 16px;
+      color: var(--texto-medio);
+      line-height: 1.7;
+    }
+
+    .instruccion-oficial p + p {
+      margin-top: 14px;
+    }
+
+    .consentimiento {
+      background: var(--fondo-suave);
+      border-left: 3px solid var(--ambar-dorado);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--texto-medio);
+    }
+
+    .consentimiento strong {
+      color: var(--azul-tinta);
+      font-weight: 500;
+    }
+
+    .consentimiento p + p { margin-top: 14px; }
+
+    /* ═══════════════════════════════════════════════════════
+       FORMULARIO DE DATOS
+    ═══════════════════════════════════════════════════════ */
+
+    .formulario__campo {
+      margin-bottom: 28px;
+    }
+
+    .formulario__etiqueta {
+      display: block;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--texto-medio);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .formulario__input,
+    .formulario__select {
+      width: 100%;
+      padding: 18px 20px;
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--azul-tinta);
+      background: var(--blanco);
+      border: 1px solid var(--borde-sutil);
+      border-radius: 3px;
+      transition: border-color 0.2s ease;
+    }
+
+    .formulario__input:focus,
+    .formulario__select:focus {
+      outline: none;
+      border-color: var(--ambar-dorado);
+    }
+
+    .formulario__select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23162435' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 20px center;
+      padding-right: 48px;
+      cursor: pointer;
+    }
+
+    .fila-dos {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .fila-dos {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .checkbox-grupo {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin: 36px 0;
+    }
+
+    .checkbox-grupo input[type="checkbox"] {
+      margin-top: 4px;
+      flex-shrink: 0;
+      accent-color: var(--ambar-dorado);
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .checkbox-grupo label {
+      font-size: 16px;
+      color: var(--texto-medio);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BOTONES
+    ═══════════════════════════════════════════════════════ */
+
+    .boton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 40px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--blanco);
+      background: var(--azul-tinta);
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+      min-height: 56px;
+    }
+
+    .boton:hover:not(:disabled) {
+      background: var(--medianoche);
+    }
+
+    .boton:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .boton:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .boton--secundario {
+      background: transparent;
+      color: var(--azul-tinta);
+      border: 1px solid var(--azul-tinta);
+    }
+
+    .boton--secundario:hover:not(:disabled) {
+      background: var(--azul-tinta);
+      color: var(--blanco);
+    }
+
+    .botonera {
+      display: flex;
+      gap: 14px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 480px) {
+      .boton {
+        width: 100%;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PANTALLAS DE ÍTEMS
+    ═══════════════════════════════════════════════════════ */
+
+    .progreso {
+      margin-bottom: 40px;
+    }
+
+    .progreso__texto {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--texto-medio);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .progreso__contador {
+      color: var(--ambar-dorado);
+    }
+
+    .progreso__barra {
+      height: 3px;
+      background: var(--borde-sutil);
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .progreso__relleno {
+      height: 100%;
+      background: var(--ambar-dorado);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 2px;
+    }
+
+    .instruccion {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      line-height: 1.35;
+      color: var(--azul-tinta);
+      padding-bottom: 32px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--borde-sutil);
+    }
+
+    .instruccion em {
+      color: var(--rosa-antiguo);
+      font-style: italic;
+    }
+
+    /* ═══ ÍTEM INDIVIDUAL ═══ */
+
+    .item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--borde-claro);
+      transition: background 0.3s ease;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .item--incompleto {
+      background: rgba(181, 112, 122, 0.08);
+      margin: 0 -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .item--incompleto::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      background: var(--rosa-antiguo);
+      border-radius: 2px;
+    }
+
+    .item--incompleto .item__numero {
+      color: var(--rosa-antiguo);
+    }
+
+    .item__cabecera {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .item__numero {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--ambar-dorado);
+      flex-shrink: 0;
+      min-width: 32px;
+    }
+
+    .item__indicacion {
+      font-size: 15px;
+      color: var(--texto-suave);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* ═══ OPCIONES A/B DEL SSS-V ═══ */
+
+    .opciones-ab {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .opcion-ab {
+      position: relative;
+    }
+
+    .opcion-ab input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .opcion-ab label {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 22px;
+      background: var(--blanco);
+      border: 1.5px solid var(--borde-sutil);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .opcion-ab label:hover {
+      border-color: var(--rosa-claro);
+      background: rgba(181, 112, 122, 0.02);
+    }
+
+    .opcion-ab__letra {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--ambar-dorado);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 22px;
+      font-weight: 400;
+      padding-top: 2px;
+    }
+
+    .opcion-ab__texto {
+      font-size: 17px;
+      color: var(--azul-tinta);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .opcion-ab input[type="radio"]:checked + label {
+      border-color: var(--ambar-dorado);
+      background: rgba(196, 150, 58, 0.08);
+    }
+
+    .opcion-ab input[type="radio"]:checked + label .opcion-ab__letra {
+      color: var(--azul-tinta);
+    }
+
+    .opcion-ab input[type="radio"]:focus-visible + label {
+      outline: 2px solid var(--ambar-dorado);
+      outline-offset: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PANTALLA FINAL
+    ═══════════════════════════════════════════════════════ */
+
+    .final {
+      text-align: center;
+      padding: 96px 20px 40px;
+    }
+
+    .final__simbolo {
+      font-family: var(--font-serif);
+      font-size: 80px;
+      color: var(--ambar-dorado);
+      margin-bottom: 24px;
+      line-height: 1;
+    }
+
+    .final__titulo {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      color: var(--azul-tinta);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .final__texto {
+      font-size: 19px;
+      color: var(--texto-medio);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ESTADOS
+    ═══════════════════════════════════════════════════════ */
+
+    .mensaje-error {
+      background: rgba(181, 112, 122, 0.1);
+      border-left: 3px solid var(--rosa-antiguo);
+      padding: 18px 24px;
+      margin: 28px 0;
+      font-size: 15px;
+      color: var(--rosa-antiguo);
+      border-radius: 2px;
+    }
+
+    .mensaje-error--acciones {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .mensaje-error__boton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .mensaje-error__boton--whatsapp {
+      background: var(--rosa-antiguo);
+      color: var(--blanco);
+    }
+
+    .mensaje-error__boton--whatsapp:hover {
+      background: #a05f68;
+    }
+
+    .mensaje-error__boton--inicio {
+      background: transparent;
+      color: var(--rosa-antiguo);
+      border-color: var(--rosa-antiguo);
+    }
+
+    .mensaje-error__boton--inicio:hover {
+      background: var(--rosa-antiguo);
+      color: var(--blanco);
+    }
+
+    .cargando {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: var(--blanco);
+      border-radius: 50%;
+      animation: girar 0.7s linear infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    @keyframes girar {
+      to { transform: rotate(360deg); }
+    }
+
+    .oculto { display: none !important; }
+
+    .pantalla-activa {
+      animation: aparecer 0.4s ease;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       PIE
+    ═══════════════════════════════════════════════════════ */
+
+    .pie {
+      margin-top: 96px;
+      padding-top: 28px;
+      border-top: 1px solid var(--borde-sutil);
+      font-size: 12px;
+      color: var(--texto-suave);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .pie__traduccion {
+      margin-top: 10px;
+      font-style: italic;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor">
+
+  <header class="encabezado">
+    <div class="encabezado__marca">Dra. Iris Bello Castillo</div>
+    <div class="encabezado__instrumento">Evaluación clínica · SSS-V</div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PANTALLA 1 — INTRODUCCIÓN Y DATOS
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pantalla-intro" class="pantalla-activa">
+    <h1 class="intro__titulo">Escala de Búsqueda de Sensaciones</h1>
+
+    <div class="consentimiento">
+      <p><strong>Consentimiento informado.</strong> Al completar este cuestionario, tus respuestas serán enviadas directamente a la Dra. Iris Bello Castillo para su interpretación clínica. Este instrumento forma parte de un proceso profesional de evaluación y no constituye un diagnóstico por sí solo.</p>
+      <p>Tus datos se manejan bajo confidencialidad profesional y se conservan dentro del expediente clínico.</p>
+      <p>Las afirmaciones que vas a leer exploran tus preferencias personales en torno a experiencias, actividades y entornos. No hay respuestas correctas o incorrectas. Responde con base en tus gustos y sentimientos reales, no en cómo crees que deberías sentirte.</p>
+    </div>
+
+    <form id="formulario-datos" novalidate>
+      <div class="formulario__campo">
+        <label class="formulario__etiqueta" for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" class="formulario__input" required autocomplete="name">
+      </div>
+
+      <div class="fila-dos">
+        <div class="formulario__campo">
+          <label class="formulario__etiqueta" for="sexo">Sexo</label>
+          <select id="sexo" name="sexo" class="formulario__select" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Prefiero no indicar">Prefiero no indicar</option>
+          </select>
+        </div>
+
+        <div class="formulario__campo">
+          <label class="formulario__etiqueta" for="edad">Edad</label>
+          <input type="number" id="edad" name="edad" class="formulario__input" required min="16" max="99" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="formulario__campo">
+        <label class="formulario__etiqueta" for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" class="formulario__input" required autocomplete="email">
+      </div>
+
+      <div class="checkbox-grupo">
+        <input type="checkbox" id="acepto" name="acepto" required>
+        <label for="acepto">He leído el consentimiento informado y acepto que mis respuestas sean enviadas a la Dra. Iris Bello Castillo como parte de mi proceso de evaluación clínica.</label>
+      </div>
+
+      <div id="error-datos" class="mensaje-error oculto"></div>
+
+      <div class="botonera">
+        <button type="submit" class="boton">Comenzar la prueba</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PANTALLA DE ÍTEMS (dinámica)
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pantalla-items" class="oculto">
+    <div class="progreso">
+      <div class="progreso__texto">
+        <span id="progreso-etiqueta">Parte 1 de 5</span>
+        <span class="progreso__contador" id="progreso-contador">0 de 40 respondidos</span>
+      </div>
+      <div class="progreso__barra"><div class="progreso__relleno" id="progreso-relleno" style="width: 0%;"></div></div>
+    </div>
+
+    <div class="instruccion-oficial oculto" id="instruccion-oficial">
+      <p>Cada ítem presenta dos opciones, <strong>A</strong> y <strong>B</strong>. Selecciona la opción que <em>mejor</em> describa tus gustos o cómo te sientes.</p>
+      <p>Si ambas opciones te parecen aplicables, escoge la que mejor te describe. Si ninguna te aplica, escoge la que menos te disgusta. Es importante que respondas todos los ítems con una sola opción.</p>
+    </div>
+
+    <div class="instruccion" id="instruccion"><em>Selecciona la opción que mejor te describe:</em></div>
+
+    <div id="contenedor-items"></div>
+
+    <div id="error-items" class="mensaje-error oculto"></div>
+
+    <div class="botonera">
+      <button type="button" class="boton boton--secundario" id="btn-atras">Atrás</button>
+      <button type="button" class="boton" id="btn-siguiente">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PANTALLA FINAL
+  ═══════════════════════════════════════════════════════ -->
+  <section id="pantalla-final" class="oculto">
+    <div class="final">
+      <div class="final__simbolo">·</div>
+      <h2 class="final__titulo">Respuestas recibidas</h2>
+      <p class="final__texto">
+        Tus respuestas fueron enviadas correctamente a la Dra. Iris Bello Castillo.
+        Ya puedes cerrar esta ventana.
+      </p>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <p>SSS-V — Sensation Seeking Scale, Form V.<br>
+    Zuckerman, M., Eysenck, S., &amp; Eysenck, H. J. (1978). Sensation seeking in England and America: Cross-cultural, age, and sex comparisons. <em>Journal of Consulting and Clinical Psychology, 46</em>(1), 139-149.<br>
+    Adaptación española: Pérez &amp; Torrubia (1986).</p>
+    <p class="pie__traduccion">Para uso clínico exclusivo de la Dra. Iris Bello Castillo.</p>
+  </footer>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// ÍTEMS DEL SSS-V (40 ítems de opción forzada A/B)
+// Adaptación española basada en Pérez y Torrubia (1986)
+// Zuckerman, Eysenck y Eysenck (1978)
+// ═══════════════════════════════════════════════════════
+
+const ITEMS = [
+  { a: "Me gustan las fiestas \u201Csalvajes\u201D y desinhibidas.",
+    b: "Prefiero las fiestas tranquilas con buena conversaci\u00F3n." },
+  { a: "Hay algunas pel\u00EDculas que disfruto ver una segunda o incluso una tercera vez.",
+    b: "No soporto ver una pel\u00EDcula que ya he visto antes." },
+  { a: "A menudo desear\u00EDa poder ser monta\u00F1ista.",
+    b: "No comprendo a la gente que arriesga la vida escalando monta\u00F1as." },
+  { a: "Me desagradan todos los olores corporales.",
+    b: "Me gustan algunos olores corporales naturales." },
+  { a: "Me aburre ver siempre las mismas caras.",
+    b: "Me gusta la familiaridad agradable de los amigos de siempre." },
+  { a: "Me gusta explorar por mi cuenta una ciudad o zona desconocida, aunque pueda perderme.",
+    b: "Prefiero un gu\u00EDa cuando estoy en un lugar que no conozco bien." },
+  { a: "Me desagrada la gente que hace o dice cosas solo para provocar o molestar a otros.",
+    b: "Cuando puedes predecir casi todo lo que una persona va a hacer o decir, esa persona debe de ser aburrida." },
+  { a: "Normalmente no disfruto una pel\u00EDcula u obra donde puedo predecir lo que va a pasar.",
+    b: "No me importa ver una pel\u00EDcula u obra donde puedo predecir lo que va a pasar." },
+  { a: "He probado la marihuana o me gustar\u00EDa probarla.",
+    b: "Nunca fumar\u00EDa marihuana." },
+  { a: "No me gustar\u00EDa probar ninguna droga que pudiera producirme efectos extra\u00F1os o peligrosos.",
+    b: "Me gustar\u00EDa probar algunas de las drogas que producen alucinaciones." },
+  { a: "Una persona sensata evita las actividades peligrosas.",
+    b: "A veces me gusta hacer cosas que dan un poco de miedo." },
+  { a: "Me disgustan las personas desinhibidas y liberales en lo sexual.",
+    b: "Disfruto la compa\u00F1\u00EDa de personas desinhibidas y liberales en lo sexual." },
+  { a: "Los estimulantes me hacen sentir inc\u00F3modo o inc\u00F3moda.",
+    b: "A menudo me gusta colocarme, bebiendo alcohol o fumando marihuana." },
+  { a: "Me gusta probar comidas nuevas que nunca antes haya probado.",
+    b: "Pido los platos que ya conozco, para evitar decepciones." },
+  { a: "Disfruto ver pel\u00EDculas caseras, fotos de viajes o videos familiares.",
+    b: "Ver pel\u00EDculas caseras, fotos de viajes o videos familiares de otros me aburre much\u00EDsimo." },
+  { a: "Me gustar\u00EDa practicar el esqu\u00ED acu\u00E1tico.",
+    b: "No me gustar\u00EDa practicar el esqu\u00ED acu\u00E1tico." },
+  { a: "Me gustar\u00EDa probar el surf.",
+    b: "No me gustar\u00EDa probar el surf." },
+  { a: "Me gustar\u00EDa emprender un viaje sin rutas ni horarios planificados.",
+    b: "Cuando viajo me gusta planificar cuidadosamente mi ruta y mi horario." },
+  { a: "Prefiero como amigos a las personas con los pies en la tierra.",
+    b: "Me gustar\u00EDa hacer amigos en grupos poco convencionales, como artistas o \u201Cpunks\u201D." },
+  { a: "No me gustar\u00EDa aprender a pilotar un avi\u00F3n.",
+    b: "Me gustar\u00EDa aprender a pilotar un avi\u00F3n." },
+  { a: "Prefiero la superficie del agua a las profundidades.",
+    b: "Me gustar\u00EDa hacer buceo." },
+  { a: "Me gustar\u00EDa conocer a algunas personas homosexuales (hombres o mujeres).",
+    b: "Me alejo de cualquiera que sospeche que es \u201Cgay\u201D o \u201Clesbiana\u201D." },
+  { a: "Me gustar\u00EDa hacer paracaidismo.",
+    b: "Nunca querr\u00EDa saltar desde un avi\u00F3n, con o sin paraca\u00EDdas." },
+  { a: "Prefiero amigos emocionantemente impredecibles.",
+    b: "Prefiero amigos confiables y predecibles." },
+  { a: "No me interesa la experiencia por la experiencia misma.",
+    b: "Me gusta tener experiencias y sensaciones nuevas y emocionantes, aunque sean un poco aterradoras, poco convencionales o ilegales." },
+  { a: "La esencia del buen arte est\u00E1 en su claridad, simetr\u00EDa de forma y armon\u00EDa de colores.",
+    b: "A menudo encuentro belleza en los colores chocantes y las formas irregulares del arte moderno." },
+  { a: "Disfruto pasar tiempo en el entorno familiar de mi casa.",
+    b: "Me pongo muy inquieto o inquieta si tengo que quedarme en casa por un tiempo prolongado." },
+  { a: "Me gusta tirarme desde el trampol\u00EDn alto.",
+    b: "No me gusta la sensaci\u00F3n de estar en el trampol\u00EDn alto, o no me acerco a \u00E9l." },
+  { a: "Me gusta salir con personas f\u00EDsicamente atractivas y excitantes.",
+    b: "Me gusta salir con personas que comparten mis valores." },
+  { a: "Beber mucho normalmente arruina una fiesta porque algunas personas se vuelven escandalosas.",
+    b: "Mantener los vasos llenos es la clave de una buena fiesta." },
+  { a: "El peor pecado social es ser grosero o grosera.",
+    b: "El peor pecado social es ser aburrido o aburrida." },
+  { a: "Una persona deber\u00EDa tener considerable experiencia sexual antes del matrimonio.",
+    b: "Es mejor que dos personas casadas comiencen su experiencia sexual el uno con el otro." },
+  { a: "Aunque tuviera el dinero, no me interesar\u00EDa relacionarme con la \u201Cjet set\u201D.",
+    b: "Podr\u00EDa imaginarme buscando placeres por el mundo con la \u201Cjet set\u201D." },
+  { a: "Me gusta la gente aguda e ingeniosa aunque a veces insulte a otros.",
+    b: "Me desagrada la gente que se divierte hiriendo los sentimientos de los dem\u00E1s." },
+  { a: "Hay demasiada representaci\u00F3n del sexo en las pel\u00EDculas.",
+    b: "Disfruto viendo muchas de las escenas sensuales de las pel\u00EDculas." },
+  { a: "Me siento mejor despu\u00E9s de tomar un par de tragos.",
+    b: "Algo no va bien con la gente que necesita alcohol para sentirse bien." },
+  { a: "La gente deber\u00EDa vestirse seg\u00FAn ciertos est\u00E1ndares de gusto, pulcritud y estilo.",
+    b: "La gente deber\u00EDa vestirse de forma individual, aunque a veces el resultado sea extra\u00F1o." },
+  { a: "Navegar largas distancias en peque\u00F1as embarcaciones es una temeridad.",
+    b: "Me gustar\u00EDa navegar una larga distancia en una embarcaci\u00F3n peque\u00F1a pero marinera." },
+  { a: "No tengo paciencia con la gente apagada o aburrida.",
+    b: "Encuentro algo interesante en casi toda persona con quien hablo." },
+  { a: "Esquiar r\u00E1pido por una pendiente alta es una buena forma de terminar con muletas.",
+    b: "Creo que disfrutar\u00EDa la sensaci\u00F3n de esquiar muy r\u00E1pido por una pendiente alta." }
+];
+
+// ═══════════════════════════════════════════════════════
+// CONFIGURACIÓN
+// ═══════════════════════════════════════════════════════
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMpD44niNkpVQ6R6Kqv8x7bM2P0ypKT-4y0MPxSgZvSABcQCafDKUOtReUgJ0xZdaRTg/exec";
+
+// ═══════════════════════════════════════════════════════
+// DISTRIBUCIÓN DE PANTALLAS
+// 40 ítems en 5 pantallas de 8 ítems cada una
+// ═══════════════════════════════════════════════════════
+
+const PANTALLAS = [
+  { indices: [0, 1, 2, 3, 4, 5, 6, 7] },
+  { indices: [8, 9, 10, 11, 12, 13, 14, 15] },
+  { indices: [16, 17, 18, 19, 20, 21, 22, 23] },
+  { indices: [24, 25, 26, 27, 28, 29, 30, 31] },
+  { indices: [32, 33, 34, 35, 36, 37, 38, 39] }
+];
+
+// ═══════════════════════════════════════════════════════
+// ESTADO
+// ═══════════════════════════════════════════════════════
+let datosPersona = {};
+let respuestas = new Array(40).fill(null);
+let pantallaActual = 0;
+
+// ═══════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════
+
+function mostrarPantalla(id) {
+  ["pantalla-intro", "pantalla-items", "pantalla-final"]
+    .forEach(p => {
+      const el = document.getElementById(p);
+      el.classList.add("oculto");
+      el.classList.remove("pantalla-activa");
+    });
+  const activa = document.getElementById(id);
+  activa.classList.remove("oculto");
+  void activa.offsetWidth;
+  activa.classList.add("pantalla-activa");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function mostrarError(idElemento, mensaje) {
+  const el = document.getElementById(idElemento);
+  el.textContent = mensaje;
+  el.classList.remove("oculto");
+  setTimeout(() => el.classList.add("oculto"), 6000);
+}
+
+function validarEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function contarRespondidas() {
+  return respuestas.filter(v => v !== null).length;
+}
+
+function actualizarProgreso() {
+  const total = 40;
+  const respondidas = contarRespondidas();
+  const porcentaje = (respondidas / total) * 100;
+  document.getElementById("progreso-relleno").style.width = porcentaje + "%";
+  document.getElementById("progreso-contador").textContent = `${respondidas} de ${total} respondidos`;
+}
+
+// ═══════════════════════════════════════════════════════
+// RENDER DE PANTALLA DE ÍTEMS
+// ═══════════════════════════════════════════════════════
+
+function renderizarPantalla(indicePantalla) {
+  const pantalla = PANTALLAS[indicePantalla];
+
+  document.getElementById("progreso-etiqueta").textContent =
+    `Parte ${indicePantalla + 1} de ${PANTALLAS.length}`;
+
+  const instruccionOficial = document.getElementById("instruccion-oficial");
+  if (indicePantalla === 0) {
+    instruccionOficial.classList.remove("oculto");
+  } else {
+    instruccionOficial.classList.add("oculto");
+  }
+
+  const contenedor = document.getElementById("contenedor-items");
+  contenedor.innerHTML = "";
+
+  pantalla.indices.forEach(idx => {
+    const numero = idx + 1;
+    const itemData = ITEMS[idx];
+    const valorActual = respuestas[idx];
+
+    const item = document.createElement("div");
+    item.className = "item";
+    item.dataset.indice = idx;
+
+    const cabecera = document.createElement("div");
+    cabecera.className = "item__cabecera";
+    cabecera.innerHTML = `
+      <span class="item__numero">${numero}</span>
+      <span class="item__indicacion">Elige la opci\u00F3n que mejor te describe:</span>
+    `;
+    item.appendChild(cabecera);
+
+    const opciones = document.createElement("div");
+    opciones.className = "opciones-ab";
+    opciones.setAttribute("role", "radiogroup");
+    opciones.setAttribute("aria-label", `Respuesta al ítem ${numero}`);
+
+    ["A", "B"].forEach(letra => {
+      const opcion = document.createElement("div");
+      opcion.className = "opcion-ab";
+
+      const inputId = `item-${idx}-${letra}`;
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `item-${idx}`;
+      input.id = inputId;
+      input.value = letra;
+      if (valorActual === letra) input.checked = true;
+
+      input.addEventListener("change", () => {
+        respuestas[idx] = input.value;
+        item.classList.remove("item--incompleto");
+        actualizarProgreso();
+      });
+
+      const label = document.createElement("label");
+      label.htmlFor = inputId;
+      label.innerHTML = `
+        <span class="opcion-ab__letra">${letra}</span>
+        <span class="opcion-ab__texto">${itemData[letra.toLowerCase()]}</span>
+      `;
+
+      opcion.appendChild(input);
+      opcion.appendChild(label);
+      opciones.appendChild(opcion);
+    });
+
+    item.appendChild(opciones);
+    contenedor.appendChild(item);
+  });
+
+  document.getElementById("btn-atras").textContent =
+    indicePantalla === 0 ? "Volver al inicio" : "Atrás";
+
+  const btnSiguiente = document.getElementById("btn-siguiente");
+  btnSiguiente.textContent =
+    indicePantalla === PANTALLAS.length - 1 ? "Enviar respuestas" : "Continuar";
+
+  actualizarProgreso();
+}
+
+// ═══════════════════════════════════════════════════════
+// NAVEGACIÓN
+// ═══════════════════════════════════════════════════════
+
+function scrollAlInicio() {
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
+function avanzarPantalla() {
+  pantallaActual++;
+  renderizarPantalla(pantallaActual);
+  scrollAlInicio();
+}
+
+function retrocederPantalla() {
+  if (pantallaActual > 0) {
+    pantallaActual--;
+    renderizarPantalla(pantallaActual);
+    scrollAlInicio();
+  } else {
+    mostrarPantalla("pantalla-intro");
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// PANTALLA 1 → ÍTEMS
+// ═══════════════════════════════════════════════════════
+
+document.getElementById("formulario-datos").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const sexo = document.getElementById("sexo").value;
+  const edadRaw = document.getElementById("edad").value.trim();
+  const edad = parseInt(edadRaw, 10);
+  const correo = document.getElementById("correo").value.trim();
+  const acepto = document.getElementById("acepto").checked;
+
+  if (!nombre || nombre.length < 2) {
+    return mostrarError("error-datos", "Por favor ingresa tu nombre completo.");
+  }
+  if (!sexo) {
+    return mostrarError("error-datos", "Por favor selecciona una opción en el campo sexo.");
+  }
+  if (!edadRaw || isNaN(edad) || edad < 16 || edad > 99) {
+    return mostrarError("error-datos", "Por favor ingresa una edad válida (entre 16 y 99).");
+  }
+  if (!correo || !validarEmail(correo)) {
+    return mostrarError("error-datos", "Por favor ingresa un correo electrónico válido.");
+  }
+  if (!acepto) {
+    return mostrarError("error-datos", "Debes aceptar el consentimiento informado para continuar.");
+  }
+
+  datosPersona = { nombre, sexo, edad, correo };
+  pantallaActual = 0;
+  mostrarPantalla("pantalla-items");
+  renderizarPantalla(0);
+});
+
+// ═══════════════════════════════════════════════════════
+// NAVEGACIÓN DE BOTONES
+// ═══════════════════════════════════════════════════════
+
+document.getElementById("btn-atras").addEventListener("click", () => {
+  retrocederPantalla();
+});
+
+document.getElementById("btn-siguiente").addEventListener("click", async () => {
+  const pantalla = PANTALLAS[pantallaActual];
+  const faltantes = pantalla.indices.filter(idx => respuestas[idx] === null);
+
+  if (faltantes.length > 0) {
+    faltantes.forEach(idx => {
+      const item = document.querySelector(
+        `#contenedor-items .item[data-indice="${idx}"]`
+      );
+      item?.classList.add("item--incompleto");
+    });
+    const mensaje = faltantes.length === 1
+      ? "Falta un ítem por responder. Está marcado en rosa más abajo."
+      : `Faltan ${faltantes.length} ítems por responder. Están marcados en rosa más abajo.`;
+    mostrarError("error-items", mensaje);
+    const primero = document.querySelector(
+      `#contenedor-items .item[data-indice="${faltantes[0]}"]`
+    );
+    primero?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  if (pantallaActual < PANTALLAS.length - 1) {
+    avanzarPantalla();
+    return;
+  }
+
+  await enviarRespuestas();
+});
+
+// ═══════════════════════════════════════════════════════
+// ENVÍO FINAL
+// ═══════════════════════════════════════════════════════
+
+async function enviarRespuestas() {
+  const boton = document.getElementById("btn-siguiente");
+  boton.disabled = true;
+  boton.innerHTML = '<span class="cargando"></span>Enviando...';
+
+  // Transformar el array en objeto item_1, item_2, ... item_40
+  const respuestasObj = {};
+  respuestas.forEach((v, i) => { respuestasObj[`item_${i + 1}`] = v; });
+
+  const payload = {
+    instrumento: "SSS-V",
+    nombre: datosPersona.nombre,
+    sexo: datosPersona.sexo,
+    edad: datosPersona.edad,
+    correo: datosPersona.correo,
+    respuestas: respuestasObj,
+    fechaISO: new Date().toISOString()
+  };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    mostrarPantalla("pantalla-final");
+  } catch (err) {
+    console.error(err);
+    boton.disabled = false;
+    boton.textContent = "Enviar respuestas";
+    mostrarErrorEnvio();
+  }
+}
+
+function mostrarErrorEnvio() {
+  const nombre = datosPersona.nombre || "";
+  const mensajeWhatsApp = encodeURIComponent(
+    `Hola Dra. Bello, soy ${nombre}. Intenté completar el SSS-V pero hubo un problema al enviar mis respuestas. ¿Me puede ayudar?`
+  );
+  const urlWhatsApp = `https://wa.me/18098481234?text=${mensajeWhatsApp}`;
+
+  const el = document.getElementById("error-items");
+  el.innerHTML = `
+    <p style="margin: 0;">Hubo un problema al enviar tus respuestas. Puedes intentar de nuevo o contactar directamente a la Dra. Bello para que te asista.</p>
+    <div class="mensaje-error--acciones">
+      <a href="${urlWhatsApp}" target="_blank" rel="noopener noreferrer" class="mensaje-error__boton mensaje-error__boton--whatsapp">
+        Contactar por WhatsApp
+      </a>
+      <button type="button" class="mensaje-error__boton mensaje-error__boton--inicio" id="btn-volver-inicio">
+        Volver al inicio
+      </button>
+    </div>
+  `;
+  el.classList.remove("oculto");
+
+  document.getElementById("btn-volver-inicio").addEventListener("click", () => {
+    mostrarPantalla("pantalla-intro");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+</script>
+
+</body>
+</html>
