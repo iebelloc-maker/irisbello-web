@@ -9,6 +9,25 @@
     gtag('js', new Date());
     gtag('config', 'G-PWQ86F86NR');
   </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '967916776092282');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=967916776092282&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
@@ -29,6 +48,7 @@
   <meta property="og:image" content="https://irisbello.com/images/iris_bello_psicologa.jpg">
   <meta property="og:image:width" content="1008">
   <meta property="og:image:height" content="520">
+  <meta property="og:image:alt" content="Dra. Iris Bello Castillo, psicóloga clínica en Santo Domingo">
   <meta property="og:url" content="https://irisbello.com/terapia.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_DO">
@@ -59,7 +79,7 @@
       {
         "@type": "MedicalTherapy",
         "name": "Terapia psicológica individual",
-        "description": "Proceso terapéutico individual con dirección clínica especializada en trauma, apego, ansiedad y patrones relacionales.",
+        "description": "Proceso terapéutico individual con dirección clínica especializada en trauma, apego, ansiedad, trastornos de personalidad (TLP, TPN) y patrones relacionales.",
         "url": "https://irisbello.com/terapia.html",
         "availableService": [
           {"@type": "MedicalTherapy", "name": "Terapia psicológica presencial en Santo Domingo"},
@@ -1962,6 +1982,7 @@
       <div class="nav-dropdown">
         <ul class="nav-dropdown-inner">
           <li><a href="espejo-del-camerino.html" data-page="espejo-del-camerino">El Espejo del Camerino</a></li>
+          <li><a href="test-apego.html"           data-page="test-apego">Test de Apego</a></li>
         </ul>
       </div>
     </li>
@@ -1995,6 +2016,7 @@
       <a href="recursos.html" data-page="recursos">Recursos <span class="arrow">▾</span></a>
       <div class="nav-mobile-sub">
         <a href="espejo-del-camerino.html">El Espejo del Camerino</a>
+        <a href="test-apego.html">Test de Apego</a>
       </div>
     </li>
     <li><a href="blog.html"      data-page="blog">Blog</a></li>
@@ -2086,6 +2108,10 @@
       <div class="situacion-body"><p>Trauma, trauma complejo, abuso, violencia de género y sus efectos. Experiencias del pasado que siguen activas hoy: en el cuerpo, en las reacciones, en cómo te vinculas.</p></div>
     </div>
     <div class="situacion-item">
+      <div class="situacion-header"><span>Trastornos y rasgos de personalidad</span><span class="situacion-plus">+</span></div>
+      <div class="situacion-body"><p>Trastorno límite (TLP), narcisista (TPN), dependiente, evitativo y otros patrones rígidos. Trabajo con personas diagnosticadas y con quienes conviven con alguien que lo está.</p></div>
+    </div>
+    <div class="situacion-item">
       <div class="situacion-header"><span>Estado de ánimo y equilibrio interno</span><span class="situacion-plus">+</span></div>
       <div class="situacion-body"><p>Tristeza persistente, depresión, trastorno bipolar, agotamiento sostenido. Cuando el peso interno no se va solo y empieza a afectar todo lo demás.</p></div>
     </div>
@@ -2164,7 +2190,7 @@
     <div class="rol-texto-nuevo">
       <p>No trabajo con síntomas sueltos. Trabajo con lo que los organiza: los patrones aprendidos, la historia que sigue activa, la lógica que tiene sentido aunque lastime.</p>
       <p>Eso requiere criterio clínico, pero también una relación segura donde puedas ser honesta sin ser juzgada. Las tres cosas al mismo tiempo.</p>
-      <p style="margin-top:1rem;font-size:0.9rem;color:var(--texto-medio);">Trabajo de forma integradora — EMDR, MBT, TCA, DBT, TCC y marco de apego — según lo que cada proceso requiera.</p>
+      <p style="margin-top:1rem;font-size:0.9rem;color:rgba(255,255,255,0.55);">Trabajo de forma integradora — EMDR, MBT, PCA, DBT, TCC y marco de apego — según lo que cada proceso requiera.</p>
     </div>
   </div>
 </div>
@@ -2242,6 +2268,7 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="recursos.html">Recursos gratuitos</a></li>
         <li><a href="espejo-del-camerino.html">El Espejo del Camerino</a></li>
+        <li><a href="test-apego.html">Test del Apego</a></li>
         <li><a href="faq.html">Preguntas frecuentes</a></li>
       </ul>
     </div>
@@ -2362,7 +2389,7 @@
   // ── Marca el ítem activo según la URL ─────────────────────
   (function() {
     var page = window.location.pathname.split('/').pop() || 'index.html';
-    var recursosPages = ['recursos.html', 'espejo-del-camerino.html'];
+    var recursosPages = ['recursos.html', 'espejo-del-camerino.html', 'test-apego.html'];
     document.querySelectorAll('[data-page]').forEach(function(el) {
       var href = (el.getAttribute('href') || '').split('/').pop();
       if (href === page) {
