@@ -9,6 +9,25 @@
     gtag('js', new Date());
     gtag('config', 'G-PWQ86F86NR');
   </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '967916776092282');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=967916776092282&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
@@ -29,6 +48,7 @@
   <meta property="og:image" content="https://irisbello.com/images/iris_bello_psicologa.jpg">
   <meta property="og:image:width" content="1008">
   <meta property="og:image:height" content="520">
+  <meta property="og:image:alt" content="Dra. Iris Bello Castillo, psicóloga clínica en Santo Domingo">
   <meta property="og:url" content="https://irisbello.com/contacto.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_DO">
@@ -63,6 +83,7 @@
         "url": "https://irisbello.com",
         "image": "https://irisbello.com/images/iris_bello_psicologa.jpg",
         "telephone": "+18098481234",
+        "email": "dra@irisbello.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Calle Rafael Abreu Licairac #256, 2do piso, Renacer Wellness Center",
@@ -1006,6 +1027,7 @@
       <div class="nav-dropdown">
         <ul class="nav-dropdown-inner">
           <li><a href="espejo-del-camerino.html" data-page="espejo-del-camerino">El Espejo del Camerino</a></li>
+          <li><a href="test-apego.html"           data-page="test-apego">Test de Apego</a></li>
         </ul>
       </div>
     </li>
@@ -1036,6 +1058,7 @@
       <a href="recursos.html" data-page="recursos">Recursos <span class="arrow">▾</span></a>
       <div class="nav-mobile-sub">
         <a href="espejo-del-camerino.html">El Espejo del Camerino</a>
+        <a href="test-apego.html">Test de Apego</a>
       </div>
     </li>
     <li><a href="blog.html"      data-page="blog">Blog</a></li>
@@ -1085,9 +1108,9 @@
         <div class="channel-item">
           <div>
             <div class="channel-label">Correo</div>
-            <div class="channel-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="147d767178787b5479717a6075787d6e75667a7b673a777b79">[email&#160;protected]</a></div>
+            <div class="channel-value"><a href="mailto:dra@irisbello.com" style="color:inherit;text-decoration:none;">dra@irisbello.com</a></div>
           </div>
-          <a href="/cdn-cgi/l/email-protection#224b40474e4e4d624f474c56434e4b5843504c4d510c414d4f" class="channel-link">Escribir →</a>
+          <a href="mailto:dra@irisbello.com" class="channel-link">Escribir →</a>
         </div>
         <div class="channel-item">
           <div>
@@ -1217,6 +1240,7 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="recursos.html">Recursos gratuitos</a></li>
         <li><a href="espejo-del-camerino.html">El Espejo del Camerino</a></li>
+        <li><a href="test-apego.html">Test del Apego</a></li>
         <li><a href="faq.html">Preguntas frecuentes</a></li>
       </ul>
     </div>
@@ -1253,7 +1277,7 @@
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS — NO MODIFICAR
 ════════════════════════════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function initDropdowns() {
     document.querySelectorAll('.nav-has-dropdown').forEach(function(item) {
       var t;
@@ -1302,7 +1326,7 @@
 
   (function() {
     var page = window.location.pathname.split('/').pop() || 'index.html';
-    var recursosPages = ['recursos.html', 'espejo-del-camerino.html'];
+    var recursosPages = ['recursos.html', 'espejo-del-camerino.html', 'test-apego.html'];
     document.querySelectorAll('[data-page]').forEach(function(el) {
       var href = (el.getAttribute('href') || '').split('/').pop();
       if (href === page) {
