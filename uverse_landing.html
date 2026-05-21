@@ -875,37 +875,43 @@
   .sticky-cta-mobile {
     display: none;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(22, 36, 53, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 0.625rem 1rem;
-    border-top: 1px solid rgba(196, 150, 58, 0.4);
+    bottom: 1.25rem;
+    right: 1.25rem;
     z-index: 9999;
     opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px) scale(0.85);
+    transition: opacity 0.35s ease, transform 0.35s ease;
   }
 
   .sticky-cta-mobile.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
   .sticky-cta-mobile a {
-    display: block;
-    background: #B5707A;
-    color: #fff;
-    text-align: center;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    background: #C4963A;
+    color: #162435;
+    border-radius: 50%;
     text-decoration: none;
     font-family: 'Jost', -apple-system, sans-serif;
-    font-size:17px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 0 6px 20px rgba(22, 36, 53, 0.25), 0 0 0 1px rgba(196, 150, 58, 0.2);
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .sticky-cta-mobile a:active {
+    transform: scale(0.96);
   }
 
   @media (max-width: 760px) {
@@ -928,7 +934,24 @@
       object-position: center top !important;
     }
     .hero-title-main {
-      font-size:60px !important;
+      font-size:48px !important;
+    }
+    .hero-meta-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .hero-meta-grid > div {
+      border-right: 1px solid rgba(196,150,58,0.25) !important;
+      border-bottom: 1px solid rgba(196,150,58,0.25) !important;
+    }
+    .hero-meta-grid > div:nth-child(2) {
+      border-right: none !important;
+    }
+    .hero-meta-grid > div:nth-child(3),
+    .hero-meta-grid > div:nth-child(4) {
+      border-bottom: none !important;
+    }
+    .hero-meta-grid > div:nth-child(4) {
+      border-right: none !important;
     }
     .hero-sold-out {
       order: 3;
@@ -1045,10 +1068,18 @@
       gap: 1rem !important;
     }
 
-    /* LO QUE CAMBIA MOBILE */
+    /* LO QUE CAMBIA MOBILE: oculta boton de columna izq, muestra clon despues de cards */
     .lo-que-cambia-grid {
       grid-template-columns: 1fr !important;
-      gap: 2.5rem !important;
+      gap: 1.5rem !important;
+    }
+    .lo-que-cambia-grid > div:first-child > a {
+      display: none !important;
+    }
+    .lo-que-cambia-mobile-cta {
+      display: flex !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
     .lo-que-cambia-cta {
       flex-direction: column !important;
@@ -1084,6 +1115,47 @@
     }
     .estas-mujeres-cta > span:nth-child(2) {
       display: none !important;
+    }
+
+    /* INVERSION MOBILE */
+    .inversion-header {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    .inversion-header h2 {
+      font-size: 44px !important;
+    }
+    .entregables-lista {
+      grid-template-columns: 1fr !important;
+      gap: 0.75rem !important;
+    }
+    .entregables-lista > div {
+      grid-column: 1/-1 !important;
+    }
+    .precio-oscuro {
+      padding: 1.75rem 1.25rem !important;
+    }
+    .precio-logistica-row {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+      text-align: center !important;
+    }
+    .precio-logistica-row > span {
+      display: none !important;
+    }
+    .precio-logistica-row > div:last-child {
+      text-align: left !important;
+    }
+
+    /* VIDEO + CLARA MOBILE: apilar columnas */
+    .video-clara-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2.5rem !important;
+      max-width: 380px !important;
+    }
+    .video-clara-grid > div:first-child {
+      max-width: 280px;
+      margin: 0 auto;
     }
 
     /* STICKY CTA solo visible en mobile */
@@ -1126,17 +1198,40 @@
 <p class="sello-soldout-date">Mayo 2026</p>
 </div>
 <div class="hero-text-wrapper" style="padding:4rem 3rem 4rem 3rem;display:flex;flex-direction:column;justify-content:center;min-width:0;">
-  <h1 class="hero-title-main" style="font-family:'DM Serif Display',Georgia,serif;font-size:96px;line-height:0.95;color:#fff;font-weight:400;margin-bottom:1.5rem;letter-spacing:-0.04em;">U·Verse</h1>
-  <div style="margin-bottom:2.5rem;">
-    <span style="display:inline-block;font-size:11px;color:#C4963A;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:0.5rem 0.9rem;border:1px solid #C4963A;border-radius:4px;">Segunda edición · 18 julio · Santo Domingo · Taller presencial</span>
+  <h1 class="hero-title-main" style="font-family:'DM Serif Display',Georgia,serif;font-size:64px;line-height:0.95;color:#fff;font-weight:400;margin-bottom:1.25rem;letter-spacing:-0.04em;">U·Verse</h1>
+  <div style="margin-bottom:2rem;">
+    <span style="display:inline-block;font-size:11px;color:#C4963A;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:0.5rem 0.9rem;border:1px solid #C4963A;border-radius:4px;">Segunda edición · 18 julio · Santo Domingo</span>
   </div>
-  <p style="font-size:32px;line-height:1.2;color:#fff;font-family:'DM Serif Display',Georgia,serif;margin-bottom:2rem;font-weight:400;">Cambias las circunstancias. Cambias las personas.<br/><span style="color:#D4929A;font-style:italic;">Y se sigue sintiendo igual.</span></p>
-  <p style="font-size:18px;line-height:1.75;color:rgba(255,255,255,0.82);margin-bottom:1.25rem;font-weight:400;">Porque hay formas de responder que aparecen solas.</p>
-  <p style="font-size:18px;line-height:1.75;color:rgba(255,255,255,0.82);margin-bottom:2rem;font-weight:400;">En tu pareja. En tus amistades. En el trabajo. Con tu familia. Y contigo misma.</p>
-  <p style="font-size:18px;line-height:1.75;color:rgba(255,255,255,0.82);margin-bottom:2rem;font-weight:400;">U·Verse es la experiencia psicológica donde empiezas a descubrir por qué y a elegir distinto.</p>
-  <div style="display:flex;gap:1.75rem;align-items:center;flex-wrap:wrap;">
-    <a href="#inversion" style="background:#B5707A;color:#fff;font-size:17px;font-weight:500;padding:0.85rem 1.75rem;border-radius:12px;text-decoration:none;letter-spacing:0.02em;">Reservar mi cupo</a>
-    <a href="#que-es" style="font-size:13px;color:rgba(255,255,255,0.85);text-decoration:none;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;display:inline-flex;align-items:center;gap:0.5rem;">Ver qué es <span style="color:#C4963A;font-size:18px;line-height:1;">↓</span></a>
+  <p style="font-size:32px;line-height:1.2;color:#fff;font-family:'DM Serif Display',Georgia,serif;margin-bottom:1.75rem;font-weight:400;">Cambias las circunstancias. Cambias las personas.<br/><span style="color:#D4929A;font-style:italic;">Y se sigue sintiendo igual.</span></p>
+  <p style="font-size:18px;line-height:1.75;color:rgba(255,255,255,0.82);margin-bottom:1.75rem;font-weight:400;">Con la pareja. Con las amistades. Con la familia. En el trabajo. Y contigo misma.</p>
+  <p style="font-size:18px;line-height:1.75;color:rgba(255,255,255,0.82);margin-bottom:2rem;font-weight:400;">U·Verse es un espacio donde reconoces el patrón que se repite en tus vínculos. Y sales con un paso concreto para empezar a elegir distinto.</p>
+
+  <!-- GRID DE 4 DATOS DUROS - Hero meta info -->
+  <div class="hero-meta-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-bottom:2rem;border:1px solid rgba(196,150,58,0.35);border-radius:4px;overflow:hidden;">
+    <div style="padding:0.85rem 0.75rem;text-align:center;border-right:1px solid rgba(196,150,58,0.25);">
+      <p style="font-size:10px;color:#C4963A;letter-spacing:0.16em;text-transform:uppercase;margin:0 0 0.25rem;font-weight:600;">Fecha</p>
+      <p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#fff;line-height:1.1;margin:0;font-weight:400;">18 Jul</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.6);margin:0.15rem 0 0;letter-spacing:0.04em;">Sábado</p>
+    </div>
+    <div style="padding:0.85rem 0.75rem;text-align:center;border-right:1px solid rgba(196,150,58,0.25);">
+      <p style="font-size:10px;color:#C4963A;letter-spacing:0.16em;text-transform:uppercase;margin:0 0 0.25rem;font-weight:600;">Duración</p>
+      <p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#fff;line-height:1.1;margin:0;font-weight:400;">3 horas</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.6);margin:0.15rem 0 0;letter-spacing:0.04em;">10am · 1pm</p>
+    </div>
+    <div style="padding:0.85rem 0.75rem;text-align:center;border-right:1px solid rgba(196,150,58,0.25);">
+      <p style="font-size:10px;color:#C4963A;letter-spacing:0.16em;text-transform:uppercase;margin:0 0 0.25rem;font-weight:600;">Lugar</p>
+      <p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#fff;line-height:1.1;margin:0;font-weight:400;">Casa Dede</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.6);margin:0.15rem 0 0;letter-spacing:0.04em;">Santo Domingo</p>
+    </div>
+    <div style="padding:0.85rem 0.75rem;text-align:center;">
+      <p style="font-size:10px;color:#C4963A;letter-spacing:0.16em;text-transform:uppercase;margin:0 0 0.25rem;font-weight:600;">Inversión</p>
+      <p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#fff;line-height:1.1;margin:0;font-weight:400;">$120 <span style="font-size:13px;color:#C4963A;">USD</span></p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.6);margin:0.15rem 0 0;letter-spacing:0.04em;">Pago único</p>
+    </div>
+  </div>
+
+  <div>
+    <a href="#inversion" style="display:inline-block;background:#B5707A;color:#fff;font-size:17px;font-weight:500;padding:0.95rem 2rem;border-radius:12px;text-decoration:none;letter-spacing:0.02em;">Quiero unirme →</a>
   </div>
 </div>
 
@@ -1165,7 +1260,7 @@
 </div>
 </div>
 
-<div class="creds-row" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-top:0.5rem;border-top:1px solid rgba(196,150,58,0.3);border-left:1px solid rgba(196,150,58,0.2);">
+<div class="creds-row" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-top:2rem;border-top:1px solid rgba(196,150,58,0.3);border-left:1px solid rgba(196,150,58,0.2);">
 
 <div style="padding:1.25rem 1rem;border-right:1px solid rgba(196,150,58,0.2);border-bottom:1px solid rgba(196,150,58,0.2);">
 <p style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:#162435;line-height:1.25;margin:0 0 0.35rem 0;font-weight:400;">PhD en Psicología Clínica</p>
@@ -1192,8 +1287,8 @@
 <div style="padding:0 2rem;">
 <div style="text-align:center;max-width:780px;margin:0 auto;">
 <span class="label">Puede verse así</span>
-<h2 class="headline" style="margin-top:0.75rem;">¿Te suena familiar?</h2>
-<p style="font-family:'Jost',sans-serif;font-size:18px;line-height:1.55;color:#3d3a36;margin:1.25rem auto 0 auto;font-weight:400;">Patrones que repites sin darte cuenta… hasta que empiezan a costarte <em style="color:#B5707A;font-style:italic;">relaciones, paz y dirección</em>.</p>
+<h2 class="headline" style="margin-top:0.75rem;margin-left:auto;margin-right:auto;max-width:100%;margin-bottom:0;">¿Te suena <em style="color:#B5707A;font-style:italic;">familiar</em>?</h2>
+<p class="body" style="margin-top:2rem;margin-left:auto;margin-right:auto;max-width:100%;font-size:18px;line-height:1.7;color:#162435;">Patrones que repites sin darte cuenta… hasta que empiezan a costarte <em style="color:#B5707A;font-style:italic;font-weight:500;">relaciones, paz y dirección</em>.</p>
 </div>
 <div class="te-suena-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:1.5rem;row-gap:1.5rem;margin-top:3.5rem;">
 
@@ -1240,6 +1335,21 @@
 <p style="font-family:'DM Serif Display',Georgia,serif;font-size:32px;line-height:1.3;color:#162435;font-style:italic;margin:0 0 1.25rem 0;font-weight:400;">Y quizás lo más <span style="color:#C4963A;">agotador</span> no es que pase.</p>
 <p style="font-family:'Jost',sans-serif;font-size:18px;line-height:1.7;color:#3d3a36;margin:0;font-weight:400;">Es que pasa. Y pasa. Y vuelve a pasar. Aunque ya no quieres. Aunque puede que ya medio lo entendieras. Aunque esa vez querías que fuera diferente.</p>
 </div>
+</div><div class="section" style="padding:5rem 0;">
+
+<!-- TESTIMONIO DESTACADO ALICIA - validación social temprana después de identificación con patrones -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem;text-align:center;">
+<p style="font-size:13px;color:#B5707A;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin:0 0 2rem;">Primera edición · Mayo 2026</p>
+
+<span style="font-family:'DM Serif Display',Georgia,serif;font-size:120px;color:#C4963A;line-height:0.3;display:block;opacity:0.5;margin-bottom:1rem;">"</span>
+
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:30px;line-height:1.4;color:#162435;font-style:italic;margin:0 0 2.5rem;font-weight:400;">Llevo años en terapia y en talleres. Y aun así, U·Verse me hizo darme cuenta de algo que no había podido ver antes. Me fui con una <span style="color:#C4963A;">acción clara</span> de qué hacer. Eso es lo que más valoro.</p>
+
+<div style="width:40px;height:1px;background:#C4963A;margin:0 auto 1rem;opacity:0.6;"></div>
+<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin:0 0 0.35rem;">Alicia</p>
+<p style="font-size:12px;color:#999990;letter-spacing:0.1em;text-transform:uppercase;margin:0;">Participante primera edición · Mayo 2026</p>
+</div>
+
 </div><div class="section que-es-section" id="que-es" style="padding:0;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);position:relative;">
 
 <!-- ZONA SUPERIOR: fondo crema con texto -->
@@ -1265,7 +1375,6 @@
 <div style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(196,150,58,0.4);display:flex;align-items:center;justify-content:center;">
 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
 </div>
-<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:28px;color:#C4963A;line-height:1;">01</span>
 <p style="font-size:15px;color:#fff;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;margin:0;line-height:1.4;">No es una conferencia</p>
 <p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0;">Aquí no solo escuchas ni tomas notas. Participas viéndote y haciendo.</p>
 </div>
@@ -1274,7 +1383,6 @@
 <div style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(196,150,58,0.4);display:flex;align-items:center;justify-content:center;">
 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
 </div>
-<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:28px;color:#C4963A;line-height:1;">02</span>
 <p style="font-size:15px;color:#fff;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;margin:0;line-height:1.4;">No es para desahogarse</p>
 <p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0;">Aquí no se habla del problema, se trabaja lo que está detrás. Y si el desahogo ocurre, te acompañamos.</p>
 </div>
@@ -1283,15 +1391,10 @@
 <div style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(196,150,58,0.4);display:flex;align-items:center;justify-content:center;">
 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
 </div>
-<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:28px;color:#C4963A;line-height:1;">03</span>
 <p style="font-size:15px;color:#fff;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;margin:0;line-height:1.4;">No sustituye terapia</p>
 <p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0;">Es un primer paso de reconocimiento con rigor clínico. Un inicio, no un reemplazo.</p>
 </div>
 
-</div>
-
-<div style="text-align:center;">
-<a class="cta-mid" href="#inversion" style="background:#B5707A;color:#fff;">Reservar mi cupo</a>
 </div>
 
 </div>
@@ -1366,39 +1469,22 @@
 
 <div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
 <span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
-<p style="font-size:18px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">Llevo años en terapia y en talleres. Y aun así, U·Verse me hizo darme cuenta de algo que no había podido ver antes. Me fui con una acción clara de qué hacer. Eso es lo que más valoro.</p>
-<div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0;">Alicia</p>
-</div>
-
-<div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
-<span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
-<p style="font-size:18px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">Un espacio como este es muy necesario. Con contención, con profesionalidad. Donde una se siente segura, no juzgada, y se da el permiso de verse.</p>
-<div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 0.25rem;">Clara</p>
-<p style="font-size:14px;color:#3d3a36;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Psicóloga Clínica</p>
-</div>
-
-<div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
-<span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
 <p style="font-size:18px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">El espacio está muy bien diseñado, estructurado para guiarnos en una reflexión que me llenó de luz. Era justo lo que necesitaba en este momento.</p>
 <div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
 <p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 0.25rem;">Heidy</p>
-<p style="font-size:14px;color:#3d3a36;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Ingeniera Industrial</p>
+<p style="font-size:14px;color:#3d3a36;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Ingeniera Industrial · Primera edición</p>
 </div>
 
 <div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
 <span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
 <p style="font-size:18px;line-height:1.7;color:#162435;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0 0 2rem;font-weight:400;padding-top:1rem;">Soy de las que pone música o el televisor porque a veces tengo miedo de interiorizar. Aquí me sentí en confianza para hacer lo que evito. Pude trabajar e interiorizar mucho.</p>
 <div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0;">Jenny</p>
+<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 0.25rem;">Jenny</p>
+<p style="font-size:14px;color:#3d3a36;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Primera edición · Mayo 2026</p>
 </div>
 
 </div>
 
-<div style="text-align:center;margin-top:4rem;">
-<a href="#inversion" style="display:inline-block;background:#B5707A;color:#fff;font-size:17px;font-weight:500;padding:0.85rem 1.75rem;border-radius:12px;text-decoration:none;letter-spacing:0.02em;">Quiero unirme</a>
-</div>
 </div><div class="section">
 <span class="label">Lo que cambia cuando sales de U·Verse</span>
 
@@ -1408,7 +1494,8 @@
 <div>
 <h2 class="headline" style="margin-bottom:0;max-width:100%;">No sales resuelta.<br/><em style="color:#C4963A;font-style:italic;font-weight:400;">Sales orientada.</em></h2>
 <p style="font-family:'Jost',sans-serif;font-size:18px;line-height:1.6;color:#162435;margin:2rem 0 1rem 0;font-weight:400;">No una emoción que se disipa.<br/>Algo que se queda.</p>
-<p style="font-family:'Jost',sans-serif;font-size:17px;line-height:1.7;color:#3d3a36;font-style:italic;margin:0;font-weight:400;">Dinámicas que antes te confundían empiezan a sentirse claras.</p>
+<p style="font-family:'Jost',sans-serif;font-size:18px;line-height:1.6;color:#162435;margin:0 0 2rem 0;font-weight:400;">Dinámicas que antes te confundían empiezan a sentirse claras.</p>
+<a href="#inversion" style="display:inline-flex;align-items:center;gap:0.85rem;color:#fff;background:#162435;border:1px solid #162435;padding:1rem 2.25rem;border-radius:4px;text-decoration:none;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;">Quiero unirme <span style="font-size:18px;line-height:1;color:#C4963A;">→</span></a>
 </div>
 
 <!-- COLUMNA DERECHA: Cards numeradas -->
@@ -1445,29 +1532,39 @@
 </div>
 
 </div>
-</div>
 
-<!-- CALLOUT FINAL CON CTA INLINE -->
-<div class="lo-que-cambia-cta" style="background:#162435;border:1px solid rgba(196,150,58,0.35);border-radius:6px;padding:2rem 2.5rem;margin-top:3.5rem;display:flex;justify-content:center;align-items:center;gap:1.25rem;">
-<span style="color:#C4963A;font-size:22px;line-height:1;">✦</span>
-<a href="#inversion" style="display:inline-flex;align-items:center;gap:0.75rem;color:#C4963A;border:1px solid rgba(196,150,58,0.5);padding:0.85rem 1.5rem;border-radius:4px;text-decoration:none;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;white-space:nowrap;">Reservar mi cupo <span style="font-size:18px;line-height:1;">→</span></a>
+<!-- CTA MOBILE: solo se muestra en mobile, despues de las 5 cards -->
+<a href="#inversion" class="lo-que-cambia-mobile-cta" style="display:none;align-items:center;justify-content:center;gap:0.85rem;color:#162435;background:#C4963A;border:1px solid #C4963A;padding:1.05rem 2.25rem;border-radius:4px;text-decoration:none;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin:2rem auto 0;width:100%;text-align:center;">Quiero unirme <span style="font-size:18px;line-height:1;">→</span></a>
+
 </div>
 </div>
 
-<!-- VIDEO TESTIMONIO ÚNICO - Después de "Lo que cambia cuando sales" -->
-<!-- Persona: Alejandra -->
-<!-- Función: validar la transformación con insight + acción concretos antes del precio -->
-<!-- Duración: 50 segundos -->
-<!-- Self-hosted en /images/ -->
-<div class="section" style="padding-top:2rem;padding-bottom:2rem;">
-<div style="max-width:320px;margin:0 auto;">
+<!-- VIDEO TESTIMONIO ALEJANDRA + TESTIMONIO CLARA (PSICÓLOGA) -->
+<!-- Función: validar transformación visual + autoridad clínica antes del precio -->
+<div class="section video-clara-section" style="padding-top:3rem;padding-bottom:3rem;">
+<div class="video-clara-grid" style="display:grid;grid-template-columns:320px 1fr;gap:3.5rem;max-width:900px;margin:0 auto;align-items:center;">
+
+<!-- VIDEO ALEJANDRA -->
+<div>
 <div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border:1px solid rgba(196,150,58,0.4);border-radius:14px;background:#162435;">
 <video controls preload="metadata" playsinline poster="images/alejandra-poster.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#162435;">
 <source src="images/alejandra-testimonio.mp4" type="video/mp4">
 Tu navegador no soporta el video. <a href="images/alejandra-testimonio.mp4" style="color:#C4963A;">Descárgalo aquí</a>.
 </video>
 </div>
-<p style="font-size:14px;color:#3d3a36;text-align:center;margin-top:1rem;font-family:'DM Serif Display',Georgia,serif;font-style:italic;">Alejandra</p>
+<p style="font-size:14px;color:#3d3a36;text-align:center;margin-top:1rem;font-family:'DM Serif Display',Georgia,serif;font-style:italic;">Alejandra · Primera edición</p>
+</div>
+
+<!-- TESTIMONIO CLARA - validación profesional -->
+<div style="position:relative;">
+<p style="font-size:12px;color:#C4963A;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin:0 0 1.25rem;">Validación profesional</p>
+<span style="font-family:'DM Serif Display',Georgia,serif;font-size:100px;color:#C4963A;line-height:0.3;display:block;opacity:0.4;margin-bottom:0.5rem;">"</span>
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.5;color:#162435;font-style:italic;margin:0 0 2rem;font-weight:400;">Un espacio como este es muy necesario. Con contención, con profesionalidad. Donde una se siente segura, no juzgada, y se da el permiso de <span style="color:#C4963A;">verse</span>.</p>
+<div style="width:32px;height:1px;background:#C4963A;margin-bottom:0.85rem;opacity:0.6;"></div>
+<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;margin:0 0 0.25rem;">Clara</p>
+<p style="font-size:13px;color:#3d3a36;letter-spacing:0.08em;text-transform:uppercase;margin:0;">Psicóloga Clínica · Primera edición</p>
+</div>
+
 </div>
 </div>
 
@@ -1497,52 +1594,108 @@ Tu navegador no soporta el video. <a href="images/alejandra-testimonio.mp4" styl
 <img src="images/AJM00730.jpg" alt="Participantes U·Verse primera edición" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;min-height:216px;"/>
 </div>
 
-<!-- CALLOUT FINAL CON CTA -->
-<div class="estas-mujeres-cta" style="background:#FAF8F4;border:1px solid rgba(196,150,58,0.35);border-radius:6px;padding:2rem 2.5rem;display:grid;grid-template-columns:auto 1px 1fr auto;gap:2rem;align-items:center;">
-<span style="color:#C4963A;font-size:22px;line-height:1;">✦</span>
-<span style="background:rgba(196,150,58,0.3);width:1px;align-self:stretch;"></span>
-<div>
-<p style="font-family:'DM Serif Display',Georgia,serif;font-size:20px;line-height:1.4;color:#162435;margin:0;font-weight:400;">Cada historia es distinta. <em style="color:#C4963A;font-style:italic;font-weight:400;">Cada transformación también.</em></p>
-</div>
-<a href="#inversion" style="display:inline-flex;align-items:center;gap:0.75rem;color:#fff;background:#162435;border:1px solid #162435;padding:0.85rem 1.5rem;border-radius:4px;text-decoration:none;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;white-space:nowrap;">Reservar mi cupo <span style="font-size:18px;line-height:1;color:#C4963A;">→</span></a>
+</div><div class="section" id="inversion">
+
+<!-- HEADER CENTRADO COMPACTO -->
+<div style="text-align:center;max-width:780px;margin:0 auto 4rem;">
+<span class="label" style="display:block;margin-bottom:1rem;">Tu inversión</span>
+<div style="width:48px;height:1px;background:#C4963A;margin:0 auto 1.5rem;"></div>
+<h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:44px;line-height:1.15;color:#162435;margin:0 0 1.5rem;font-weight:400;">Todo lo que <em style="color:#C4963A;font-style:italic;">incluye.</em></h2>
+<p style="font-family:'Jost',sans-serif;font-size:17px;line-height:1.7;color:#3d3a36;margin:0;max-width:600px;margin-left:auto;margin-right:auto;">Todo lo que viene con U·Verse está pensado para que lo que reconociste adentro no se quede solo en el espacio.</p>
 </div>
 
-</div><div class="section" id="inversion">
-<span class="label">Tu inversión</span>
-<h2 class="headline">Todo lo que incluye.</h2>
-<p class="body">Todo lo que viene con U·Verse está pensado para que lo que reconociste adentro no se quede solo en el espacio.</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem;">
-<div style="padding:1.25rem;border:1px solid rgba(196,150,58,0.3);border-radius:8px;border-top:3px solid #C4963A;">
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">La experiencia completa</p>
-<p style="font-size:17px;line-height:1.75;color:#3d3a36;margin:0;">Contexto, reconocimiento, integración en grupo y cierre. Facilitado por una psicóloga clínica especializada en apego y patrones relacionales.</p>
+<!-- LISTA DE ENTREGABLES - Grid 2x2 + 1 full-width (Mockup B) -->
+<div class="entregables-lista" style="max-width:780px;margin:0 auto 3rem;display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;">
+
+<!-- 01 LA EXPERIENCIA COMPLETA -->
+<div style="background:#fff;border:0.5px solid rgba(196,150,58,0.25);border-radius:6px;padding:1.25rem 1.5rem;">
+<div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.6rem;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:#C4963A;font-size:20px;line-height:1;">01</span>
+<p style="font-size:13px;color:#B5707A;letter-spacing:0.14em;text-transform:uppercase;margin:0;font-weight:600;">La experiencia completa</p>
 </div>
-<div style="padding:1.25rem;border:1px solid rgba(196,150,58,0.3);border-radius:8px;border-top:3px solid #C4963A;">
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Dos cartas proyectivas</p>
-<p style="font-size:17px;line-height:1.75;color:#3d3a36;margin:0;">Una al inicio. Una al cierre. Imágenes con las que trabajas en momentos clave de la experiencia. Lo que ves en ellas también es información sobre ti.</p>
+<p style="font-size:15px;line-height:1.6;color:#3d3a36;margin:0;">Contexto, reconocimiento, integración en grupo y cierre. Facilitado por una psicóloga clínica especializada en apego y patrones relacionales.</p>
 </div>
-<div style="padding:1.25rem;border:1px solid rgba(196,150,58,0.3);border-radius:8px;border-top:3px solid #C4963A;">
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Tu mapa de patrón relacional</p>
-<p style="font-size:17px;line-height:1.75;color:#3d3a36;margin:0;">Un mapa de tu posición relacional específica: cómo te mueves con los demás y contigo misma. No dónde deberías estar. Dónde estás tú.</p>
+
+<!-- 02 DOS CARTAS PROYECTIVAS -->
+<div style="background:#fff;border:0.5px solid rgba(196,150,58,0.25);border-radius:6px;padding:1.25rem 1.5rem;">
+<div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.6rem;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:#C4963A;font-size:20px;line-height:1;">02</span>
+<p style="font-size:13px;color:#B5707A;letter-spacing:0.14em;text-transform:uppercase;margin:0;font-weight:600;">Dos cartas proyectivas</p>
 </div>
-<div style="padding:1.25rem;border:1px solid rgba(196,150,58,0.3);border-radius:8px;border-top:3px solid #C4963A;">
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Tu primer paso concreto</p>
-<p style="font-size:17px;line-height:1.75;color:#3d3a36;margin:0;">Una orientación concreta pensada para tu forma específica de responder. Algo aplicable esa misma semana, no después.</p>
+<p style="font-size:15px;line-height:1.6;color:#3d3a36;margin:0;">Una al inicio. Una al cierre. Imágenes con las que trabajas en momentos clave de la experiencia. Lo que ves en ellas también es información sobre ti.</p>
 </div>
-<div style="padding:1.25rem;border:1px solid rgba(196,150,58,0.3);border-radius:8px;border-top:3px solid #C4963A;grid-column:1/-1;">
-<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Kit U·Verse</p>
-<p style="font-size:17px;line-height:1.75;color:#3d3a36;margin:0;">Cada objeto que encontrarás en este tote bag fue seleccionado con un propósito dentro de la experiencia. Algunos los usas durante U·Verse. Otros son para después. Todos tienen sentido cuando los ves.</p>
+
+<!-- 03 TU MAPA - DIFERENCIAL con border-top ambar -->
+<div style="background:#fff;border:0.5px solid rgba(196,150,58,0.45);border-top:2px solid #C4963A;border-radius:6px;padding:1.25rem 1.5rem;">
+<div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.6rem;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:#C4963A;font-size:20px;line-height:1;">03</span>
+<p style="font-size:13px;color:#B5707A;letter-spacing:0.14em;text-transform:uppercase;margin:0;font-weight:600;">Tu mapa de patrón relacional</p>
 </div>
+<p style="font-size:15px;line-height:1.6;color:#3d3a36;margin:0;">Un mapa de tu posición relacional específica: cómo te mueves con los demás y contigo misma. No dónde deberías estar. Dónde estás tú.</p>
 </div>
-<p class="anchor">Una sesión de psicoterapia individual en Santo Domingo cuesta aprox. entre $70 y $150. U·Verse son tres horas de trabajo clínico especializado, un kit, tu mapa y tu primer paso concreto. Todo por $120.</p>
-<div class="price-block">
-<span class="price-label">Inversión total</span>
-<p class="price">$120 USD</p>
-<p class="price-sub">Todo lo anterior incluido. Sin costos adicionales.<br/>Tu lugar se confirma en el momento en que el pago se completa.</p>
-<p class="payment">Puedes pagar con PayPal o transferencia bancaria · También disponible pago en pesos dominicanos</p>
+
+<!-- 04 TU PRIMER PASO - DIFERENCIAL con border-top ambar -->
+<div style="background:#fff;border:0.5px solid rgba(196,150,58,0.45);border-top:2px solid #C4963A;border-radius:6px;padding:1.25rem 1.5rem;">
+<div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.6rem;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:#C4963A;font-size:20px;line-height:1;">04</span>
+<p style="font-size:13px;color:#B5707A;letter-spacing:0.14em;text-transform:uppercase;margin:0;font-weight:600;">Tu primer paso concreto</p>
 </div>
-<p style="font-size:17px;color:#3d3a36;line-height:1.8;padding:1rem 1.25rem;background:#F3EDE4;border-radius:6px;margin-bottom:0;text-align:center;">18 julio 2026 &nbsp;·&nbsp; 10:00 am — 1:00 pm &nbsp;·&nbsp; Casa Dede, Santo Domingo &nbsp;·&nbsp; 16 cupos</p>
-<p class="remate-cambia" style="margin-top:1.5rem;">Ese primer paso no es el destino. Es el punto de partida. Porque cuando puedes ver el patrón antes de que actúe, algo cambia. Ya no es automático. Y en ese instante, puedes empezar a elegir distinto. <strong>No desde el patrón. Desde lo que realmente va contigo.</strong></p>
-<a class="cta-mid" href="https://wa.me/18098481234?text=Hola%20Iris%2C%20vi%20U%C2%B7Verse%202da%20edici%C3%B3n%20%2818%20julio%29%20en%20tu%20p%C3%A1gina%20y%20quiero%20los%20detalles%20para%20inscribirme." target="_blank">Completar mi inscripción</a>
+<p style="font-size:15px;line-height:1.6;color:#3d3a36;margin:0;">Una orientación concreta pensada para tu forma específica de responder. Algo aplicable esa misma semana, no después.</p>
+</div>
+
+<!-- 05 KIT U·VERSE - full width abajo -->
+<div style="background:#fff;border:0.5px solid rgba(196,150,58,0.25);border-radius:6px;padding:1.25rem 1.5rem;grid-column:1/-1;">
+<div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.6rem;">
+<span style="font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:#C4963A;font-size:20px;line-height:1;">05</span>
+<p style="font-size:13px;color:#B5707A;letter-spacing:0.14em;text-transform:uppercase;margin:0;font-weight:600;">Kit U·Verse</p>
+</div>
+<p style="font-size:15px;line-height:1.6;color:#3d3a36;margin:0;">Cada objeto que encontrarás en este tote bag fue seleccionado con un propósito dentro de la experiencia. Algunos los usas durante U·Verse. Otros son para después. Todos tienen sentido cuando los ves.</p>
+</div>
+
+</div>
+
+<!-- ANCLAJE DE PRECIO con border-left ambar (Mockup B) -->
+<div style="max-width:780px;margin:0 auto 1.5rem;background:rgba(196,150,58,0.06);border-left:3px solid #C4963A;padding:1.15rem 1.5rem;border-radius:0 4px 4px 0;">
+<p style="font-family:'Jost',sans-serif;font-size:16px;line-height:1.7;color:#3d3a36;margin:0;">Una sesión de psicoterapia individual en Santo Domingo cuesta aprox. entre <strong style="color:#162435;font-weight:600;">$70 y $150</strong>. U·Verse son tres horas de trabajo clínico especializado, un kit, tu mapa y tu primer paso concreto. <strong style="color:#162435;font-weight:600;">Todo por $120.</strong></p>
+</div>
+
+<!-- BLOQUE DE PRECIO OSCURO con 2 columnas + CTA AMBAR DENTRO -->
+<div class="precio-oscuro" style="max-width:780px;margin:0 auto;background:#0B1520;border-radius:8px;padding:2rem 2rem;color:#fff;">
+
+<!-- TOP: Precio izquierda + Logistica derecha -->
+<div class="precio-logistica-row" style="display:grid;grid-template-columns:auto 1px 1fr;gap:1.75rem;align-items:center;margin-bottom:1.5rem;">
+
+<!-- COL IZQUIERDA: Precio -->
+<div>
+<p style="font-size:11px;color:#C4963A;letter-spacing:0.22em;text-transform:uppercase;margin:0 0 0.4rem;font-weight:600;">Inversión total</p>
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:72px;color:#fff;line-height:1;margin:0;font-weight:400;letter-spacing:-0.02em;">$120 <span style="font-size:24px;color:#C4963A;">USD</span></p>
+<p style="font-size:11px;color:rgba(255,255,255,0.55);margin:0.5rem 0 0;">Pago único · Sin extras</p>
+</div>
+
+<!-- DIVISOR VERTICAL -->
+<span style="background:rgba(196,150,58,0.25);width:1px;align-self:stretch;min-height:110px;"></span>
+
+<!-- COL DERECHA: Logistica con bullets ambar -->
+<div style="font-family:'Jost',sans-serif;font-size:13px;line-height:1.8;color:rgba(255,255,255,0.88);">
+<p style="margin:0 0 2px;"><span style="color:#C4963A;margin-right:0.5rem;">●</span>18 julio 2026 · 10am — 1pm</p>
+<p style="margin:0 0 2px;"><span style="color:#C4963A;margin-right:0.5rem;">●</span>Casa Dede, Santo Domingo</p>
+<p style="margin:0 0 2px;"><span style="color:#C4963A;margin-right:0.5rem;">●</span>16 cupos</p>
+<p style="margin:0;"><span style="color:#C4963A;margin-right:0.5rem;">●</span>PayPal · Transferencia · Pesos dominicanos</p>
+</div>
+
+</div>
+
+<!-- NOTA CONFIRMACION en caja translucida -->
+<p style="font-family:'Jost',sans-serif;font-size:13px;line-height:1.65;color:rgba(255,255,255,0.7);margin:0 0 1.5rem;padding:0.85rem 1.15rem;background:rgba(255,255,255,0.04);border-radius:4px;text-align:center;">Todo lo anterior incluido. Sin costos adicionales. Tu lugar se confirma en el momento en que el pago se completa.</p>
+
+<!-- CTA AMBAR FULL-WIDTH DENTRO DEL BLOQUE OSCURO -->
+<a href="https://wa.me/18098481234?text=Hola%20Iris%2C%20vi%20U%C2%B7Verse%202da%20edici%C3%B3n%20%2818%20julio%29%20en%20tu%20p%C3%A1gina%20y%20quiero%20los%20detalles%20para%20inscribirme." target="_blank" style="display:block;background:#C4963A;color:#162435;padding:1.05rem;border-radius:4px;text-decoration:none;font-size:14px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;text-align:center;">Quiero unirme →</a>
+
+</div>
+
+<!-- CIERRE EMOCIONAL DEBAJO -->
+<p style="max-width:780px;margin:2.5rem auto 0;font-family:'Jost',sans-serif;font-size:17px;line-height:1.75;color:#3d3a36;">Ese primer paso no es el destino. Es el punto de partida. Porque cuando puedes ver el patrón antes de que actúe, algo cambia. Ya no es automático. Y en ese instante, puedes empezar a elegir distinto. <strong style="color:#162435;font-weight:600;">No desde el patrón. Desde lo que realmente va contigo.</strong></p>
+
 </div><div class="section">
 <span class="label">Preguntas frecuentes</span>
 <h2 class="headline">Lo que suelen preguntar<br/>antes de reservar.</h2>
@@ -1571,13 +1724,13 @@ Tu navegador no soporta el video. <a href="images/alejandra-testimonio.mp4" styl
 <div class="section" style="background:#162435;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:7rem 0;color:#fff;">
 <div class="fullbleed-content">
 <span class="label" style="color:#D4929A;">18 de julio · Casa Dede · Santo Domingo</span>
-<h2 class="headline" style="color:#fff;">Lo que se ve ya no se puede<br/>del todo des-ver.</h2>
+<h2 class="headline" style="color:#fff;">Lo que se ve ya no se puede<br/>del todo <em style="color:#C4963A;font-style:italic;">des-ver</em>.</h2>
 <p class="body" style="color:rgba(255,255,255,0.78);">No necesitas llegar lista ni saber exactamente qué te pasa. Solo disposición para mirarte con honestidad durante tres horas.</p>
 <div class="cupos" style="background:rgba(255,255,255,0.05);border:0.5px solid rgba(196,150,58,0.3);margin-top:2.5rem;">
 <span class="cupos-num" style="color:#fff;">16</span>
 <p class="cupos-text" style="color:rgba(255,255,255,0.78);">cupos disponibles para esta edición. El formato de U·Verse requiere que cada persona pueda observarse dentro de las dinámicas. Con un grupo pequeño, participes activamente o no, estás dentro de la experiencia, no mirándola desde afuera.</p>
 </div>
-<a class="cta-mid" href="https://wa.me/18098481234?text=Hola%20Iris%2C%20vi%20U%C2%B7Verse%202da%20edici%C3%B3n%20%2818%20julio%29%20en%20tu%20p%C3%A1gina%20y%20quiero%20los%20detalles%20para%20inscribirme." target="_blank" style="background:#B5707A;color:#fff;">Completar mi inscripción</a>
+<a class="cta-mid" href="https://wa.me/18098481234?text=Hola%20Iris%2C%20vi%20U%C2%B7Verse%202da%20edici%C3%B3n%20%2818%20julio%29%20en%20tu%20p%C3%A1gina%20y%20quiero%20los%20detalles%20para%20inscribirme." target="_blank" style="background:#C4963A;color:#162435;">Quiero unirme →</a>
 <p class="cierre-tagline">Antes de elegir, hay que verse.</p>
 <p class="cierre-meta" style="color:rgba(255,255,255,0.5);">Dra. Iris Bello Castillo · irisbello.com</p>
 </div>
@@ -1585,45 +1738,62 @@ Tu navegador no soporta el video. <a href="images/alejandra-testimonio.mp4" styl
 
 <!-- STICKY CTA MOBILE - Punto 8 -->
 <div class="sticky-cta-mobile" id="stickyCtaMobile">
-<a href="https://wa.me/18098481234?text=Hola%20Iris%2C%20vi%20U%C2%B7Verse%202da%20edici%C3%B3n%20%2818%20julio%29%20en%20tu%20p%C3%A1gina%20y%20quiero%20los%20detalles%20para%20inscribirme." target="_blank">Reservar mi cupo</a>
+<a href="https://wa.me/18098481234?text=Hola%20Iris%2C%20vi%20U%C2%B7Verse%202da%20edici%C3%B3n%20%2818%20julio%29%20en%20tu%20p%C3%A1gina%20y%20quiero%20los%20detalles%20para%20inscribirme." target="_blank" aria-label="Quiero unirme">Quiero<br/>unirme</a>
 </div>
 
 <script>
-// Sticky CTA mobile: aparece después del 25% de scroll, desaparece cuando entra de lleno la sección de inversión
+// Sticky CTA mobile: aparece cuando entra "Qué es U·Verse" al viewport, desaparece al entrar a la sección de inversión
 (function() {
   var sticky = document.getElementById('stickyCtaMobile');
   if (!sticky) return;
   
+  var queEsSection = document.getElementById('que-es');
   var inversionSection = document.getElementById('inversion');
+  var queEsReached = false;
   var inversionVisible = false;
   
-  // Detectar cuando la sección de inversión entra completamente en viewport
-  if (inversionSection && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
+  // Detectar cuando la sección "Qué es U·Verse" entra al viewport
+  if (queEsSection && 'IntersectionObserver' in window) {
+    var queEsObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
-        // Solo ocultar cuando la sección ya esté visible al 40% en pantalla
+        var rect = entry.boundingClientRect;
+        // queEsReached = true cuando el inicio de la sección entra al viewport
+        queEsReached = rect.top < window.innerHeight;
+        updateStickyVisibility();
+      });
+    }, { threshold: [0, 0.05, 0.1, 0.25, 0.5, 0.75, 1.0] });
+    queEsObserver.observe(queEsSection);
+  }
+  
+  // Detectar cuando la sección de inversión entra al viewport
+  if (inversionSection && 'IntersectionObserver' in window) {
+    var invObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         inversionVisible = entry.intersectionRatio >= 0.4;
         updateStickyVisibility();
       });
     }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0] });
-    
-    observer.observe(inversionSection);
+    invObserver.observe(inversionSection);
   }
   
   function updateStickyVisibility() {
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var scrollPercent = (scrollTop / docHeight) * 100;
-    
-    // Aparece después del 25% y desaparece cuando entra de lleno sección inversión
-    if (scrollPercent >= 25 && !inversionVisible) {
+    // Aparece cuando entra "Qué es U·Verse" al viewport y desaparece al entrar de lleno a sección inversión
+    if (queEsReached && !inversionVisible) {
       sticky.classList.add('visible');
     } else {
       sticky.classList.remove('visible');
     }
   }
   
-  window.addEventListener('scroll', updateStickyVisibility, { passive: true });
+  // Fallback scroll listener para actualizar posiciones
+  window.addEventListener('scroll', function() {
+    if (queEsSection) {
+      var rect = queEsSection.getBoundingClientRect();
+      queEsReached = rect.top < window.innerHeight;
+    }
+    updateStickyVisibility();
+  }, { passive: true });
+  
   updateStickyVisibility();
 })();
 </script>
