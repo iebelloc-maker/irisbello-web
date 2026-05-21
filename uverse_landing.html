@@ -96,8 +96,8 @@
   /* SELLO PRIMERA EDICIÓN SOLD OUT */
   .sello-soldout {
     position: absolute;
-    top: 72%;
-    left: 72%;
+    top: 42%;
+    left: 60%;
     transform: translate(-50%, -50%) rotate(-8deg);
     background: 
       radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.12), transparent 60%),
@@ -1025,6 +1025,14 @@
     }
 
     /* PUNTO 10: CREDENCIALES MOBILE */
+    .quien-facilita-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2.5rem !important;
+    }
+    .creds-vertical {
+      padding-top: 0 !important;
+    }
+
     .creds-primary {
       grid-template-columns: 1fr !important;
     }
@@ -1253,38 +1261,45 @@
 </div>
 
 </div>
-</div><div class="section" style="padding:4rem 0;">
-<div style="text-align:center;max-width:720px;margin:0 auto;">
-<span class="label">Quién facilita este espacio</span>
-<h2 class="headline" style="margin-top:0.75rem;margin-bottom:0.25rem;">Dra. Iris Bello Castillo</h2>
-<p style="font-size:15px;color:#B5707A;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:2rem;">Psicóloga Clínica</p>
-<p class="body" style="text-align:left;">Durante más de 15 años he trabajado con mujeres que por fuera funcionaban, lograban y resolvían. Y que seguían atrapadas en las mismas formas de relacionarse consigo y con los demás, mientras por dentro algo dolía.</p>
+</div><div class="section" style="padding:5rem 0;">
+<div class="quien-facilita-grid" style="display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start;max-width:1000px;margin:0 auto;">
+
+<!-- COLUMNA A: NARRATIVA -->
+<div>
+<span class="label" style="display:block;margin-bottom:1.5rem;">Quién facilita este espacio</span>
+<h2 class="headline" style="margin-bottom:0.25rem;font-size:38px;">Dra. Iris Bello Castillo</h2>
+<p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:2rem;">Psicóloga Clínica</p>
+
+<div style="padding-left:1.5rem;border-left:2px solid #C4963A;">
+<p class="body" style="text-align:left;margin-top:0;">Durante más de 15 años he trabajado con mujeres que por fuera funcionan, con logros y resuelven. Y siguen atrapadas en las mismas formas de relacionarse consigo mismas y con los demás, mientras por dentro algo duele.</p>
 <p class="body" style="text-align:left;">No necesariamente por falta de consciencia. Sino porque entender algo no cambia lo que el sistema hace cuando se activa.</p>
-<div style="margin:2rem auto 0;padding-left:1.25rem;border-left:2px solid #C4963A;text-align:left;max-width:fit-content;">
-<p style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.4;color:#162435;margin:0;font-weight:400;font-style:italic;">U·Verse nació de esa observación.</p>
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.4;color:#162435;margin:1.75rem 0 0;font-weight:400;font-style:italic;">U·Verse nació de esa observación.</p>
 </div>
 </div>
 
-<div class="creds-row" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-top:3.5rem;border-top:1px solid rgba(196,150,58,0.3);border-left:1px solid rgba(196,150,58,0.2);">
+<!-- COLUMNA B: CREDENCIALES VERTICALES -->
+<div class="creds-vertical" style="padding-top:9rem;">
 
-<div style="padding:1.25rem 1rem;border-right:1px solid rgba(196,150,58,0.2);border-bottom:1px solid rgba(196,150,58,0.2);">
-<p style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:#162435;line-height:1.25;margin:0 0 0.35rem 0;font-weight:400;">PhD en Psicología Clínica</p>
-<p style="font-size:14px;color:#B5707A;line-height:1.5;margin:0;letter-spacing:0.01em;">Universidad Complutense de Madrid</p>
-</div>
-
-<div style="padding:1.25rem 1rem;border-right:1px solid rgba(196,150,58,0.2);border-bottom:1px solid rgba(196,150,58,0.2);">
-<p style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:#162435;line-height:1.25;margin:0 0 0.35rem 0;font-weight:400;">+15 años de trayectoria clínica</p>
+<div style="padding:1.25rem 0;border-bottom:1px solid rgba(196,150,58,0.3);">
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#162435;line-height:1.3;margin:0 0 0.4rem 0;font-weight:400;">+15 años de trayectoria clínica</p>
 <p style="font-size:14px;color:#B5707A;line-height:1.5;margin:0;letter-spacing:0.01em;">Trabajando apego, vínculos y trauma relacional</p>
 </div>
 
-<div style="padding:1.25rem 1rem;border-right:1px solid rgba(196,150,58,0.2);border-bottom:1px solid rgba(196,150,58,0.2);">
-<p style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:#162435;line-height:1.25;margin:0 0 0.35rem 0;font-weight:400;">Profesora titular y coordinadora académica</p>
+<div style="padding:1.25rem 0;border-bottom:1px solid rgba(196,150,58,0.3);">
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#162435;line-height:1.3;margin:0 0 0.4rem 0;font-weight:400;">PhD en Psicología Clínica</p>
+<p style="font-size:14px;color:#B5707A;line-height:1.5;margin:0;letter-spacing:0.01em;">Universidad Complutense de Madrid</p>
+</div>
+
+<div style="padding:1.25rem 0;border-bottom:1px solid rgba(196,150,58,0.3);">
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#162435;line-height:1.3;margin:0 0 0.4rem 0;font-weight:400;">Profesora titular y coordinadora académica</p>
 <p style="font-size:14px;color:#B5707A;line-height:1.5;margin:0;letter-spacing:0.01em;">UNIBE, Santo Domingo</p>
 </div>
 
-<div style="padding:1.25rem 1rem;border-right:1px solid rgba(196,150,58,0.2);border-bottom:1px solid rgba(196,150,58,0.2);">
-<p style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:#162435;line-height:1.25;margin:0 0 0.35rem 0;font-weight:400;">Investigaciones publicadas</p>
+<div style="padding:1.25rem 0;">
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;color:#162435;line-height:1.3;margin:0 0 0.4rem 0;font-weight:400;">Investigaciones publicadas</p>
 <p style="font-size:14px;color:#B5707A;line-height:1.5;margin:0;letter-spacing:0.01em;">Revisadas por pares en revistas científicas</p>
+</div>
+
 </div>
 
 </div>
