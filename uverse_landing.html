@@ -158,8 +158,8 @@
     .sello-soldout {
       top: auto;
       left: auto;
-      bottom: 12px;
-      right: 12px;
+      bottom: 24px;
+      right: 20px;
       transform: rotate(-8deg);
       width: 130px;
       padding: 0.7rem 0.85rem;
@@ -925,12 +925,12 @@
       order: 1;
     }
     .hero-image-wrapper {
-      min-height: 340px !important;
-      max-height: 340px !important;
+      min-height: 420px !important;
+      max-height: 420px !important;
       order: 2;
     }
     .hero-image-wrapper img {
-      object-position: center top !important;
+      object-position: center 20% !important;
     }
     .hero-title-main {
       font-size:48px !important;
@@ -1038,29 +1038,24 @@
     }
 
     /* QUÉ ES U·VERSE MOBILE */
+    /* QUÉ ES U·VERSE MOBILE */
     .que-es-section {
       padding: 0 !important;
     }
-    /* Reducir padding de las zonas para que el callout flotante quede entre ellas */
+    /* Padding ajustado para que el callout mobile flote entre las zonas */
     .que-es-zona-crema {
-      padding: 3.5rem 0 5rem 0 !important;
+      padding: 3.5rem 0 4rem 0 !important;
     }
     .que-es-zona-azul {
-      padding: 5rem 0 3.5rem 0 !important;
+      padding: 4rem 0 3.5rem 0 !important;
     }
-    /* CALLOUT FLOTANTE: se mantiene absolute para flotar entre las dos zonas */
+    /* OCULTAR callout absolute en mobile (es el de desktop) */
     .que-es-callout-wrapper {
-      max-width: 100% !important;
-      padding: 0 1.25rem !important;
-    }
-    .que-es-callout {
-      grid-template-columns: 1fr !important;
-      gap: 1rem !important;
-      padding: 1.5rem 1.5rem !important;
-    }
-    .que-es-callout > span:nth-child(2),
-    .que-es-callout > span:nth-child(4) {
       display: none !important;
+    }
+    /* MOSTRAR callout normal-flow específico para mobile */
+    .que-es-callout-mobile {
+      display: block !important;
     }
     .que-es-grid {
       grid-template-columns: 1fr !important;
@@ -1151,10 +1146,16 @@
       grid-template-columns: 1fr !important;
       gap: 2.5rem !important;
       max-width: 100% !important;
+      padding: 0 !important;
     }
     .video-clara-grid > div:first-child {
-      max-width: 75vw;
+      max-width: 100%;
+      width: 100%;
       margin: 0 auto;
+    }
+    .video-clara-section {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
     }
 
     /* TESTIMONIOS HEIDY + JENNY MOBILE: apilar en una sola columna */
@@ -1364,6 +1365,20 @@
 <h2 class="headline" style="margin-top:0.75rem;margin-left:auto;margin-right:auto;max-width:100%;margin-bottom:0;">Un espacio de <em style="color:#C4963A;font-style:italic;">trabajo psicológico</em> para entender la forma en que te vinculas.</h2>
 <p class="body" style="margin-top:2rem;margin-left:auto;margin-right:auto;max-width:100%;font-size:18px;line-height:1.7;color:#162435;">No el qué te pasa. <em style="color:#C4963A;font-style:italic;font-weight:500;">El desde dónde te pasa.</em> Hay un patrón que aprendiste, que se repite con distintas personas y en distintos contextos, y que en algún momento tuvo sentido.</p>
 <p class="body" style="margin-left:auto;margin-right:auto;max-width:100%;font-size:18px;line-height:1.7;color:#3d3a36;">U·Verse está diseñado para que ese patrón tenga nombre y origen. Y para que salgas con <em style="color:#C4963A;font-style:italic;font-weight:500;">un primer paso concreto</em> para empezar a notar cuándo opera, antes de actuar desde él y puedas elegir distinto.</p>
+</div>
+</div>
+</div>
+
+<!-- CALLOUT MOBILE: visible solo en mobile, entre las dos zonas como elemento normal del flujo -->
+<div class="que-es-callout-mobile" style="display:none;padding:0 1.25rem;">
+<div style="background:#162435;border:1px solid rgba(196,150,58,0.4);border-radius:6px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:1rem;box-shadow:0 30px 60px rgba(11,21,32,0.35);margin-top:-3rem;margin-bottom:-3rem;position:relative;z-index:5;">
+<span style="color:#C4963A;font-size:22px;line-height:1;">✦</span>
+<div>
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.3;color:#fff;margin:0 0 0.5rem 0;font-weight:400;">Esto no es terapia grupal.</p>
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.4;color:#C4963A;margin:0;font-style:italic;font-weight:400;">Es un taller vivencial con acompañamiento clínico.</p>
+</div>
+<div>
+<p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.85);margin:0;">No solo vives la experiencia. Hay alguien acompañándote mientras lo ves: si surge lo que necesita contenerse, ahí estoy.</p>
 </div>
 </div>
 </div>
