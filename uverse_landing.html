@@ -182,8 +182,7 @@
     position: relative;
   }
   .hero-image-wrapper img,
-  .galeria-grid img,
-  .quien-facilita-grid img {
+  .galeria-grid img {
     filter: contrast(1.03) brightness(0.97) saturate(0.94);
   }
   .hero-image-wrapper::after {
@@ -1026,11 +1025,6 @@
     }
 
     /* PUNTO 10: CREDENCIALES MOBILE */
-    .quien-facilita-grid {
-      grid-template-columns: 1fr !important;
-      gap: 1.5rem !important;
-    }
-
     .creds-primary {
       grid-template-columns: 1fr !important;
     }
@@ -1047,17 +1041,22 @@
     .que-es-section {
       padding: 0 !important;
     }
+    /* Reducir padding de las zonas para que el callout flotante quede entre ellas */
+    .que-es-zona-crema {
+      padding: 3.5rem 0 5rem 0 !important;
+    }
+    .que-es-zona-azul {
+      padding: 5rem 0 3.5rem 0 !important;
+    }
+    /* CALLOUT FLOTANTE: se mantiene absolute para flotar entre las dos zonas */
     .que-es-callout-wrapper {
-      position: static !important;
-      transform: none !important;
       max-width: 100% !important;
-      padding: 0 1.5rem !important;
-      margin: -3rem 0 -3rem 0 !important;
+      padding: 0 1.25rem !important;
     }
     .que-es-callout {
       grid-template-columns: 1fr !important;
-      gap: 1.25rem !important;
-      padding: 1.75rem 1.5rem !important;
+      gap: 1rem !important;
+      padding: 1.5rem 1.5rem !important;
     }
     .que-es-callout > span:nth-child(2),
     .que-es-callout > span:nth-child(4) {
@@ -1151,11 +1150,24 @@
     .video-clara-grid {
       grid-template-columns: 1fr !important;
       gap: 2.5rem !important;
-      max-width: 380px !important;
+      max-width: 100% !important;
     }
     .video-clara-grid > div:first-child {
-      max-width: 280px;
+      max-width: 75vw;
       margin: 0 auto;
+    }
+
+    /* TESTIMONIOS HEIDY + JENNY MOBILE: apilar en una sola columna */
+    .testimonios-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.25rem !important;
+      max-width: 100% !important;
+    }
+    .testimonios-grid > div {
+      padding: 2.5rem 1.75rem 2rem !important;
+    }
+    .testimonios-grid > div > p:first-of-type {
+      padding-top: 0.5rem !important;
     }
 
     /* STICKY CTA solo visible en mobile */
@@ -1241,26 +1253,18 @@
 
 </div>
 </div><div class="section" style="padding:4rem 0;">
+<div style="text-align:center;max-width:720px;margin:0 auto;">
 <span class="label">Quién facilita este espacio</span>
-<div class="quien-facilita-grid" style="display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:center;margin-top:1.5rem;">
-<div style="position:relative;padding:1.25rem 1.25rem 1.25rem 0;">
-<div style="position:absolute;top:0;left:1.25rem;bottom:0;right:0;background:#EFEDE8;border-radius:4px;z-index:0;"></div>
-<div style="position:relative;border-radius:4px;overflow:hidden;box-shadow:0 20px 50px rgba(22,36,53,0.10);z-index:1;">
-<img src="images/tallerversehero.jpg" alt="Dra. Iris Bello Castillo" style="width:100%;height:420px;object-fit:cover;object-position:center 22%;display:block;"/>
-</div>
-</div>
-<div>
-<h2 class="headline" style="margin-bottom:0.25rem;">Dra. Iris Bello Castillo</h2>
-<p style="font-size:15px;color:#B5707A;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.5rem;">Psicóloga Clínica</p>
-<p class="body">Durante más de 15 años he trabajado con mujeres que por fuera funcionaban, lograban y resolvían. Y que seguían atrapadas en las mismas formas de relacionarse consigo y con los demás, mientras por dentro algo dolía.</p>
-<p class="body">No necesariamente por falta de consciencia. Sino porque entender algo no cambia lo que el sistema hace cuando se activa.</p>
-<div style="margin:1.5rem 0 0 0;padding-left:1.25rem;border-left:2px solid #C4963A;">
-<p style="font-family:'DM Serif Display',Georgia,serif;font-size:20px;line-height:1.4;color:#162435;margin:0;font-weight:400;">U·Verse nació de esa observación.</p>
-</div>
+<h2 class="headline" style="margin-top:0.75rem;margin-bottom:0.25rem;">Dra. Iris Bello Castillo</h2>
+<p style="font-size:15px;color:#B5707A;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:2rem;">Psicóloga Clínica</p>
+<p class="body" style="text-align:left;">Durante más de 15 años he trabajado con mujeres que por fuera funcionaban, lograban y resolvían. Y que seguían atrapadas en las mismas formas de relacionarse consigo y con los demás, mientras por dentro algo dolía.</p>
+<p class="body" style="text-align:left;">No necesariamente por falta de consciencia. Sino porque entender algo no cambia lo que el sistema hace cuando se activa.</p>
+<div style="margin:2rem auto 0;padding-left:1.25rem;border-left:2px solid #C4963A;text-align:left;max-width:fit-content;">
+<p style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.4;color:#162435;margin:0;font-weight:400;font-style:italic;">U·Verse nació de esa observación.</p>
 </div>
 </div>
 
-<div class="creds-row" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-top:2rem;border-top:1px solid rgba(196,150,58,0.3);border-left:1px solid rgba(196,150,58,0.2);">
+<div class="creds-row" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-top:3.5rem;border-top:1px solid rgba(196,150,58,0.3);border-left:1px solid rgba(196,150,58,0.2);">
 
 <div style="padding:1.25rem 1rem;border-right:1px solid rgba(196,150,58,0.2);border-bottom:1px solid rgba(196,150,58,0.2);">
 <p style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:#162435;line-height:1.25;margin:0 0 0.35rem 0;font-weight:400;">PhD en Psicología Clínica</p>
@@ -1353,7 +1357,7 @@
 </div><div class="section que-es-section" id="que-es" style="padding:0;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);position:relative;">
 
 <!-- ZONA SUPERIOR: fondo crema con texto -->
-<div style="background:#F1EFEB;padding:7rem 0 9rem 0;">
+<div class="que-es-zona-crema" style="background:#F1EFEB;padding:7rem 0 9rem 0;">
 <div class="fullbleed-content">
 <div style="text-align:center;max-width:820px;margin:0 auto;">
 <span class="label">Qué es U·Verse</span>
@@ -1365,7 +1369,7 @@
 </div>
 
 <!-- ZONA INFERIOR: fondo azul tinta con cards -->
-<div style="background:#162435;padding:9rem 0 7rem 0;">
+<div class="que-es-zona-azul" style="background:#162435;padding:9rem 0 7rem 0;">
 <div class="fullbleed-content">
 
 <!-- GRID DE 3 CARDS -->
@@ -1465,7 +1469,7 @@
 <p style="font-size:14px;color:#B5707A;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:0.75rem;">Lo que vivieron en la primera edición</p>
 <h2 class="headline" style="text-align:center;margin:0 auto 3.5rem;max-width:680px;">En sus palabras.</h2>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;margin:0 auto;">
+<div class="testimonios-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;margin:0 auto;">
 
 <div style="position:relative;background:#FAF8F4;border:1px solid rgba(196,150,58,0.25);padding:3rem 2.5rem 2.5rem;box-shadow:0 8px 32px rgba(22,36,53,0.04);">
 <span style="font-family:'DM Serif Display',Georgia,serif;font-size:80px;color:#C4963A;line-height:0;position:absolute;top:1.75rem;left:2.25rem;opacity:0.55;">"</span>
@@ -1742,59 +1746,42 @@ Tu navegador no soporta el video. <a href="images/alejandra-testimonio.mp4" styl
 </div>
 
 <script>
-// Sticky CTA mobile: aparece cuando entra "Qué es U·Verse" al viewport, desaparece al entrar a la sección de inversión
+// Sticky CTA mobile: aparece cuando "Qué es U·Verse" es visible, desaparece al entrar a inversión
 (function() {
   var sticky = document.getElementById('stickyCtaMobile');
   if (!sticky) return;
   
   var queEsSection = document.getElementById('que-es');
   var inversionSection = document.getElementById('inversion');
-  var queEsReached = false;
+  var queEsVisible = false;
   var inversionVisible = false;
   
-  // Detectar cuando la sección "Qué es U·Verse" entra al viewport
-  if (queEsSection && 'IntersectionObserver' in window) {
-    var queEsObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        var rect = entry.boundingClientRect;
-        // queEsReached = true cuando el inicio de la sección entra al viewport
-        queEsReached = rect.top < window.innerHeight;
-        updateStickyVisibility();
-      });
-    }, { threshold: [0, 0.05, 0.1, 0.25, 0.5, 0.75, 1.0] });
-    queEsObserver.observe(queEsSection);
-  }
-  
-  // Detectar cuando la sección de inversión entra al viewport
-  if (inversionSection && 'IntersectionObserver' in window) {
-    var invObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        inversionVisible = entry.intersectionRatio >= 0.4;
-        updateStickyVisibility();
-      });
-    }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0] });
-    invObserver.observe(inversionSection);
-  }
-  
-  function updateStickyVisibility() {
-    // Aparece cuando entra "Qué es U·Verse" al viewport y desaparece al entrar de lleno a sección inversión
-    if (queEsReached && !inversionVisible) {
+  function checkSticky() {
+    if (queEsVisible && !inversionVisible) {
       sticky.classList.add('visible');
     } else {
       sticky.classList.remove('visible');
     }
   }
   
-  // Fallback scroll listener para actualizar posiciones
-  window.addEventListener('scroll', function() {
+  function updateFromScroll() {
     if (queEsSection) {
-      var rect = queEsSection.getBoundingClientRect();
-      queEsReached = rect.top < window.innerHeight;
+      var queEsRect = queEsSection.getBoundingClientRect();
+      // queEsVisible = true cuando el TOP de "Qué es U·Verse" entra en el 85% del viewport
+      // (es decir, la persona ya esta leyendo Qué es)
+      queEsVisible = queEsRect.top < window.innerHeight * 0.85;
     }
-    updateStickyVisibility();
-  }, { passive: true });
+    if (inversionSection) {
+      var invRect = inversionSection.getBoundingClientRect();
+      // inversionVisible = true cuando el TOP de Inversión llega al 60% del viewport
+      inversionVisible = invRect.top < window.innerHeight * 0.6;
+    }
+    checkSticky();
+  }
   
-  updateStickyVisibility();
+  window.addEventListener('scroll', updateFromScroll, { passive: true });
+  window.addEventListener('resize', updateFromScroll, { passive: true });
+  updateFromScroll();
 })();
 </script>
 
