@@ -2,7 +2,7 @@
 title: Por qué te cuesta poner límites con tu familia sin sentirte culpable
 date: 2026-05-24T00:19:00
 tema: patrones relacionales, regulacion, malestar
-extracto: Decir que no a tu familia y sentirte culpable no te hace mala hija. Una psicóloga clínica en Santo Domingo, Dra. Iris Bello, te explica de dónde viene esa culpa y qué hacer con ella.
+extracto: Decir que no a tu familia y sentirte culpable no te hace mala hija. La Dra. Iris Bello, psicóloga clínica en Santo Domingo, te explica de dónde viene esa culpa y qué hacer con ella.
 keywords: como poner limites con mi familia, culpa por poner limites, me siento culpable con mi mama, limites con la familia sin sentir culpa, psicologa clinica Santo Domingo, diferenciacion familiar
 imagen: /images/blog/poner-limites-familia-sin-culpa.png
 ---
