@@ -7,15 +7,15 @@ keywords: como poner limites con mi familia, culpa por poner limites, me siento 
 imagen: /images/blog/poner-limites-familia-sin-culpa.png
 ---
 
-Cuando escuchamos hablar de relación y patrones relacionales, pensamos directamente en pareja, pero va mucho más allá. Hoy hablemos de esos primeros vínculos. Hola mamá, hola papá, hola hermanos, hola abuelos, hola familia.
+Cuando escuchamos hablar de relación y patrones relacionales, pensamos directamente en pareja, pero va mucho más allá. Hoy hablemos de esos primeros vínculos. Hola mamá, hola papá, hola hermanos, hola abuelos, hola hijos, hola familia.
 
-Dices que no, y antes de terminar la frase ya lo sientes. Ese peso en el pecho. La vocecita que te dice que estás siendo egoísta, que cómo le vas a hacer eso a tu mamá, que la familia es la familia.
+Dices que no, y antes de terminar la frase ya lo sientes. Ese peso en el pecho. La vocecita que te dice que estás siendo egoísta, que cómo le vas a hacer eso, que la familia es la familia.
 
 Entonces dices que sí. Otra vez. Y te quedas resentida contigo misma por no haber podido mantener lo que sí querías hacer.
 
 Da igual la edad que tengas, te vuelves a sentir una niña que quiere que la quieran y la aprueben.
 
-Si eso te pasa, déjame decirte algo antes de continuar, no es que seas mala hija, ni egoísta, ni que te falte carácter.
+Si eso te pasa, déjame decirte algo antes de continuar, no es que seas mal familiar, ni egoísta, ni que te falte carácter.
 
 ### La culpa no aparece de la nada
 
@@ -27,11 +27,11 @@ Por eso la culpa se siente tan física, tan inmediata. No es un pensamiento que 
 
 ### No es falta de amor. Es falta de diferenciación
 
-Hay un concepto que en consulta uso bastante y que a muchas mujeres les cambia la forma de verse. Viene de la teoría de sistemas familiares de Murray Bowen, y se llama diferenciación del self.
+Hay un concepto que suelo explicar en consulta y que a muchas mujeres les cambia la forma de verse. Viene de la teoría de sistemas familiares de Murray Bowen, y se llama diferenciación del self.
 
 Diferenciarte no significa querer menos a tu familia. Significa poder distinguir lo que tú sientes y piensas de lo que sienten y piensan los demás, incluso cuando hay tensión de por medio. Es la capacidad de estar cerca del otro sin dejar de ser tú.
 
-Cuando esa diferenciación es baja, la ansiedad de los demás se vuelve tu ansiedad. Si tu mamá se molesta, ya tú andas mal el resto del día. Y si alguien en la familia está pasando por algo, te cuesta estar bien aunque a ti no te esté pasando nada. Poner un límite se siente casi imposible, porque tu calma depende de que todos a tu alrededor estén calmados contigo.
+Cuando esa diferenciación es baja, la ansiedad de los demás se vuelve tu ansiedad. Si alguien de tu familia se molesta, ya tú andas mal el resto del día. Y si alguien en la familia está pasando por algo, te cuesta estar bien aunque a ti no te esté pasando nada. Poner un límite se siente casi imposible, porque tu calma depende de que todos a tu alrededor estén calmados contigo.
 
 Te pongo un ejemplo. Dices que este domingo no vas al almuerzo familiar porque necesitas descansar. Tu mamá se molesta, te suelta el clásico "ay, ya tú nunca vienes". Diferenciarte es poder mantener el no, dejar que ella tenga su molestia sin salir corriendo a inventar una excusa o a prometer que vas el próximo, y aun así llamarla el lunes como siempre, con el mismo cariño, porque a pesar del límite que le pusiste, sigues siendo su hija, no es que la vas a abandonar, pero es algo que le tiene que funcionar a las dos, no solo a ella. ¿Que te vas a sentir culpable? Sí, al principio, mucho. ¿Que de parte de ella va a arder Troya? Muy probablemente, pero esa culpa baja con el tiempo, y la molestia de ella pasa. Lo que no pasa, si nunca pones el límite, es la sensación de estar perdiendo tu vida.
 
