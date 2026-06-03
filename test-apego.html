@@ -277,7 +277,6 @@
     .test-aviso { margin-top: 0.8rem; font-size: 0.875rem; color: var(--texto-medio); }
 
     /* ── Resultado ── */
-    /* ── Resultado (sección propia) ── */
     .resultado-section { display: none; padding: 6rem 4rem; background: var(--blanco); }
     .resultado-section.visible { display: block; }
     .resultado-inner { max-width: 760px; margin: 0 auto; }
@@ -289,10 +288,57 @@
     .resultado-dimensiones { font-size: 0.92rem; color: var(--texto-medio); line-height: 1.8; margin-bottom: 1.2rem; padding: 0.8rem 1rem; border-left: 2px solid rgba(196,150,58,0.4); background: rgba(196,150,58,0.04); }
     .resultado-clave { font-size: 1rem; color: var(--texto-oscuro); line-height: 1.8; margin-bottom: 0.8rem; }
     .resultado-disclaimer { font-size: 1rem; color: var(--texto-oscuro); font-style: italic; }
-    .resultado-cta { margin-top: 2rem; padding: 2.5rem; background: var(--azul-tinta); }
-    .resultado-cta p { font-size: 1rem; color: rgba(201,205,212,0.8); line-height: 1.8; margin-bottom: 1.5rem; }
-    .resultado-cta a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--blanco); color: var(--azul-tinta); padding: 0.9rem 2rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; border-radius: 2px; }
-    .resultado-cta a:hover { background: var(--ambar-dorado); color: var(--medianoche); }
+
+    /* ── Resultado CTA ── */
+    .resultado-cta {
+      margin-top: 2rem;
+      padding: 2.5rem;
+      background: var(--azul-tinta);
+    }
+    .resultado-cta-intro {
+      font-size: 1rem;
+      color: rgba(201,205,212,0.8);
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+    }
+    .btn-resultado-taller {
+      display: block;
+      background: var(--rosa-antiguo);
+      color: var(--blanco);
+      padding: 1rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      margin-bottom: 0.6rem;
+    }
+    .btn-resultado-taller:hover { background: var(--ambar-dorado); transform: translateY(-1px); }
+    .resultado-cta-meta {
+      font-size: 0.78rem;
+      color: rgba(201,205,212,0.45);
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+    .btn-resultado-consulta {
+      display: block;
+      text-align: center;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: rgba(201,205,212,0.55);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(201,205,212,0.25);
+      transition: color 0.2s;
+      padding: 0.25rem 0;
+    }
+    .btn-resultado-consulta:hover { color: var(--blanco); }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -301,6 +347,7 @@
       .gate-section { padding: 3.5rem 1.5rem; }
       .test-section { padding: 4rem 2rem; }
       .resultado-section { padding: 4rem 2rem; }
+      .resultado-cta { padding: 2rem 1.5rem; }
     }
     @media (max-width: 480px) { .selector-btn { font-size: 1rem; } }
 
@@ -560,9 +607,13 @@
         <p class="resultado-disclaimer">Este screening es orientativo. Con 4 afirmaciones no es posible determinar el estilo de apego. Para una evaluación precisa se requiere un proceso psicológico formal.</p>
       </div>
       <div class="resultado-cta">
-        <p>Lo que viste en el test tiene más profundidad de lo que parece. Si quieres comprender más, el siguiente paso es una conversación.</p>
-        <a href="https://wa.me/18098481234?text=Hola%2C%20acab%C3%A9%20el%20test%20de%20apego%20y%20quisiera%20hablar%20sobre%20mi%20resultado" target="_blank" rel="noopener">
-          Agendar una cita →
+        <p class="resultado-cta-intro">Lo que viste aquí es el punto de partida. U·Verse es un taller en el que reconoces de dónde viene ese patrón, cómo opera en ti y así empezar a elegir distinto. Tres horas presenciales en Santo Domingo, con estructura clínica y grupo reducido.</p>
+        <a href="u-verse.html" class="btn-resultado-taller">
+          Quiero saber más sobre el taller →
+        </a>
+        <p class="resultado-cta-meta">U·Verse · 18 de julio · 16 cupos</p>
+        <a href="https://wa.me/18098481234?text=Hola%2C%20acab%C3%A9%20el%20Test%20de%20Apego%20y%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Iris" target="_blank" rel="noopener" class="btn-resultado-consulta">
+          ¿Prefieres agendar una consulta primero? Agenda aquí →
         </a>
       </div>
     </div>
@@ -663,16 +714,13 @@
     userName  = nombreVal.charAt(0).toUpperCase() + nombreVal.slice(1).toLowerCase();
     userEmail = emailVal;
 
-    // Mostrar nombre en el test
     document.getElementById('nombre-display').textContent = userName;
 
-    // Ocultar gate y contexto, mostrar test
     document.getElementById('gate-section').style.display = 'none';
     document.querySelector('.contexto-section').style.display = 'none';
     var testSection = document.getElementById('test-section');
     testSection.classList.add('visible');
 
-    // Scroll suave al inicio del test
     setTimeout(function() {
       testSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 80);
@@ -771,11 +819,9 @@
 
     wrap.classList.add('visible');
 
-    // Enviar correo y registrar en Sheets
     enviarEmail(estiloResultado, empatados.length > 1 ? null : estilos[dominante]);
     registrarSheet(estiloResultado);
 
-    // Ocultar hero y test — mostrar solo resultado
     document.querySelector('.hero').style.display = 'none';
     document.getElementById('test-section').style.display = 'none';
     wrap.classList.add('visible');
