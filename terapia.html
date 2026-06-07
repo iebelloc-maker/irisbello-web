@@ -59,22 +59,115 @@
       {
         "@type": "MedicalTherapy",
         "name": "Terapia psicológica individual",
-        "description": "Proceso terapéutico individual con dirección clínica especializada en trauma, apego, ansiedad y patrones relacionales.",
+        "description": "Proceso terapéutico individual con dirección clínica especializada en trauma, apego, ansiedad y patrones relacionales. Presencial en Santo Domingo y online.",
         "url": "https://irisbello.com/terapia.html",
+        "medicalSpecialty": "Psychiatry",
         "availableService": [
           {"@type": "MedicalTherapy", "name": "Terapia psicológica presencial en Santo Domingo"},
-          {"@type": "MedicalTherapy", "name": "Terapia online"},
-          {"@type": "MedicalTherapy", "name": "EMDR · Desensibilización y reprocesamiento por movimientos oculares"},
-          {"@type": "MedicalTherapy", "name": "MBT · Terapia basada en la mentalización"},
-          {"@type": "MedicalTherapy", "name": "PCA · Psicoterapia cognitivo-analítica"},
-          {"@type": "MedicalTherapy", "name": "DBT · Terapia dialéctica conductual"},
-          {"@type": "MedicalTherapy", "name": "TCC · Terapia cognitivo-conductual"}
+          {"@type": "MedicalTherapy", "name": "Terapia psicológica online"}
+        ],
+        "relevantSpecialty": [
+          {"@type": "MedicalSpecialty", "name": "Trauma y TEPT"},
+          {"@type": "MedicalSpecialty", "name": "Trastornos de personalidad"},
+          {"@type": "MedicalSpecialty", "name": "Ansiedad y trastornos disociativos"},
+          {"@type": "MedicalSpecialty", "name": "Apego y patrones relacionales"}
+        ],
+        "procedure": [
+          {"@type": "MedicalProcedure", "name": "EMDR - Desensibilizacion y reprocesamiento por movimientos oculares"},
+          {"@type": "MedicalProcedure", "name": "MBT - Terapia basada en la mentalizacion"},
+          {"@type": "MedicalProcedure", "name": "PCA - Psicoterapia cognitivo-analitica"},
+          {"@type": "MedicalProcedure", "name": "DBT - Terapia dialectica conductual"},
+          {"@type": "MedicalProcedure", "name": "TCC - Terapia cognitivo-conductual"}
         ],
         "provider": {
           "@type": "Person",
           "@id": "https://irisbello.com/#persona",
           "name": "Dra. Iris Bello Castillo"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Puedo ir a terapia por problemas de pareja, familia o dependencia emocional",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si. Los vinculos y relaciones son una de las areas principales que se trabajan en consulta: pareja, figuras parentales, crianza, dependencia emocional, lealtades familiares, conflictos cercanos. Cuando el problema no es la persona sino el patron que se repite con todas las personas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Se atiende ansiedad, panico y desregulacion emocional en terapia",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si. Se trabaja ansiedad generalizada, panico, fobias, ansiedad social y reacciones intensas o labilidad emocional. Cuando el sistema nervioso responde como si el peligro estuviera siempre cerca."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Se trabaja la autoestima, la inseguridad y la confusion emocional en terapia",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si. Inseguridad, confusion emocional, culpa, insatisfaccion con quien eres y con lo que estas viviendo. Cuando lo que sientes por dentro no termina de cuadrar con lo que ves por fuera."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Se atiende estres laboral, agotamiento y conflictos en el trabajo en terapia",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si. Estres laboral, agotamiento, conflictos de autoridad, ambicion. Cuando lo que construiste profesionalmente empieza a cobrarte un precio personal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Se puede trabajar trauma, abuso o experiencias dificiles del pasado en terapia",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si. Trauma, trauma complejo, TEPT, TEPT-C, abuso, duelo, perdidas, experiencias adversas. Lo que paso antes y sigue activo hoy: en el cuerpo, en las reacciones, en como te vinculas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Se atienden sintomas fisicos sin causa medica o enfermedades cronicas en terapia",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si. Sintomas fisicos sin causa organica clara, dolor cronico, enfermedades cronicas e impacto emocional de diagnosticos y tratamientos. Lo que no se procesa mentalmente aparece en otro lado."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "Como funciona el proceso de terapia individual con la Dra. Iris Bello Castillo",
+        "description": "El proceso terapeutico individual consiste en entender que esta pasando y por que sigue sucediendo, intervenir sobre eso y cerrar el proceso cuando el trabajo este hecho.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Entender que esta pasando",
+            "text": "Identificar que hay debajo de lo que se presenta: el origen y la estructura del malestar."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Entender por que sigue pasando",
+            "text": "Explorar la logica que mantiene activo el malestar: patrones, historia, vinculos."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Intervenir sobre eso",
+            "text": "Aplicar el enfoque clinico que el caso especificamente requiere: EMDR, MBT, DBT, TCC u otros."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Cerrar cuando el trabajo esta hecho",
+            "text": "El proceso concluye cuando puedes regularte, comprender tu historia y responder distinto en tus vinculos."
+          }
+        ]
       }
     ]
   }
@@ -2064,7 +2157,6 @@
     <div>
       <p>Puede ser algo que se repite y no entiendes por qué. Una reacción que te sorprende. Una relación que no funciona como quieres. Un malestar que no tiene nombre claro pero que tampoco desaparece.</p>
       <p>La terapia individual es el espacio para ir a fondo en eso. Sin prisa, sin agenda predefinida. Con criterio clínico y dirección.</p>
-
     </div>
   </div>
 </div>
@@ -2099,8 +2191,6 @@
 
 
 
-
-
 <!-- ── SITUACIONES QUE SE ATIENDEN ── -->
 <section class="seccion-nueva">
   <div class="section-label" style="font-size:0.75rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--ambar-dorado);margin-bottom:20px;display:block;">Situaciones que se atienden</div>
@@ -2110,7 +2200,7 @@
   <div style="max-width:680px;">
     <div class="situacion-item">
       <div class="situacion-header"><span>Vínculos y relaciones</span><span class="situacion-plus">+</span></div>
-      <div class="situacion-body"><p>Pareja, figuras parentales, crianza, dependencia emocional, lealtades familiares, conflictos cercanos. Cuando el problema no es la persona sino el patrón que se repite con todas las personas.</p></div>
+      <div class="situacion-body"><p>Pareja, figuras parentales, crianza, dependencia emocional, lealtades familiares, conflictos cercanos.</p></div>
     </div>
     <div class="situacion-item">
       <div class="situacion-header"><span>Ansiedad y desregulación emocional</span><span class="situacion-plus">+</span></div>
@@ -2118,7 +2208,7 @@
     </div>
     <div class="situacion-item">
       <div class="situacion-header"><span>Autoestima y mundo interno</span><span class="situacion-plus">+</span></div>
-      <div class="situacion-body"><p>Inseguridad, confusión emocional, culpa, insatisfacción con quién eres y con lo que estás viviendo. Cuando lo que sientes por dentro no termina de cuadrar con lo que ves por fuera.</p></div>
+      <div class="situacion-body"><p>Inseguridad, confusión emocional, culpa, insatisfacción con quién eres y con lo que estás viviendo.</p></div>
     </div>
     <div class="situacion-item">
       <div class="situacion-header"><span>Trabajo y liderazgo</span><span class="situacion-plus">+</span></div>
@@ -2130,7 +2220,7 @@
     </div>
     <div class="situacion-item">
       <div class="situacion-header"><span>Cuerpo y salud</span><span class="situacion-plus">+</span></div>
-      <div class="situacion-body"><p>Síntomas físicos sin causa médica clara, dolor crónico, enfermedades crónicas, impacto emocional de diagnósticos y tratamientos. Lo que no se procesa mentalmente aparece en otro lado.</p></div>
+      <div class="situacion-body"><p>Síntomas físicos sin causa médica clara, dolor crónico, enfermedades crónicas, impacto emocional de diagnósticos y tratamientos.</p></div>
     </div>
   </div>
 
@@ -2181,8 +2271,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 
@@ -2466,250 +2554,3 @@
 
 </body>
 </html>
-
-<!-- ═══════════════════════════════════════════════════════════
-     FOOTER — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
-<footer>
-  <div class="footer-grid">
-
-    <div class="footer-brand">
-      <div class="logo-name">Dra. Iris Bello Castillo</div>
-      <span class="logo-title">Psicóloga Clínica · Santo Domingo</span>
-      <p>Psicóloga clínica especializada en trauma, patrones relacionales y toma de decisiones. +15 años de experiencia clínica en RD y España.</p>
-      <div class="footer-social">
-        <a href="https://instagram.com/drairisbello" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/drairisbello" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <a href="https://wa.me/18098481234" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.437-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.27 19.463c-.398-.199-2.354-1.162-2.718-1.295-.364-.133-.63-.199-.895.199-.265.398-1.03 1.295-1.262 1.561-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.973-1.183-1.054-1.981-2.356-2.213-2.754-.232-.398-.025-.614.175-.812.18-.178.398-.465.597-.698.2-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.2-.895-2.158-1.227-2.955-.323-.775-.65-.67-.895-.683l-.763-.013c-.265 0-.697.1-1.062.498-.364.398-1.393 1.362-1.393 3.32 0 1.957 1.426 3.848 1.625 4.114.199.265 2.807 4.285 6.802 6.01.951.41 1.693.655 2.271.839.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h4>Servicios</h4>
-      <ul>
-        <li><a href="terapia.html">Terapia Individual</a></li>
-        <li><a href="u-relacion.html">U · En Relación</a></li>
-        <li><a href="u-contigo.html">U · Contigo</a></li>
-        <li><a href="u-verse.html">U · Verse</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Explorar</h4>
-      <ul>
-        <li><a href="conoceme.html">Quién soy</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="recursos.html">Recursos gratuitos</a></li>
-        <li><a href="espejo-del-camerino.html">El Espejo del Camerino</a></li>
-        <li><a href="test-apego.html">Test del Apego</a></li>
-        <li><a href="faq.html">Preguntas frecuentes</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contacto</h4>
-      <ul>
-        <li><a href="contacto.html">Agendar consulta</a></li>
-        <li><a href="colaboraciones.html">Colaboraciones</a></li>
-        <li><a href="https://wa.me/18098481234" target="_blank" rel="noopener">WhatsApp</a></li>
-      </ul>
-      <p class="footer-location">Santo Domingo · República Dominicana</p>
-    </div>
-
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Dra. Iris Bello Castillo · Psicóloga Clínica</span>
-    <span><a href="index.html" style="color:inherit; text-decoration:none;">irisbello.com</a></span>
-  </div>
-</footer>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     BOTÓN FLOTANTE WHATSAPP — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
-<a
-  href="https://wa.me/18098481234?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20terapia%20individual"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="wa-fab"
-  aria-label="Contactar por WhatsApp"
->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="28" height="28" aria-hidden="true">
-    <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.437-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.853l-.486-.29-5.01 1.194 1.235-4.874-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.718-1.295-.364-.133-.63-.199-.895.199-.265.398-1.03 1.295-1.262 1.561-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.973-1.183-1.054-1.981-2.356-2.213-2.754-.232-.398-.025-.614.175-.812.18-.178.398-.465.597-.698.2-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.2-.895-2.158-1.227-2.955-.323-.775-.65-.67-.895-.683l-.763-.013c-.265 0-.697.1-1.062.498-.364.398-1.393 1.362-1.393 3.32 0 1.957 1.426 3.848 1.625 4.114.199.265 2.807 4.285 6.802 6.01.951.41 1.693.655 2.271.839.954.303 1.823.26 2.51.158.765-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.099-.165-.364-.265-.763-.464z"></path>
-  </svg>
-</a>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     SCRIPTS — NO MODIFICAR
-════════════════════════════════════════════════════════════ -->
-<script>
-  // ── Dropdown desktop ──────────────────────────────────────
-  function initDropdowns() {
-    document.querySelectorAll('.nav-has-dropdown').forEach(function(item) {
-      var t;
-      item.addEventListener('mouseenter', function() {
-        clearTimeout(t);
-        item.classList.add('open');
-      });
-      item.addEventListener('mouseleave', function() {
-        t = setTimeout(function() { item.classList.remove('open'); }, 220);
-      });
-      var dd = item.querySelector('.nav-dropdown');
-      if (dd) {
-        dd.addEventListener('mouseenter', function() { clearTimeout(t); });
-        dd.addEventListener('mouseleave', function() {
-          t = setTimeout(function() { item.classList.remove('open'); }, 220);
-        });
-      }
-    });
-  }
-
-  // ── Menú hamburguesa móvil ────────────────────────────────
-  (function() {
-    var btn  = document.querySelector('.nav-hamburger');
-    var menu = document.querySelector('.nav-mobile-menu');
-
-    if (btn && menu) {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        btn.classList.toggle('open');
-        menu.classList.toggle('open');
-        document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-      });
-    }
-
-    // Handle all mobile submenus (Servicios, Recursos, etc.)
-    document.querySelectorAll('.nav-mobile-servicios > a').forEach(function(trigger) {
-      var sub = trigger.nextElementSibling;
-      if (sub && sub.classList.contains('nav-mobile-sub')) {
-        trigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          document.querySelectorAll('.nav-mobile-sub.open').forEach(function(openSub) {
-            if (openSub !== sub) {
-              openSub.classList.remove('open');
-              var otherArrow = openSub.previousElementSibling && openSub.previousElementSibling.querySelector('.arrow');
-              if (otherArrow) otherArrow.textContent = '▾';
-            }
-          });
-          sub.classList.toggle('open');
-          var arrow = trigger.querySelector('.arrow');
-          if (arrow) arrow.textContent = sub.classList.contains('open') ? '▴' : '▾';
-        });
-      }
-    });
-
-    // Close button inside menu
-    var closeBtn = menu ? menu.querySelector('.nav-mobile-close') : null;
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
-        btn.classList.remove('open');
-        menu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    }
-
-    document.addEventListener('click', function(e) {
-      if (menu && menu.classList.contains('open') &&
-          !menu.contains(e.target) && btn && !btn.contains(e.target)) {
-        btn.classList.remove('open');
-        menu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-  })();
-
-  // ── Marca el ítem activo según la URL ─────────────────────
-  (function() {
-    var page = window.location.pathname.split('/').pop() || 'index.html';
-    var recursosPages = ['recursos.html', 'espejo-del-camerino.html'];
-    document.querySelectorAll('[data-page]').forEach(function(el) {
-      var href = (el.getAttribute('href') || '').split('/').pop();
-      if (href === page) {
-        el.classList.add('nav-active');
-      }
-      if (el.getAttribute('data-page') === 'recursos' && recursosPages.indexOf(page) !== -1) {
-        el.classList.add('nav-active');
-      }
-    });
-  })();
-
-  // ── Reveal on scroll ──────────────────────────────────────
-  (function() {
-    function check() {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) {
-          el.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', check, { passive: true });
-    check();
-  })();
-
-  // ── FAQ acordeón ─────────────────────────────────────────
-  function toggleFaqNueva(btn) {
-    var item = btn.closest('.faq-item-nueva');
-    var isOpen = item.classList.contains('abierto');
-    document.querySelectorAll('.faq-item-nueva.abierto').forEach(function(openItem) {
-      openItem.classList.remove('abierto');
-    });
-    if (!isOpen) {
-      item.classList.add('abierto');
-    }
-  }
-
-  // ── Acordeón situaciones ──────────────────────────────────
-  (function() {
-    document.querySelectorAll('.situacion-item').forEach(function(item) {
-      item.addEventListener('click', function() {
-        var isOpen = item.classList.contains('open');
-        document.querySelectorAll('.situacion-item.open').forEach(function(openItem) {
-          openItem.classList.remove('open');
-          openItem.querySelector('.situacion-body').style.maxHeight = null;
-        });
-        if (!isOpen) {
-          item.classList.add('open');
-          var body = item.querySelector('.situacion-body');
-          body.style.maxHeight = body.scrollHeight + 'px';
-        }
-      });
-    });
-  })();
-
-  // ── Init ──────────────────────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDropdowns);
-  } else {
-    initDropdowns();
-  }
-
-  // -- Ajuste dinamico del nav al hero --
-  (function() {
-    function adjustNav() {
-      var nav = document.querySelector("nav");
-      if (!nav) return;
-      var h = Math.round(nav.getBoundingClientRect().height);
-      var main = document.querySelector("main");
-      if (main) main.style.paddingTop = h + "px";
-      var hero = document.querySelector(".hero-fullvh");
-      if (hero) {
-        hero.style.height = "calc(100vh - " + h + "px)";
-      }
-    }
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", adjustNav);
-    } else { adjustNav(); }
-    window.addEventListener("resize", adjustNav);
-  })();
-</script>
-
-</body>
-</html>
-<div class="divider-terapia"></div>
