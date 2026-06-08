@@ -60,15 +60,124 @@
         "@type": "Person",
         "@id": "https://irisbello.com/#persona",
         "name": "Dra. Iris Bello Castillo",
+        "givenName": "Iris",
+        "familyName": "Bello Castillo",
+        "honorificPrefix": "Dra.",
         "jobTitle": "Psicóloga Clínica",
         "description": "Psicóloga clínica especializada en trauma, apego y relaciones. Doctora por la Universidad Complutense de Madrid. Más de 15 años de experiencia en República Dominicana y España.",
         "url": "https://irisbello.com/conoceme.html",
         "image": "https://irisbello.com/images/iris_bello_psicologa.jpg",
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Universidad Complutense de Madrid"
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santo Domingo",
+          "addressCountry": "DO"
         },
-        "knowsAbout": ["trauma", "apego", "relaciones", "patrones relacionales", "ansiedad", "EMDR", "MBT", "DBT", "PCA", "ACT", "TCC"]
+        "sameAs": [
+          "https://orcid.org/0000-0002-3791-2850",
+          "https://instagram.com/drairisbello",
+          "https://www.linkedin.com/in/drairisbello"
+        ],
+        "worksFor": [
+          {
+            "@type": "MedicalBusiness",
+            "name": "Dra. Iris Bello Castillo · Psicóloga Clínica",
+            "url": "https://irisbello.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Santo Domingo",
+              "addressCountry": "DO"
+            }
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Iberoamericana (Unibe)",
+            "url": "https://www.unibe.edu.do"
+          }
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Complutense de Madrid"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Internacional de La Rioja"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Nacional Pedro Henriquez Urena"
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "doctorate",
+            "name": "Doctora en Psicologia Clinica, Forense y de la Salud",
+            "educationalLevel": "PhD",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad Complutense de Madrid"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "master degree",
+            "name": "Master Universitario en Psicoterapia - Terapias de Tercera Generacion",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad Internacional de La Rioja"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "master degree",
+            "name": "Master en Psicologia Clinica, Legal y Forense",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad Complutense de Madrid"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "Certificacion en Terapia Basada en la Mentalizacion (MBT)",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Anna Freud Centre"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "specialization",
+            "name": "Experta en Psicoterapia Breve: Intervencion informada en Trauma y Apego",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Sociedad Espanola de Medicina Psicosomatica y Psicoterapia (SEMPyP)"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "bachelor degree",
+            "name": "Licenciada en Psicologia Clinica",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad Nacional Pedro Henriquez Urena"
+            }
+          }
+        ],
+        "knowsAbout": [
+          "Trauma y TEPT",
+          "Apego adulto",
+          "Patrones relacionales",
+          "Terapia Basada en la Mentalizacion (MBT)",
+          "EMDR",
+          "Terapia Dialectica Conductual (DBT)",
+          "Psicoterapia Cognitivo-Analitica (PCA)",
+          "Terapia Cognitivo-Conductual (TCC)",
+          "Trastorno Limite de Personalidad",
+          "Ansiedad",
+          "Disociacion"
+        ]
       }
     ]
   }
@@ -1020,6 +1129,7 @@
       <div class="nav-dropdown">
         <ul class="nav-dropdown-inner">
           <li><a href="espejo-del-camerino.html" data-page="espejo-del-camerino">El Espejo del Camerino</a></li>
+          <li><a href="test-apego.html"           data-page="test-apego">Test de Apego</a></li>
         </ul>
       </div>
     </li>
@@ -1104,7 +1214,7 @@
       </div>
       <div class="reveal" style="transition-delay:0.1s;">
         <p>
-          A mi consulta suelen llegar mujeres que, desde afuera, aparentemente funcionan bien. Tienen claridad en muchas áreas de su vida. Pero hay algo que se repite, algo que no termina de encajar, y que no han logrado resolver por más que lo intentaron.
+          A mi consulta suelen llegar mujeres que, desde afuera, aparentemente funcionan bien. Tienen claridad en muchas áreas de su vida. Pero hay algo que se repite, algo que no termina de cuadrar, y que no han logrado resolver por más que lo intentaron.
         </p>
         <p>
           Saben que algo tiene que cambiar. <strong>Todavía no logran identificar del todo qué se activa ni cómo hacerlo distinto.</strong>
@@ -1156,6 +1266,20 @@
         <div class="credencial-item">
           <div class="credencial-punto"></div>
           <div>
+            <span class="credencial-texto">Certificación en Terapia Basada en la Mentalización (MBT)</span>
+            <span class="credencial-sub">Anna Freud Centre · Londres</span>
+          </div>
+        </div>
+        <div class="credencial-item">
+          <div class="credencial-punto"></div>
+          <div>
+            <span class="credencial-texto">Experta en Psicoterapia Breve: Intervención informada en Trauma y Apego</span>
+            <span class="credencial-sub">Sociedad Española de Medicina Psicosomática y Psicoterapia (SEMPyP)</span>
+          </div>
+        </div>
+        <div class="credencial-item">
+          <div class="credencial-punto"></div>
+          <div>
             <span class="credencial-texto">Licenciada en Psicología Clínica</span>
             <span class="credencial-sub">Universidad Nacional Pedro Henríquez Ureña</span>
           </div>
@@ -1183,8 +1307,8 @@
 <!-- CIERRE / CTA -->
   <section class="cierre" id="servicios-section">
     <div class="cierre-inner reveal">
-      <h2>Si algo de esto<br>resuena <em>contigo</em></h2>
-      <p>No hace falta tenerlo todo claro para dar el primer paso. Solo hace falta saber que ya no quieres que siga así.</p>
+      <h2>Cuando estés lista,<br><em>aquí estoy.</em></h2>
+      <p>Una conversación por WhatsApp es suficiente para empezar.</p>
       <div class="cierre-ctas">
         <a href="https://wa.me/18098481234?text=Hola%2C%20quisiera%20agendar%20una%20primera%20consulta" target="_blank" rel="noopener" class="btn-primary-white">
           Agendar primera consulta →
@@ -1235,6 +1359,7 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="recursos.html">Recursos gratuitos</a></li>
         <li><a href="espejo-del-camerino.html">El Espejo del Camerino</a></li>
+        <li><a href="test-apego.html">Test del Apego</a></li>
         <li><a href="faq.html">Preguntas frecuentes</a></li>
       </ul>
     </div>
