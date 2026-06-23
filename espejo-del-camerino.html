@@ -741,6 +741,10 @@
   .result-share{margin-top:32px;padding-top:28px;border-top:1px solid rgba(22,36,53,0.08);text-align:center;}
   .result-share-label{font-size:15px;color:rgba(22,36,53,0.65);margin-bottom:14px;letter-spacing:0;line-height:1.6;}
   .result-share-btn{background:none;border:1px solid var(--rosa-antiguo);font-family:var(--font-sans);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--rosa-antiguo);cursor:pointer;padding:12px 28px;}
+  .cta-lectura-breve{margin-top:40px;padding:28px 32px;background:rgba(181,112,122,0.07);border-left:2px solid var(--rosa-antiguo);}
+  .cta-lectura-texto{font-size:16px;color:var(--azul-tinta);line-height:1.7;margin-bottom:16px;}
+  .btn-cta-lectura{display:inline-block;font-family:var(--font-sans);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blanco);background:var(--rosa-antiguo);padding:13px 28px;text-decoration:none;transition:background 0.2s;}
+  .btn-cta-lectura:hover{background:#A05F69;}
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
   @media(max-width:600px){
@@ -874,10 +878,13 @@
     <h1 class="hero-title" style="position:relative;z-index:1;">El Espejo del<br><em>Camerino</em></h1>
   </div>
 
-  <p class="hero-lema">No es un test. Es un espejo.</p>
+  <p class="hero-lema">No es solo un test. Es un espejo.</p>
   <div class="hero-divider"></div>
   <p class="hero-copy">
-    Siempre terminas en el mismo lugar. Con personas distintas, en situaciones distintas, sintiendo el mismo malestar. <strong>No es mala suerte. Es un patrón.</strong> Y los patrones tienen lógica, tienen historia, y tienen salida.
+    Siempre terminas en el mismo lugar… con personas distintas, escenarios distintos, y la misma sensación interna. Eso no es mala suerte: es un patrón.<br><br>
+    Y los patrones tienen lógica, historia… y salida.<br><br>
+    El Espejo del Camerino está basado en el <strong>modelo circumplejo interpersonal</strong>, uno de los marcos más estudiados de la psicología relacional. No categoriza para juzgar. Mapea para entender.<br><br>
+    Luego de 24 preguntas, verás cuál de los 8 patrones describe mejor tu manera de vincularte. No es tu identidad. Es tu estrategia. Y puede cambiar.
   </p>
   <div class="hero-meta">
     <div class="hero-meta-item">
@@ -1266,6 +1273,8 @@ function renderPerfil(container,perfil,rango,avatarKey){
   const mp=perfil.main.split('\n\n').map(p=>`<p class="result-body-text" style="margin-bottom:16px">${p}</p>`).join('');
   const cp=perfil.costo.split('\n\n').map(p=>`<p class="result-body-text" style="margin-bottom:16px">${p}</p>`).join('');
   const ct=rango==='PRINCIPAL'?`<strong>Si esto te hizo caer en cuenta de algo, ya con eso ganaste: lo estás viendo.</strong><br><br>Para entender qué hacer con esto, la conversación es con la <strong>Dra. Iris.</strong>`:`<strong>Si esto te hizo caer en cuenta de algo, ya con eso ganaste: lo estás viendo.</strong><br><br>Si quieres profundizar, la conversación continúa con la <strong>Dra. Iris.</strong>`;
+  const waLecturaMsg=encodeURIComponent('Hola, hice El Espejo del Camerino y mi patrón es ' + perfil.emoji + ' ' + perfil.nombre + '. Me gustaría recibir una lectura breve sobre qué significa y qué lo sostiene.');
+  const waLecturaUrl='https://wa.me/18098481234?text='+waLecturaMsg;
   container.innerHTML=`
     <p class="result-eyebrow">El Espejo del Camerino · Tu Reflejo</p>
     <div class="result-mirror-line"><div class="result-divider"></div><span style="font-size:13px;letter-spacing:3px;color:rgba(22,36,53,0.35)">✦</span><div class="result-divider"></div></div>
@@ -1288,18 +1297,21 @@ function renderPerfil(container,perfil,rango,avatarKey){
         ${cp}${pq}
       </div>
     </div>
+    <div class="cta-lectura-breve">
+      <p class="cta-lectura-texto">Si quieres una lectura breve sobre tu patrón: de dónde surge y qué lo sostiene</p>
+      <a class="btn-cta-lectura" href="${waLecturaUrl}" target="_blank" rel="noopener" style="display:block;text-align:center;">Pídela por WhatsApp →</a>
+      <span style="display:block;text-align:center;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(22,36,53,0.45);margin-top:12px;">Confidencial · Solo lo ves tú</span>
+    </div>
     <div class="cta-block">
       <p class="cta-divider">✦ ✦ ✦</p>
       <p class="cta-text" style="margin-bottom:24px;">Si esto te hizo caer en cuenta de algo, ya con eso ganaste: lo estás viendo.</p>
-      <p class="cta-text" style="margin-bottom:20px;">Tienes dos caminos desde aquí:</p>
-      <p class="cta-text" style="margin-bottom:12px;"><strong>U·Verse · 18 de JULIO · Santo Domingo</strong> — Un espacio para ver el patrón que se repite en tus vínculos. Y empezar a elegir distinto. Presencial. 16 mujeres.</p>
+      <p class="cta-text" style="margin-bottom:20px;">Únete a</p>
+      <p class="cta-text" style="margin-bottom:12px;"><strong>Verse · 18 de JULIO · Santo Domingo</strong> — Un taller vivencial para ver el patrón que se repite en tus vínculos. Y empezar a elegir distinto. Presencial. 16 mujeres.</p>
       <a class="btn-cta" href="https://irisbello.com/taller-verse" target="_blank" rel="noopener" style="display:block;text-align:center;margin-bottom:28px;">Quiero saber más →</a>
-      <p class="cta-text" style="margin-bottom:12px;">🗓 <strong>Una cita con la DRA. Iris</strong> — Para profundizar en tu propio proceso, a tu ritmo y de forma individual.</p>
-      <a class="btn-cta" href="https://wa.me/18098481234?text=Hola%2C%20vengo%20del%20Espejo%20del%20Camerino%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20DRA.%20Iris." target="_blank" rel="noopener" style="display:block;text-align:center;background:transparent;border:1px solid var(--rosa-antiguo);color:var(--rosa-antiguo);">Agendar con la DRA. Iris →</a>
     </div>
     <p class="result-disclaimer">Este resultado describe cómo respondiste hoy, no quién eres. Si no te reconoces en él, simplemente tómalo como información del patrón, no tuya.</p>
     <div class="result-share">
-      <p class="result-share-label">¿Le resuena a alguien que conoces?</p>
+      <p class="result-share-label">¿Te resuena a alguien que conoces?</p>
       <button class="result-share-btn" onclick="shareResult()">Compartir mi resultado</button>
     </div>
     <p class="result-firma">Dra. Iris Bello Castillo · Psicóloga Clínica · <a href="https://irisbello.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(22,36,53,0.3);">irisbello.com</a></p>`;
@@ -1320,15 +1332,13 @@ function renderNeutral(container){
     <div class="cta-block">
       <p class="cta-divider">✦ ✦ ✦</p>
       <p class="cta-text" style="margin-bottom:24px;">Si esto te hizo caer en cuenta de algo, ya con eso ganaste: lo estás viendo.</p>
-      <p class="cta-text" style="margin-bottom:20px;">Tienes dos caminos desde aquí:</p>
-      <p class="cta-text" style="margin-bottom:12px;"><strong>U·Verse · 18 de JULIO · Santo Domingo</strong> — Un espacio para ver el patrón que se repite en tus vínculos. Y empezar a elegir distinto. Presencial. 16 mujeres.</p>
+      <p class="cta-text" style="margin-bottom:20px;">Únete a</p>
+      <p class="cta-text" style="margin-bottom:12px;"><strong>Verse · 18 de JULIO · Santo Domingo</strong> — Un taller vivencial para ver el patrón que se repite en tus vínculos. Y empezar a elegir distinto. Presencial. 16 mujeres.</p>
       <a class="btn-cta" href="https://irisbello.com/taller-verse" target="_blank" rel="noopener" style="display:block;text-align:center;margin-bottom:28px;">Quiero saber más →</a>
-      <p class="cta-text" style="margin-bottom:12px;">🗓 <strong>Una cita con la DRA. Iris</strong> — Para profundizar en tu propio proceso, a tu ritmo y de forma individual.</p>
-      <a class="btn-cta" href="https://wa.me/18098481234?text=Hola%2C%20vengo%20del%20Espejo%20del%20Camerino%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20DRA.%20Iris." target="_blank" rel="noopener" style="display:block;text-align:center;background:transparent;border:1px solid var(--rosa-antiguo);color:var(--rosa-antiguo);">Agendar con la DRA. Iris →</a>
     </div>
     <p class="result-disclaimer">Este resultado describe cómo respondiste hoy, no quién eres. Si no te reconoces en él, simplemente tómalo como información del patrón, no tuya.</p>
     <div class="result-share">
-      <p class="result-share-label">¿Le resuena a alguien que conoces?</p>
+      <p class="result-share-label">¿Te resuena a alguien que conoces?</p>
       <button class="result-share-btn" onclick="shareResult()">Compartir mi resultado</button>
     </div>
     <p class="result-firma">Dra. Iris Bello Castillo · Psicóloga Clínica · <a href="https://irisbello.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(22,36,53,0.3);">irisbello.com</a></p>`;
