@@ -1334,6 +1334,40 @@
       .cta-final { padding: 64px 24px; }
     }
 
+
+    /* ── Ajustes copy home ── */
+    .hero-note { margin-top: 4px; }
+    .servicio-lead { color: #162435; font-weight: 500; }
+    .servicio-card .servicio-cuerpo { flex: 1; margin-bottom: 28px; }
+    .servicio-card .servicio-cuerpo p { flex: none; margin-bottom: 16px; }
+    .servicio-lista { list-style: none; }
+    .servicio-lista li { font-size: 16px; color: #666; line-height: 1.75; padding-left: 18px; position: relative; }
+    .servicio-lista li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 8px; height: 1px; background: #C4963A; }
+    @media (min-width: 1025px) { .servicios-grid-2 { grid-template-columns: 1fr 1fr; } }
+    .conoceme-bridge-left { align-items: flex-start; }
+    .conoceme-bridge-texto { max-width: 600px; }
+    .conoceme-bridge-left .bridge-sub { font-size: 1rem; color: #162435; letter-spacing: 0; text-transform: none; font-weight: 400; margin-bottom: 16px; }
+    .conoceme-bridge-left .bridge-body { font-size: 1rem; color: #4a5568; letter-spacing: 0; text-transform: none; font-weight: 300; line-height: 1.8; margin-bottom: 14px; }
+    @media (max-width: 768px) { .conoceme-bridge-left { align-items: center; } .conoceme-bridge-left .bridge-body, .conoceme-bridge-left .bridge-sub { text-align: center; } }
+
+    /* ── Lista de dolor visible (sin acordeón) ── */
+    .ocurre-item .ocurre-body { max-height: none; overflow: visible; padding: 0 36px 28px; }
+    .ocurre-item .ocurre-arrow { display: none; }
+    .ocurre-item .ocurre-trigger { cursor: default; }
+
+    /* ── Escala tipográfica unificada ── */
+    .hero .hero-sub { font-size: 17px; }
+    .ocurre-trigger strong { font-size: 18px; }
+    .ocurre-item .ocurre-body p { font-size: 17px; color: #4a5568; }
+    .servicio-card p { font-size: 17px; color: #4a5568; }
+    .servicio-lista li { font-size: 17px; color: #4a5568; }
+    .servicio-lead { font-size: 17px; font-weight: 500; }
+    .conoceme-bridge-left h2 { font-size: clamp(30px, 4vw, 46px); }
+    .conoceme-bridge-left .bridge-sub { font-size: 18px; }
+    .conoceme-bridge-left .bridge-body { font-size: 17px; }
+
+    /* ── Hero: altura según contenido (evita recortar credenciales) ── */
+    .hero.hero-fullvh { height: auto !important; min-height: calc(100vh - 80px); }
   </style>
   <script type="application/ld+json">
   {
@@ -1366,9 +1400,7 @@
       <div class="nav-dropdown">
         <ul class="nav-dropdown-inner">
           <li><a href="terapia.html"    data-page="terapia">Terapia Individual</a></li>
-          <li><a href="u-relacion.html" data-page="u-relacion">U · En Relación</a></li>
           <li><a href="u-contigo.html"  data-page="u-contigo">U · Contigo</a></li>
-          <li><a href="u-verse.html"    data-page="u-verse">U · Verse</a></li>
         </ul>
       </div>
     </li>
@@ -1402,9 +1434,7 @@
       <a href="#">Servicios <span class="arrow">▾</span></a>
       <div class="nav-mobile-sub">
         <a href="terapia.html">Terapia Individual</a>
-        <a href="u-relacion.html">U · En Relación</a>
         <a href="u-contigo.html">U · Contigo</a>
-        <a href="u-verse.html">U · Verse</a>
       </div>
     </li>
     <li><a href="conoceme.html"  data-page="conoceme">Conóceme</a></li>
@@ -1444,15 +1474,16 @@
         <p class="hero-eyebrow">Psicología Clínica · Santo Domingo</p>
         <h1>Eso que se repite<br>en tu vida no es <em>casual.</em></h1>
         <p class="hero-sub hero-sub-desktop">
-          Te acompaño a entender qué hay detrás de lo<br>que te pasa, para que deje de organizar tu forma de<br>sentir, vincularte y decidir.
+          <span style="display:block;margin-bottom:0.9rem;">Hay momentos en los que algo deja de funcionar como quisieras. Puede ser cómo te sientes, cómo respondes ante determinadas situaciones, las decisiones que tomas o la manera en que estás viviendo tus circunstancias.</span>
+          <span style="display:block;">Te acompaño a comprender qué está ocurriendo y a encontrar nuevas formas de responder a ello, con evidencia científica y criterio profesional.</span>
         </p>
         <p class="hero-sub hero-sub-mobile">
-          Psicoterapia clínica especializada en trauma, malestar emocional, relaciones y toma de decisiones.
+          Te acompaño a comprender qué está ocurriendo y a encontrar nuevas formas de responder a ello, con evidencia científica y criterio profesional.
         </p>
         <div class="hero-cta-group">
           <a href="https://wa.me/18098481234?text=Hola%21%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20la%20Dra." target="_blank" class="btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.571a.5.5 0 0 0 .61.611l5.781-1.515A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.007-1.373l-.359-.214-3.712.973.991-3.625-.235-.373A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.428 0 9.818 4.391 9.818 9.818 0 5.428-4.39 9.818-9.818 9.818z"/></svg>
-            Quiero una consulta
+            Solicitar primera consulta
           </a>
         </div>
       </div>
@@ -1472,10 +1503,6 @@
         <div class="cred-label">Doctora en<br>Psicología Clínica</div>
       </div>
       <div class="cred-item">
-        <div class="cred-num">3</div>
-        <div class="cred-label">Servicios de intervención<br>adaptados a tu momento</div>
-      </div>
-      <div class="cred-item">
         <div class="cred-num" style="font-size:36px;line-height:1;">MBT</div>
         <div class="cred-label">Anna Freud Centre<br>Londres</div>
       </div>
@@ -1486,96 +1513,147 @@
   <!-- Lo que ocurre -->
   <section>
     <span class="section-label">¿Qué te pasa?</span>
-    <h2 style="font-size:clamp(1.8rem,3vw,2.8rem);color:var(--azul-tinta);margin-bottom:2rem;">Puede que te reconozcas<br>en algo de esto.</h2>
+    <h2 style="color:#162435;margin-bottom:1rem;">No siempre sabes exactamente qué te pasa.<br>Pero sabes que algo necesita atención.</h2>
+    <p class="section-intro" style="margin-bottom:2rem;">Puede que te reconozcas en alguna de estas situaciones.</p>
     <div class="ocurre-layout">
       <div class="ocurre-acordeon">
         <div class="ocurre-item">
-          <button class="ocurre-trigger" aria-expanded="false">
-            <strong>Te encuentras en la misma situación una y otra vez.</strong>
+          <div class="ocurre-trigger">
+            <strong>Por fuera, las cosas funcionan. Por dentro, no tanto.</strong>
             <span class="ocurre-arrow">▾</span>
-          </button>
+          </div>
           <div class="ocurre-body">
-            <p>Las mismas tensiones con tu familia, la dificultad para poner límites en el trabajo o ese perfil de relación que se repite y te deja en el mismo lugar de insatisfacción.</p>
+            <p>Cumples con tus responsabilidades, trabajas, resuelves y sigues adelante. Sin embargo, experimentas un malestar que no consigues explicar o que parece no corresponderse con lo que ocurre en tu vida.</p>
           </div>
         </div>
         <div class="ocurre-item">
-          <button class="ocurre-trigger" aria-expanded="false">
-            <strong>Hay algo del pasado que sigue presente.</strong>
+          <div class="ocurre-trigger">
+            <strong>Sabes lo que necesitas hacer, pero te cuesta hacerlo.</strong>
             <span class="ocurre-arrow">▾</span>
-          </button>
+          </div>
           <div class="ocurre-body">
-            <p>Experiencias que quedaron sin procesar y que hoy emergen en el cuerpo, en los disparadores, en lo que se dispara sin que lo llames.</p>
+            <p>Has pensado, analizado y considerado distintas posibilidades. Aun así, hay decisiones que sigues postergando o situaciones ante las que terminas respondiendo de una manera que no querías.</p>
           </div>
         </div>
         <div class="ocurre-item">
-          <button class="ocurre-trigger" aria-expanded="false">
-            <strong>Por fuera puedes estar bien, pero...</strong>
+          <div class="ocurre-trigger">
+            <strong>Hay experiencias que siguen afectándote.</strong>
             <span class="ocurre-arrow">▾</span>
-          </button>
+          </div>
           <div class="ocurre-body">
-            <p>Por dentro algo no encaja. Un malestar que no tiene nombre claro, un ruido que no desaparece solo aunque no haya una razón evidente.</p>
+            <p>Una pérdida, una experiencia traumática, una etapa difícil o acontecimientos del pasado que todavía influyen en cómo te sientes, interpretas lo que ocurre o respondes ante determinadas circunstancias.</p>
           </div>
         </div>
         <div class="ocurre-item">
-          <button class="ocurre-trigger" aria-expanded="false">
-            <strong>Tomas decisiones desde un lugar que no se siente tuyo.</strong>
+          <div class="ocurre-trigger">
+            <strong>Te cuesta estar bien contigo.</strong>
             <span class="ocurre-arrow">▾</span>
-          </button>
+          </div>
           <div class="ocurre-body">
-            <p>Respondes a lo inmediato, a lo que se espera, a lo que parece seguro, no desde lo que realmente quieres o necesitas.</p>
+            <p>La autoexigencia, la inseguridad, la insatisfacción personal o la dificultad para reconocer tus propias necesidades pueden interferir con tu bienestar.</p>
+          </div>
+        </div>
+        <div class="ocurre-item">
+          <div class="ocurre-trigger">
+            <strong>Hay dificultades que se repiten en tus relaciones.</strong>
+            <span class="ocurre-arrow">▾</span>
+          </div>
+          <div class="ocurre-body">
+            <p>Conflictos, límites difíciles de mantener y dinámicas familiares o de pareja que terminan en el mismo lugar, aunque cambien las personas y las circunstancias.</p>
+          </div>
+        </div>
+        <div class="ocurre-item">
+          <div class="ocurre-trigger">
+            <strong>Tu vida profesional también tiene un costo personal.</strong>
+            <span class="ocurre-arrow">▾</span>
+          </div>
+          <div class="ocurre-body">
+            <p>Te cuesta delegar, desconectar o reconocer cuándo has llegado a tu límite. Tienes responsabilidades, objetivos y capacidad para resolver, pero algo de ese funcionamiento está afectando tu bienestar.</p>
           </div>
         </div>
       </div>
       <div class="ocurre-cierre">
-        <p>Lo más frustrante no es lo que pasa.<br><em>Es no entender por qué te sigue pasando.</em></p>
+        <p><strong style="font-weight:400;">No necesitas tener un diagnóstico ni saber explicar perfectamente lo que te ocurre para buscar ayuda.</strong></p>
       </div>
     </div>
-    <p style="margin-top:1.5rem;font-size:0.95rem;color:var(--texto-medio);">Si algo de esto te describe, <a href="https://wa.me/18098481234?text=Hola%21%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20la%20Dra." target="_blank" style="color:var(--rosa-antiguo);text-decoration:none;font-weight:400;">escríbeme →</a></p>
+    <p style="margin-top:1.5rem;"><a href="terapia.html" class="btn-secondary">Conocer la terapia individual</a></p>
   </section>
 
-  <!-- CTA intermedio eliminado -->
+  <!-- Enfoque clínico -->
+  <section>
+    <span class="section-label">Enfoque clínico</span>
+    <h2>Entender lo que te pasa abre la puerta.<br>Elegir qué hacer con ello es el objetivo.</h2>
+    <p class="section-intro">La psicoterapia implica explorar qué está relacionado con tu malestar, comprender los factores que lo mantienen y trabajar en nuevas formas de responder a tus circunstancias.</p>
+    <p class="section-intro" style="margin-bottom:28px;">Mi trabajo integra tres elementos:</p>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <h3>Evidencia científica</h3>
+        <p>Intervenciones fundamentadas en conocimiento psicológico, investigación y evidencia clínica.</p>
+      </div>
+      <div class="servicio-card">
+        <h3>Criterio clínico</h3>
+        <p>Una comprensión individualizada de cada persona, sus circunstancias y sus necesidades.</p>
+      </div>
+      <div class="servicio-card">
+        <h3>Humanidad</h3>
+        <p>Un espacio de respeto, confianza y honestidad donde puedas explorar lo que estás viviendo sin sentirte juzgado.</p>
+      </div>
+    </div>
+    <p style="margin-top:2.5rem;font-size:18px;line-height:1.7;color:#162435;font-weight:400;">No se trata de encajar tu historia en una explicación. Se trata de comprenderla para saber cómo trabajar con ella.</p>
+  </section>
 
   <!-- Servicios -->
   <section id="servicios">
     <span class="section-label">Mis servicios</span>
-    <h2>Diseñados para momentos distintos.</h2>
-    <div class="servicios-grid">
+    <h2>Formas de trabajar conmigo</h2>
+    <p class="section-intro">Cada servicio responde a necesidades y objetivos diferentes.</p>
+    <div class="servicios-grid servicios-grid-2">
       <div class="servicio-card">
-        <span class="servicio-tag">Si algo necesita atención ahora</span>
         <h3>Terapia Individual</h3>
-        <p>Psicoterapia uno a uno que busca comprender y modificar pensamientos, emociones y conductas que generan malestar o te limitan.</p>
-        <a href="terapia.html" class="servicio-link">Ver terapia →</a>
+        <div class="servicio-cuerpo">
+          <p><strong class="servicio-lead">Un espacio clínico para trabajar lo que está ocurriendo en tu vida.</strong></p>
+          <p>Psicoterapia individual para adultos, orientada a abordar dificultades emocionales, experiencias complejas, ansiedad, autoestima, cambios vitales, conflictos y otras situaciones que afectan tu bienestar. El proceso se construye a partir de una evaluación y de las necesidades específicas de cada persona.</p>
+          <ul class="servicio-lista">
+            <li>Atención individual.</li>
+            <li>Sesiones de 50 minutos.</li>
+            <li>Frecuencia semanal o quincenal, según el caso.</li>
+            <li>Modalidad presencial o virtual.</li>
+          </ul>
+        </div>
+        <a href="terapia.html" class="servicio-link">Conocer terapia individual →</a>
       </div>
       <div class="servicio-card">
-        <span class="servicio-tag">Si lo que se activa ocurre en relación</span>
-        <h3>U · En Relación</h3>
-        <p>Psicoterapia grupal estructurada de 8 semanas para regularte y desarrollar estabilidad interna. El grupo no es el contexto: es el instrumento.</p>
-        <a href="u-relacion.html" class="servicio-link">Ver grupo →</a>
-      </div>
-      <div class="servicio-card">
-        <span class="servicio-tag">Si el patrón está en el vínculo</span>
         <h3>U · Contigo</h3>
-        <p>16 semanas estructuradas para procesar trauma, apego y los patrones que gobiernan tu funcionamiento en el vínculo.</p>
-        <a href="u-contigo.html" class="servicio-link">Ver programa →</a>
+        <div class="servicio-cuerpo">
+          <p><strong class="servicio-lead">Un proceso especializado en trauma relacional y patrones vinculares.</strong></p>
+          <p>Un programa estructurado de 16 semanas para personas que identifican dificultades persistentes relacionadas con experiencias relacionales complejas y patrones que siguen afectando su manera de responder y vincularse.</p>
+          <ul class="servicio-lista">
+            <li>Proceso individual de 16 semanas.</li>
+            <li>Evaluación y planificación clínica.</li>
+            <li>Intervenciones adaptadas al proceso.</li>
+            <li>Seguimiento entre sesiones.</li>
+          </ul>
+        </div>
+        <a href="u-contigo.html" class="servicio-link">Conocer U · Contigo →</a>
       </div>
-      <p class="servicios-modalidad">Sesiones presenciales en Santo Domingo y modalidad online para República Dominicana y el extranjero.</p>
     </div>
   </section>
 
-  <!-- Conoceme bridge -->
+  <!-- Presentación -->
   <div class="conoceme-bridge">
     <div class="conoceme-bridge-inner">
       <div class="conoceme-bridge-left">
         <div class="conoceme-foto">
           <img src="images/iris_bello_psicologa_santo_domingo.jpg" alt="Dra. Iris Bello Castillo" />
         </div>
-        <div>
-          <h2>Soy Iris Bello Castillo.</h2>
-          <p style="font-size: 0.9rem; color: var(--texto-medio); font-weight: 300; letter-spacing: 0; text-transform: none; margin-bottom: 6px;">Psicóloga clínica especializada en trauma, patrones relacionales y toma de decisiones.</p>
-          <p><span style="color: var(--rosa-antiguo);">Ciencia +</span> Humanidad</p>
+        <div class="conoceme-bridge-texto">
+          <h2>Soy la Dra. Iris Bello Castillo.</h2>
+          <p class="bridge-sub">Psicóloga clínica, docente universitaria e investigadora.</p>
+          <p class="bridge-body">Doctora en Psicología Clínica, Forense y de la Salud, cuento con más de 15 años de experiencia clínica en República Dominicana y España. Mantengo un compromiso constante con la formación y la actualización profesional.</p>
+          <p class="bridge-body">Creo en una psicoterapia rigurosa, individualizada y humana, que no reduzca a las personas a sus diagnósticos, experiencias o comportamientos.</p>
+          <a href="conoceme.html" class="btn-primary" style="margin-top:12px;">Conocer mi trayectoria →</a>
         </div>
       </div>
-      <a href="conoceme.html" class="btn-primary">Conóceme →</a>
     </div>
   </div>
 
@@ -1584,12 +1662,12 @@
     <iframe src="https://snapwidget.com/embed/1121366" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:300px;" title="Posts from Instagram"></iframe>
   </div>
 
-  <!-- CTA final -->
+  <!-- Cierre y conversión -->
   <div class="cta-final">
-    <h2>Lo que te pasa<br><em>tiene una lógica.</em></h2>
-    <p>Lo primero es reconocer que algo no está funcionando como quieres.</p>
-    <a href="https://wa.me/18098481234?text=Hola%21%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20la%20Dra." target="_blank" class="btn-primary" style="font-size:13px; padding:18px 40px;">Quiero una consulta
-    </a>
+    <h2>Elegir desde lo que quieres<br><em>puede empezar con una primera consulta.</em></h2>
+    <p>La psicoterapia ofrece un espacio para comprender lo que estás viviendo y trabajar sobre aquello que necesita atención.</p>
+    <p>Si estás considerando iniciar un proceso terapéutico, puedes dar el primer paso y solicitar información.</p>
+    <a href="https://wa.me/18098481234?text=Hola%21%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20la%20Dra." target="_blank" class="btn-primary" style="font-size:13px; padding:18px 40px;">Solicitar primera consulta</a>
   </div>
 
 </main>
@@ -1622,9 +1700,7 @@
       <h4>Servicios</h4>
       <ul>
         <li><a href="terapia.html">Terapia Individual</a></li>
-        <li><a href="u-relacion.html">U · En Relación</a></li>
         <li><a href="u-contigo.html">U · Contigo</a></li>
-        <li><a href="u-verse.html">U · Verse</a></li>
       </ul>
     </div>
 
